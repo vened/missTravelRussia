@@ -1,0 +1,38 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4>
+      Редактирование данных
+      <%= @user.email %>
+    </h4>
+  </div>
+  <div class="panel-body">
+    <%= simple_form_for @user do |f| %>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                Основные данные
+              </div>
+              <div class="panel-body">
+                <%= f.input :first_name %>
+                <%= f.input :sur_name %>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                Контакты
+              </div>
+              <div class="panel-body">
+                <%= f.input :phone, as: :tel, pattern: "[0-9]{1} [0-9]{3} [0-9]{3}-[0-9]{2}-[0-9]{2}" %>
+                <%= f.input :telegram %>
+              </div>
+            </div>
+          </div>
+          <%= f.file_field :photos, multiple: true %>
+        </div>
+        <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>

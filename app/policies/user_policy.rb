@@ -1,0 +1,52 @@
+class UserPolicy
+  attr_reader :current_user, :model
+
+  def initialize(current_user, model)
+    @current_user = current_user
+    @user = model
+  end
+
+  class Scope
+    attr_reader :user, :scope
+
+    def initialize(user, scope)
+      @user = user
+      @scope = scope
+    end
+
+    def resolve
+      scope.all
+      # if user.admin?
+      #   scope.all
+      # else user.user?
+      #   scope.all
+      # end
+    end
+  end
+
+  def index?
+    @current_user.admin? || @current_user.user? or @current_user == @user
+  end
+
+  def show?
+    @current_user.admin? || @current_user.user? or @current_user == @user
+  end
+
+  def edit?
+    @current_user.admin? || @current_user.user? or @current_user == @user
+  end
+
+  def update?
+    @current_user.admin? || @current_user.user? or @current_user == @user
+  end
+
+  def upload?
+    @current_user.admin? || @current_user.user? or @current_user == @user
+  end
+
+  def destroy?
+    return false if @current_user == @user
+    @current_user.admin?
+  end
+
+end

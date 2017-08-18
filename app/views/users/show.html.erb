@@ -1,0 +1,22 @@
+<h3>User</h3>
+<p>Email: <%= @user.email if @user.email %></p>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4>
+      Загрузка фото
+      <%= @user.email %>
+    </h4>
+    <%- @user.photos.each do |photo| %>
+      <div>
+        <%= image_tag photo.photo_src.thumb, class: "media-object img-responsive img-thumbnail" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="panel-body">
+    <%= simple_form_for @user, :url => members_upload_url, :method => :post do |f| %>
+      <%= f.file_field :photo_src %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>
