@@ -21,17 +21,15 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     authorize @user
     if @user.update_attributes!(secure_params)
-      redirect_to users_path, :notice => "User updated."
+      redirect_to user_path(@user), :notice => "Вы успешно заполнили анкету участника"
     else
-      redirect_to users_path, :alert => "Unable to update user."
+      redirect_to edit_user(@user), :alert => "Что то пошло не так, попробуйте ещё раз заполнить анкету"
     end
   end
 
   def upload
     @user = User.find(params[:id])
     authorize @user
-    p "-----"
-    p params[:user][:photo_src]
     @user.photos.create(:photo_src => params[:user][:photo_src])
     redirect_to user_path, :notice => "User upload photo."
   end
@@ -46,7 +44,7 @@ class UsersController < ApplicationController
   private
 
   def secure_params
-    params.require(:user).permit(:role, :first_name, :sur_name, :phone, :telegram, :photo_src)
+    params.require(:user).permit(:role, :name, :organization, :organization_site, :position, :work_experience, :age, :photo_src)
   end
 
 end

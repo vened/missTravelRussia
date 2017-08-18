@@ -10,8 +10,12 @@ ru:
   simple_form:
     labels:
       user:
-        first_name: 'Имя'
-        sur_name: 'Фамилия'
+        name: 'Имя'
+        organization: 'Название организации'
+        organization_site: 'Сайт организации'
+        position: 'Должность'
+        work_experience: 'Cтаж работы в туризме'
+        age: 'Возраст'
         phone: 'Телефон'
         telegram: 'Telegram'
         email: 'Email'

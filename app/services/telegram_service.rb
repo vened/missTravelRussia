@@ -6,7 +6,7 @@ Telegram::Bot::Client.run(token) do |bot|
       when '/start'
         bot.api.sendMessage(
             chat_id: message.chat.id,
-            text: "Добрый день #{message.from.first_name}, я бот председатель ТСЖ 'Красногорский бульвар 25'!"
+            text: "Добрый день #{message.from.email}, я бот председатель ТСЖ 'Красногорский бульвар 25'!"
         )
       when '/комуналка'
         bot.api.sendMessage(

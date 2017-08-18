@@ -1,3 +1,36 @@
+<div class="row">
+  <div class="col-lg-4 col-lg-offset-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>
+          <%= @user.name.present? ? @user.name : @user.email %>
+        </h4>
+      </div>
+      <div class="panel-body">
+        <dl class="dl-horizontal">
+          <dt>
+            <%= t 'simple_form.labels.user.name' %>
+          </dt>
+          <dd>
+            <%= @user.name %>
+          </dd>
+        </dl>
+        <%= simple_form_for @user do |f| %>
+          <%= f.input :name %>
+          <%= f.input :organization %>
+          <%= f.input :organization_site %>
+          <%= f.input :position %>
+          <%= f.input :work_experience %>
+          <%= f.input :age %>
+          <%#= f.input :phone, as: :tel, pattern: "[0-9]{1} [0-9]{3} [0-9]{3}-[0-9]{2}-[0-9]{2}" %>
+          <%= f.button :submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <h3>User</h3>
 <p>Email: <%= @user.email if @user.email %></p>
 

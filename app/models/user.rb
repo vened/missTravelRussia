@@ -46,12 +46,16 @@ class User
   # field :locked_at,       type: Time
 
   field :role, type: Integer
-  field :first_name, type: String
-  field :sur_name, type: String
   field :phone, type: String
   field :telegram, type: String
+
   field :name, type: String
   field :image, type: String
+  field :organization, type: String
+  field :organization_site, type: String
+  field :position, type: String
+  field :work_experience, type: String
+  field :age, type: String
 
   ## Oauth
   field :provider, type: String

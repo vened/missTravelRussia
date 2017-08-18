@@ -106,6 +106,7 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    jquery (0.0.1)
     jwt (1.5.6)
     kaminari (1.0.1)
       activesupport (>= 4.1.0)
@@ -284,6 +285,7 @@ DEPENDENCIES
   devise-i18n
   foreman
   jbuilder (~> 2.5)
+  jquery (~> 0.0.1)
   kaminari (~> 1.0)
   listen (>= 3.0.5, < 3.2)
   mini_magick (~> 4.8)
