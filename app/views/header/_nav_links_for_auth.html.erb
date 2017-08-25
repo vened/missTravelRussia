@@ -1,11 +1,18 @@
 <ul class="nav navbar-nav navbar-right">
   <% if user_signed_in? %>
     <!--<li><%= link_to 'Редактировать аккаунт', edit_user_registration_path %></li>-->
+    <li><%= link_to "Партнеры", edit_user_path(current_user) %></li>
+    <li><%= link_to "Заполнить анкету", edit_user_path(current_user) %></li>
     <%- if current_user.image.present? %>
-      <li><%= image_tag current_user.image, class: 'responsive' %></li>
+      <li>
+        <%= link_to edit_user_path(current_user), class: 'user-avatar' do %>
+          <%= image_tag current_user.image, class: 'img-responsive' %>
+        <% end %>
+      </li>
     <% end %>
-    <li><%= link_to current_user.name.present? ? current_user.name : current_user.email, edit_user_path(current_user) %></li>
-    <li><%= link_to 'Выйти', destroy_user_session_path, :method => 'delete' %></li>
+    <%- if false %>
+      <li><%= link_to current_user.name.present? ? current_user.name : current_user.email, edit_user_path(current_user) %></li>
+    <% end %>
   <% else %>
     <li><%= link_to "", user_facebook_omniauth_authorize_path, class: 'fa fa-facebook-official fa-2x fa-fw' %></li>
     <li><%= link_to "", user_facebook_omniauth_authorize_path, class: 'fa fa-vk fa-2x fa-fw' %></li>

@@ -1,0 +1,52 @@
+header {
+	position: relative;
+	height: 481px;
+	background-image: url('img/header-bg.jpg');
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-bottom: 7px solid #ffcc00;
+
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		z-index: 1;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, .2);
+	}
+}
+
+.navbar {
+	z-index: 2;
+}
+
+.navbar-brand {
+	padding: 12px 15px;
+}
+
+.navbar-inverse .navbar-nav {
+	& > li {
+		& > a {
+			font-size: 18px;
+			font-weight: 100;
+			text-transform: uppercase;
+
+			&.user-avatar {
+				display: block;
+				height: 90px;
+				padding-top: 29px;
+				padding-bottom: 29px;
+
+				.img-responsive{
+					height: 32px;
+					width: 32px;
+					border-radius: 4px;
+				}
+			}
+		}
+	}
+}

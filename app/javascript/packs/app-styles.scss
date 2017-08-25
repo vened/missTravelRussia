@@ -1,0 +1,22 @@
+$font-family-sans-serif: 'Roboto', sans-serif;
+$font-family-serif: 'Roboto Slab', serif;
+
+$container-large-desktop: 1230px;
+
+$border-radius-base: 4px;
+
+$navbar-height: 90px;
+$navbar-inverse-bg: rgba(0, 0, 0, .6);
+$navbar-inverse-link-color: #fff;
+$navbar-inverse-link-hover-color: #ffcc00;
+
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+@import "~font-awesome/scss/font-awesome";
+
+@import "header";
+
+body {
+	padding: 0;
+	//font-family: 'Roboto', sans-serif;
+	//font-family: 'Roboto Slab', serif;
+}
