@@ -41,12 +41,71 @@ header {
 				padding-top: 29px;
 				padding-bottom: 29px;
 
-				.img-responsive{
+				.img-responsive {
 					height: 32px;
 					width: 32px;
 					border-radius: 4px;
 				}
 			}
 		}
+	}
+}
+
+.header-title {
+	position: relative;
+	margin: 75px 0 55px;
+	z-index: 3;
+	font-family: 'Roboto Slab';
+	font-size: 76px;
+	font-weight: bold;
+	text-align: center;
+	color: #ffffff;
+	text-shadow: 0 4px 7px rgba(0, 0, 0, 0.27);
+}
+
+.b-sign-in {
+	position: relative;
+	z-index: 3;
+}
+
+.b-sign-in-lebel {
+	margin: 0 0 30px;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	color: #ffffff;
+	text-shadow: 0 6px 7px rgba(0, 0, 0, 0.27);
+}
+
+.b-sign-in-buttons {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.b-sign-in-button {
+	vertical-align: top;
+	width: 210px;
+	height: 52px;
+	padding: 11px 0;
+	border-radius: 26px;
+	background-color: #3f51b5;
+	font-size: 18px;
+	font-weight: 600;
+	color: #ffffff;
+	text-align: center;
+}
+.b-sign-in-button-vk {
+	margin-left: 16px;
+	background-color: #4f719b;
+
+	.fa{
+		margin: 3px 10px 0 0;
+		vertical-align: top;
+		font-size: 25px;
+	}
+	span{
+		display: inline-block;
+		padding-top: 5px;
 	}
 }

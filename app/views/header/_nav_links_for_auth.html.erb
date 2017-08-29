@@ -14,8 +14,6 @@
       <li><%= link_to current_user.name.present? ? current_user.name : current_user.email, edit_user_path(current_user) %></li>
     <% end %>
   <% else %>
-    <li><%= link_to "", user_facebook_omniauth_authorize_path, class: 'fa fa-facebook-official fa-2x fa-fw' %></li>
-    <li><%= link_to "", user_facebook_omniauth_authorize_path, class: 'fa fa-vk fa-2x fa-fw' %></li>
     <li><%= link_to 'Войти', new_user_session_path %></li>
     <li><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
   <% end %>
