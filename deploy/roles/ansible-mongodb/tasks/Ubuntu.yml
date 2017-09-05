@@ -1,0 +1,31 @@
+---
+# tasks file for mongodb (Ubuntu specific)
+
+- name: Add MongoDB public GPG key
+  apt_key: >
+    keyserver=keyserver.ubuntu.com
+    id=7F0CEB10
+    state=present
+  tags: mongodb
+
+- name: Add MongoDB APT repository
+  apt_repository: >
+    repo='deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse'
+    state=present
+  tags: mongodb
+
+- name: upgrade
+  action: apt update_cache=yes
+
+#- name: update glibc
+#  action: apt update glibc
+
+- name: Install MongoDB packages
+  apt: >
+    name={{ item }}
+    state=present
+    force=yes
+    update_cache=yes
+    cache_valid_time=3600
+  with_items: mongodb-org
+  tags: mongodb

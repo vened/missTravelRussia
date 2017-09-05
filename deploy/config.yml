@@ -27,18 +27,27 @@
   roles:
     - user
     - dependencies
-#    - {
-#        role: rvm1-ansible,
-#        tags: ruby,
-#        become: yes,
-#        rvm1_rubies: ['ruby-2.4.1'],
-#        rvm1_install_flags : ' --auto-dotfiles --user-install',
-#        rvm1_install_path : ' /home/{{ user }}/.rvm',
-#        rvm1_user: '{{ user }}'
-#      }
     - {
         role: nginx,
         become: yes,
         letsencrypt_email: 'maxstbn@gmail.com',
         domain_name: 'hatharoom.ru'
+      }
+    - {
+        role: ansible-mongodb,
+        mongodb_version: 3.4,
+        mongodb_port: 27017,
+        mongodb_bind_ip: 127.0.0.1,
+        mongodb_service_name: mongod,
+        mongodb_dbpath: /var/lib/mongodb,
+        mongodb_logpath: /var/log/mongodb/mongod.log,
+      }
+    - {
+        role: rvm1-ansible,
+        tags: ruby,
+        become: yes,
+        rvm1_rubies: ['ruby-2.4.1'],
+        rvm1_install_flags : ' --auto-dotfiles --user-install',
+        rvm1_install_path : ' /home/{{ user }}/.rvm',
+        rvm1_user: '{{ user }}'
       }
