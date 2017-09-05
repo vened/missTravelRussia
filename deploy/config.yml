@@ -12,20 +12,21 @@
 # на сервере надо установить питон
 # sudo apt-get install python-minimal
 # ansible-playbook -i hosts config.yml --extra-vars "ansible_sudo_pass=пароль"
+# ssh-keygen -f "/Users/max/.ssh/known_hosts" -R 176.112.193.159
 
 ---
 - name: Настройка и конфигурация сервера
   hosts: all
-  remote_user: maxstbn #пользователь под которым ansible будет логиниться
+  remote_user: root #пользователь под которым ansible будет логиниться
   vars:
-    root_user: maxstbn
+    root_user: root
     user: 'deployTest1'
     home: '/home/{{ user }}'
     app_name: 'test'
-#  gather_facts: false
+    gather_facts: false
   roles:
-#    - user
-#    - dependencies
+    - user
+    - dependencies
 #    - {
 #        role: rvm1-ansible,
 #        tags: ruby,
@@ -39,5 +40,5 @@
         role: nginx,
         become: yes,
         letsencrypt_email: 'maxstbn@gmail.com',
-        domain_name: 'test.ru'
+        domain_name: 'hatharoom.ru'
       }
