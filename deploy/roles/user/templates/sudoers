@@ -1,0 +1,3 @@
+root    ALL=(ALL) NOPASSWD: ALL
+{{root_user}}    ALL=(ALL) NOPASSWD: ALL
+{{user}}    ALL=(ALL) NOPASSWD: ALL

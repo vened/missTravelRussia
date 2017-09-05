@@ -1,0 +1,43 @@
+# http://omurashov.ru/ssh-connection-in-ubuntu-virtualbox/
+# https://habrahabr.ru/post/328582/
+# https://habrahabr.ru/company/southbridge/blog/317922/
+# ssh-copy-id -i ~/.ssh/id_rsa.pub -p 22 maxstbn@192.168.56.10
+# apt-get update
+# apt-get install openssh-server
+# apt-get install sudo
+# service ssh start
+# sudo passwd root
+# adduser deployer
+# ssh -p 2222 deployer@0.0.0.0
+# на сервере надо установить питон
+# sudo apt-get install python-minimal
+# ansible-playbook -i hosts config.yml --extra-vars "ansible_sudo_pass=пароль"
+
+---
+- name: Настройка и конфигурация сервера
+  hosts: all
+  remote_user: maxstbn #пользователь под которым ansible будет логиниться
+  vars:
+    root_user: maxstbn
+    user: 'deployTest1'
+    home: '/home/{{ user }}'
+    app_name: 'test'
+#  gather_facts: false
+  roles:
+#    - user
+#    - dependencies
+#    - {
+#        role: rvm1-ansible,
+#        tags: ruby,
+#        become: yes,
+#        rvm1_rubies: ['ruby-2.4.1'],
+#        rvm1_install_flags : ' --auto-dotfiles --user-install',
+#        rvm1_install_path : ' /home/{{ user }}/.rvm',
+#        rvm1_user: '{{ user }}'
+#      }
+    - {
+        role: nginx,
+        become: yes,
+        letsencrypt_email: 'maxstbn@gmail.com',
+        domain_name: 'test.ru'
+      }

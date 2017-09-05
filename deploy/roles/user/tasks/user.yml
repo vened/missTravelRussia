@@ -1,0 +1,18 @@
+---
+  # Создаём нашего пользователя deploy, копируем авторизационный ключ,
+  # а так же публичный и приватный ssh ключи
+  - name: '{{user}}'
+    become: yes
+    user: 'name={{ user }} shell=/bin/bash'
+
+  - name: 'account | copy authorized keys'
+    become: yes
+    shell: 'mkdir -p {{ home }}/.ssh -m 700 && cp /home/{{ root_user }}/.ssh/authorized_keys {{ home }}/.ssh && chown -R {{ user }}:{{ user }} {{ home }}/.ssh'
+
+  - name: 'account | copy ssh public key'
+    become: yes
+    action: 'template src=id_rsa.pub dest={{ home }}/.ssh/id_rsa.pub owner={{ user }} group={{ user }} mode=0700'
+      
+  - name: copy sudoers
+    become: yes
+    action: 'template src=sudoers dest=/etc/sudoers'

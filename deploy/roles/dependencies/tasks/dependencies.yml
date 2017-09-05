@@ -1,0 +1,25 @@
+---
+- name: upgrade
+  become: yes
+  action: apt update_cache=yes
+
+- name: Install app dependencies
+  become: yes
+  action: 'apt pkg={{ item }}'
+  with_items:
+    - 'bzip2'
+    - 'build-essential'
+    - 'curl'
+    - 'libssl-dev'
+    - 'libyaml-dev'
+    - 'libreadline-dev'
+    - 'zlib1g-dev'
+    - 'libcurl4-openssl-dev'
+    - 'git'
+    - 'imagemagick'
+    - 'optipng'
+    - 'jpegoptim'
+    - 'libmagickwand-dev'
+    - 'nodejs'
+    - 'htop'
+    - 'postfix'

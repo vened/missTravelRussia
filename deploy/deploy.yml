@@ -1,0 +1,16 @@
+---
+- name: Deploy example app to my-server.com
+  hosts: production
+  remote_user: deploy #пользователь под которым ansible будет логиниться
+  vars_files:
+    - vars.yml #Файл, содержащий переменные которые нам потребуются, например расположения директорий
+  vars:
+    ansistrano_deploy_from: "/Users/max/RubymineProjects/missTravelRussia/public"
+    ansistrano_deploy_to: "/home/deploy/app"
+    ansistrano_keep_releases: 3
+    # There seems to be an issue with rsync in vagrant
+    ansistrano_deploy_via: git
+  gather_facts: False
+  roles:
+#    - user
+    - { role: carlosbuenosvinos.ansistrano-deploy }
