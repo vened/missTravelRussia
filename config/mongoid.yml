@@ -145,3 +145,21 @@ test:
         read:
           mode: :primary
         max_pool_size: 1
+
+
+production:
+  clients:
+    default:
+      database: miss_travel_russia__production
+      hosts:
+        - 127.0.0.1:27017
+      options:
+        read:
+          mode: :primary
+        max_retries: 1
+        retry_interval: 0
+        max_pool_size: 1
+#        write:
+#          w: 1
+  options:
+    raise_not_found_error: false
