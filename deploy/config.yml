@@ -61,7 +61,7 @@
         npm_config_unsafe_perm: "true"
       }
     - {
-        role: ansible-role-yarn,
+        role: ansible-yarn,
         become: yes,
         yarn_debian_repo_url: "http://dl.yarnpkg.com/debian/ stable main",
         yarn_debian_repo_gpg_key_url: "http://dl.yarnpkg.com/debian/pubkey.gpg",
