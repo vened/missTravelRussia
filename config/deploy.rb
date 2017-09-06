@@ -33,20 +33,28 @@ task :setup do
   # command %{source #{fetch(:rvm_use_path)}}
   # command %{rvm install 2.3.1}
 
-  command %{mkdir -p "#{fetch(:shared_path)}/log"}
-  command %{chmod g+rx,u+rwx "#{fetch(:shared_path)}/log"}
+  command %{mkdir -p "#{fetch(:deploy_to)}/shared/log"}
+  command %{chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/log"}
 
-  command %{mkdir -p "#{fetch(:shared_path)}/config"}
-  command %{chmod g+rx,u+rwx "#{fetch(:shared_path)}/config"}
+  command %{mkdir -p "#{fetch(:deploy_to)}/shared/config"}
+  command %{chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/config"}
 
-  command %{touch "#{fetch(:shared_path)}/config/puma.rb"}
-  command %{touch "#{fetch(:shared_path)}/config/mongoid.yml"}
-  command %{touch "#{fetch(:shared_path)}/config/secrets.yml"}
+  command %[mkdir -p "#{fetch(:deploy_to)}/shared/public/uploads"]
+  command %[chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/public/uploads"]
 
-  command %{mkdir -p "#{fetch(:shared_path)}/tmp/sockets"}
-  command %{chmod g+rx,u+rwx "#{fetch(:shared_path)}/tmp/sockets"}
-  command %{mkdir -p "#{fetch(:shared_path)}/tmp/pids"}
-  command %{chmod g+rx,u+rwx "#{fetch(:shared_path)}/tmp/pids"}
+  command %[touch "#{fetch(:deploy_to)}/shared/config/mongoid.yml"]
+  command  %[echo "-----> Be sure to edit 'shared/config/mongoid.yml'."]
+
+  command %[touch "#{fetch(:deploy_to)}/shared/config/secrets.yml"]
+  command  %[echo "-----> Be sure to edit 'shared/config/secrets.yml'."]
+
+  command %[touch "#{fetch(:deploy_to)}/shared/config/puma.rb"]
+  command  %[echo "-----> Be sure to edit 'shared/config/puma.rb'."]
+
+  command %{mkdir -p "#{fetch(:deploy_to)}/shared/tmp/sockets"}
+  command %{chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/tmp/sockets"}
+  command %{mkdir -p "#{fetch(:deploy_to)}/shared/tmp/pids"}
+  command %{chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/tmp/pids"}
 end
 
 desc "Deploys the current version to the server."
@@ -57,7 +65,7 @@ task :deploy do
     invoke :'git:clone'
     invoke :'deploy:link_shared_paths'
     invoke :'bundle:install'
-    invoke :'rails:db_create'
+    # invoke :'rails:db_create'
     invoke :'rails:assets_precompile'
     invoke :'deploy:cleanup'
 
@@ -77,6 +85,13 @@ task :deploy do
 
   # you can use `run :local` to run tasks on local machine before of after the deploy scripts
   # run(:local){ say 'done' }
+end
+
+desc "Seed data to the database"
+task :seed => :environment do
+  queue "cd #{deploy_to}/#{current_path}/"
+  queue "bundle exec rake db:seed RAILS_ENV=#{rails_env}"
+  queue  %[echo "-----> Rake Seeding Completed."]
 end
 
 # For help in making your deploy script, see the Mina documentation:
