@@ -3,6 +3,20 @@
 # Any libraries that use thread pools should be configured to match
 # the maximum value specified for Puma. Default is set to 5 threads for minimum
 # and maximum; this matches the default thread size of Active Record.
+app_path = '/home/deployTest1/www/missTravelRussia'
+
+directory "#{app_path}/current"
+rackup "#{app_path}/current/config.ru"
+environment 'production'
+daemonize true
+
+pidfile "#{app_path}/shared/tmp/pids/puma.pid"
+state_path "#{app_path}/shared/tmp/sockets/puma.state"
+
+bind "unix://#{app_path}/shared/tmp/sockets/puma.sock"
+
+activate_control_app "unix://#{app_path}shared/tmp/sockets/pumactl.sock"
+
 #
 threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
 threads threads_count, threads_count

@@ -23,6 +23,7 @@
     user: 'deployTest1'
     home: '/home/{{ user }}'
     app_name: 'test'
+    app_path: '{{ home }}/www{{ app_name }}'
     gather_facts: false
   roles:
     - user
