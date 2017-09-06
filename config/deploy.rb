@@ -43,6 +43,8 @@ end
 # Put any custom commands you need to run at setup
 # All paths in `shared_dirs` and `shared_paths` will be created on their own.
 task :setup do
+  # command %{source #{fetch('/home/deployTest1/.nvm/nvm.sh')}}
+  # command %{/home/deployTest1/.nvm/nvm.sh list}
   # command %{rbenv install 2.3.0}
   # command %{source #{fetch(:rvm_use_path)}}
   # command %{rvm install 2.3.1}

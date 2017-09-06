@@ -51,3 +51,17 @@
         rvm1_install_path : ' /home/{{ user }}/.rvm',
         rvm1_user: '{{ user }}'
       }
+    - {
+        role: ansible-role-nodejs,
+        become: yes,
+        nodejs_version: "6.x",
+        nodejs_install_npm_user: "{{ user }}",
+        npm_config_prefix: "/usr/local/lib/npm",
+        npm_config_unsafe_perm: "true"
+      }
+    - {
+        role: ansible-role-yarn,
+        become: yes,
+        yarn_debian_repo_url: "http://dl.yarnpkg.com/debian/ stable main",
+        yarn_debian_repo_gpg_key_url: "http://dl.yarnpkg.com/debian/pubkey.gpg",
+      }
