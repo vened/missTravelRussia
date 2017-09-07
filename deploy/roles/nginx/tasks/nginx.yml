@@ -1,4 +1,8 @@
 ---
+    - name: Install letsencrypt APT repo.
+      apt_repository:
+        repo: "ppa:certbot/certbot"
+
     - name: Upgrade system
       apt: upgrade=dist update_cache=yes
 

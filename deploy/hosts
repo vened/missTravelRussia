@@ -1,2 +1,2 @@
 [production]
-host-1 ansible_port=22 ansible_host=176.112.203.69
+host-1 ansible_port=22 ansible_host=176.112.203.70

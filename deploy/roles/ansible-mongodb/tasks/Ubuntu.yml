@@ -10,7 +10,7 @@
 
 - name: Add MongoDB APT repository
   apt_repository: >
-    repo='deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse'
+    repo='deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse'
     state=present
   tags: mongodb
 
