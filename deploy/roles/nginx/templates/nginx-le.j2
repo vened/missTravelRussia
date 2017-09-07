@@ -34,7 +34,7 @@ server {
     # root /var/www/{{ domain_name }};
     # index index.html index.htm;
 
-    location ~ ^/assets/ {
+    location ~ ^/(assets|packs)/ {
           expires max;
           gzip_static on;
           gzip_vary on;
