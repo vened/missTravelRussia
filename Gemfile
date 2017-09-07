@@ -20,7 +20,6 @@ gem "pundit"
 gem 'slim-rails'
 gem 'simple_form'
 
-gem 'telegram-bot-ruby'
 # Use Puma as the app server
 
 # Use SCSS for stylesheets
