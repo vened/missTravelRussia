@@ -75,11 +75,11 @@ task :deploy do
     # end
 
     on :launch do
-      invoke :'puma:restart'
-      # in_path(fetch(:current_path)) do
-      #   command %{mkdir -p tmp/}
-      #   command %{touch tmp/restart.txt}
-      # end
+      # invoke :'puma:restart'
+      in_path(fetch(:current_path)) do
+        command %{mkdir -p tmp/}
+        command %{touch tmp/restart.txt}
+      end
     end
   end
 
@@ -89,9 +89,9 @@ end
 
 desc "Seed data to the database"
 task :seed => :environment do
-  queue "cd #{deploy_to}/#{current_path}/"
-  queue "bundle exec rake db:seed RAILS_ENV=#{rails_env}"
-  queue  %[echo "-----> Rake Seeding Completed."]
+  command "cd #{fetch(:current_path)}/"
+  command "bundle exec rake db:seed RAILS_ENV=#{fetch(:rails_env)}"
+  command  %[echo "-----> Rake Seeding Completed."]
 end
 
 # For help in making your deploy script, see the Mina documentation:
