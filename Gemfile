@@ -22,7 +22,6 @@ gem 'simple_form'
 
 gem 'telegram-bot-ruby'
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -87,3 +86,4 @@ gem "kaminari", "~> 1.0"
 gem 'mina'
 gem 'mina-puma',  require: false
 gem 'mina-nginx', require: false
+gem 'puma', '~> 3.10'
