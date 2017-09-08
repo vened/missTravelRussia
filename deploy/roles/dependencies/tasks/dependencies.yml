@@ -18,6 +18,7 @@
     - 'git'
     - 'imagemagick'
     - 'optipng'
+    - 'pngquant'
     - 'jpegoptim'
     - 'libmagickwand-dev'
     - 'nodejs'

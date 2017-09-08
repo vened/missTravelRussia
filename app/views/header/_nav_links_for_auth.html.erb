@@ -5,7 +5,7 @@
     <li><%= link_to "Заполнить анкету", edit_user_path(current_user) %></li>
     <%- if current_user.image.present? %>
       <li>
-        <%= link_to edit_user_path(current_user), class: 'user-avatar' do %>
+        <%= link_to user_path(current_user), class: 'user-avatar' do %>
           <%= image_tag current_user.image, class: 'img-responsive' %>
         <% end %>
       </li>
