@@ -42,6 +42,22 @@ server {
           break;
     }
 
+    location ~* ^.+\.(ogg|ogv|svg|svgz|eot|otf|woff|jpg|jpeg|gif|png|ico|js)$ {
+      expires max;
+      gzip_static on;
+      gzip_vary on;
+      add_header Cache-Control public;
+      break;
+    }
+
+    location ~ ^/uploads/ {
+      expires max;
+      gzip_static on;
+      gzip_vary on;
+      add_header Cache-Control public;
+      break;
+    }
+
     location ~ ^/system/ {
         expires max;
         gzip_static on;

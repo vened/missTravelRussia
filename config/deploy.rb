@@ -75,11 +75,11 @@ task :deploy do
     # end
 
     on :launch do
-      # invoke :'puma:restart'
-      in_path(fetch(:current_path)) do
-        command %{mkdir -p tmp/}
-        command %{touch tmp/restart.txt}
-      end
+      invoke :'puma:restart'
+      # in_path(fetch(:current_path)) do
+      #   command %{mkdir -p tmp/}
+      #   command %{touch tmp/restart.txt}
+      # end
     end
   end
 
@@ -90,6 +90,15 @@ end
 desc "Seed data to the database"
 task :seed => :environment do
   command "cd #{fetch(:current_path)}/"
+  command "bundle exec rake db:seed RAILS_ENV=#{fetch(:rails_env)}"
+  command  %[echo "-----> Rake Seeding Completed."]
+end
+
+desc "reset database"
+task :dbreset => :environment do
+  command "cd #{fetch(:current_path)}/"
+  command "bundle exec rake db:drop RAILS_ENV=#{fetch(:rails_env)}"
+  command "bundle exec rake db:create RAILS_ENV=#{fetch(:rails_env)}"
   command "bundle exec rake db:seed RAILS_ENV=#{fetch(:rails_env)}"
   command  %[echo "-----> Rake Seeding Completed."]
 end
