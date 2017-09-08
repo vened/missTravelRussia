@@ -47,7 +47,7 @@
     <% end %>
   </div>
   <div class="panel-body">
-    <%= simple_form_for @user, :url => members_upload_url, :method => :post do |f| %>
+    <%= simple_form_for @user, :url => members_upload_path, :method => :post do |f| %>
       <%= f.file_field :photo_src %>
       <%= f.button :submit %>
     <% end %>
