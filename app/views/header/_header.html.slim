@@ -1,12 +1,13 @@
-header
+header class="#{request.fullpath != '/' && 'header-collapse'}"
   == render 'header/navigation'
-  h1.header-title Голосуй за Мисс Туризм!
-  -unless user_signed_in?
-    .b-sign-in
-      .b-sign-in-lebel Регистрируйся через социальнуюсь сеть
-      .b-sign-in-buttons
-        = link_to user_facebook_omniauth_authorize_path, class: 'b-sign-in-button b-sign-in-button-fb' do
-          =image_tag asset_pack_path 'login-fb.svg'
-        = link_to user_facebook_omniauth_authorize_path, class: 'b-sign-in-button b-sign-in-button-vk' do
-          i.fa.fa-vk.fa-fw
-          span VKONTAKTE
+  -if request.fullpath === '/'
+    h1.header-title Голосуй за Мисс Туризм!
+    -unless user_signed_in?
+      .b-sign-in
+        .b-sign-in-lebel Регистрируйся через социальнуюсь сеть
+        .b-sign-in-buttons
+          = link_to user_facebook_omniauth_authorize_path, class: 'b-sign-in-button b-sign-in-button-fb' do
+            =image_tag asset_pack_path 'login-fb.svg'
+          = link_to user_facebook_omniauth_authorize_path, class: 'b-sign-in-button b-sign-in-button-vk' do
+            i.fa.fa-vk.fa-fw
+            span VKONTAKTE

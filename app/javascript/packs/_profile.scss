@@ -1,0 +1,27 @@
+.profile {
+	margin: 0 0 60px;
+	padding: 60px 0 40px;
+	background-color: #fffaf3;
+	border-bottom: 7px solid #eff2f5;
+}
+
+.profile-created {
+	display: flex;
+	justify-content: space-between;
+	margin: 0 0 27px;
+}
+
+.profile-created-data {
+
+}
+
+.profile-edit-link {
+	display: flex;
+	align-items: center;
+	color: $text-color;
+}
+
+.profile-edit-link__label{
+	font-size: 14px;
+	border-bottom: 1px dashed $text-color;
+}

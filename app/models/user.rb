@@ -1,6 +1,7 @@
 class User
   include Mongoid::Document
   include Mongoid::Enum
+  include Mongoid::Timestamps
 
   enum :role, [:user, :admin]
 
