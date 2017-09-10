@@ -1,9 +1,14 @@
 @import "vars";
+
 .profile {
 	margin: 0 0 60px;
 	padding: 60px 0 40px;
 	background-color: #fffaf3;
 	border-bottom: 7px solid #eff2f5;
+}
+
+.profile-p{
+	margin: 8px 0;
 }
 
 .profile-created {
@@ -20,13 +25,78 @@
 	display: flex;
 	align-items: center;
 	color: $text-color;
+	text-decoration: none !important;
 }
 
-.profile-edit-link__label{
+.profile-edit-link__label {
+	margin-right: 6px;
 	font-size: 14px;
-	border-bottom: 1px dashed $text-color;
+	border-bottom: 1px dashed;
 }
 
-.profile-job{
+.profile-edit-link__icon {
+	font-size: 17px;
+}
 
+.profile-job {
+	margin: 27px 0 35px;
+}
+
+.profile-organization {
+	margin-right: 10px;
+	font-family: $font-family-sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	text-align: left;
+	color: $text-color;
+}
+
+.profile-organization_link {
+	text-decoration: none !important;
+	border-bottom: 1px dashed;
+}
+
+.profile-title {
+	margin: 35px 0 8px;
+	font-family: $font-family-sans-serif;
+	font-size: 36px;
+	font-weight: bold;
+	text-align: left;
+	color: #000000;
+}
+
+
+.profile-pool-info{
+	display: flex;
+	margin: 55px 0 30px;
+
+	.profile-pool-info-block{
+		&:last-child{
+			margin: 0;
+		}
+	}
+}
+.profile-pool-info-block {
+	width: 210px;
+	height: 148px;
+	margin: 0 30px 0 0;
+	padding: 50px 15px 15px;
+	border-radius: 4px;
+	background-color: #fff3da;
+	text-align: center;
+}
+
+.profile-pool-info-block-result {
+	margin: 0 0 15px;
+	font-size: 40px;
+	line-height: 40px;
+	font-weight: bold;
+	text-align: center;
+	color: #000000;
+}
+
+.profile-pool-info-block-text{
+	img{
+		margin-right: 2px;
+	}
 }

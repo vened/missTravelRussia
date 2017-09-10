@@ -115,7 +115,7 @@ ru:
         other: "%{count} месяца"
       x_years:
         few: "%{count} года"
-        many: "%{count} летf"
+        many: "%{count} лет"
         one: "%{count} год"
         other: "%{count} года"
       x_seconds:
