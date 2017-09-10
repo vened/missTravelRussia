@@ -21,6 +21,20 @@
           <% end %>
         </div>
 
+        <div class="profile-job">
+
+          <div class="text-muted">Место работы:</div>
+          <span class="profile-organization">
+            <%= current_user.organization %>
+          </span>
+          <%= link_to current_user.organization_site, "//#{current_user.organization_site}", class: "profile-organization_link" %>
+
+          <div class="text-muted">
+            Стаж:
+            <%= t('datetime.distance_in_words.x_years', count: current_user.work_experience, locale: :ru) %>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>

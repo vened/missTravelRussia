@@ -83,4 +83,11 @@ class User
       end
     end
   end
+
+  before_update :build_organization_site
+  def build_organization_site
+    self.organization_site = self.organization_site.gsub(/https|http/, '')
+    self.organization_site = self.organization_site.gsub(/\:*/, '')
+    self.organization_site = self.organization_site.gsub(/\/*/, '')
+  end
 end
