@@ -5,10 +5,13 @@
 
 @import "header";
 @import "profile";
+@import "footer";
 
 .alert{
 	margin: 15px 0;
 }
 body {
-	padding: 0;
+	position: relative;
+	min-height: 100vh;
+	padding: 0 0 90px;
 }
