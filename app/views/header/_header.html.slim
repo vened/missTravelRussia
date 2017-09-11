@@ -3,11 +3,24 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
   -if request.fullpath === '/'
     h1.header-title Голосуй за Мисс Туризм!
     -unless user_signed_in?
-      .b-sign-in
-        .b-sign-in-lebel Регистрируйся через социальнуюсь сеть
-        .b-sign-in-buttons
-          = link_to user_facebook_omniauth_authorize_path, class: 'b-sign-in-button b-sign-in-button-fb' do
-            =image_tag asset_pack_path 'login-fb.svg'
-          = link_to user_facebook_omniauth_authorize_path, class: 'b-sign-in-button b-sign-in-button-vk' do
-            i.fa.fa-vk.fa-fw
-            span VKONTAKTE
+      .header-buttons
+          -unless user_signed_in?
+            button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" Учавствовать
+          = link_to 'Голосовать', votes_path, class: 'btn btn-primary btn-lg'
+
+#myModal.modal.fade aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+        h4#myModalLabel.modal-title Регистрируйся через социальнуюсь сеть
+      .modal-body
+        - unless user_signed_in?
+          .b-sign-in
+            .b-sign-in-buttons
+              = link_to user_facebook_omniauth_authorize_path, class: 'b-sign-in-button b-sign-in-button-fb' do
+                = image_tag asset_pack_path 'login-fb.svg'
+              = link_to user_facebook_omniauth_authorize_path, class: 'b-sign-in-button b-sign-in-button-vk' do
+                i.fa.fa-vk.fa-fw
+                span VKONTAKTE
