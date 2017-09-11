@@ -1,0 +1,39 @@
+.organizator {
+
+}
+
+.partners {
+	padding: 32px 0;
+	background-color: #fafafa;
+}
+
+.partners-title {
+	margin: 0 0 43px;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	color: #000000;
+	text-transform: uppercase;
+}
+
+.partners-links {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.partners-link {
+	display: inline-block;
+	margin: 0 16px;
+	font-size: 22px;
+	font-weight: bold;
+	line-height: 1.09;
+	color: #000000;
+
+	span {
+		display: block;
+		font-size: 16px;
+		line-height: 1.5;
+	}
+}
