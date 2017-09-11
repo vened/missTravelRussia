@@ -6,9 +6,6 @@
 //
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application_old.html.erb
-import $ from "jquery";
+// import $ from 'jquery';
 // import "jquery";
-import 'bootstrap-sass';
-import './hello_react';
-import './photos';
-console.log('Hello World from Webpacker');
+// import 'bootstrap-sass';

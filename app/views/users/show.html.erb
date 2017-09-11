@@ -3,17 +3,24 @@
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <div class="profile-photos">
+
           <%- if @root_photo.present? %>
             <div class="profile-photo-root">
               <%= image_tag @root_photo.photo_src.middle, class: "img-responsive" %>
               <%= link_to members_photo_path(current_user, @root_photo),
                           method: :delete,
                           class: 'profile-photo-delete',
-                          data: {confirm: 'Вы уверенны что хотите удалить эту фотографию?'} do %>
+                          title: "Удалить фотографию",
+                          data: {
+                              toggle: "tooltip",
+                              placement: "left",
+                              confirm: 'Вы уверенны что хотите удалить эту фотографию?'
+                          } do %>
                 <i class="fa fa-trash-o" aria-hidden="true"></i>
               <% end %>
             </div>
           <% end %>
+
           <div class="profile-photos-thumb">
             <%- @user.photos.each do |photo| %>
               <%- unless photo.root %>
@@ -24,13 +31,23 @@
                                       :url => members_edit_photo_path(current_user, photo),
                                       :method => :put do |f| %>
                     <%= f.button :button, class: 'profile-photo-btn-root' do %>
-                      <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                      <i class="fa fa-check-circle-o"
+                         aria-hidden="true"
+                         data-toggle="tooltip"
+                         data-placement="top"
+                         title="Сделать фото главным"
+                      ></i>
                     <% end %>
                   <% end %>
                   <%= link_to members_photo_path(current_user, photo),
                               method: :delete,
                               class: 'profile-photo-delete',
-                              data: {confirm: 'Вы уверенны что хотите удалить эту фотографию?'} do %>
+                              title: "Удалить фотографию",
+                              data: {
+                                  toggle: "tooltip",
+                                  placement: "top",
+                                  confirm: 'Вы уверенны что хотите удалить эту фотографию?'
+                              } do %>
                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                   <% end %>
                 </div>

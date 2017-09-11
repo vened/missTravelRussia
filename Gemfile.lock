@@ -48,8 +48,13 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
+    autoprefixer-rails (7.1.4)
+      execjs
     bcrypt (3.1.11)
     bindex (0.5.0)
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     bson (4.2.2)
     builder (3.2.3)
     byebug (9.1.0)
@@ -96,6 +101,7 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    jquery (0.0.1)
     jwt (1.5.6)
     kaminari (1.0.1)
       activesupport (>= 4.1.0)
@@ -272,6 +278,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass (~> 3.3)
   byebug
   capybara (~> 2.13)
   carrierwave (~> 1.1)
@@ -282,6 +289,7 @@ DEPENDENCIES
   devise-i18n
   foreman
   jbuilder (~> 2.5)
+  jquery (~> 0.0.1)
   kaminari (~> 1.0)
   listen (>= 3.0.5, < 3.2)
   mina

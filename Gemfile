@@ -86,3 +86,9 @@ gem 'mina'
 gem 'mina-puma',  require: false
 gem 'mina-nginx', require: false
 gem 'puma', '~> 3.10'
+
+# Added at 2017-09-11 10:48:58 +0300 by max:
+gem "bootstrap-sass", "~> 3.3"
+
+# Added at 2017-09-11 10:51:12 +0300 by max:
+gem "jquery", "~> 0.0.1"

@@ -1,7 +1,6 @@
 <ul class="nav navbar-nav navbar-right">
+  <li><%= link_to "Партнеры", '/' %></li>
   <% if user_signed_in? %>
-    <!--<li><%= link_to 'Редактировать аккаунт', edit_user_registration_path %></li>-->
-    <li><%= link_to "Партнеры", edit_user_path(current_user) %></li>
     <li><%= link_to "Заполнить анкету", edit_user_path(current_user) %></li>
     <%- if current_user.image.present? %>
       <li>
@@ -10,11 +9,6 @@
         <% end %>
       </li>
     <% end %>
-    <%- if false %>
-      <li><%= link_to current_user.name.present? ? current_user.name : current_user.email, edit_user_path(current_user) %></li>
-    <% end %>
-  <% else %>
-    <li><%= link_to 'Войти', new_user_session_path %></li>
-    <li><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
+    <li><%= link_to 'Выйти', destroy_user_session_path, :method => 'delete' %></li>
   <% end %>
 </ul>

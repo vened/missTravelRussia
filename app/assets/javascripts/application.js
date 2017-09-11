@@ -11,6 +11,13 @@
 // about supported directives.
 //
 //= require rails-ujs
-// require jquery
-// require turbolinks
+//= require jquery
+//= require bootstrap-sprockets
+//= require bootstrap/tooltip
+// bootstrap-sass
 // require_tree .
+
+$(document).ready(function() {
+  console.log($('[data-toggle="tooltip"]'));
+  $('[data-toggle="tooltip"]').tooltip();
+});

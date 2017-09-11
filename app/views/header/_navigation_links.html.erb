@@ -2,5 +2,4 @@
   <% if current_user.try(:admin?) %>
     <li><%= link_to 'Users', users_path %></li>
   <% end %>
-  <li><%= link_to 'Выйти', destroy_user_session_path, :method => 'delete' %></li>
 <% end %>
