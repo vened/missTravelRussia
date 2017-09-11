@@ -5,7 +5,7 @@
     <%- if current_user.image.present? %>
       <li>
         <%= link_to user_path(current_user), class: 'user-avatar' do %>
-          <%= image_tag current_user.image, class: 'img-responsive' %>
+          <%= image_tag current_user.image.gsub('http:', ''), class: 'img-responsive' %>
         <% end %>
       </li>
     <% end %>
