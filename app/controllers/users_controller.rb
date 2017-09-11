@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @root_photo = @user.photos.find_by(root: true)
+    @root_photo = @user.photos.present? ? @user.photos.find_by(root: true) : nil
     authorize @user
   end
 
@@ -64,7 +64,7 @@ class UsersController < ApplicationController
     authorize @user
     @photo = @user.photos.find(params[:id])
     @photo.destroy
-    if @photo.root
+    if @user.photos.present? && @photo.root
       @user.photos.first.update(root: true)
     end
     redirect_to user_path(@user), :notice => "Фотография успешно удалена"

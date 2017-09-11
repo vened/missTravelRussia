@@ -1,0 +1,19 @@
+server_tokens off;
+upstream mysite {
+  server unix://{{ app_path }}/shared/tmp/sockets/puma.sock fail_timeout=0;
+}
+
+
+server {
+    listen 80 default_server;
+    server_name {{ domain_name }};
+
+    location /.well-known/acme-challenge {
+        root /var/www/letsencrypt;
+        try_files $uri $uri/ =404;
+    }
+
+    location / {
+      rewrite ^ https://{{ domain_name }}$request_uri? permanent;
+    }
+}
