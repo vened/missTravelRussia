@@ -9,3 +9,8 @@
 // import $ from 'jquery';
 // import "jquery";
 // import 'bootstrap-sass';
+
+// $(document).ready(function() {
+  // console.log($);
+  // $('[data-toggle="tooltip"]').tooltip();
+// });

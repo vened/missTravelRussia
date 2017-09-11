@@ -18,6 +18,5 @@
 // require_tree .
 
 $(document).ready(function() {
-  console.log($('[data-toggle="tooltip"]'));
   $('[data-toggle="tooltip"]').tooltip();
 });
