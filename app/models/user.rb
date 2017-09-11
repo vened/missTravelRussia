@@ -1,9 +1,15 @@
+require 'autoinc'
 class User
   include Mongoid::Document
   include Mongoid::Enum
   include Mongoid::Timestamps
+  include Mongoid::Autoinc
 
   enum :role, [:user, :admin]
+
+  field :number, type: Integer
+
+  increments :number
 
   after_initialize :set_default_role, :if => :new_record?
 

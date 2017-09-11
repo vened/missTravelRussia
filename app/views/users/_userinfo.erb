@@ -1,0 +1,92 @@
+<div class="profile-created">
+  <div class="profile-created-data">
+    <span class="text-muted">Дата размещения анкеты:</span>
+    <%= @user.created_at.present? && @user.created_at.strftime("%d.%m.%Y") %>
+  </div>
+  <%= link_to edit_user_path(@user), class: 'profile-edit-link' do %>
+    <span class="profile-edit-link__label">Редактировать</span>
+    <i class="profile-edit-link__icon fa fa-cog" aria-hidden="true"></i>
+  <% end %>
+</div>
+
+<%- if @user.organization.present? %>
+  <div class="profile-job">
+
+    <div class="text-muted">Место работы:</div>
+    <span class="profile-organization">
+            <%= @user.organization %>
+          </span>
+    <%= link_to @user.organization_site,
+                "//#{@user.organization_site}",
+                target: "_blank",
+                class: "profile-organization_link" %>
+
+    <div class="text-muted">
+      Стаж:
+      <%= t('datetime.distance_in_words.x_years', count: @user.work_experience, locale: :ru) %>
+    </div>
+  </div>
+<% end %>
+
+<h1 class="profile-title">
+  <%= @user.name %>
+</h1>
+
+<div class="profile-p">
+  <%= @user.position %>
+</div>
+
+<%- if @user.age.present? %>
+  <div class="profile-p text-muted">
+    <%= t('datetime.distance_in_words.x_years', count: @user.age, locale: :ru) %>
+  </div>
+<% end %>
+
+<div class="profile-pool-info">
+
+  <div class="profile-pool-info-block profile-pool-info-block__rating">
+    <div class="profile-pool-info-block-result">
+      33
+    </div>
+    <div class="profile-pool-info-block-text">
+              <span class="text-muted">
+                Ваш рейтинг
+              </span>
+    </div>
+  </div>
+
+  <div class="profile-pool-info-block profile-pool-info-block__rating">
+    <div class="profile-pool-info-block-result">
+      12293
+    </div>
+    <div class="profile-pool-info-block-text">
+      <%= image_tag asset_pack_path 'icon-like.svg' %>
+      <span class="text-muted">
+                Вас лайкнули
+              </span>
+    </div>
+  </div>
+
+</div>
+
+<div class="">
+  <div class="text-muted">
+    Скрытая информация, для связи администрации с участницей
+    <i class="fa fa-eye-slash" aria-hidden="true"></i>
+  </div>
+
+  <div class="profile-p" style="margin-top: 16px">
+    Телефон для связи
+  </div>
+  <div class="text-muted">
+    <%= @user.phone %>
+  </div>
+
+  <div class="profile-p" style="margin-top: 16px">
+    Email
+  </div>
+  <div class="text-muted">
+    <%= @user.email %>
+  </div>
+
+</div>

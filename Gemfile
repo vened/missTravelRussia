@@ -11,6 +11,7 @@ gem 'rails', '~> 5.1.1'
 gem 'rails-i18n', '~> 5.0.0'
 gem 'mongoid', '~> 6.1.0'
 gem "mongoid-enum", :github => 'monster-media/mongoid-enum'
+gem 'mongoid-autoinc'
 
 gem 'devise'
 gem 'devise-i18n'

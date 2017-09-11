@@ -1,170 +1,24 @@
 <div class="profile">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        <div class="profile-photos">
 
-          <%- if @root_photo.present? %>
-            <div class="profile-photo-root">
-              <%= image_tag @root_photo.photo_src.middle, class: "img-responsive" %>
-              <%= link_to members_photo_path(current_user, @root_photo),
-                          method: :delete,
-                          class: 'profile-photo-delete',
-                          title: "Удалить фотографию",
-                          data: {
-                              toggle: "tooltip",
-                              placement: "left",
-                              confirm: 'Вы уверенны что хотите удалить эту фотографию?'
-                          } do %>
-                <i class="fa fa-trash-o" aria-hidden="true"></i>
-              <% end %>
-              <div class="profile-photo-root-info">
-                Фото, которое будет отображаться в ленте
-              </div>
-            </div>
-          <% end %>
-
-          <div class="profile-photos-thumb">
-            <%- @user.photos.each do |photo| %>
-              <%- unless photo.root %>
-                <div class="profile-photo">
-                  <%= image_tag photo.photo_src.thumb, class: "img-responsive" %>
-
-                  <%= simple_form_for photo,
-                                      :url => members_edit_photo_path(current_user, photo),
-                                      :method => :put do |f| %>
-                    <%= f.button :button, class: 'profile-photo-btn-root' do %>
-                      <i class="fa fa-check-circle-o"
-                         aria-hidden="true"
-                         data-toggle="tooltip"
-                         data-placement="top"
-                         title="Сделать фото главным"
-                      ></i>
-                    <% end %>
-                  <% end %>
-                  <%= link_to members_photo_path(current_user, photo),
-                              method: :delete,
-                              class: 'profile-photo-delete',
-                              title: "Удалить фотографию",
-                              data: {
-                                  toggle: "tooltip",
-                                  placement: "top",
-                                  confirm: 'Вы уверенны что хотите удалить эту фотографию?'
-                              } do %>
-                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                  <% end %>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-
-        <h4>Загрузите фотографию</h4>
-        <%= simple_form_for @user, :url => members_upload_path, :method => :post do |f| %>
-          <%= f.file_field :photo_src %>
-          <br>
-          <%= f.button :button do %>
-            Загрузить
-          <% end %>
-        <% end %>
+    <div class="profile-heding">
+      <div>
+        АНКЕТА УЧАСТНИЦЫ № <%= @user.number %>
       </div>
-      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-
-        <div class="profile-created">
-          <div class="profile-created-data">
-            <span class="text-muted">Дата размещения анкеты:</span>
-            <%= current_user.created_at.present? && current_user.created_at.strftime("%d.%m.%Y") %>
-          </div>
-          <%= link_to edit_user_path(current_user), class: 'profile-edit-link' do %>
-            <span class="profile-edit-link__label">Редактировать</span>
-            <i class="profile-edit-link__icon fa fa-cog" aria-hidden="true"></i>
-          <% end %>
-        </div>
-
-        <%- if current_user.organization.present? %>
-          <div class="profile-job">
-
-            <div class="text-muted">Место работы:</div>
-            <span class="profile-organization">
-            <%= current_user.organization %>
-          </span>
-            <%= link_to current_user.organization_site,
-                        "//#{current_user.organization_site}",
-                        target: "_blank",
-                        class: "profile-organization_link" %>
-
-            <div class="text-muted">
-              Стаж:
-              <%= t('datetime.distance_in_words.x_years', count: current_user.work_experience, locale: :ru) %>
-            </div>
-          </div>
-        <% end %>
-
-        <h1 class="profile-title">
-          <%= current_user.name %>
-        </h1>
-
-        <div class="profile-p">
-          <%= current_user.position %>
-        </div>
-
-        <%- if current_user.age.present? %>
-          <div class="profile-p text-muted">
-            <%= t('datetime.distance_in_words.x_years', count: current_user.age, locale: :ru) %>
-          </div>
-        <% end %>
-
-        <div class="profile-pool-info">
-
-          <div class="profile-pool-info-block profile-pool-info-block__rating">
-            <div class="profile-pool-info-block-result">
-              33
-            </div>
-            <div class="profile-pool-info-block-text">
-              <span class="text-muted">
-                Ваш рейтинг
-              </span>
-            </div>
-          </div>
-
-          <div class="profile-pool-info-block profile-pool-info-block__rating">
-            <div class="profile-pool-info-block-result">
-              12293
-            </div>
-            <div class="profile-pool-info-block-text">
-              <%= image_tag asset_pack_path 'icon-like.svg' %>
-              <span class="text-muted">
-                Вас лайкнули
-              </span>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="">
-          <div class="text-muted">
-            Скрытая информация, для связи администрации с участницей
-            <i class="fa fa-eye-slash" aria-hidden="true"></i>
-          </div>
-
-          <div class="profile-p" style="margin-top: 16px">
-            Телефон для связи
-          </div>
-          <div class="text-muted">
-            <%= current_user.phone %>
-          </div>
-
-          <div class="profile-p" style="margin-top: 16px">
-            Email
-          </div>
-          <div class="text-muted">
-            <%= current_user.email %>
-          </div>
-
-        </div>
-
+      <div>
+        Конкурс Мисс Туризм Россия 2017
       </div>
     </div>
+
+    <div class="profile-container">
+      <div class="profile-photos-col">
+        <%== render 'users/photos' %>
+      </div>
+      <div class="profile-info-col">
+        <%== render 'users/userinfo' %>
+      </div>
+    </div>
+
   </div>
 </div>
 
