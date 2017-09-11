@@ -44,6 +44,14 @@ class UserPolicy
     @current_user.admin? || @current_user.user? or @current_user == @user
   end
 
+  def edit_photo?
+    @current_user.admin? || @current_user.user? or @current_user == @user
+  end
+
+  def destroy_photo?
+    @current_user.admin? || @current_user.user? or @current_user == @user
+  end
+
   def destroy?
     return false if @current_user == @user
     @current_user.admin?

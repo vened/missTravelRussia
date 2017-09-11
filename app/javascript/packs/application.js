@@ -9,4 +9,6 @@
 import $ from "jquery";
 // import "jquery";
 import 'bootstrap-sass';
+import './hello_react';
+import './photos';
 console.log('Hello World from Webpacker');

@@ -7,7 +7,7 @@
 	border-bottom: 7px solid #eff2f5;
 }
 
-.profile-p{
+.profile-p {
 	margin: 8px 0;
 }
 
@@ -65,17 +65,17 @@
 	color: #000000;
 }
 
-
-.profile-pool-info{
+.profile-pool-info {
 	display: flex;
 	margin: 55px 0 30px;
 
-	.profile-pool-info-block{
-		&:last-child{
+	.profile-pool-info-block {
+		&:last-child {
 			margin: 0;
 		}
 	}
 }
+
 .profile-pool-info-block {
 	width: 210px;
 	height: 148px;
@@ -95,8 +95,62 @@
 	color: #000000;
 }
 
-.profile-pool-info-block-text{
-	img{
+.profile-pool-info-block-text {
+	img {
 		margin-right: 2px;
+	}
+}
+
+.profile-photos {
+	display: flex;
+	margin: 0 0 30px;
+}
+
+.profile-photo-root {
+	position: relative;
+	box-sizing: border-box;
+	width: 450px;
+	border-radius: 4px;
+	overflow: hidden;
+	border: 4px solid #ffcc00;
+}
+
+.profile-photos-thumb {
+	width: 141px;
+	margin-left: 4px;
+}
+
+.profile-photo {
+	position: relative;
+	box-sizing: border-box;
+	width: 141px;
+	margin: 4px 0;
+	overflow: hidden;
+	border-radius: 2px;
+}
+
+.profile-photo-delete {
+	position: absolute;
+	right: 7px;
+	top: 3px;
+	z-index: 2;
+	font-size: 20px;
+	color: red;
+}
+
+.profile-photo-btn-root {
+	position: absolute;
+	right: 7px;
+	bottom: 3px;
+	z-index: 2;
+	padding: 0 !important;
+	margin: 0 !important;
+	font-size: 20px;
+	color: $brand-success;
+	background: none !important;
+	border: none !important;
+
+	&:hover{
+		color: #fff;
 	}
 }

@@ -2,10 +2,50 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        <%- @user.photos.each do |photo| %>
-          <div>
-            <%= image_tag photo.photo_src.thumb, class: "media-object img-responsive img-thumbnail" %>
+        <div class="profile-photos">
+          <%- if @root_photo.present? %>
+            <div class="profile-photo-root">
+              <%= image_tag @root_photo.photo_src.middle, class: "img-responsive" %>
+              <%= link_to members_photo_path(current_user, @root_photo),
+                          method: :delete,
+                          class: 'profile-photo-delete',
+                          data: {confirm: 'Вы уверенны что хотите удалить эту фотографию?'} do %>
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+              <% end %>
+            </div>
+          <% end %>
+          <div class="profile-photos-thumb">
+            <%- @user.photos.each do |photo| %>
+              <%- unless photo.root %>
+                <div class="profile-photo">
+                  <%= image_tag photo.photo_src.thumb, class: "img-responsive" %>
+
+                  <%= simple_form_for photo,
+                                      :url => members_edit_photo_path(current_user, photo),
+                                      :method => :put do |f| %>
+                    <%= f.button :button, class: 'profile-photo-btn-root' do %>
+                      <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                    <% end %>
+                  <% end %>
+                  <%= link_to members_photo_path(current_user, photo),
+                              method: :delete,
+                              class: 'profile-photo-delete',
+                              data: {confirm: 'Вы уверенны что хотите удалить эту фотографию?'} do %>
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                  <% end %>
+                </div>
+              <% end %>
+            <% end %>
           </div>
+        </div>
+
+        <h4>Загрузите фотографию</h4>
+        <%= simple_form_for @user, :url => members_upload_path, :method => :post do |f| %>
+          <%= f.file_field :photo_src %>
+          <br>
+          <%= f.button :button do %>
+            Загрузить
+          <% end %>
         <% end %>
       </div>
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -79,7 +119,7 @@
 
         <div class="">
           <div class="text-muted">
-            Скрытая информация, для связи администрации с участницой
+            Скрытая информация, для связи администрации с участницей
             <i class="fa fa-eye-slash" aria-hidden="true"></i>
           </div>
 
@@ -101,56 +141,5 @@
 
       </div>
     </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-lg-4 col-lg-offset-4">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4>
-          <%= @user.name.present? ? @user.name : @user.email %>
-        </h4>
-      </div>
-      <div class="panel-body">
-        <dl class="dl-horizontal">
-          <dt>
-            <%= t 'simple_form.labels.user.name' %>
-          </dt>
-          <dd>
-            <%= @user.name %>
-          </dd>
-        </dl>
-        <%= simple_form_for @user do |f| %>
-          <%= f.input :name %>
-          <%= f.input :organization %>
-          <%= f.input :organization_site %>
-          <%= f.input :position %>
-          <%= f.input :work_experience %>
-          <%= f.input :age %>
-          <%#= f.input :phone, as: :tel, pattern: "[0-9]{1} [0-9]{3} [0-9]{3}-[0-9]{2}-[0-9]{2}" %>
-          <%= f.button :submit %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<h3>User</h3>
-<p>Email: <%= @user.email if @user.email %></p>
-
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h4>
-      Загрузка фото
-      <%= @user.email %>
-    </h4>
-  </div>
-  <div class="panel-body">
-    <%= simple_form_for @user, :url => members_upload_path, :method => :post do |f| %>
-      <%= f.file_field :photo_src %>
-      <%= f.button :submit %>
-    <% end %>
   </div>
 </div>
