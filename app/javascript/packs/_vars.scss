@@ -6,10 +6,15 @@ $container-large-desktop: 1230px;
 $border-radius-base: 4px;
 $btn-border-radius-large: 30px;
 
+$padding-large-vertical:    12px !default;
+$padding-large-horizontal:  32px !default;
+
+
 $navbar-height: 90px;
 $navbar-inverse-bg: rgba(0, 0, 0, .6);
 $navbar-inverse-link-color: #fff;
 $navbar-inverse-link-hover-color: #ffcc00;
+$navbar-inverse-link-active-bg: transparent;
 
 $text-color: #000000;
 $text-muted: #666666;

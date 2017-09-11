@@ -81,22 +81,24 @@
           <% end %>
         </div>
 
-        <div class="profile-job">
+        <%- if current_user.organization.present? %>
+          <div class="profile-job">
 
-          <div class="text-muted">Место работы:</div>
-          <span class="profile-organization">
+            <div class="text-muted">Место работы:</div>
+            <span class="profile-organization">
             <%= current_user.organization %>
           </span>
-          <%= link_to current_user.organization_site,
-                      "//#{current_user.organization_site}",
-                      target: "_blank",
-                      class: "profile-organization_link" %>
+            <%= link_to current_user.organization_site,
+                        "//#{current_user.organization_site}",
+                        target: "_blank",
+                        class: "profile-organization_link" %>
 
-          <div class="text-muted">
-            Стаж:
-            <%= t('datetime.distance_in_words.x_years', count: current_user.work_experience, locale: :ru) %>
+            <div class="text-muted">
+              Стаж:
+              <%= t('datetime.distance_in_words.x_years', count: current_user.work_experience, locale: :ru) %>
+            </div>
           </div>
-        </div>
+        <% end %>
 
         <h1 class="profile-title">
           <%= current_user.name %>
@@ -106,9 +108,11 @@
           <%= current_user.position %>
         </div>
 
-        <div class="profile-p text-muted">
-          <%= t('datetime.distance_in_words.x_years', count: current_user.age, locale: :ru) %>
-        </div>
+        <%- if current_user.age.present? %>
+          <div class="profile-p text-muted">
+            <%= t('datetime.distance_in_words.x_years', count: current_user.age, locale: :ru) %>
+          </div>
+        <% end %>
 
         <div class="profile-pool-info">
 
