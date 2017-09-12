@@ -37,6 +37,20 @@
         // Debug response (optional)
         console.log('fb share callback');
         console.log(response);
+
+        FB.api(
+            "/",
+            {
+              "id": href
+            },
+            function (response) {
+              console.log('FB.api')
+              console.log(response)
+              if (response && !response.error) {
+                console.log(response)
+              }
+            }
+        );
       });
     });
   });
