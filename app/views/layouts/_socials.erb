@@ -7,11 +7,11 @@
     <% end %>
     <%- if Rails.env.production? %>
     var appId = '1730712020557436';
-    var href = <%= request.base_url + request.original_fullpath %>;
+    var href = '<%= request.base_url + request.original_fullpath %>';
     <% end %>
 
     $.ajaxSetup({ cache: true });
-    $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
+    $.getScript('//connect.facebook.net/en_US/sdk.js', function() {
       FB.init({
         appId: appId,
         autoLogAppEvents: true,
@@ -23,22 +23,22 @@
     var fbShared = $('.btn-shared_fb');
 
 
-      fbShared.on('click', function() {
-        FB.ui({
-          method: 'share',
-          mobile_iframe: true,
-          href: href,
-//          method: 'share_open_graph',
-//          action_type: 'og.likes',
-//          action_properties: JSON.stringify({
-//            object: 'https://developers.facebook.com/docs/',
-//          }),
-        }, function(response) {
-          // Debug response (optional)
-          console.log('fb share callback');
-          console.log(response);
-        });
+    fbShared.on('click', function() {
+      FB.ui({
+        method: 'share',
+        mobile_iframe: true,
+        href: href,
+        //          method: 'share_open_graph',
+        //          action_type: 'og.likes',
+        //          action_properties: JSON.stringify({
+        //            object: 'https://developers.facebook.com/docs/',
+        //          }),
+      }, function(response) {
+        // Debug response (optional)
+        console.log('fb share callback');
+        console.log(response);
       });
+    });
   });
 
   //    FB.ui({
