@@ -1,3 +1,13 @@
+<%- content_for :title do %><%= @user.name %><%- end %>
+<%- content_for :description do %><%= @user.name %><%- end %>
+
+<%= render partial: "shared/meta_og",
+           locals: {title: @user.name,
+                    desc: @user.name,
+                    photo: @root_photo.photo_src.large
+           }
+%>
+
 <div class="profile">
   <div class="container">
 
@@ -24,7 +34,7 @@
         Поделитесь с друзьями
       </div>
       <div class="b-sign-in-buttons">
-        <a href="#" class="b-sign-in-button b-sign-in-button-fb">
+        <a href="#" class="b-sign-in-button b-sign-in-button-fb btn-shared_fb">
           <%= image_tag asset_pack_path 'login-fb.svg' %>
         </a>
         <a href="#" class="b-sign-in-button b-sign-in-button-vk">

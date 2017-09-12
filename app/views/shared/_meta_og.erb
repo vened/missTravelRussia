@@ -1,0 +1,8 @@
+<%- content_for :og do %>
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="missTravel.ru" />
+  <meta property="og:title" content="<%= title.present? ? title : 'Конкурс красоты missTravelRussia' %>" />
+  <meta property="og:description" content="<%= desc.present? ? desc : 'Конкурс красоты missTravelRussia' %>" />
+  <meta property="og:url" content="<%= request.base_url + request.original_fullpath %>" />
+  <meta property="og:image" content="<%= request.base_url + "#{photo}"%>" />
+<%- end %>

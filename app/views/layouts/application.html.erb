@@ -5,15 +5,10 @@
   <title>
     <%== content_for?(:title) ? yield(:title) : 'Rails Devise Pundit' %>
   </title>
+  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : 'Rails Devise Pundit'%>" />
+
+  <%= yield :og %>
   <%== csrf_meta_tags %>
-  <meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Rails Devise Pundit'}" />
-
-  <meta property="og:url" content="http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html" />
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="When Great Minds Don’t Think Alike" />
-  <meta property="og:description" content="How much does culture influence creative thinking?" />
-  <meta property="og:image" content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
-
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:700&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet" />
   <%== stylesheet_link_tag 'application' %>
   <%== stylesheet_pack_tag 'app-styles' %>
@@ -21,44 +16,10 @@
   <%== javascript_pack_tag 'application' %>
 </head>
 <body>
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId: '1716823038621169',
-      autoLogAppEvents: true,
-      xfbml: true,
-      version: 'v2.10',
-    });
-    FB.AppEvents.logPageView();
-
-    //    FB.ui({
-    //      method: 'like',
-    //      action_type: 'og.likes',
-    //      href: "http://127.0.0.1:4000",
-    //      action_properties: JSON.stringify({
-    //        object:'http://127.0.0.1:4000',
-    //      })
-    //    }, function(response){
-    //      // Debug response (optional)
-    //      console.log(response);
-    //    });
-  };
-
-  (function(d, s, id) {
-    var js,
-        fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) {
-      return;
-    }
-    js = d.createElement(s);
-    js.id = id;
-    js.src = '//connect.facebook.net/en_US/sdk.js';
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-</script>
 <%== render 'header/header' %>
 <%== render 'layouts/messages' %>
 <%== yield %>
 <%== render 'layouts/footer' %>
+<%== render 'layouts/socials' %>
 </body>
 </html>
