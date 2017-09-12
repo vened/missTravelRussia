@@ -56,8 +56,141 @@
   </div>
 
 </div>
-<!--
+
 <div class="home-subtitle">
   Этапы конкурса
 </div>
--->
+
+
+<div class="etaps">
+  <div class="etaps-item">
+    <div class="etaps-item-date">
+      с 15 Сентября
+    </div>
+    <div class="etaps-item-action">
+      <b>Подача анкет:</b>
+      <br>
+      до 1000 участников
+    </div>
+  </div>
+  <div class="etaps-item">
+    <div class="etaps-item-date">
+      с 15 Сентября
+    </div>
+    <div class="etaps-item-action">
+      <b>Подача анкет:</b>
+      <br>
+      до 1000 участников
+    </div>
+  </div>
+  <div class="etaps-item">
+    <div class="etaps-item-date">
+      с 15 Сентября
+    </div>
+    <div class="etaps-item-action">
+      <b>Подача анкет:</b>
+      <br>
+      до 1000 участников
+    </div>
+  </div>
+</div>
+
+
+<div class="etaps-date-info">
+  Даты могут быть скорректированы
+</div>
+
+<%- unless user_signed_in? %>
+  <div class="home-action">
+    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+      Принять участие в конкурсе
+    </button>
+  </div>
+<% end %>
+
+
+<div class="home-subtitle">
+  Жюри конкурса
+</div>
+
+<div class="container">
+  <div class="jury-list">
+
+    <div class="jury-item">
+      <div class="jury-item-photo">
+        <%= image_tag(asset_pack_path('jury-1.jpg'), size: "180x180") %>
+      </div>
+      <div class="jury-item-name">
+        Дерья Биллюр
+      </div>
+      <div class="jury-item-info">
+        Генеральный директор
+        <br>
+        отеля Rixos Sungate
+      </div>
+    </div>
+
+    <div class="jury-item">
+      <div class="jury-item-photo">
+        <%= image_tag(asset_pack_path('jury-2.jpg'), size: "180x180") %>
+      </div>
+      <div class="jury-item-name">
+        Мерт Эсмен
+      </div>
+      <div class="jury-item-info">
+        Директор отдела продаж
+        <br>
+        и маркетинга отеля
+        <br>
+        Rixos Sungate
+      </div>
+    </div>
+
+    <div class="jury-item">
+      <div class="jury-item-photo">
+        <%= image_tag(asset_pack_path('jury-3.jpg'), size: "180x180") %>
+      </div>
+      <div class="jury-item-name">
+        Рашад Мамедов
+      </div>
+      <div class="jury-item-info">
+        Генеральный директор
+        <br>
+        и владелец компании
+        <br>
+        TBS Group
+      </div>
+    </div>
+
+    <div class="jury-item">
+      <div class="jury-item-photo">
+        <%= image_tag(asset_pack_path('jury-4.jpg'), size: "180x180") %>
+      </div>
+      <div class="jury-item-name">
+        Татьяна Дмитрова
+      </div>
+      <div class="jury-item-info">
+        CEO
+        <br>
+        основатель БАНКО
+      </div>
+    </div>
+
+    <div class="jury-item">
+      <div class="jury-item-photo">
+        <%= image_tag(asset_pack_path('jury-5.jpg'), size: "180x180") %>
+      </div>
+      <div class="jury-item-name">
+        Сергей Агафонов
+      </div>
+      <div class="jury-item-info">
+        Генеральный директор
+        <br>
+        сети Магазина
+        <br>
+        Горящих Путевок
+      </div>
+    </div>
+
+  </div>
+</div>
