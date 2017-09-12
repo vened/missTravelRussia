@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  root 'catalog#index'
+  root 'pages#home'
+  get 'personal_information' => 'pages#personal_information'
+
 
   resources :votes, only: [:index]
 
@@ -10,7 +12,5 @@ Rails.application.routes.draw do
   delete 'members/:user_id/photos/:id' => 'users#destroy_photo', as: 'members_photo'
 
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
-
-  get 'personal_information' => 'pages#personal_information'
 
 end

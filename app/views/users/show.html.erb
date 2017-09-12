@@ -1,5 +1,7 @@
-<%- content_for :title do %><%= @user.name %><%- end %>
-<%- content_for :description do %><%= @user.name %><%- end %>
+<%- content_for :title do %><%= @user.name %>
+<%- end %>
+<%- content_for :description do %><%= @user.name %>
+<%- end %>
 
 <%= render partial: "shared/meta_og",
            locals: {title: @user.name,
@@ -46,5 +48,3 @@
 
   </div>
 </div>
-
-<%== render 'shared/organizator' %>
