@@ -4,7 +4,7 @@
 <%= render partial: "shared/meta_og",
            locals: {title: @user.name,
                     desc: @user.name,
-                    photo: @root_photo.photo_src.large
+                    photo: @root_photo ? @root_photo.photo_src.large : nil
            }
 %>
 
