@@ -6,15 +6,14 @@ $container-large-desktop: 1230px;
 $border-radius-base: 4px;
 $btn-border-radius-large: 30px;
 
-$padding-large-vertical:    12px !default;
-$padding-large-horizontal:  32px !default;
+$padding-large-vertical: 12px !default;
+$padding-large-horizontal: 32px !default;
 
-$padding-small-vertical:    5px !default;
-$padding-small-horizontal:  12px !default;
+$padding-small-vertical: 5px !default;
+$padding-small-horizontal: 12px !default;
 
-$padding-xs-vertical:       1px !default;
-$padding-xs-horizontal:     6px !default;
-
+$padding-xs-vertical: 1px !default;
+$padding-xs-horizontal: 6px !default;
 
 $navbar-height: 90px;
 $navbar-inverse-bg: rgba(0, 0, 0, .6);
@@ -29,5 +28,5 @@ $link-hover-color: lighten($link-color, 15%) !default;
 $font-size-base: 16px;
 $font-size-small: 16px;
 
-
-$brand-success:         #5cb85c !default;
+$btn-success-bg: #ffcc00 !default;
+$btn-success-color: #000000 !default;

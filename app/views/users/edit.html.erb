@@ -35,6 +35,12 @@
                           placeholder: "+7 999 999-99-99" %>
               <%= f.input :email, as: :tel %>
               <br>
+              <p><small>*Обязательные поля для заполнения</small></p>
+              <p>
+                Я согласна на
+                <%=link_to 'обработку персональных данных', personal_information_path %>
+              </p>
+              <br>
               <div class="text-center">
                 <%= f.button :submit, class: 'btn btn-success btn-lg' %>
               </div>
