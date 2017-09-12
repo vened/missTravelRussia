@@ -23,6 +23,7 @@
     var fbShared = $('.btn-shared_fb');
 
 
+    "https://www.facebook.com/dialog/share?app_id={app_id}&display=page&href={url}&redirect_uri={redirect_url}"
     fbShared.on('click', function() {
       FB.ui({
         method: 'share',

@@ -19,3 +19,8 @@ body {
 .container-body{
 	padding: 32px 0;
 }
+
+abbr[title], abbr[data-original-title]{
+	border: none;
+	text-decoration: none;
+}

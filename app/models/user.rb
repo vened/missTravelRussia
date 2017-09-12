@@ -92,6 +92,7 @@ class User
   end
 
   before_update :build_organization_site
+
   def build_organization_site
     if self.organization_site.present?
       self.organization_site = self.organization_site.gsub(/https|http/, '')
@@ -99,4 +100,10 @@ class User
       self.organization_site = self.organization_site.gsub(/\/*/, '')
     end
   end
+
+  validates :organization, presence: true, on: :update
+  validates :work_experience, presence: true, on: :update
+  validates :position, presence: true, on: :update
+  validates :name, presence: true, on: :update
+
 end
