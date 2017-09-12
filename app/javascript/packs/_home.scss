@@ -15,9 +15,36 @@
 	font-weight: bold;
 }
 
-.home-about {
+.home-subtitle {
+	margin: 0 0 32px;
 	font-size: 24px;
 	font-weight: bold;
 	text-align: center;
+	color: #000000;
+	text-transform: uppercase;
+}
+
+.heroes{
+	margin: 0 0 137px;
+}
+.heroes-item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 0 55px;
+
+	&:last-child{
+		margin: 0;
+	}
+}
+
+.heroes-item-icon {
+	margin-right: 32px;
+}
+
+.heroes-item-text {
+	max-width: 870px;
+	font-size: 18px;
+	text-align: left;
 	color: #000000;
 }
