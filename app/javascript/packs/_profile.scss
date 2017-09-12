@@ -1,8 +1,7 @@
 @import "vars";
 
 .profile {
-	margin: 0 0 60px;
-	padding: 0 0 40px;
+	margin: 0 0 100px;
 }
 
 .profile-heding {
@@ -29,7 +28,7 @@
 .profile-created {
 	display: flex;
 	justify-content: space-between;
-	margin: 0 0 27px;
+	margin: 0 0 16px;
 }
 
 .profile-created-data {
@@ -54,15 +53,25 @@
 }
 
 .profile-job {
-	margin: 27px 0 35px;
+	margin: 0 0 40px;
+}
+
+.profile-label {
+	margin: 0 0 8px;
+	font-size: 14px;
+	color: #909090;
+}
+
+.profile-job-title {
+	margin: 0 0 16px;
 }
 
 .profile-organization {
+	display: inline-block;
 	margin-right: 10px;
 	font-family: $font-family-sans-serif;
 	font-size: 22px;
 	font-weight: bold;
-	text-align: left;
 	color: $text-color;
 }
 
@@ -71,8 +80,16 @@
 	border-bottom: 1px dashed;
 }
 
+.profile-info {
+	display: flex;
+}
+
+.profile-info-item {
+	margin-right: 100px;
+}
+
 .profile-title {
-	margin: 35px 0 8px;
+	margin: 0 0 16px;
 	font-family: $font-family-sans-serif;
 	font-size: 36px;
 	font-weight: bold;
@@ -80,45 +97,9 @@
 	color: #000000;
 }
 
-.profile-pool-info {
-	display: flex;
-	margin: 55px 0 30px;
-
-	.profile-pool-info-block {
-		&:last-child {
-			margin: 0;
-		}
-	}
-}
-
-.profile-pool-info-block {
-	width: 210px;
-	height: 148px;
-	margin: 0 30px 0 0;
-	padding: 50px 15px 15px;
-	border-radius: 4px;
-	background-color: #fff3da;
-	text-align: center;
-}
-
-.profile-pool-info-block-result {
-	margin: 0 0 15px;
-	font-size: 40px;
-	line-height: 40px;
-	font-weight: bold;
-	text-align: center;
-	color: #000000;
-}
-
-.profile-pool-info-block-text {
-	img {
-		margin-right: 2px;
-	}
-}
-
 .profile-photos {
 	display: flex;
-	margin: 0 0 30px;
+	margin: 0 0 24px;
 }
 
 .profile-photo-root {
@@ -190,7 +171,8 @@
 		border-radius: 4px;
 	}
 }
-.profile-photo-actions{
+
+.profile-photo-actions {
 	position: absolute;
 	right: 6px;
 	top: 6px;
@@ -198,15 +180,31 @@
 	display: flex;
 	justify-content: flex-end;
 
-	.btn{
+	.btn {
 		position: relative;
 		margin-left: 6px;
 	}
 }
+
 .profile-photo-delete-icon {
 	color: red;
 }
 
 .profile-photo-btn-root-icon {
 	color: $brand-success;
+}
+
+.profile-social {
+	margin: 100px 0 0;
+
+	.b-sign-in-buttons{
+		padding: 0;
+	}
+}
+
+.profile-social-title {
+	font-size: 20px;
+	text-align: center;
+	color: #000000;
+	margin: 0 0 28px;
 }

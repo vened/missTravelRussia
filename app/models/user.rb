@@ -57,6 +57,7 @@ class User
   field :telegram, type: String
 
   field :name, type: String
+  field :about, type: String
   field :image, type: String
   field :organization, type: String
   field :organization_site, type: String

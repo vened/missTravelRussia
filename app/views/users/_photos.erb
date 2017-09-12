@@ -61,12 +61,21 @@
   </div>
 </div>
 
+<div style="margin: 24px 0">
+  <span class="text-muted">Рейтинг:</span>
+  100
+  <span class="text-muted">баллов</span>
+  <span class="text-muted">Позиция:</span>
+  125
+  <span class="text-muted">место</span>
+</div>
+
 <%- if @user.photos.length < 4 %>
   <h4>Загрузите фотографию</h4>
   <%= simple_form_for @user, :url => members_upload_path, :method => :post do |f| %>
     <%= f.file_field :photo_src %>
     <br>
-    <%= f.button :button do %>
+    <%= f.button :button, class: "btn btn-success btn-lg" do %>
       Загрузить
     <% end %>
   <% end %>

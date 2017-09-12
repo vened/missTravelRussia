@@ -12,81 +12,96 @@
 <%- if @user.organization.present? %>
   <div class="profile-job">
 
-    <div class="text-muted">Место работы:</div>
-    <span class="profile-organization">
-            <%= @user.organization %>
-          </span>
-    <%= link_to @user.organization_site,
-                "//#{@user.organization_site}",
-                target: "_blank",
-                class: "profile-organization_link" %>
+    <div class="profile-label">Место работы</div>
 
-    <div class="text-muted">
-      Стаж:
-      <%= t('datetime.distance_in_words.x_years', count: @user.work_experience, locale: :ru) %>
+    <div class="profile-job-title">
+      <div class="profile-organization">
+        <%= @user.organization %>
+      </div>
+      <%= link_to @user.organization_site,
+                  "//#{@user.organization_site}",
+                  target: "_blank",
+                  class: "profile-organization_link" %>
     </div>
+
+    <div class="profile-info">
+      <div class="profile-info-item">
+        <div class="profile-label">
+          Стаж
+        </div>
+        <div class="profile-info-item-body">
+          <%= t('datetime.distance_in_words.x_years', count: @user.work_experience, locale: :ru) %>
+        </div>
+      </div>
+      <div class="profile-info-item">
+        <div class="profile-label">
+          Должность
+        </div>
+        <div class="profile-info-item-body">
+          <%= @user.position %>
+        </div>
+      </div>
+    </div>
+
   </div>
 <% end %>
 
 <h1 class="profile-title">
   <%= @user.name %>
 </h1>
-
-<div class="profile-p">
-  <%= @user.position %>
-</div>
-
 <%- if @user.age.present? %>
-  <div class="profile-p text-muted">
-    <%= t('datetime.distance_in_words.x_years', count: @user.age, locale: :ru) %>
+  <div class="profile-info" style="margin-bottom: 40px">
+    <div class="profile-info-item">
+      <div class="profile-label">
+        Возраст
+      </div>
+      <div class="profile-info-item-body">
+        <%= t('datetime.distance_in_words.x_years', count: @user.age, locale: :ru) %>
+      </div>
+    </div>
   </div>
 <% end %>
 
-<div class="profile-pool-info">
-
-  <div class="profile-pool-info-block profile-pool-info-block__rating">
-    <div class="profile-pool-info-block-result">
-      33
-    </div>
-    <div class="profile-pool-info-block-text">
-              <span class="text-muted">
-                Ваш рейтинг
-              </span>
-    </div>
-  </div>
-
-  <div class="profile-pool-info-block profile-pool-info-block__rating">
-    <div class="profile-pool-info-block-result">
-      12293
-    </div>
-    <div class="profile-pool-info-block-text">
-      <%= image_tag asset_pack_path 'icon-like.svg' %>
-      <span class="text-muted">
-                Вас лайкнули
-              </span>
+<%- if @user.about.present? %>
+  <div class="profile-info" style="margin-top: 40px">
+    <div class="profile-info-item">
+      <div class="profile-label">
+        Обо мне
+      </div>
+      <div class="profile-info-item-body">
+        <%= @user.about %>
+      </div>
     </div>
   </div>
+<% end %>
 
+<div class="text-muted" style="margin-bottom: 32px">
+  <i class="fa fa-eye-slash" style="font-size: 24px"></i>
+  Скрытая информация, для связи администрации с участницей
 </div>
 
-<div class="">
-  <div class="text-muted">
-    Скрытая информация, для связи администрации с участницей
-    <i class="fa fa-eye-slash" aria-hidden="true"></i>
+<%- if @user.phone.present? %>
+  <div class="profile-info" style="margin-top: 32px">
+    <div class="profile-info-item">
+      <div class="profile-label">
+        Телефон для связи
+      </div>
+      <div class="profile-info-item-body">
+        <%= @user.phone %>
+      </div>
+    </div>
   </div>
+<% end %>
 
-  <div class="profile-p" style="margin-top: 16px">
-    Телефон для связи
+<%- if @user.email.present? %>
+  <div class="profile-info" style="margin-top: 16px">
+    <div class="profile-info-item">
+      <div class="profile-label">
+        Email
+      </div>
+      <div class="profile-info-item-body">
+        <%= @user.email %>
+      </div>
+    </div>
   </div>
-  <div class="text-muted">
-    <%= @user.phone %>
-  </div>
-
-  <div class="profile-p" style="margin-top: 16px">
-    Email
-  </div>
-  <div class="text-muted">
-    <%= @user.email %>
-  </div>
-
-</div>
+<% end %>
