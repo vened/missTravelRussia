@@ -88,7 +88,7 @@ task :deploy do
 end
 
 desc "Seed data to the database"
-task :seed => :environment do
+task :dbseed => :environment do
   command "cd #{fetch(:current_path)}/"
   command "bundle exec rake db:seed RAILS_ENV=#{fetch(:rails_env)}"
   command  %[echo "-----> Rake Seeding Completed."]
@@ -97,9 +97,9 @@ end
 desc "reset database"
 task :dbreset => :environment do
   command "cd #{fetch(:current_path)}/"
-  command "bundle exec rake db:drop RAILS_ENV=#{fetch(:rails_env)}"
-  command "bundle exec rake db:create RAILS_ENV=#{fetch(:rails_env)}"
-  command "bundle exec rake db:seed RAILS_ENV=#{fetch(:rails_env)}"
+  # command "bundle exec rake db:drop RAILS_ENV=#{fetch(:rails_env)}"
+  # command "bundle exec rake db:create RAILS_ENV=#{fetch(:rails_env)}"
+  # command "bundle exec rake db:seed RAILS_ENV=#{fetch(:rails_env)}"
   command  %[echo "-----> Rake Seeding Completed."]
 end
 
