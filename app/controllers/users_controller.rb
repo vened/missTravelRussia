@@ -1,17 +1,15 @@
 class UsersController < ApplicationController
   protect_from_forgery with: :exception
-  before_action :authenticate_user!
-  after_action :verify_authorized
+  before_action :authenticate_user!, only: [:edit, :update, :upload, :edit_photo, :destroy_photo, :destroy]
+  after_action :verify_authorized, only: [:edit, :update, :upload, :edit_photo, :destroy_photo, :destroy]
 
   def index
     @users = policy_scope(User)
-    authorize @users
   end
 
   def show
     @user = User.find(params[:id])
     @root_photo = @user.photos.present? ? @user.photos.find_by(root: true) : nil
-    authorize @user
   end
 
   def edit

@@ -29,7 +29,7 @@ class UserPolicy
   end
 
   def show?
-    @current_user.admin? || @current_user.user? or @current_user == @user
+    scope.all
   end
 
   def edit?
