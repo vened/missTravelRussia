@@ -70,6 +70,11 @@
 </div>
 
 <div style="margin: 24px 0">
+  Для выбора главного фото профиля кликните на иконку с галочкой
+  <span class="btn btn-default btn-xs"><i class="fa fa-check-circle-o profile-photo-btn-root-icon"></i></span>
+</div>
+
+<div style="margin: 24px 0">
   <span class="text-muted">Рейтинг:</span>
   100
   <span class="text-muted">баллов</span>
@@ -81,7 +86,7 @@
 
 <% if user_signed_in? && policy(@user).upload? %>
   <%- if @user.photos.length < 4 %>
-    <h4>Загрузите фотографию</h4>
+    <h4>Загрузите 4 фотографии</h4>
     <%= simple_form_for @user, :url => members_upload_path, :method => :post do |f| %>
       <%= f.file_field :photo_src %>
       <br>
