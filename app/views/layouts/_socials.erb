@@ -11,11 +11,11 @@
     <% end %>
 
     $.ajaxSetup({ cache: true });
-    $.getScript('//connect.facebook.net/en_US/sdk.js', function() {
+    $.getScript('//connect.facebook.net/ru_RU/sdk.js', function() {
       FB.init({
         appId: appId,
         autoLogAppEvents: true,
-        xfbml: false,
+        xfbml: 1,
         version: 'v2.10',
       });
     });
