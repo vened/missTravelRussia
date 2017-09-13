@@ -3,5 +3,5 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="<%= title.present? ? title : 'Конкурс красоты missTravelRussia' %>" />
   <meta property="og:description" content="<%= desc.present? ? desc : 'Конкурс красоты missTravelRussia' %>" />
-  <meta property="og:image" content="<%= request.base_url + "#{photo}"%>" />
+  <meta property="og:image" content="<%= photo.present? ? request.base_url + "#{photo}" : asset_pack_path('share.png') %>" />
 <%- end %>

@@ -1,14 +1,28 @@
-<%- content_for :title do %><%= @user.name %>
+<%- content_for :title do %>
+  Я участвую в конкурсе красоты Мисс Туризм Россия 2017!
 <%- end %>
-<%- content_for :description do %><%= @user.name %>
+<%- content_for :description do %>
+  Голосуйте за меня!
 <%- end %>
 
-<%= render partial: "shared/meta_og",
-           locals: {title: @user.name,
-                    desc: @user.name,
-                    photo: @root_photo ? @root_photo.photo_src.large : nil
-           }
-%>
+<% if user_signed_in? && policy(@user).edit? %>
+  <%= render partial: "shared/meta_og",
+             locals: {title: "Я участвую в конкурсе красоты Мисс Туризм Россия 2017!",
+                      desc: "Голосуйте за меня!",
+                      photo: @root_photo ? @root_photo.photo_src.large : nil
+             }
+  %>
+<%- else %>
+
+
+
+  <%= render partial: "shared/meta_og",
+             locals: {title: "Посмотрите какая девушка!",
+                      desc: "#{@user.name} участвует в конкурсе красоты Мисс Туризм Россия 2017! Проголосуйте за нее!",
+                      photo: @root_photo ? @root_photo.photo_src.large : nil
+             }
+  %>
+<% end %>
 
 <div class="profile">
   <div class="container">

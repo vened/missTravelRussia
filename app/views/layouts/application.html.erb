@@ -3,9 +3,13 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>
-    <%== content_for?(:title) ? yield(:title) : 'Rails Devise Pundit' %>
+    <%== content_for?(:title) ?
+             yield(:title) :
+             'Мисс Туризм Россия 2017' %>
   </title>
-  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : 'Rails Devise Pundit'%>" />
+  <meta name="description" content="<%== content_for?(:description) ?
+                                            yield(:description) :
+                                            'Конкурс красоты сотрудников индустрии туризма Мисс Туризм Россия 2017.' %>" />
 
   <%= yield :og %>
   <%== csrf_meta_tags %>
