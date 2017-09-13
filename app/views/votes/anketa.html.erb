@@ -1,0 +1,58 @@
+<%- content_for :title do %><%= @user.name %>
+<%- end %>
+<%- content_for :description do %><%= @user.name %>
+<%- end %>
+
+<%= render partial: "shared/meta_og",
+           locals: {title: @user.name,
+                    desc: @user.name,
+                    photo: @root_photo ? @root_photo.photo_src.large : nil
+           }
+%>
+
+<div class="profile">
+  <div class="container">
+
+    <div class="profile-heding">
+      <div>
+        АНКЕТА УЧАСТНИЦЫ № <%= @user.number %>
+      </div>
+      <div>
+        Конкурс Мисс Туризм Россия 2017
+      </div>
+    </div>
+
+    <div class="profile-container">
+      <div class="profile-photos-col">
+        <%== render 'users/photos' %>
+      </div>
+      <div class="profile-info-col">
+        <%== render 'users/userinfo' %>
+      </div>
+    </div>
+
+    <div class="profile-social">
+      <div class="profile-social-title">
+        Поделитесь с друзьями
+      </div>
+      <div class="fb-share-button"
+           data-href="http://hatharoom.ru/members/59b7a3eee1fbdc56f6ef6a1b"
+           data-layout="button_count"
+           data-size="small">
+        <a class="fb-xfbml-parse-ignore"
+           target="_blank"
+           href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2hatharoom.ru%2Fmembers%259b7a3eee1fbdc56f6ef6a1b">Поделиться</a>
+      </div>
+      <div class="b-sign-in-buttons">
+        <a href="#" class="b-sign-in-button b-sign-in-button-fb btn-shared_fb">
+          <%= image_tag asset_pack_path 'login-fb.svg' %>
+        </a>
+        <a href="#" class="b-sign-in-button b-sign-in-button-vk">
+          <i class="fa fa-vk fa-fw"></i>
+          <span>VKONTAKTE</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -11,6 +11,7 @@
     var href = '<%= request.base_url + request.original_fullpath %>';
     <% end %>
 
+    console.log("<%= anketa_url %>");
     $.ajaxSetup({ cache: true });
     $.getScript('//connect.facebook.net/ru_RU/sdk.js', function() {
       FB.init({
