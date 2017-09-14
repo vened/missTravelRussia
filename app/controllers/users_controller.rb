@@ -87,7 +87,8 @@ class UsersController < ApplicationController
         :work_experience,
         :age,
         :photo_src,
-        :phone
+        :phone,
+        :is_vote
     )
   end
 

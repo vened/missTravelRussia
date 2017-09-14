@@ -11,7 +11,7 @@ class VotesQuery
   end
 
   def filter_role_user
-    @relation = @relation.where(_role: 'user')
+    @relation = @relation.where(_role: 'user', is_vote: true)
   end
 
   def filter_photo_exist

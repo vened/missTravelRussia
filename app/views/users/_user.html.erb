@@ -4,6 +4,7 @@
 <td>
   <%= form_for(user) do |f| %>
     <%= f.select(:role, User::ROLE.map {|role| [role, role]}) %>
+    <%= f.select(:is_vote, [['true', true], ['false', false]].map {|label, value| [label, value]}) %>
     <%= f.submit 'Change Role', :class => 'button-xs' %>
   <% end %>
 </td>

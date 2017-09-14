@@ -8,6 +8,7 @@ class User
   enum :role, [:user, :admin]
 
   field :number, type: Integer
+  field :is_vote, type: Boolean, default: true
 
   increments :number
 
