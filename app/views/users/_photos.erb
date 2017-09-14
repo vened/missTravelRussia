@@ -1,7 +1,9 @@
-<div class="profile-photos">
+<div class="profile-photos" id="profile-gallery">
 
   <%- if @root_photo.present? %>
-    <div class="profile-photo-root">
+    <div class="profile-photo-root profile-gallery-item" data-src="<%= @root_photo.photo_src %>">
+
+      <i class="fa fa-search fa-2x profile-photos-zoom"></i>
 
       <%= image_tag @root_photo.photo_src.middle, class: "img-responsive" %>
 
@@ -30,7 +32,9 @@
   <div class="profile-photos-thumb">
     <%- @user.photos.each do |photo| %>
       <%- unless photo.root %>
-        <div class="profile-photo">
+        <div class="profile-photo profile-gallery-item" data-src="<%= photo.photo_src.large %>">
+
+          <i class="fa fa-search fa-2x profile-photos-zoom"></i>
 
           <%= image_tag photo.photo_src.thumb, class: "img-responsive" %>
 
