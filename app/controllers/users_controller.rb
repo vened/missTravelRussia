@@ -10,6 +10,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @root_photo = @user.photos.present? ? @user.photos.find_by(root: true) : nil
+
+    @user_prev = User.where(number: @user.number - 1, _role: 'user').first
+    @user_next = User.where(number: @user.number + 1, _role: 'user').first
+
+    @user_position = User.where(votes: { '$gt': @user.votes }).length + 1
   end
 
   def edit

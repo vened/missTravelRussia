@@ -7,6 +7,7 @@ class VotesQuery
   def call
     filter_role_user
     filter_photo_exist
+    sort_by_votes
     @relation
   end
 
@@ -26,14 +27,8 @@ class VotesQuery
   end
 
   # сортировка по цене
-  def sort_by_price(params)
-    sort_by_price = params[:sort_by_price].to_i
-
-    if sort_by_price != 0
-      @relation = @relation.order_by(pricing_sale_price: sort_by_price)
-    else
-      @relation = @relation.order_by(pricing_sale_price: 1)
-    end
+  def sort_by_votes()
+    @relation = @relation.order_by(votes: -1)
   end
 
 end

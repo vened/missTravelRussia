@@ -1,1 +1,1 @@
-$(".vote-btn-container").html("<span class='btn btn-success'>Вы проголосовали <%= @user.votes %></span>");
+$(".vote-btn-container").html("<%= escape_javascript(render 'users/votes_btn') %>");
