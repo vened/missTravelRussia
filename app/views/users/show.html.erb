@@ -13,15 +13,23 @@
              }
   %>
 <%- else %>
-
-
-
   <%= render partial: "shared/meta_og",
              locals: {title: "Посмотрите какая девушка!",
                       desc: "#{@user.name} участвует в конкурсе красоты Мисс Туризм 2017! Проголосуйте за нее!",
                       photo: @root_photo ? @root_photo.photo_src.large : nil
              }
   %>
+<% end %>
+
+<div class="vote-btn-container">
+  <%== link_to 'Проголосовать за участницу', voteable_path(@user), remote: true %>
+</div>
+<% if user_signed_in? && VotesQuery.new.is_votes(current_user, @user.id)%>
+  <div class="text-center">
+    <%== link_to 'Проголосовать за участницу', voteable_path(@user), remote: true %>
+    <br>
+    <%= @user.votes %>
+  </div>
 <% end %>
 
 <div class="profile">

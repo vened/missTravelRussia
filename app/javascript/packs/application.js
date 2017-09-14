@@ -37,5 +37,12 @@ $(document).ready(function() {
       '',
     ],
   });
+
+  $("a[data-remote]").on("ajax:success", function(e, data, status, xhr) {
+    console.log(e)
+    console.log(data);
+  });
+
+
 });
 

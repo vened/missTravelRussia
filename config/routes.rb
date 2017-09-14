@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :votes, only: [:index]
   get 'votes/:id' => 'votes#anketa', as: 'anketa'
+  get 'votes/voteable/:id' => 'users#voteable', as: 'voteable'
 
   resources :users, path: 'members', only: [:index, :show, :edit, :update, :destroy]
   post 'members/upload/:id' => 'users#upload', as: 'members_upload'

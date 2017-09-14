@@ -5,6 +5,10 @@ class User
   include Mongoid::Timestamps
   include Mongoid::Autoinc
 
+  field :votes, type: Integer
+
+  embeds_many :user_voteables
+
   enum :role, [:user, :admin]
 
   field :number, type: Integer
@@ -105,7 +109,6 @@ class User
   validates :work_experience, presence: true, on: :update
   validates :position, presence: true, on: :update
   validates :name, presence: true, on: :update
-
 
   paginates_per 9
 end

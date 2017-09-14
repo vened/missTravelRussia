@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   protect_from_forgery with: :exception
-  before_action :authenticate_user!, only: [:edit, :update, :upload, :edit_photo, :destroy_photo, :destroy]
-  after_action :verify_authorized, only: [:edit, :update, :upload, :edit_photo, :destroy_photo, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :upload, :edit_photo, :destroy_photo, :destroy, :voteable]
+  after_action :verify_authorized, only: [:edit, :update, :upload, :edit_photo, :destroy_photo, :destroy, :voteable]
 
   def index
     @users = policy_scope(User)
@@ -73,6 +73,18 @@ class UsersController < ApplicationController
     authorize user
     user.destroy
     redirect_to users_path, :notice => "User deleted."
+  end
+
+  def voteable
+    authorize current_user
+    @user = VoteableService.new.call(current_user, params[:id])
+    # render json: @user
+    # redirect_to user_path(@user), :notice => notice
+    respond_to do |format|
+      format.html {redirect_to @user}
+      format.js
+      format.json {render json: @user, location: @user}
+    end
   end
 
   private

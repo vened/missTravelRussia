@@ -18,6 +18,13 @@ class VotesQuery
     @relation = @relation.where(photos: {'$elemMatch': {root: true}})
   end
 
+  def is_votes(current_user, voteable_user_id)
+    if current_user.user_voteables.where(user_voteable_id: voteable_user_id).exists?
+      return false
+    end
+    return true
+  end
+
   # сортировка по цене
   def sort_by_price(params)
     sort_by_price = params[:sort_by_price].to_i

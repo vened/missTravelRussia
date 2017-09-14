@@ -8,6 +8,13 @@ class CreateUsersService
     user = User.find_or_create_by!(email: Rails.application.secrets.admin_email) do |user|
       user.password = Rails.application.secrets.admin_password
       user.password_confirmation = Rails.application.secrets.admin_password
+      user.name = 'Екатерина Антонова'
+      user.about = 'about Екатерина Антонова'
+      user.organization = 'Lavel Travel'
+      user.organization_site = 'https://level.travel/'
+      user.position = 'Директор'
+      user.work_experience = 99
+      user.age = 18
     end
     user.admin!
     log(user)
