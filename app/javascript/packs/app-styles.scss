@@ -2,7 +2,6 @@
 @import "fonts/stylesheet";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 @import "~font-awesome/scss/font-awesome";
-
 @import "header";
 @import "profile";
 @import "footer";
@@ -12,19 +11,32 @@
 @import "owl/assets/owl.carousel";
 @import "owl/assets/owl.theme.default";
 
-.alert{
+.alert {
 	margin: 15px 0;
 }
+
 body {
 	position: relative;
 	min-height: 100vh;
 	padding: 0 0 90px;
+	background-image: url('img/fon@2x.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
 }
-.container-body{
+
+.container-body {
 	padding: 32px 0;
 }
 
-abbr[title], abbr[data-original-title]{
+.content-container {
+	padding: 0 20px 110px;
+	background-color: #fff;
+	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+abbr[title], abbr[data-original-title] {
 	border: none;
 	text-decoration: none;
 }
