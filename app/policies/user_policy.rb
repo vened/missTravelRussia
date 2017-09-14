@@ -36,6 +36,10 @@ class UserPolicy
     @current_user.admin? || @current_user.user? or @current_user == @user
   end
 
+  def profile?
+    @current_user == @user
+  end
+
   def update?
     @current_user.admin? || @current_user.user? or @current_user == @user
   end

@@ -5,7 +5,7 @@
 
       <%= image_tag @root_photo.photo_src.middle, class: "img-responsive" %>
 
-      <% if user_signed_in? %>
+      <% if user_signed_in? && policy(@user).profile? %>
         <div class="profile-photo-actions">
           <%= link_to members_photo_path(@user, @root_photo),
                       method: :delete,
@@ -34,7 +34,7 @@
 
           <%= image_tag photo.photo_src.thumb, class: "img-responsive" %>
 
-          <% if user_signed_in? %>
+          <% if user_signed_in? && policy(@user).profile? %>
             <div class="profile-photo-actions">
               <%= simple_form_for photo,
                                   :url => members_edit_photo_path(@user, photo),
@@ -69,10 +69,12 @@
   </div>
 </div>
 
-<div style="margin: 24px 0">
-  Для выбора главного фото профиля кликните на иконку с галочкой
-  <span class="btn btn-default btn-xs"><i class="fa fa-check-circle-o profile-photo-btn-root-icon"></i></span>
-</div>
+<% if user_signed_in? && policy(@user).profile? %>
+  <div style="margin: 24px 0">
+    Для выбора главного фото профиля кликните на иконку с галочкой
+    <span class="btn btn-default btn-xs"><i class="fa fa-check-circle-o profile-photo-btn-root-icon"></i></span>
+  </div>
+<% end %>
 
 <div style="margin: 24px 0">
   <span class="text-muted">Рейтинг:</span>
