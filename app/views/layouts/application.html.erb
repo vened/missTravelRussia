@@ -20,6 +20,15 @@
   <%== javascript_pack_tag 'application' %>
 </head>
 <body>
+<!— Global Site Tag (gtag.js) - Google Analytics —>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-39953962-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', 'UA-39953962-1');
+</script>
 <%== render 'header/header' %>
 <%== render 'layouts/messages' %>
 <%== yield %>
