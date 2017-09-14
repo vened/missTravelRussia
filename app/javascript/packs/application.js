@@ -14,7 +14,7 @@ import './owl/owl.carousel';
 $(document).ready(function() {
   $('.home-users').owlCarousel({
     naw: true,
-    loop: true,
+    loop: false,
     margin: 20,
     items: 5,
     responsiveClass: true,
