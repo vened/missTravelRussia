@@ -21,6 +21,7 @@ set :branch, 'master'
 set :rvm_use_path, "/home/#{fetch(:user)}/.rvm/bin/rvm"
 
 set :rails_env, 'production'
+set :keep_releases, 10
 
 task :environment do
   invoke :'rvm:use', 'ruby-2.4.1-p111@default'
