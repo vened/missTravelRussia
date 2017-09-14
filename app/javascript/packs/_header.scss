@@ -1,11 +1,11 @@
 header {
 	position: relative;
-	height: 481px;
-	background-image: url('img/banner-hp.jpg');
+	height: 642px;
+	background-image: url('img/banner-hp-new.jpg');
 	background-position: top center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	border-bottom: 7px solid #ffcc00;
+	//border-bottom: 7px solid #ffcc00;
 
 	&:before {
 		content: '';
@@ -21,7 +21,7 @@ header {
 }
 
 .header-collapse{
-	height: 99px;
+	height: 92px;
 }
 
 .navbar {
@@ -58,7 +58,7 @@ header {
 
 .header-title {
 	position: relative;
-	margin: 75px 0;
+	margin: 160px 0 100px;
 	z-index: 3;
 	font-family: 'Roboto Slab';
 	font-size: 76px;

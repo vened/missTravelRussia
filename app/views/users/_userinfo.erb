@@ -4,7 +4,7 @@
     <%= @user.created_at.present? && @user.created_at.strftime("%d.%m.%Y") %>
   </div>
 
-  <% if user_signed_in? && policy(@user).edit? %>
+  <% if user_signed_in? && policy(@user).profile? %>
     <%= link_to edit_user_path(@user), class: 'profile-edit-link' do %>
       <span class="profile-edit-link__label">Редактировать</span>
       <i class="profile-edit-link__icon fa fa-cog" aria-hidden="true"></i>
@@ -35,7 +35,8 @@
             Стаж
           </div>
           <div class="profile-info-item-body">
-            <%= t('datetime.distance_in_words.x_years', count: @user.work_experience, locale: :ru) %>
+            <%= @user.work_experience %>
+            <%#= t('datetime.distance_in_words.x_years', count: @user.work_experience, locale: :ru) %>
           </div>
         </div>
       <% end %>
@@ -82,33 +83,35 @@
   </div>
 <% end %>
 
-<div class="text-muted" style="margin-bottom: 32px">
-  <i class="fa fa-eye-slash" style="font-size: 24px"></i>
-  Скрытая информация, для связи администрации с участницей
-</div>
+<% if user_signed_in? && policy(@user).profile? %>
+  <div class="text-muted" style="margin-bottom: 32px">
+    <i class="fa fa-eye-slash" style="font-size: 24px"></i>
+    Скрытая информация, для связи администрации с участницей
+  </div>
 
-<%- if @user.phone.present? %>
-  <div class="profile-info" style="margin-top: 32px">
-    <div class="profile-info-item">
-      <div class="profile-label">
-        Телефон для связи
-      </div>
-      <div class="profile-info-item-body">
-        <%= @user.phone %>
+  <%- if @user.phone.present? %>
+    <div class="profile-info" style="margin-top: 32px">
+      <div class="profile-info-item">
+        <div class="profile-label">
+          Телефон для связи
+        </div>
+        <div class="profile-info-item-body">
+          <%= @user.phone %>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 
-<%- if @user.email.present? %>
-  <div class="profile-info" style="margin-top: 16px">
-    <div class="profile-info-item">
-      <div class="profile-label">
-        Email
-      </div>
-      <div class="profile-info-item-body">
-        <%= @user.email %>
+  <%- if @user.email.present? %>
+    <div class="profile-info" style="margin-top: 16px">
+      <div class="profile-info-item">
+        <div class="profile-label">
+          Email
+        </div>
+        <div class="profile-info-item-body">
+          <%= @user.email %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 <% end %>

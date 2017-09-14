@@ -12,6 +12,7 @@ class User
   enum :role, [:user, :admin]
 
   field :number, type: Integer
+  field :is_vote, type: Boolean, default: true
 
   increments :number
 
@@ -111,4 +112,9 @@ class User
   validates :name, presence: true, on: :update
 
   paginates_per 9
+
+  def to_param
+    number.to_s
+  end
+
 end
