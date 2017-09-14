@@ -66,6 +66,7 @@ end
 gem 'foreman'
 # Added at 2017-08-11 10:29:14 +0300 by max:
 gem "omniauth-facebook", "~> 4.0"
+gem 'omniauth-vkontakte'
 
 # Added at 2017-08-16 21:19:06 +0300 by max:
 gem "carrierwave", "~> 1.1"

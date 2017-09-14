@@ -22,7 +22,7 @@ class User
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:facebook]
+         :omniauthable, :omniauth_providers => [:facebook, :vkontakte]
 
   ## Database authenticatable
   field :email, type: String, default: ""
@@ -73,6 +73,9 @@ class User
   embeds_many :photos, cascade_callbacks: true
 
   def self.from_omniauth(auth)
+    p "====="
+    p auth
+    p "====="
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
@@ -85,6 +88,9 @@ class User
   end
 
   def self.new_with_session(params, session)
+    p "====="
+    p session
+    p "====="
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
         user.email = data["email"] if user.email.blank?

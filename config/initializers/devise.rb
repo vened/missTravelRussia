@@ -253,10 +253,12 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   if Rails.env.development?
     config.omniauth :facebook, '1716823038621169', 'b09759a20667709cc07b9ae52ed14442', scope: 'email', info_fields: 'email,name'
+    config.omniauth  :vkontakte, 'qUSN2Motjx5rCK67WNNO', '423a972b423a972b423a972bda4264c9374423a423a972b1b80e910973fd1e4a3e5f4c2'
   end
 
   if Rails.env.production?
     config.omniauth :facebook, '1730712020557436', '79f3f0bd37f5c75e310fe466a05b946e'
+    config.omniauth  :vkontakte, 'qUSN2Motjx5rCK67WNNO', '423a972b423a972b423a972bda4264c9374423a423a972b1b80e910973fd1e4a3e5f4c2'
   end
 
   # ==> Warden configuration
