@@ -81,12 +81,16 @@
 <% end %>
 
 <div style="margin: 24px 0">
-  <span class="text-muted">Рейтинг:</span>
-  <%= @user.votes %>
-  <span class="text-muted">баллов</span>
-  <span class="text-muted">Позиция:</span>
-  <%= @user_position %>
-  <span class="text-muted">место</span>
+  <%- if @user.votes.present? %>
+    <span class="text-muted">Рейтинг:</span>
+    <%= @user.votes %>
+    <span class="text-muted">баллов</span>
+  <% end %>
+  <%- if @user_position.present? %>
+    <span class="text-muted">Позиция:</span>
+    <%= @user_position %>
+    <span class="text-muted">место</span>
+  <% end %>
 </div>
 
 

@@ -28,7 +28,7 @@ $(document).ready(function() {
         nav: true,
       },
       1024: {
-        items: 5,
+        items: 3,
         nav: true,
       },
     },

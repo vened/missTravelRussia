@@ -1,5 +1,10 @@
-<span class='btn btn-success disabled'>
-  Вы проголосовали
-</span>
-<br>
-рейтинг участницы - <%= @user.votes %>
+<% if user_signed_in? %>
+  <span class='btn btn-success disabled'>Вы проголосовали</span>
+<% else %>
+  Что бы голосовать необходимо
+  <br>
+  <br>
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    войти на сайт
+  </button>
+<% end %>

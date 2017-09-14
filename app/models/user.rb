@@ -5,7 +5,7 @@ class User
   include Mongoid::Timestamps
   include Mongoid::Autoinc
 
-  field :votes, type: Integer
+  field :votes, type: Integer, default: 0
 
   embeds_many :user_voteables
 

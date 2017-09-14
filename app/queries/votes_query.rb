@@ -20,7 +20,7 @@ class VotesQuery
   end
 
   def is_votes(current_user, voteable_user_id)
-    if current_user.user_voteables.where(user_voteable_id: voteable_user_id).exists?
+    if current_user.user_voteables.where(user_voteable_id: "#{voteable_user_id}").exists?
       return false
     end
     return true
