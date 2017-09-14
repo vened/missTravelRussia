@@ -4,7 +4,7 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
     h1.header-title Голосуй за Мисс Туризм!
     .header-buttons
       - unless user_signed_in?
-        button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" Учавствовать
+        button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" Участвовать
       = link_to 'Голосовать', votes_path, class: 'btn btn-primary btn-lg'
 
 #myModal.modal.fade aria-labelledby="myModalLabel" role="dialog" tabindex="-1"

@@ -1,6 +1,6 @@
 class VotesController < ApplicationController
   def index
-    @users = User.where(_role: 'user')
+    @users = VotesQuery.new.call().page(params[:page])
   end
   def anketa
     @user = User.find(params[:id])

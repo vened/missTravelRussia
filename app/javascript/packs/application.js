@@ -9,8 +9,33 @@
 // import $ from 'jquery';
 // import "jquery";
 // import 'bootstrap-sass';
+import './owl/owl.carousel';
 
-// $(document).ready(function() {
-  // console.log($);
-  // $('[data-toggle="tooltip"]').tooltip();
-// });
+$(document).ready(function() {
+  $('.home-users').owlCarousel({
+    naw: true,
+    loop: true,
+    margin: 20,
+    items: 5,
+    responsiveClass: true,
+    responsive: {
+      0: {
+        items: 1,
+        nav: true,
+      },
+      600: {
+        items: 3,
+        nav: true,
+      },
+      1024: {
+        items: 5,
+        nav: true,
+      },
+    },
+    navText: [
+      '',
+      '',
+    ],
+  });
+});
+

@@ -106,4 +106,6 @@ class User
   validates :position, presence: true, on: :update
   validates :name, presence: true, on: :update
 
+
+  paginates_per 9
 end

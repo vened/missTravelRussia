@@ -80,7 +80,8 @@ gem "carrierwave-imageoptimizer", "~> 1.4"
 gem "mini_magick", "~> 4.8"
 
 # Added at 2017-08-16 21:22:33 +0300 by max:
-gem "kaminari", "~> 1.0"
+gem "kaminari"
+gem 'kaminari-mongoid'
 
 
 gem 'mina'

@@ -1,25 +1,45 @@
 <%- content_for :title do %>
-  Мисс Туризм Россия 2017
+  Мисс Туризм 2017
 <%- end %>
 <%- content_for :description do %>
-  Конкурс красоты сотрудников индустрии туризма Мисс Туризм Россия 2017.
+  Конкурс красоты cотрудниц индустрии туризма Мисс Туризм 2017.
 <%- end %>
 
-<%= render partial: "shared/meta_og",
-           locals: {title: "Мисс Туризм Россия 2017",
-                    desc: "Конкурс красоты сотрудников индустрии туризма Мисс Туризм Россия 2017.",
-                    photo: nil
-           }
-%>
+<div class="home_top">
+  ТОП участниц
+</div>
 
+<div class="owl-carousel">
+  <div> Your Content</div>
+  <div> Your Content</div>
+  <div> Your Content</div>
+  <div> Your Content</div>
+  <div> Your Content</div>
+  <div> Your Content</div>
+  <div> Your Content</div>
+</div>
 
+<div class="owl-carousel home-users">
+  <%- @users.each do |user| %>
+    <%- root_photo = user.photos.present? ? user.photos.find_by(root: true) : nil %>
+    <div class="home-users-item">
+      <%= render partial: "shared/anketa_mini",
+                 locals: {user: user,
+                          photo: root_photo,
+                 }
+      %>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'Все участницы', votes_path, class: "btn-votes" %>
 
 <h1 class="home-title">
   <div class="home-title-slogan">
-    Конкурс красоты сотрудников туриндустрии
+    Конкурс красоты cотрудниц туриндустрии
   </div>
   <div class="home-title-text">
-    Мисс Туризм Россия 2017
+    Мисс Туризм 2017
   </div>
 </h1>
 
@@ -96,7 +116,7 @@
     <div class="etaps-item-action">
       <b>Отборочный тур:</b>
       <br>
-      онлайн голосование
+      подведение итогов онлайн голосования
     </div>
   </div>
   <div class="etaps-item">
@@ -190,7 +210,7 @@
       <div class="jury-item-info">
         CEO
         <br>
-        основатель БАНКО
+        Медиахолдинг "Банко"
       </div>
     </div>
 
@@ -204,7 +224,7 @@
       <div class="jury-item-info">
         Генеральный директор
         <br>
-        сети Магазина
+        сети Магазинов
         <br>
         Горящих Путевок
       </div>

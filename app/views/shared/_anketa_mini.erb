@@ -1,0 +1,12 @@
+<%= link_to user_path(user), class: "anketa-item" do %>
+  <div class="anketa-item-img">
+    <%= image_tag photo.photo_src.middle, class: "img-responsive" %>
+  </div>
+  <div class="anketa-item-name">
+    <%= user.name %>,
+    <%= user.age %>
+  </div>
+  <div class="anketa-item-organization">
+    <%= user.organization %>
+  </div>
+<% end %>
