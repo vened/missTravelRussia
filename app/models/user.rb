@@ -108,4 +108,9 @@ class User
 
 
   paginates_per 9
+
+  def to_param
+    number.to_s
+  end
+
 end

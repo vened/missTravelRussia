@@ -8,17 +8,17 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(number: params[:id])
     @root_photo = @user.photos.present? ? @user.photos.find_by(root: true) : nil
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find_by(number: params[:id])
     authorize @user
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find_by(number: params[:id])
     authorize @user
     if @user.update_attributes!(secure_params)
       redirect_to user_path(@user), :notice => "Вы успешно заполнили анкету участника"
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   end
 
   def upload
-    @user = User.find(params[:id])
+    @user = User.find_by(number: params[:id])
     authorize @user
     if @user.photos.length < 4
       @photo = @user.photos.create(:photo_src => params[:user][:photo_src])
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
   end
 
   def edit_photo
-    @user = User.find(params[:user_id])
+    @user = User.find_by(number: params[:user_id])
     authorize @user
     @photo = @user.photos.find(params[:id])
     @user.photos.each do |photo|
@@ -58,7 +58,7 @@ class UsersController < ApplicationController
   end
 
   def destroy_photo
-    @user = User.find(params[:user_id])
+    @user = User.find_by(number: params[:user_id])
     authorize @user
     @photo = @user.photos.find(params[:id])
     @photo.destroy
@@ -69,7 +69,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    user = User.find(params[:id])
+    user = User.find_by(number: params[:id])
     authorize user
     user.destroy
     redirect_to users_path, :notice => "User deleted."
