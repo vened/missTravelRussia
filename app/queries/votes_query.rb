@@ -28,7 +28,12 @@ class VotesQuery
 
   def next_anketa(user)
     call
-    @relation.to_a[@relation.to_a.index(user)+1]
+    user_index_votes = @relation.to_a.index(user)
+    if user_index_votes
+      @relation.to_a[@relation.to_a.index(user)+1]
+    else
+      nil
+    end
     # filter_role_user
     # filter_photo_exist
     # sort_by_votes
@@ -39,7 +44,12 @@ class VotesQuery
 
   def prev_anketa(user)
     call
-    @relation.to_a[@relation.to_a.index(user)-1]
+    user_index_votes = @relation.to_a.index(user)
+    if user_index_votes
+      @relation.to_a[@relation.to_a.index(user)-1]
+    else
+      nil
+    end
     # sort_by_votes
     # @relation = @relation.order_by(number: -1)
     # @relation = @relation.where(number: { '$lt': user.number })
