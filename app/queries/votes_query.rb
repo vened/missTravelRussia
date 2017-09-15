@@ -26,6 +26,29 @@ class VotesQuery
     return true
   end
 
+  def next_anketa(user)
+    @relation = @relation.where(number: { '$gt': user.number })
+    filter_role_user
+    filter_photo_exist
+    @relation = @relation.order_by(number: 1)
+    @relation.first
+  end
+
+  def prev_anketa(user)
+    @relation = @relation.where(number: { '$lt': user.number })
+    filter_role_user
+    filter_photo_exist
+    @relation = @relation.order_by(number: -1)
+    @relation.first
+  end
+
+  def anketa_position(user)
+    @relation = @relation.where(votes: { '$gt': user.votes })
+    filter_role_user
+    filter_photo_exist
+    @relation.length + 1
+  end
+
   # сортировка по цене
   def sort_by_votes()
     @relation = @relation.order_by(votes: -1)

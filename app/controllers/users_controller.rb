@@ -11,10 +11,9 @@ class UsersController < ApplicationController
     @user = User.find_by(number: params[:id])
     @root_photo = @user.photos.present? ? @user.photos.find_by(root: true) : nil
 
-    @user_prev = User.where(number: @user.number - 1, _role: 'user').first
-    @user_next = User.where(number: @user.number + 1, _role: 'user').first
-
-    @user_position = User.where(votes: { '$gt': @user.votes }).length + 1
+    @user_prev = VotesQuery.new.prev_anketa(@user)
+    @user_next = VotesQuery.new.next_anketa(@user)
+    @user_position = VotesQuery.new.anketa_position(@user)
   end
 
   def edit
