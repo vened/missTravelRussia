@@ -196,18 +196,22 @@
 
 .jury-list {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	flex-wrap: wrap;
-	margin: 0 -30px;
+	margin: 0;
 }
 
 .jury-item {
 	//width: 220px;
-	margin: 0 30px;
+	margin: 50px 20px 0;
+}
+
+.jury-list-title{
+	margin-bottom: -20px;
 }
 
 .jury-item-photo {
-	margin: 0 0 60px;
+	margin: 0 0 30px;
 	text-align: center;
 	vertical-align: top;
 }

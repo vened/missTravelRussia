@@ -14,9 +14,19 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require bootstrap/tooltip
+//= require ./lightgallery/lightgallery/dist/js/lightgallery.min.js
+//= require ./lightgallery/lg-thumbnail/dist/lg-thumbnail.min.js
+//= require ./lightgallery/lg-fullscreen/dist/lg-fullscreen.min.js
+//= require ./lightgallery/lg-zoom/dist/lg-zoom.min.js
+//= require ./lightgallery/lg-share/dist/lg-share.min.js
+
 // bootstrap-sass
 // require_tree .
 
 $(document).ready(function() {
   $('[data-toggle="tooltip"]').tooltip();
+
+  $('#profile-gallery').lightGallery({
+    selector: '.profile-gallery-item'
+  });
 });

@@ -1,7 +1,7 @@
 .general-partner {
 	display: block;
 	height: 545px;
-	margin: 110px 0 68px;
+	margin: 0;
 	background-image: url('img/banner@2x.jpg');
 	background-size: cover;
 	background-position: center;
@@ -12,7 +12,9 @@
 	background-color: #fafafa;
 }
 .partners_1{
+	padding: 100px 0;
 	background-color: #fff;
+	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .partners-title {
@@ -29,6 +31,7 @@
 	align-items: center;
 	justify-content: center;
 	text-align: center;
+	flex-wrap: wrap;
 }
 
 .partners-link {

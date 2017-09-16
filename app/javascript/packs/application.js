@@ -14,7 +14,7 @@ import './owl/owl.carousel';
 $(document).ready(function() {
   $('.home-users').owlCarousel({
     naw: true,
-    loop: true,
+    loop: false,
     margin: 20,
     items: 5,
     responsiveClass: true,
@@ -28,7 +28,7 @@ $(document).ready(function() {
         nav: true,
       },
       1024: {
-        items: 5,
+        items: 3,
         nav: true,
       },
     },
@@ -37,5 +37,11 @@ $(document).ready(function() {
       '',
     ],
   });
+
+  $("a[data-remote]").on("ajax:success", function(e, data, status, xhr) {
+    console.log(e)
+    console.log(data);
+  });
+
 });
 

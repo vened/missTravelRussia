@@ -35,7 +35,8 @@
             Стаж
           </div>
           <div class="profile-info-item-body">
-            <%= t('datetime.distance_in_words.x_years', count: @user.work_experience, locale: :ru) %>
+            <%= @user.work_experience %>
+            <%#= t('datetime.distance_in_words.x_years', count: @user.work_experience, locale: :ru) %>
           </div>
         </div>
       <% end %>

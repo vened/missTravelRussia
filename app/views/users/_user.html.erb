@@ -1,5 +1,13 @@
 <td>
+  <%= link_to user.name, user %>
+  <br>
   <%= link_to user.email, user %>
+  <br>
+  <%= user.created_at.strftime("%d.%m.%Y %H:%M") %>
+  <br>
+  <%- if user.uid.present? %>
+    <%= link_to 'Профиль на fb', "https://fb.com/#{user.uid}", target: "_blank" %>
+  <% end %>
 </td>
 <td>
   <%= form_for(user) do |f| %>

@@ -48,6 +48,10 @@ class UserPolicy
     @current_user.admin? || @current_user.user? or @current_user == @user
   end
 
+  def voteable?
+    @current_user.admin? || @current_user.user? or @current_user == @user
+  end
+
   def edit_photo?
     @current_user.admin? || @current_user.user? or @current_user == @user
   end

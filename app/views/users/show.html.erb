@@ -13,9 +13,6 @@
              }
   %>
 <%- else %>
-
-
-
   <%= render partial: "shared/meta_og",
              locals: {title: "Посмотрите какая девушка!",
                       desc: "#{@user.name} участвует в конкурсе красоты Мисс Туризм 2017! Проголосуйте за нее!",
@@ -24,8 +21,9 @@
   %>
 <% end %>
 
+
 <div class="profile">
-  <div class="container">
+  <div class="container content-container">
 
     <div class="profile-heding">
       <div>
@@ -41,6 +39,45 @@
         <%== render 'users/photos' %>
       </div>
       <div class="profile-info-col">
+
+        <div class="votes-block">
+
+          <div class="votes-block-pager">
+            <%- if @user_prev %>
+              <%== link_to user_path(@user_prev), class: 'btn btn-default' do %>
+                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                &nbsp;
+                Предыдущая
+              <% end %>
+            <% end %>
+
+            <%- if @user_next %>
+              <%== link_to user_path(@user_next), class: 'btn btn-default' do %>
+                Следующая
+                &nbsp;
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+              <% end %>
+            <% end %>
+          </div>
+
+
+          <% if user_signed_in? && VotesQuery.new.is_votes(current_user, @user.number) %>
+            <div class="vote-btn-container text-center">
+              <%= link_to voteable_path(@user),
+                          class: 'vote-btn',
+                          remote: true do %>
+                Проголосовать за участницу
+                <%= image_tag asset_pack_path 'icon-like-red.svg' %>
+              <% end %>
+            </div>
+          <% else %>
+            <div class="vote-btn-container text-center">
+              <%= render partial: "users/votes_btn" %>
+            </div>
+          <% end %>
+        </div>
+
+
         <%== render 'users/userinfo' %>
       </div>
     </div>
@@ -48,14 +85,6 @@
     <div class="profile-social">
       <div class="profile-social-title">
         Поделитесь с друзьями
-      </div>
-      <div class="fb-share-button"
-           data-href="http://hatharoom.ru/members/59b7a3eee1fbdc56f6ef6a1b"
-           data-layout="button_count"
-           data-size="small">
-        <a class="fb-xfbml-parse-ignore"
-           target="_blank"
-           href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2hatharoom.ru%2Fmembers%259b7a3eee1fbdc56f6ef6a1b">Поделиться</a>
       </div>
       <div class="b-sign-in-buttons">
         <a href="#" class="b-sign-in-button b-sign-in-button-fb btn-shared_fb">

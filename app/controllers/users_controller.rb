@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   protect_from_forgery with: :exception
-  before_action :authenticate_user!, only: [:edit, :update, :upload, :edit_photo, :destroy_photo, :destroy]
-  after_action :verify_authorized, only: [:edit, :update, :upload, :edit_photo, :destroy_photo, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :upload, :edit_photo, :destroy_photo, :destroy, :voteable]
+  after_action :verify_authorized, only: [:edit, :update, :upload, :edit_photo, :destroy_photo, :destroy, :voteable]
 
   def index
     @users = policy_scope(User)
@@ -10,6 +10,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(number: params[:id])
     @root_photo = @user.photos.present? ? @user.photos.find_by(root: true) : nil
+
+    @user_prev = VotesQuery.new.prev_anketa(@user)
+    @user_next = VotesQuery.new.next_anketa(@user)
+    @user_position = VotesQuery.new.anketa_position(@user)
   end
 
   def edit
@@ -73,6 +77,18 @@ class UsersController < ApplicationController
     authorize user
     user.destroy
     redirect_to users_path, :notice => "User deleted."
+  end
+
+  def voteable
+    authorize current_user
+    @user = VoteableService.new.call(current_user, params[:id])
+    # render json: @user
+    # redirect_to user_path(@user), :notice => notice
+    respond_to do |format|
+      format.html {redirect_to @user}
+      format.js
+      format.json {render json: @user, location: @user}
+    end
   end
 
   private

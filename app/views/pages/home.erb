@@ -5,153 +5,151 @@
   Конкурс красоты cотрудниц индустрии туризма Мисс Туризм 2017.
 <%- end %>
 
-<div class="home_top">
-  ТОП участниц
-</div>
+<%= render partial: "shared/meta_og",
+           locals: {title: "Мисс Туризм Россия 2017",
+                    desc: "Конкурс красоты сотрудников индустрии туризма Мисс Туризм Россия 2017.",
+                    photo: nil
+           }
+%>
 
-<div class="owl-carousel">
-  <div> Your Content</div>
-  <div> Your Content</div>
-  <div> Your Content</div>
-  <div> Your Content</div>
-  <div> Your Content</div>
-  <div> Your Content</div>
-  <div> Your Content</div>
-</div>
+<div class="container content-container">
 
-<div class="owl-carousel home-users">
-  <%- @users.each do |user| %>
-    <%- root_photo = user.photos.present? ? user.photos.find_by(root: true) : nil %>
-    <div class="home-users-item">
-      <%= render partial: "shared/anketa_mini",
-                 locals: {user: user,
-                          photo: root_photo,
-                 }
-      %>
+  <div class="home_top">
+    ТОП участниц
+  </div>
+
+  <div class="owl-carousel home-users">
+    <%- @users.each do |user| %>
+      <%- root_photo = user.photos.present? ? user.photos.find_by(root: true) : nil %>
+      <div class="home-users-item">
+        <%= render partial: "shared/anketa_mini",
+                   locals: {user: user,
+                            photo: root_photo,
+                   }
+        %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to 'Все участницы', votes_path, class: "btn-votes" %>
+
+  <h1 class="home-title">
+    <div class="home-title-slogan">
+      Конкурс красоты cотрудниц туриндустрии
+    </div>
+    <div class="home-title-text">
+      Мисс Туризм 2017
+    </div>
+  </h1>
+
+  <div class="home-subtitle">
+    О КОНКУРСЕ
+  </div>
+
+  <div class="heroes">
+
+    <div class="heroes-item">
+      <div class="heroes-item-icon">
+        <%= image_tag(asset_pack_path('icon-woman.svg'), size: "90x90") %>
+      </div>
+      <div class="heroes-item-text">
+        Твоя красота затмит пейзажи Австралии, Доминиканы и Мальдив? Ты удивительна, как розовое
+        озеро в Синегале, и интересна, как фауна Мадагаскара?
+      </div>
+    </div>
+
+    <div class="heroes-item">
+      <div class="heroes-item-icon">
+        <%= image_tag(asset_pack_path('icon-18.svg'), size: "90x90") %>
+      </div>
+      <div class="heroes-item-text">
+        Тебе 18 +, ты работаешь в турбизнесе и готова украсить собой мир? Тебя ждёт зажигательный
+        всероссийский конкурс «Мисс Туризм»!
+      </div>
+    </div>
+
+    <div class="heroes-item">
+      <div class="heroes-item-icon">
+        <%= image_tag(asset_pack_path('icon-work.svg'), size: "90x90") %>
+      </div>
+      <div class="heroes-item-text">
+        Регистрируйся прямо сейчас и собирай как можно большей лайков в интернет-голосовании
+        - используй шанс стать одной из 12 участниц.
+        Для этого подключай друзей, публикуй вау-новость в своих соцсетях
+      </div>
+    </div>
+
+    <div class="heroes-item">
+      <div class="heroes-item-icon">
+        <%= image_tag(asset_pack_path('icon-hotel.svg'), size: "90x90") %>
+      </div>
+      <div class="heroes-item-text">
+        Состязание финалисток произойдёт в ноябре в шикарном отеле Турции Rixos Sungate,
+        где царит атмосфера вечного праздника и веселья.
+        И пусть победит красивейшая!
+      </div>
+    </div>
+
+  </div>
+
+  <div class="home-subtitle">
+    Этапы конкурса
+  </div>
+
+
+  <div class="etaps">
+    <div class="etaps-item">
+      <div class="etaps-item-date">
+        с 15 Сентября
+      </div>
+      <div class="etaps-item-action">
+        <b>Подача анкет:</b>
+        <br>
+        до 1000 участников
+      </div>
+    </div>
+    <div class="etaps-item">
+      <div class="etaps-item-date">
+        1 Ноября
+      </div>
+      <div class="etaps-item-action">
+        <b>Отборочный тур:</b>
+        <br>
+        подведение итогов онлайн голосования
+      </div>
+    </div>
+    <div class="etaps-item">
+      <div class="etaps-item-date">
+        5-8 Ноября
+      </div>
+      <div class="etaps-item-action">
+        <b>Финал конкурса:</b>
+        <br>
+        голосование жюри
+        Rixos Sungate
+        Белек, Турция
+      </div>
+    </div>
+  </div>
+
+
+  <div class="etaps-date-info">
+    Даты могут быть скорректированы
+  </div>
+
+  <%- unless user_signed_in? %>
+    <div class="home-action">
+      <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+        Принять участие в конкурсе
+      </button>
     </div>
   <% end %>
-</div>
 
-<%= link_to 'Все участницы', votes_path, class: "btn-votes" %>
 
-<h1 class="home-title">
-  <div class="home-title-slogan">
-    Конкурс красоты cотрудниц туриндустрии
-  </div>
-  <div class="home-title-text">
-    Мисс Туризм 2017
-  </div>
-</h1>
-
-<div class="home-subtitle">
-  О КОНКУРСЕ
-</div>
-
-<div class="heroes">
-
-  <div class="heroes-item">
-    <div class="heroes-item-icon">
-      <%= image_tag(asset_pack_path('icon-woman.svg'), size: "90x90") %>
-    </div>
-    <div class="heroes-item-text">
-      Твоя красота затмит пейзажи Австралии, Доминиканы и Мальдив? Ты удивительна, как розовое
-      озеро в Синегале, и интересна, как фауна Мадагаскара?
-    </div>
+  <div class="home-subtitle jury-list-title">
+    Жюри конкурса
   </div>
 
-  <div class="heroes-item">
-    <div class="heroes-item-icon">
-      <%= image_tag(asset_pack_path('icon-18.svg'), size: "90x90") %>
-    </div>
-    <div class="heroes-item-text">
-      Тебе 18 +, ты работаешь в турбизнесе и готова украсить собой мир? Тебя ждёт зажигательный
-      всероссийский конкурс «Мисс Туризм»!
-    </div>
-  </div>
-
-  <div class="heroes-item">
-    <div class="heroes-item-icon">
-      <%= image_tag(asset_pack_path('icon-work.svg'), size: "90x90") %>
-    </div>
-    <div class="heroes-item-text">
-      Регистрируйся прямо сейчас и собирай как можно большей лайков в интернет-голосовании
-      - используй шанс стать одной из 12 участниц.
-      Для этого подключай друзей, публикуй вау-новость в своих соцсетях
-    </div>
-  </div>
-
-  <div class="heroes-item">
-    <div class="heroes-item-icon">
-      <%= image_tag(asset_pack_path('icon-hotel.svg'), size: "90x90") %>
-    </div>
-    <div class="heroes-item-text">
-      Состязание финалисток произойдёт в ноябре в шикарном отеле Турции Rixos Sungate,
-      где царит атмосфера вечного праздника и веселья.
-      И пусть победит красивейшая!
-    </div>
-  </div>
-
-</div>
-
-<div class="home-subtitle">
-  Этапы конкурса
-</div>
-
-
-<div class="etaps">
-  <div class="etaps-item">
-    <div class="etaps-item-date">
-      с 15 Сентября
-    </div>
-    <div class="etaps-item-action">
-      <b>Подача анкет:</b>
-      <br>
-      до 1000 участников
-    </div>
-  </div>
-  <div class="etaps-item">
-    <div class="etaps-item-date">
-      1 Ноября
-    </div>
-    <div class="etaps-item-action">
-      <b>Отборочный тур:</b>
-      <br>
-      подведение итогов онлайн голосования
-    </div>
-  </div>
-  <div class="etaps-item">
-    <div class="etaps-item-date">
-      5-8 Ноября
-    </div>
-    <div class="etaps-item-action">
-      <b>Финал конкурса:</b>
-      <br>
-      голосование жюри
-      Rixos Sungate
-      Белек, Турция
-    </div>
-  </div>
-</div>
-
-
-<div class="etaps-date-info">
-  Даты могут быть скорректированы
-</div>
-
-<%- unless user_signed_in? %>
-  <div class="home-action">
-    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
-      Принять участие в конкурсе
-    </button>
-  </div>
-<% end %>
-
-
-<div class="home-subtitle">
-  Жюри конкурса
-</div>
-
-<div class="container">
   <div class="jury-list">
 
     <div class="jury-item">
@@ -208,9 +206,9 @@
         Татьяна Дмитрова
       </div>
       <div class="jury-item-info">
-        CEO
+        CEO и Основатель
         <br>
-        Медиахолдинг "Банко"
+        медиахолдинга "Банко"
       </div>
     </div>
 
