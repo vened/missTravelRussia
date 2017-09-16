@@ -96,9 +96,6 @@ class User
   end
 
   def self.new_with_session(params, session)
-    p "session ====="
-    p session
-    p "====="
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
         user.email = data["email"] if user.email.blank?
