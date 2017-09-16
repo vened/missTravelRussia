@@ -169,6 +169,8 @@ GEM
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
+    omniauth-vkontakte (1.4.0)
+      omniauth-oauth2 (~> 1.2)
     open4 (1.3.4)
     orm_adapter (0.5.0)
     public_suffix (3.0.0)
@@ -306,6 +308,7 @@ DEPENDENCIES
   mongoid-autoinc
   mongoid-enum!
   omniauth-facebook (~> 4.0)
+  omniauth-vkontakte
   puma (~> 3.10)
   pundit
   rails (~> 5.1.1)

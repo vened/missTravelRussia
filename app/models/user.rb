@@ -26,7 +26,7 @@ class User
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:facebook]
+         :omniauthable, :omniauth_providers => [:facebook, :vkontakte]
 
   ## Database authenticatable
   field :email, type: String, default: ""
@@ -73,15 +73,22 @@ class User
   ## Oauth
   field :provider, type: String
   field :uid, type: String
+  field :profile, type: String
 
   embeds_many :photos, cascade_callbacks: true
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
+      user.email = auth.info.email.present? ? auth.info.email : "#{auth.uid}@#{auth.provider}.com"
       user.password = Devise.friendly_token[0, 20]
-      user.name = auth.info.name # assuming the user model has a name
-      user.image = auth.info.image # assuming the user model has an image
+      user.name = auth.info.name
+      user.image = auth.info.image
+      if auth.provider === 'facebook'
+        user.profile = "https://fb.com/#{auth.uid}"
+      end
+      if auth.provider === 'vkontakte'
+        user.profile = auth.info.urls.Vkontakte
+      end
       # If you are using confirmable and the provider(s) you use validate emails,
       # uncomment the line below to skip the confirmation emails.
       # user.skip_confirmation!
