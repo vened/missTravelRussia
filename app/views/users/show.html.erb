@@ -61,19 +61,21 @@
           </div>
 
 
-          <% if user_signed_in? && VotesQuery.new.is_votes(current_user, @user.number) %>
-            <div class="vote-btn-container text-center">
-              <%= link_to voteable_path(@user),
-                          class: 'vote-btn',
-                          remote: true do %>
-                Проголосовать за участницу
-                <%= image_tag asset_pack_path 'icon-like-red.svg' %>
-              <% end %>
-            </div>
-          <% else %>
-            <div class="vote-btn-container text-center">
-              <%= render partial: "users/votes_btn" %>
-            </div>
+          <% if user_signed_in? && !policy(@user).profile? %>
+            <% if VotesQuery.new.is_votes(current_user, @user.number) %>
+              <div class="vote-btn-container text-center">
+                <%= link_to voteable_path(@user),
+                            class: 'vote-btn',
+                            remote: true do %>
+                  Проголосовать за участницу
+                  <%= image_tag asset_pack_path 'icon-like-red.svg' %>
+                <% end %>
+              </div>
+            <% else %>
+              <div class="vote-btn-container text-center">
+                <%= render partial: "users/votes_btn" %>
+              </div>
+            <% end %>
           <% end %>
         </div>
 

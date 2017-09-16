@@ -73,18 +73,22 @@ class User
   ## Oauth
   field :provider, type: String
   field :uid, type: String
+  field :profile, type: String
 
   embeds_many :photos, cascade_callbacks: true
 
   def self.from_omniauth(auth)
-    p "====="
-    p auth
-    p "====="
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
+      user.email = auth.info.email.present? ? auth.info.email : "#{auth.uid}@#{auth.provider}.com"
       user.password = Devise.friendly_token[0, 20]
-      user.name = auth.info.name # assuming the user model has a name
-      user.image = auth.info.image # assuming the user model has an image
+      user.name = auth.info.name
+      user.image = auth.info.image
+      if auth.provider === 'facebook'
+        user.profile = "https://fb.com/#{auth.uid}"
+      end
+      if auth.provider === 'vkontakte'
+        user.profile = auth.info.urls.Vkontakte
+      end
       # If you are using confirmable and the provider(s) you use validate emails,
       # uncomment the line below to skip the confirmation emails.
       # user.skip_confirmation!
@@ -92,7 +96,7 @@ class User
   end
 
   def self.new_with_session(params, session)
-    p "====="
+    p "session ====="
     p session
     p "====="
     super.tap do |user|

@@ -74,10 +74,12 @@
 </div>
 
 <% if user_signed_in? && policy(@user).profile? %>
-  <div style="margin: 24px 0">
-    Для выбора главного фото профиля кликните на иконку с галочкой
-    <span class="btn btn-default btn-xs"><i class="fa fa-check-circle-o profile-photo-btn-root-icon"></i></span>
-  </div>
+  <% if @user.photos.present? %>
+    <div style="margin: 24px 0">
+      Для выбора главного фото профиля кликните на иконку с галочкой
+      <span class="btn btn-default btn-xs"><i class="fa fa-check-circle-o profile-photo-btn-root-icon"></i></span>
+    </div>
+  <% end %>
 <% end %>
 
 <div style="margin: 24px 0">
