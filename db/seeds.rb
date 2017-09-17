@@ -5,5 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-# CreateUsersService.new.call
+CreateUsersService.new.call
 CreateUsersService.new.create_users

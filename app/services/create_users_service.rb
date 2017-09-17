@@ -15,6 +15,8 @@ class CreateUsersService
       user.position = 'Директор'
       user.work_experience = 99
       user.age = 18
+      user.location = 'Москва'
+      user.organization_site = 'site.ru'
     end
     user.admin!
     log(user)
@@ -33,12 +35,12 @@ class CreateUsersService
         user.position = 'Директор'
         user.work_experience = index + 1
         user.age = 18 + index
+        user.location = 'Москва'
+        user.organization_site = 'site.ru'
       end
       photo = user.photos.create(:photo_src => File.open(Rails.root.to_s + "/public/content/1.jpg"))
       photo.update(root: true)
       user.photos.create(:photo_src => File.open(Rails.root.to_s + "/public/content/2.jpg"))
-      user.photos.create(:photo_src => File.open(Rails.root.to_s + "/public/content/3.jpg"))
-      user.photos.create(:photo_src => File.open(Rails.root.to_s + "/public/content/4.jpg"))
       log(user)
     end
   end
