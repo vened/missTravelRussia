@@ -124,7 +124,7 @@ class User
   validates :location, presence: true, on: :update
   validates :organization_site, presence: true, on: :update
 
-  paginates_per 9
+  paginates_per 12
 
   def to_param
     number.to_s
