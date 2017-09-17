@@ -17,6 +17,8 @@ ru:
         work_experience: 'Cтаж'
         organization_site: 'Сайт организации'
         age: 'Возраст'
+        bdate: 'Дата рождения'
+        location: 'Город'
         phone: 'Телефон'
         telegram: 'Telegram'
         email: 'Email'

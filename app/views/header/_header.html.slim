@@ -2,10 +2,20 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
   == render 'header/navigation'
   - if request.fullpath === '/'
     h1.header-title Голосуй за Мисс Туризм!
-    .header-buttons
-      - unless user_signed_in?
-        button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" Участвовать
-      = link_to 'Голосовать', votes_path, class: 'btn btn-primary btn-lg'
+    - if user_signed_in?
+      .header-buttons
+        - if current_user.gender != 'male'
+          = link_to "МОЯ АНКЕТА", user_path(current_user), class: 'btn btn-primary btn-lg'
+        = link_to 'Голосовать', votes_path, class: 'btn btn-primary btn-lg'
+    - else
+      .b-sign-in
+        .b-sign-in-lebel Для участия или голосования авторизуйтесь через
+        .b-sign-in-buttons
+          = link_to user_facebook_omniauth_authorize_path, class: 'b-sign-in-button b-sign-in-button-fb' do
+            = image_tag asset_pack_path 'login-fb.svg'
+          = link_to user_vkontakte_omniauth_authorize_path, class: 'b-sign-in-button b-sign-in-button-vk' do
+            i.fa.fa-vk.fa-fw
+            span VKONTAKTE
 
 #myModal.modal.fade aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
   .modal-dialog role="document"
@@ -17,6 +27,7 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
       .modal-body
         - unless user_signed_in?
           .b-sign-in
+            Для участия или голосования авторизуйтесь через
             .b-sign-in-buttons
               = link_to user_facebook_omniauth_authorize_path, class: 'b-sign-in-button b-sign-in-button-fb' do
                 = image_tag asset_pack_path 'login-fb.svg'

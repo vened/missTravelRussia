@@ -11,19 +11,18 @@
           <div class="panel-body">
             <%= simple_form_for @user do |f| %>
 
-              <%= f.input :organization %>
-              <%= f.input :position %>
+              <%= f.input :name %>
+              <%= f.input :age %>
+              <%= f.input :location %>
               <%= f.input :work_experience,
                           placeholder: '4 года'
               %>
+              <%= f.input :organization %>
               <%= f.input :organization_site %>
+              <%= f.input :position %>
 
               <hr>
-
-              <%= f.input :name %>
-              <%= f.input :age %>
               <%= f.input :about, as: :text %>
-
               <hr>
 
               <div class="text-muted" style="margin-bottom: 32px">

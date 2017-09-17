@@ -1,19 +1,21 @@
 <ul class="nav navbar-nav navbar-right">
-  <li class="<%= request.fullpath === votes_path && 'active'%>">
+  <li class="<%= request.fullpath === votes_path && 'active' %>">
     <%= link_to "УЧАСТНИЦЫ КОНКУРСА", votes_path %>
   </li>
   <% if user_signed_in? %>
-    <li class="<%= request.fullpath === edit_user_path(current_user) && 'active'%>">
-      <%= link_to "МОЯ АНКЕТА", user_path(current_user) %>
-    </li>
+    <% if current_user.gender != 'male' %>
+      <li class="<%= request.fullpath === edit_user_path(current_user) && 'active' %>">
+        <%= link_to "МОЯ АНКЕТА", user_path(current_user) %>
+      </li>
+    <% end %>
     <li>
       <%= link_to 'Выход', destroy_user_session_path, :method => 'delete' %>
     </li>
     <%- if current_user.image.present? %>
       <li>
-        <%= link_to user_path(current_user), class: 'user-avatar' do %>
+        <a href="/votes/" class="user-avatar">
           <%= image_tag current_user.image, class: 'img-responsive' %>
-        <% end %>
+        </a>
       </li>
     <% end %>
   <% end %>
