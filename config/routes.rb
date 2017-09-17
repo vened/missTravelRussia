@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   get 'personal_information' => 'pages#personal_information'
 
 
-  resources :votes, only: [:index]
+  # resources :votes, only: [:index]
+  get 'votes' => 'users#votes', as: 'votes'
   get 'votes/voteable/:id' => 'users#voteable', as: 'voteable'
+  post 'votes/votes_voteable/:id' => 'users#votes_voteable', as: 'votes_voteable'
 
   resources :users, path: 'members', only: [:index, :show, :edit, :update, :destroy]
   post 'members/upload/:id' => 'users#upload', as: 'members_upload'

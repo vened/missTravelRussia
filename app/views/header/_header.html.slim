@@ -23,11 +23,10 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
       .modal-header
         button.close aria-label="Close" data-dismiss="modal" type="button"
           span aria-hidden="true"  &times;
-        h4#myModalLabel.modal-title Регистрируйся через социальнуюсь сеть
+        h4#myModalLabel.modal-title Для участия или голосования авторизуйтесь через
       .modal-body
         - unless user_signed_in?
           .b-sign-in
-            Для участия или голосования авторизуйтесь через
             .b-sign-in-buttons
               = link_to user_facebook_omniauth_authorize_path, class: 'b-sign-in-button b-sign-in-button-fb' do
                 = image_tag asset_pack_path 'login-fb.svg'

@@ -76,6 +76,13 @@
                 <%= render partial: "users/votes_btn" %>
               </div>
             <% end %>
+          <% else %>
+            <div class="vote-btn-container text-center">
+              <span type="button" class="vote-btn" data-toggle="modal" data-target="#myModal">
+                Проголосовать за участницу
+                <%= image_tag asset_pack_path 'icon-like-red.svg' %>
+              </span>
+            </div>
           <% end %>
         </div>
 
