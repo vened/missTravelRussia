@@ -4,7 +4,19 @@
       <div class="anketa-item-count-value">
         <%= user.votes %>
       </div>
-      <%= image_tag asset_pack_path 'icon-like.svg' %>
+
+      <% if user_signed_in? && !policy(user).profile? %>
+        <% if VotesQuery.new.is_votes(current_user, user.number) %>
+          <%= button_to votes_voteable_path(user), :remote => true do %>
+            <%= image_tag asset_pack_path 'icon-like-red.svg' %>
+          <%- end %>
+        <% else %>
+          <%= image_tag asset_pack_path 'icon-like.svg' %>
+        <% end %>
+      <% else %>
+        <%= image_tag asset_pack_path 'icon-like.svg' %>
+      <% end %>
+
     </div>
     <%= image_tag photo.photo_src.middle, class: "img-responsive" %>
   </div>
