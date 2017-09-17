@@ -1,11 +1,12 @@
 <div class="container content-container" style="padding: 20px 20px 100px">
-  <h1 style="margin-bottom: 50px" class="text-center">
+  <h1 class="votes-title text-center">
     Голосуй за Мисс Туризм!
   </h1>
-  <div class="row">
+
+  <div class="votes-users">
     <%- @users.each do |user| %>
       <%- root_photo = user.photos.present? ? user.photos.find_by(root: true) : nil %>
-      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <div class="votes-user">
         <%= render partial: "shared/anketa_mini",
                    locals: {user: user,
                             photo: root_photo,
