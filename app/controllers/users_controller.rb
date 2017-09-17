@@ -99,6 +99,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(
         :role,
         :name,
+        :location,
+        :about,
         :organization,
         :organization_site,
         :position,
