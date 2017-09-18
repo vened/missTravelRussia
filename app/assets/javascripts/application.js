@@ -27,6 +27,7 @@ $(document).ready(function() {
   $('[data-toggle="tooltip"]').tooltip();
 
   $('#profile-gallery').lightGallery({
-    selector: '.profile-gallery-item'
+    selector: '.profile-gallery-item',
+    subHtmlSelectorRelative: true
   });
 });
