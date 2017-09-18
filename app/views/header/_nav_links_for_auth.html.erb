@@ -1,6 +1,15 @@
 <ul class="nav navbar-nav navbar-right">
+  <li>
+    <%= link_to "О КОНКУРСЕ", '#about' %>
+  </li>
+  <li>
+    <%= link_to "ЖЮРИ", '#jury' %>
+  </li>
+  <li>
+    <%= link_to "ПАРТНЕРЫ", '#partners' %>
+  </li>
   <li class="<%= request.fullpath === votes_path && 'active' %>">
-    <%= link_to "УЧАСТНИЦЫ КОНКУРСА", votes_path %>
+    <%= link_to "УЧАСТНИЦЫ", votes_path %>
   </li>
   <% if user_signed_in? %>
     <% if current_user.gender != 'male' %>
