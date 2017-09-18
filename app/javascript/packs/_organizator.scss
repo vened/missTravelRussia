@@ -1,10 +1,26 @@
 .general-partner {
 	display: block;
-	height: 545px;
+	height: 715px;
 	margin: 0;
-	background-image: url('img/banner@2x.jpg');
+	background-image: url('img/banner.jpg');
 	background-size: cover;
 	background-position: center;
+
+	@media (max-width: 1400px){
+		height: 600px;
+	}
+	@media (max-width: 1280px){
+		height: 600px;
+	}
+	@media (max-width: 1024px){
+		height: 480px;
+	}
+	@media (max-width: 768px){
+		height: 380px;
+	}
+	@media (max-width: 400px){
+		height: 300px;
+	}
 }
 
 .partners {

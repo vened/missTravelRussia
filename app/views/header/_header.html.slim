@@ -14,7 +14,7 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
           = link_to user_facebook_omniauth_authorize_path, class: 'b-sign-in-button b-sign-in-button-fb' do
             = image_tag asset_pack_path 'login-fb.svg'
           = link_to user_vkontakte_omniauth_authorize_path, class: 'b-sign-in-button b-sign-in-button-vk' do
-            i.fa.fa-vk.fa-fw
+            /i.fa.fa-vk.fa-fw
             span VKONTAKTE
 
 #myModal.modal.fade aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
@@ -32,5 +32,5 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
               = link_to user_facebook_omniauth_authorize_path, class: 'b-sign-in-button b-sign-in-button-fb' do
                 = image_tag asset_pack_path 'login-fb.svg'
               = link_to user_vkontakte_omniauth_authorize_path, class: 'b-sign-in-button b-sign-in-button-vk' do
-                i.fa.fa-vk.fa-fw
+                /i.fa.fa-vk.fa-fw
                 span VKONTAKTE

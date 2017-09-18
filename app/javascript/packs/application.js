@@ -24,7 +24,11 @@ $(document).ready(function() {
         nav: true,
       },
       600: {
-        items: 3,
+        items: 2,
+        nav: true,
+      },
+      768: {
+        items: 2,
         nav: true,
       },
       1024: {
