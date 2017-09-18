@@ -87,18 +87,31 @@
 .home-title {
 	margin: 40px 0 100px;
 	text-align: center;
+
+	@media (max-width: 768px){
+		margin: 50px 0;
+	}
 }
 
 .home-title-slogan {
 	font-size: 32px;
 	text-align: center;
 	color: #000000;
+
+	@media (max-width: 768px){
+		font-size: 24px;
+		line-height: 32px;
+	}
 }
 
 .home-title-text {
 	font-family: 'Roboto Slab';
 	font-size: 50px;
 	font-weight: bold;
+
+	@media (max-width: 768px){
+		font-size: 32px;
+	}
 }
 
 .home-subtitle {
@@ -112,6 +125,10 @@
 
 .heroes {
 	margin: 0 0 137px;
+
+	@media (max-width: 1024px){
+		margin: 0 0 80px;
+	}
 }
 
 .heroes-item {
@@ -123,10 +140,21 @@
 	&:last-child {
 		margin: 0;
 	}
+	@media (max-width: 1024px){
+		margin: 0 0 32px;
+	}
+	@media (max-width: 420px){
+		display: block;
+	}
 }
 
 .heroes-item-icon {
 	margin-right: 32px;
+	text-align: center;
+
+	@media (max-width: 420px){
+		margin: 0 0 16px;
+	}
 }
 
 .heroes-item-text {
@@ -134,6 +162,10 @@
 	font-size: 18px;
 	text-align: left;
 	color: #000000;
+
+	@media (max-width: 420px){
+		text-align: center;
+	}
 }
 
 .etaps {
@@ -151,6 +183,20 @@
 		right: 115px;
 		height: 16px;
 		background-color: #ffcc00;
+
+		@media (max-width: 1024px){
+			top: 37px;
+ 		}
+	}
+
+	@media (max-width: 700px){
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		&:before{
+			display: none;
+		}
 	}
 }
 
@@ -169,6 +215,17 @@
 		background-color: #ffcc00;
 		border: solid 6px #ffffff;
 		border-radius: 50%;
+
+		@media (max-width: 1024px){
+			top: 26px;
+		}
+	}
+
+	@media (max-width: 700px){
+		margin: 0 0 32px;
+		&:before{
+			display: none;
+		}
 	}
 }
 
@@ -179,13 +236,29 @@
 	line-height: 1.2;
 	text-align: center;
 	color: #909090;
+
+	@media (max-width: 1024px){
+		margin: 0 0 60px;
+		font-size: 14px;
+	}
+	@media (max-width: 700px){
+		margin: 0 0 16px;
+		font-size: 20px;
+	}
 }
 
 .etaps-item-action {
 	font-size: 22px;
-	line-height: 1.09;
+	line-height: 1.4;
 	text-align: center;
 	color: #000000;
+
+	@media (max-width: 1024px){
+		font-size: 14px;
+	}
+	@media (max-width: 700px){
+		font-size: 22px;
+	}
 }
 
 .etaps-date-info {
@@ -199,6 +272,10 @@
 .home-action {
 	margin: 60px 0 150px;
 	text-align: center;
+
+	@media (max-width: 1024px){
+		margin: 60px 0 80px;
+	}
 }
 
 .jury-list {
@@ -214,7 +291,7 @@
 }
 
 .jury-list-title{
-	margin-bottom: -20px;
+	margin: 80px 0 -20px;
 }
 
 .jury-item-photo {
