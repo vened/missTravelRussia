@@ -303,6 +303,14 @@
 	display: flex;
 	justify-content: space-between;
 	margin: 0 0 16px;
+
+	@media (max-width: 510px) {
+		.btn{
+			span{
+				display: none;
+			}
+		}
+	}
 }
 
 .vote-btn {

@@ -54,23 +54,35 @@
 
         <div class="votes-block">
 
-          <div class="votes-block-pager">
-            <%- if @user_prev %>
-              <%== link_to user_path(@user_prev), class: 'btn btn-default' do %>
-                <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                &nbsp;
-                Предыдущая
+          <% if user_signed_in? && current_user != @user %>
+            <div class="votes-block-pager">
+              <%- if @user_prev %>
+                <%== link_to user_path(@user_prev), class: 'btn btn-default' do %>
+                  <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                  <span>Предыдущая</span>
+                <% end %>
+              <% else %>
+                <div></div>
               <% end %>
-            <% end %>
 
-            <%- if @user_next %>
-              <%== link_to user_path(@user_next), class: 'btn btn-default' do %>
-                Следующая
-                &nbsp;
-                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+              <% if user_signed_in? && !policy(@user).profile? %>
+                <% unless VotesQuery.new.is_votes(current_user, @user.number) %>
+                  <div class="vote-btn-container text-center">
+                    <span class='btn btn-success disabled'>Вы проголосовали</span>
+                  </div>
+                <% end %>
               <% end %>
-            <% end %>
-          </div>
+
+              <%- if @user_next %>
+                <%== link_to user_path(@user_next), class: 'btn btn-default' do %>
+                  <span>Следующая</span>
+                  <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                <% end %>
+              <% else %>
+                <div></div>
+              <% end %>
+            </div>
+          <% end %>
 
 
           <% if user_signed_in? && !policy(@user).profile? %>
@@ -82,10 +94,6 @@
                   Проголосовать за участницу
                   <%= image_tag asset_pack_path 'icon-like-red.svg' %>
                 <% end %>
-              </div>
-            <% else %>
-              <div class="vote-btn-container text-center">
-                <%= render partial: "users/votes_btn" %>
               </div>
             <% end %>
           <% else %>
