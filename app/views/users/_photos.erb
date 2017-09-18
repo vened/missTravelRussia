@@ -1,7 +1,7 @@
 <div class="profile-photos" id="profile-gallery">
 
   <%- if @root_photo.present? %>
-    <div class="profile-photo-root profile-gallery-item" data-src="<%= @root_photo.photo_src %>">
+    <div class="profile-photo-root profile-gallery-item" data-src="<%= @root_photo.photo_src %>" data-sub-html=".caption">
 
       <i class="fa fa-search fa-2x profile-photos-zoom"></i>
 
@@ -26,13 +26,19 @@
         </div>
       <% end %>
 
+      <div class="caption">
+        <h4>
+          <%= @user.name %>
+        </h4>
+      </div>
+
     </div>
   <% end %>
 
   <div class="profile-photos-thumb">
     <%- @user.photos.each do |photo| %>
       <%- unless photo.root %>
-        <div class="profile-photo profile-gallery-item" data-src="<%= photo.photo_src.large %>">
+        <div class="profile-photo profile-gallery-item" data-src="<%= photo.photo_src.large %>" data-sub-html=".caption">
 
           <i class="fa fa-search fa-2x profile-photos-zoom"></i>
 
@@ -66,6 +72,12 @@
               <% end %>
             </div>
           <% end %>
+
+          <div class="caption">
+            <h4>
+              <%= @user.name %>
+            </h4>
+          </div>
 
         </div>
       <% end %>

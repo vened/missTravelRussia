@@ -1,4 +1,4 @@
-<a href="http://sungate-ru.rixos.com/" class="general-partner" target="_blank"></a>
+<a href="http://sungate-ru.rixos.com/" class="general-partner" id="partners" target="_blank"></a>
 
 <div class="container" style="padding: 0">
   <section class="partners partners_1">
@@ -7,14 +7,14 @@
     </div>
     <div class="partners-links">
       <a
-      class="partners-link"
+      class="partners-link partners-link-1"
       href="http://www.travelstartups.ru/"
       target="_blank"
       >
         <%= image_tag(asset_pack_path('travel-startups.svg'), size: "308x35", alt: "Travel Startups - сообщество тревел предпринимателей") %>
       </a>
       <a
-      class="partners-link"
+      class="partners-link partners-link-1"
       href="http://www.onlinetours.ru/"
       target="_blank"
       >
@@ -24,36 +24,59 @@
   </section>
 </div>
 
-<section class="partners">
-  <div class="partners-title">
-    ИНФОПАРТНЕРЫ
-  </div>
-  <div class="partners-links">
-    <a
-    class="partners-link"
-    href="https://www.tourdom.ru/"
-    target="_blank"
-    >
-      <%= image_tag(asset_pack_path('logo-tourdom@2x.png'), size: "264x34", alt: "Турдом") %>
-    </a>
-    <a
-    class="partners-link"
-    href="http://www.trn-news.ru/"
-    target="_blank"
-    >
-      <%= image_tag(asset_pack_path('logo-trn.svg'), size: "151x71", alt: "Travel Russian News") %>
-    </a>
-    <a
-    class="partners-link"
-    href="https://sletat.ru/"
-    target="_blank"
-    >
-      <%= image_tag(asset_pack_path('logo-sletat@2x.png'), size: "217x66", alt: "Sletat.ru") %>
-    </a>
-    <span class="partners-link">
-      Владельцы и руководители
-      <br>
-      туристического бизнеса
-    </span>
+<section class="partners-container">
+  <div class="container partners-container-flex">
+    <section class="partners">
+      <div class="partners-title">
+        ИНФОПАРТНЕРЫ
+      </div>
+      <div class="partners-links partners-links-2 partners-links-2-border">
+        <a
+        class="partners-link"
+        href="https://www.tourdom.ru/"
+        target="_blank"
+        >
+          <%= image_tag(asset_pack_path('logo-tourdom@2x.png'), size: "244x31", alt: "Турдом") %>
+        </a>
+        <a
+        class="partners-link"
+        href="http://www.trn-news.ru/"
+        target="_blank"
+        >
+          <%= image_tag(asset_pack_path('logo-trn.svg'), size: "134x63", alt: "Travel Russian News") %>
+        </a>
+        <a
+        class="partners-link"
+        href="https://sletat.ru/"
+        target="_blank"
+        >
+          <%= image_tag(asset_pack_path('logo-sletat@2x.png'), size: "205x63", alt: "Sletat.ru") %>
+        </a>
+      </div>
+    </section>
+    <section class="partners">
+      <div class="partners-title">
+        ПАРТНЕРЫ
+      </div>
+      <div class="partners-links partners-links-2">
+        <a
+        class="partners-link"
+        href="http://iway.ru/"
+        target="_blank"
+        >
+          <%= image_tag(asset_pack_path('iway-logo.svg'), size: "110x48", alt: "iway") %>
+        </a>
+        <a
+        class="partners-link"
+        href="https://bronevik.com/"
+        target="_blank"
+        style="margin-top: 14px"
+        >
+        <span class="partner-bronevik">
+          БРОНЕВИК
+        </span>
+        </a>
+      </div>
+    </section>
   </div>
 </section>

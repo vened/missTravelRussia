@@ -58,7 +58,7 @@ header {
 		z-index: 3000;
 		padding-left: 30px;
 		padding-right: 30px;
-		background: $navbar-inverse-bg;
+		background: rgba(1, 0, 4, 0.5);
 	}
 }
 
@@ -71,7 +71,7 @@ header {
 .navbar-inverse .navbar-nav {
 	& > li {
 		& > a {
-			font-size: 18px;
+			font-size: 17px;
 			font-weight: 100;
 			text-transform: uppercase;
 
