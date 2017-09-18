@@ -252,7 +252,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   fb_info_fields = 'email,name,gender,birthday,link,hometown,locale,location'
-  vk_info = {:scope => 'friends,audio,photos'}
+  vk_info = {:scope => ''}
 
   if Rails.env.development?
     config.omniauth :facebook,

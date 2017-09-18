@@ -4,8 +4,13 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
     h1.header-title Голосуй за Мисс Туризм!
     - if user_signed_in?
       .header-buttons
-        - if current_user.gender != 'male'
-          = link_to "МОЯ АНКЕТА", user_path(current_user), class: 'btn btn-primary btn-lg'
+        - if current_user.gender != 'male' && policy(current_user).edit?
+          - if current_user.is_vote
+            = link_to "Моя анкета", user_path(current_user), class: 'btn btn-primary btn-lg'
+          -else
+            = button_to is_voted_path(current_user), class: 'btn btn-success btn-lg' do
+              |Участвовать в конкурсе
+
         = link_to 'Голосовать', votes_path, class: 'btn btn-primary btn-lg'
     - else
       .b-sign-in

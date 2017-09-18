@@ -48,6 +48,10 @@ class UserPolicy
     @current_user == @user
   end
 
+  def is_voted?
+    @current_user.admin? || @current_user.user? or @current_user == @user
+  end
+
   def votes?
     true
   end

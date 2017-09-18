@@ -1,10 +1,12 @@
 <ul class="nav navbar-nav navbar-right">
-  <li>
-    <%= link_to "О КОНКУРСЕ", '#about' %>
-  </li>
-  <li>
-    <%= link_to "ЖЮРИ", '#jury' %>
-  </li>
+  <% if request.fullpath === '/' %>
+    <li>
+      <%= link_to "О КОНКУРСЕ", '#about' %>
+    </li>
+    <li>
+      <%= link_to "ЖЮРИ", '#jury' %>
+    </li>
+  <% end %>
   <li>
     <%= link_to "ПАРТНЕРЫ", '#partners' %>
   </li>
@@ -12,10 +14,18 @@
     <%= link_to "УЧАСТНИЦЫ", votes_path %>
   </li>
   <% if user_signed_in? %>
-    <% if current_user.gender != 'male' %>
-      <li class="<%= request.fullpath === edit_user_path(current_user) && 'active' %>">
-        <%= link_to "МОЯ АНКЕТА", user_path(current_user) %>
-      </li>
+    <% if current_user.gender != 'male' && policy(current_user).edit? %>
+      <% if current_user.is_vote %>
+        <li class="<%= request.fullpath === edit_user_path(current_user) && 'active' %>">
+          <%= link_to "МОЯ АНКЕТА", user_path(current_user) %>
+        </li>
+      <% else %>
+        <li>
+          <%= button_to is_voted_path(current_user), class: 'btn-header' do %>
+            Участвовать
+          <%- end %>
+        </li>
+      <% end %>
     <% end %>
     <li>
       <%= link_to 'Выход', destroy_user_session_path, :method => 'delete' %>

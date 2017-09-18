@@ -9,7 +9,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       if(@user.gender === 'male')
         redirect_to votes_path
       else
-        redirect_to edit_user_path(@user)
+        redirect_to user_path(@user)
       end
       set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
     else
@@ -27,7 +27,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       if(@user.gender === 'male')
         redirect_to votes_path
       else
-        redirect_to edit_user_path(@user)
+        redirect_to user_path(@user)
       end
 
       set_flash_message(:notice, :success, :kind => "Vkontakte") if is_navigational_format?

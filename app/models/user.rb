@@ -18,7 +18,7 @@ class User
 
   field :number, type: Integer
 
-  field :is_vote, type: Boolean, default: true
+  field :is_vote, type: Boolean, default: false
   field :votes, type: Integer, default: 0
 
   ## Database authenticatable
@@ -93,7 +93,7 @@ class User
         gender: gender.present? ? gender : nil,
         location: location.present? ? location : nil,
         bdate: bdate.present? ? bdate : nil,
-        is_vote: gender == 'male' ? false : true
+        # is_vote: gender == 'male' ? false : true
     )
     return current_user
   end

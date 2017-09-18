@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   protect_from_forgery with: :exception
-  before_action :authenticate_user!, only: [:index, :edit, :update, :upload, :edit_photo, :destroy_photo, :destroy, :voteable]
-  after_action :verify_authorized, only: [:edit, :update, :upload, :edit_photo, :destroy_photo, :destroy, :votes, :voteable]
+  before_action :authenticate_user!, only: [:index, :edit, :update, :upload, :edit_photo, :destroy_photo, :destroy, :voteable, :is_voted]
+  after_action :verify_authorized, only: [:edit, :update, :upload, :edit_photo, :destroy_photo, :destroy, :votes, :voteable, :is_voted]
 
   def index
     @users = policy_scope(User)
@@ -84,6 +84,13 @@ class UsersController < ApplicationController
   def votes
     @users = VotesQuery.new.call().page(params[:page])
     authorize User
+  end
+
+  def is_voted
+    @user = User.find_by(number: params[:id])
+    authorize User
+    @user.update_attribute('is_vote', true)
+    redirect_to edit_user_path(@user), :notice => "Вы участвуете в конкурсе, заполните анкету"
   end
 
   def votes_voteable
