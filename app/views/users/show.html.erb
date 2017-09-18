@@ -86,23 +86,27 @@
 
 
             <% if user_signed_in? && !policy(@user).profile? %>
-              <% if VotesQuery.new.is_votes(current_user, @user.number) %>
-                <div class="vote-btn-container text-center">
-                  <%= link_to voteable_path(@user),
-                              class: 'vote-btn',
-                              remote: true do %>
-                    Проголосовать за участницу
-                    <%= image_tag asset_pack_path 'icon-like-red.svg' %>
-                  <% end %>
-                </div>
+              <% if !policy(@user).profile? %>
+                <% if VotesQuery.new.is_votes(current_user, @user.number) %>
+                  <div class="vote-btn-container text-center">
+                    <%= link_to voteable_path(@user),
+                                class: 'vote-btn',
+                                remote: true do %>
+                      Проголосовать за участницу
+                      <%= image_tag asset_pack_path 'icon-like-red.svg' %>
+                    <% end %>
+                  </div>
+                <% end %>
               <% end %>
             <% else %>
-              <div class="vote-btn-container text-center">
+              <% if !policy(@user).profile? %>
+                <div class="vote-btn-container text-center">
               <span type="button" class="vote-btn" data-toggle="modal" data-target="#myModal">
                 Проголосовать за участницу
                 <%= image_tag asset_pack_path 'icon-like-red.svg' %>
               </span>
-              </div>
+                </div>
+              <% end %>
             <% end %>
           </div>
 
