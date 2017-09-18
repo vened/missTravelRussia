@@ -1,7 +1,7 @@
 <%- content_for :og do %>
   <meta property="og:url" content="<%= request.base_url + request.original_fullpath %>" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="<%= title.present? ? title : 'Конкурс красоты missTravelRussia' %>" />
-  <meta property="og:description" content="<%= desc.present? ? desc : 'Конкурс красоты missTravelRussia' %>" />
+  <meta property="og:title" content="<%= title.present? ? title : meta_title %>" />
+  <meta property="og:description" content="<%= desc.present? ? desc : meta_desc %>" />
   <meta property="og:image" content="<%= photo.present? ? request.base_url + "#{photo}" : asset_pack_path('share.png') %>" />
 <%- end %>

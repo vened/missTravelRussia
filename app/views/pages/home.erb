@@ -1,13 +1,13 @@
 <%- content_for :title do %>
-  Мисс Туризм 2017
+  <%= meta_title %>
 <%- end %>
 <%- content_for :description do %>
-  Конкурс красоты представительниц индустрии туризма Мисс Туризм 2017.
+  <%= meta_desc %>
 <%- end %>
 
 <%= render partial: "shared/meta_og",
-           locals: {title: "Мисс Туризм Россия 2017",
-                    desc: "Конкурс красоты представительниц индустрии туризма Мисс Туризм Россия 2017.",
+           locals: {title: meta_title,
+                    desc: meta_desc,
                     photo: nil
            }
 %>

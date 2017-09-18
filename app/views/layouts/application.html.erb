@@ -5,11 +5,11 @@
   <title>
     <%== content_for?(:title) ?
              yield(:title) :
-             'Мисс Туризм 2017' %>
+             meta_title %>
   </title>
   <meta name="description" content="<%== content_for?(:description) ?
                                             yield(:description) :
-                                            'Конкурс красоты представительниц индустрии туризма Мисс Туризм 2017.' %>" />
+                                             meta_desc %>" />
 
   <%= yield :og %>
   <%== csrf_meta_tags %>
@@ -22,6 +22,7 @@
 <body>
 <%== render 'header/header' %>
 <%== render 'layouts/messages' %>
+
 <%== yield %>
 <%== render 'shared/organizator' %>
 <%== render 'layouts/footer' %>
