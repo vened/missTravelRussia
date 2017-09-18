@@ -30,7 +30,19 @@
         АНКЕТА УЧАСТНИЦЫ № <%= @user.number %>
       </div>
       <div>
-        Конкурс Мисс Туризм 2017
+        <b>
+          <%= @user_position %>
+        </b>
+        <b>
+          место
+        </b>
+        /
+        <b>
+          <%= @user.votes %>
+        </b>
+        <b>
+          голосов
+        </b>
       </div>
     </div>
 
@@ -86,23 +98,7 @@
           <% end %>
         </div>
 
-
         <%== render 'users/userinfo' %>
-      </div>
-    </div>
-
-    <div class="profile-social">
-      <div class="profile-social-title">
-        Поделитесь с друзьями
-      </div>
-      <div class="b-sign-in-buttons">
-        <a href="#" class="b-sign-in-button b-sign-in-button-fb btn-shared_fb">
-          <%= image_tag asset_pack_path 'login-fb.svg' %>
-        </a>
-        <a href="#" class="b-sign-in-button b-sign-in-button-vk">
-          <i class="fa fa-vk fa-fw"></i>
-          <span>VKONTAKTE</span>
-        </a>
       </div>
     </div>
 

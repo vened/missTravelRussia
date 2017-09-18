@@ -10,7 +10,7 @@ ru:
   simple_form:
     labels:
       user:
-        name: 'Фамилия Имя Отчество'
+        name: 'Имя и Фамилия'
         about: 'Расскажите о себе'
         organization: 'Место работы'
         position: 'Должность'

@@ -5,11 +5,9 @@
 }
 
 .profile-heding {
-	display: flex;
-	justify-content: space-between;
 	margin: 32px 0 45px;
 	font-size: 20px;
-	text-align: left;
+	text-align: center;
 	color: #000000;
 
 	@media (max-width: 662px) {
@@ -48,12 +46,13 @@
 
 .profile-created {
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-end;
+	text-align: right;
 	margin: 0 0 16px;
 }
 
 .profile-created-data {
-
+	margin: 40px 0;
 }
 
 .profile-edit-link {
@@ -65,12 +64,12 @@
 
 .profile-edit-link__label {
 	margin-right: 6px;
-	font-size: 14px;
+	font-size: 18px;
 	border-bottom: 1px dashed;
 }
 
 .profile-edit-link__icon {
-	font-size: 17px;
+	font-size: 20px;
 }
 
 .profile-job {
@@ -284,7 +283,8 @@
 }
 
 .profile-social {
-	margin: 100px 0 0;
+	margin: 24px 0 32px;
+	display: flex;
 
 	.b-sign-in-buttons {
 		padding: 0;
@@ -292,10 +292,7 @@
 }
 
 .profile-social-title {
-	font-size: 20px;
-	text-align: center;
-	color: #000000;
-	margin: 0 0 28px;
+	margin-right: 16px;
 }
 
 .votes-block {
