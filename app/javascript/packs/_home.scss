@@ -7,11 +7,11 @@
 	color: #000000;
 	text-transform: uppercase;
 
-	@media (max-width: 768px){
-		font-size: 30px;
-	}
 	@media (max-width: 1280px){
 		font-size: 40px;
+	}
+	@media (max-width: 768px){
+		font-size: 28px;
 	}
 }
 
