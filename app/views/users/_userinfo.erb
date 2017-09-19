@@ -19,7 +19,7 @@
   <%= @user.name %>
 </h1>
 <div class="profile-info" style="margin-bottom: 40px">
-  <%- if @user.age.present? %>
+  <%- if @user.age.present? && @user.age.numeric? %>
     <div class="profile-info-item">
       <div class="profile-label">
         Возраст
