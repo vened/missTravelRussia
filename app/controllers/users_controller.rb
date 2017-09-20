@@ -15,7 +15,7 @@ class UsersController < ApplicationController
           '$all' => [{'$elemMatch' => {user_voteable_id: params[:user_id]}}]
       }})
       @user = @users.find_by(number: params[:user_id])
-      @user.update(votes: @user_voteable.length)
+      @user.update_attribute(:votes, @user_voteable.length)
     end
     @users = @users.page(params[:page])
     authorize User
