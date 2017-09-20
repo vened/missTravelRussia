@@ -5,6 +5,8 @@
     <%= form_tag("/members", method: "get") do %>
       <%= label_tag(:q, "Поиск по имени:") %>
       <%= text_field_tag(:q) %>
+      <%= label_tag(:user_id, "Поиск по user_id:") %>
+      <%= text_field_tag(:user_id) %>
       <%= submit_tag("Искать") %>
     <% end %>
 

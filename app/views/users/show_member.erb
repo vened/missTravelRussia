@@ -1,0 +1,300 @@
+<div class="container content-container">
+  <br>
+  <br>
+  <br>
+  <br>
+  <dl class="dl-horizontal">
+    <dt>
+      name
+    </dt>
+    <dd>
+      <%= @user.name %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      created_at
+    </dt>
+    <dd>
+      <%= @user.created_at && @user.created_at.strftime("%d.%m.%Y %H:%M:%S") %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      updated_at
+    </dt>
+    <dd>
+      <%= @user.updated_at && @user.updated_at.strftime("%d.%m.%Y %H:%M:%S") %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      about
+    </dt>
+    <dd>
+      <%= @user.about %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      image
+    </dt>
+    <dd>
+      <%- if @user.image.present? %>
+        <%= image_tag @user.image, class: 'img-responsive' %>
+      <% end %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      organization
+    </dt>
+    <dd>
+      <%= @user.organization %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      organization_site
+    </dt>
+    <dd>
+      <%= @user.organization_site %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      position
+    </dt>
+    <dd>
+      <%= @user.position %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      work_experience
+    </dt>
+    <dd>
+      <%= @user.work_experience %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      age
+    </dt>
+    <dd>
+      <%= @user.age %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      phone
+    </dt>
+    <dd>
+      <%= @user.phone %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      gender
+    </dt>
+    <dd>
+      <%= @user.gender %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      bdate
+    </dt>
+    <dd>
+      <%= @user.bdate %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      location
+    </dt>
+    <dd>
+      <%= @user.location %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      provider
+    </dt>
+    <dd>
+      <%= @user.provider %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      uid
+    </dt>
+    <dd>
+      <%= @user.uid %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      profile
+    </dt>
+    <dd>
+      <%= @user.profile %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      photos
+    </dt>
+    <dd>
+      <div class="profile-photos" id="profile-gallery">
+
+        <%- if @root_photo.present? %>
+          <div class="profile-photo-root profile-gallery-item" data-src="<%= @root_photo.photo_src %>" data-sub-html=".caption">
+
+            <i class="fa fa-search fa-2x profile-photos-zoom"></i>
+
+            <%= image_tag @root_photo.photo_src.middle, class: "img-responsive" %>
+
+            <div class="caption">
+              <h4>
+                <%= @user.name %>
+              </h4>
+            </div>
+
+          </div>
+        <% end %>
+
+        <div class="profile-photos-thumb">
+          <%- @user.photos.each do |photo| %>
+            <%- unless photo.root %>
+              <div class="profile-photo profile-gallery-item" data-src="<%= photo.photo_src.large %>" data-sub-html=".caption">
+
+                <i class="fa fa-search fa-2x profile-photos-zoom"></i>
+
+                <%= image_tag photo.photo_src.thumb, class: "img-responsive" %>
+
+                <div class="caption">
+                  <h4>
+                    <%= @user.name %>
+                  </h4>
+                </div>
+
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </dd>
+  </dl>
+
+  <hr>
+
+  <dl class="dl-horizontal">
+    <dt>
+      за кого проголосовал
+      <br>
+      user_voteables
+    </dt>
+    <dd>
+      <%- @user.user_voteables.each do |user_id| %>
+        <%- user_vote = User.where(number: user_id.user_voteable_id).first %>
+        <%- if user_vote.present? %>
+          <div>
+            <%= link_to user_vote.name, user_path(user_vote), target: '_blank' %>
+          </div>
+        <% end %>
+      <% end %>
+    </dd>
+  </dl>
+
+  <hr>
+  <dl class="dl-horizontal">
+    <dt>
+      role
+    </dt>
+    <dd>
+      <%= @user.role %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      number
+    </dt>
+    <dd>
+      <%= @user.number %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      is_vote
+    </dt>
+    <dd>
+      <%= @user.is_vote %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      votes
+    </dt>
+    <dd>
+      <%= @user.votes %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      email
+    </dt>
+    <dd>
+      <%= @user.email %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      sign_in_count
+    </dt>
+    <dd>
+      <%= @user.sign_in_count %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      current_sign_in_at
+    </dt>
+    <dd>
+      <%= @user.current_sign_in_at && @user.current_sign_in_at.strftime("%d.%m.%Y %H:%M") %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      remember_created_at
+    </dt>
+    <dd>
+      <%= @user.remember_created_at && @user.remember_created_at.strftime("%d.%m.%Y %H:%M") %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      last_sign_in_at
+    </dt>
+    <dd>
+      <%= @user.last_sign_in_at && @user.last_sign_in_at.strftime("%d.%m.%Y %H:%M") %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      current_sign_in_ip
+    </dt>
+    <dd>
+      <%= @user.current_sign_in_ip %>
+    </dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>
+      last_sign_in_ip
+    </dt>
+    <dd>
+      <%= @user.last_sign_in_ip %>
+    </dd>
+  </dl>
+
+</div>

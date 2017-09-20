@@ -1,14 +1,24 @@
 class UsersController < ApplicationController
   protect_from_forgery with: :exception
-  before_action :authenticate_user!, only: [:index, :edit, :update, :upload, :edit_photo, :destroy_photo, :destroy, :voteable, :is_voted]
-  after_action :verify_authorized, only: [:edit, :update, :upload, :edit_photo, :destroy_photo, :destroy, :votes, :voteable, :is_voted]
+  before_action :authenticate_user!, only: [:index, :show_member, :edit, :update, :upload, :edit_photo, :destroy_photo, :destroy, :voteable, :is_voted]
+  after_action :verify_authorized, only: [:edit, :show_member, :update, :upload, :edit_photo, :destroy_photo, :destroy, :votes, :voteable, :is_voted]
 
   def index
     @users = policy_scope(User)
-    if params[:q]
+    if params[:q].present?
       @users = @users.where(name: params[:q])
     end
+    if params[:user_id].present?
+      @users = @users.where(number: params[:user_id].to_f)
+    end
     @users = @users.page(params[:page])
+    authorize User
+  end
+
+  def show_member
+    @users = policy_scope(User)
+    @user = @users.find_by(number: params[:id])
+    @root_photo = @user.photos.present? ? @user.photos.find_by(root: true) : nil
     authorize User
   end
 

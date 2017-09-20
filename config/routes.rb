@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
 
   get 'votes' => 'users#votes', as: 'votes'
+  get 'show_member/:id' => 'users#show_member', as: 'show_member'
   get 'votes/voteable/:id' => 'users#voteable', as: 'voteable'
   post 'votes/votes_voteable/:id' => 'users#votes_voteable', as: 'votes_voteable'
   post 'votes/is_voted/:id' => 'users#is_voted', as: 'is_voted'
