@@ -56,11 +56,6 @@ class VotesQuery
 
   # сортировка по голосам
   def sort_by_votes(params)
-    unless params[:votes]
-      unless params[:create_date]
-        @relation = @relation.order_by(votes: -1)
-      end
-    end
     if params[:votes] == "1"
       @relation = @relation.order_by(votes: 1)
       @relation = @relation.order_by(created_at: -1)
@@ -72,8 +67,10 @@ class VotesQuery
 
   # сортировка по дате подачи анкеты
   def sort_by_date(params)
-    unless params[:create_date]
-      @relation = @relation.order_by(created_at: -1)
+    unless params[:votes]
+      unless params[:create_date]
+        @relation = @relation.order_by(created_at: -1)
+      end
     end
     if params[:create_date] == "1"
       @relation = @relation.order_by(created_at: 1)
