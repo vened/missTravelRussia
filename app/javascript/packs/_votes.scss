@@ -102,3 +102,19 @@
 		margin: 0;
 	}
 }
+
+.sort-block{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin: 32px 0;
+}
+
+.sort-block-label{
+	font-size: 17px;
+}
+
+.sort-block-sorted{
+	margin: 0 0 0 24px;
+	font-size: 17px;
+}

@@ -13,8 +13,8 @@ class UsersController < ApplicationController
 
     @root_photo = @user.photos.present? ? @user.photos.find_by(root: true) : nil
 
-    @user_prev = VotesQuery.new.prev_anketa(@user)
-    @user_next = VotesQuery.new.next_anketa(@user)
+    @user_prev = VotesQuery.new.prev_anketa(@user, params)
+    @user_next = VotesQuery.new.next_anketa(@user, params)
     @user_position = VotesQuery.new.anketa_position(@user)
   end
 
@@ -82,7 +82,7 @@ class UsersController < ApplicationController
   end
 
   def votes
-    @users = VotesQuery.new.call().page(params[:page])
+    @users = VotesQuery.new.call(params).page(params[:page])
     authorize User
   end
 
@@ -96,7 +96,7 @@ class UsersController < ApplicationController
   def votes_voteable
     authorize current_user
     @user = VoteableService.new.call(current_user, params[:id])
-    @users = VotesQuery.new.call().page(params[:page])
+    @users = VotesQuery.new.call(params).page(params[:page])
     respond_to do |format|
       format.html {redirect_to @user}
       format.js

@@ -4,10 +4,11 @@ class VotesQuery
     @relation = relation
   end
 
-  def call
+  def call(params = {})
     filter_role_user
     filter_photo_exist
-    sort_by_votes
+    sort_by_votes(params)
+    sort_by_date(params)
     @relation
   end
 
@@ -26,48 +27,61 @@ class VotesQuery
     return true
   end
 
-  def next_anketa(user)
-    call
+  def next_anketa(user, params)
+    call(params)
     user_index_votes = @relation.to_a.index(user)
     if user_index_votes
       @relation.to_a[@relation.to_a.index(user)+1]
     else
       nil
     end
-    # filter_role_user
-    # filter_photo_exist
-    # sort_by_votes
-    # @relation = @relation.order_by(number: 1)
-    # @relation = @relation.where(votes: { '$lte': user.votes }).not.in(number: [ user.number ])
-    # @relation.first
   end
 
-  def prev_anketa(user)
-    call
+  def prev_anketa(user, params)
+    call(params)
     user_index_votes = @relation.to_a.index(user)
     if user_index_votes
       @relation.to_a[@relation.to_a.index(user)-1]
     else
       nil
     end
-    # sort_by_votes
-    # @relation = @relation.order_by(number: -1)
-    # @relation = @relation.where(number: { '$lt': user.number })
-    # filter_role_user
-    # filter_photo_exist
-    # @relation.first
   end
 
   def anketa_position(user)
-    @relation = @relation.where(votes: { '$gt': user.votes })
+    @relation = @relation.where(votes: {'$gt': user.votes})
     filter_role_user
     filter_photo_exist
     @relation.length + 1
   end
 
   # сортировка по голосам
-  def sort_by_votes()
-    @relation = @relation.order_by(votes: -1)
+  def sort_by_votes(params)
+    unless params[:votes]
+      unless params[:create_date]
+        @relation = @relation.order_by(votes: -1)
+      end
+    end
+    if params[:votes] == "1"
+      @relation = @relation.order_by(votes: 1)
+      @relation = @relation.order_by(created_at: -1)
+    end
+    if params[:votes] == "-1"
+      @relation = @relation.order_by(votes: -1)
+    end
+  end
+
+  # сортировка по дате подачи анкеты
+  def sort_by_date(params)
+    unless params[:create_date]
+      @relation = @relation.order_by(created_at: -1)
+    end
+    if params[:create_date] == "1"
+      @relation = @relation.order_by(created_at: 1)
+    end
+    if params[:create_date] == "-1"
+      @relation = @relation.order_by(created_at: -1)
+    end
+    @relation
   end
 
 end

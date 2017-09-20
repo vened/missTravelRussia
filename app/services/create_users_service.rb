@@ -25,7 +25,7 @@ class CreateUsersService
   def create_users
     arr = Array.new(20){ |index| index }
     arr.each do |index|
-      user = User.find_or_create_by!(email: "user#{index}@example.com") do |user|
+      user = User.find_or_create_by!(email: "user#{50+ index}@example.com") do |user|
         user.password = 'qwerty'
         user.password_confirmation = 'qwerty'
         user.name = 'Екатерина Антонова'
@@ -37,6 +37,7 @@ class CreateUsersService
         user.age = 18 + index
         user.location = 'Москва'
         user.organization_site = 'site.ru'
+        user.is_vote = true
       end
       photo = user.photos.create(:photo_src => File.open(Rails.root.to_s + "/public/content/1.jpg"))
       photo.update(root: true)

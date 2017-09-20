@@ -1,7 +1,7 @@
 <%- photo = user.photos.present? ? user.photos.find_by(root: true) : nil %>
-<%= link_to user_path(user), class: "anketa-item" do %>
+<%= link_to user_path(user, request.query_parameters), class: "anketa-item" do %>
   <div class="anketa-item-img">
-    <div class="anketa-item-count">
+    <div class="anketa-item-count" id="anketa-item-count-<%= user.number%>">
       <div class="anketa-item-count-value">
         <%= user.votes %>
       </div>

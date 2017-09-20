@@ -1,1 +1,1 @@
-$(".content-container").html("<%= escape_javascript(render 'users/votes') %>");
+$("#anketa-item-count-<%= @user.number%>").html("<%= escape_javascript(render 'users/anketa_count_votes') %>");

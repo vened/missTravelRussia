@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @users = VotesQuery.new.call().limit(12)
+    @users = VotesQuery.new.call().limit(10)
   end
 
   def personal_information
