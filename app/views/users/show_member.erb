@@ -196,6 +196,8 @@
       user_voteables
     </dt>
     <dd>
+      <%= @user.user_voteables.length %>
+      <hr>
       <%- @user.user_voteables.each do |user_id| %>
         <%- user_vote = User.where(number: user_id.user_voteable_id).first %>
         <%- if user_vote.present? %>
@@ -216,6 +218,8 @@
       кто проголосовал
     </dt>
     <dd>
+      <%= @user_voteable.length %>
+      <hr>
       <%- @user_voteable.each do |user| %>
         <div>
           <%= link_to user.name, show_member_path(user), target: '_blank' %>

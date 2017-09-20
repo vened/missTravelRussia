@@ -52,16 +52,16 @@ class CreateUsersService
     # @users.each do |user|
     p "==="
     p user_id
-    user = User.find_by(number: user_id)
     user_voteable = User.where({user_voteables: {
         '$all' => [{'$elemMatch' => {user_voteable_id: user_id}}]
     }})
     p "----"
+    @user = User.find_by(number: user_id)
     p "user.number #{user.number}"
     p "user.votes #{user.votes}"
     p "user_voteable.length #{user_voteable.length}"
-    user.update(votes: user_voteable.length)
-    user.save
+    @user.update(votes: user_voteable.length)
+    @user.save
     # end
   end
 
