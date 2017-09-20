@@ -59,8 +59,9 @@ class CreateUsersService
     @user = User.find_by(number: user_id)
     p "user.number #{user.number}"
     p "user.votes #{user.votes}"
-    p "user_voteable.length #{user_voteable.length}"
-    @user.update(votes: user_voteable.length)
+    votes = user_voteable.length
+    p "user_voteable.length #{votes}"
+    @user.update(votes: votes)
     @user.save
     # end
   end
