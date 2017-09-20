@@ -20,14 +20,11 @@
 
   <div class="owl-carousel home-users">
     <%- @users.each do |user| %>
-      <%- root_photo = user.photos.present? ? user.photos.find_by(root: true) : nil %>
-      <div class="home-users-item">
-        <%= render partial: "shared/anketa_mini",
-                   locals: {user: user,
-                            photo: root_photo,
-                   }
-        %>
-      </div>
+      <% cache user do %>
+        <div class="home-users-item">
+          <%= render partial: "shared/anketa_mini", locals: {user: user} %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 

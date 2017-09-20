@@ -7,9 +7,7 @@
   <%- @users.each do |user| %>
     <% cache user do %>
       <div class="votes-user">
-        <%= render partial: "shared/anketa_mini",
-                   locals: {user: user}
-        %>
+        <%= render partial: "shared/anketa_mini", locals: {user: user}%>
       </div>
     <% end %>
   <% end %>
