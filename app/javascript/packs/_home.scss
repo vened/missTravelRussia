@@ -36,8 +36,6 @@
 }
 
 .owl-nav {
-	display: flex;
-	justify-content: space-between;
 	position: absolute;
 	top: 50%;
 	left: 0;
@@ -47,6 +45,9 @@
 
 .owl-next,
 .owl-prev {
+	position: absolute;
+	right: 0;
+	top: 0;
 	width: 64px;
 	height: 64px;
 	opacity: 0.6;
@@ -59,9 +60,15 @@
 	&:hover{
 		background-color: #ccd2d8;
 	}
+
+	&.disabled{
+		display: none;
+	}
 }
 
 .owl-prev {
+	right: auto;
+	left: 0;
 	transform: rotate(180deg);
 }
 
