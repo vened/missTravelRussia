@@ -27,12 +27,26 @@
   </script>
 </head>
 <body>
-<%= render 'header/header' %>
-<%= render 'layouts/messages' %>
+<% cache current_user do %>
+  <%= render 'header/header' %>
+<% end %>
+<%- flash.each do |name, msg| %>
+  <%- if msg.is_a?(String) %>
+    <div class="container">
+      <div class="alert alert-dismissible alert-<%= name.to_s == 'notice' ? 'success' : 'danger' %>">
+        <button class="close" type="button" data-dismiss="alert" aria-hidden="true">×</button>
+        <%= content_tag :div, msg, :id => "flash_#{name}"%>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
 
 <%= yield %>
-<%= render partial: 'shared/organizator', cached: true %>
-<%= render partial: 'layouts/footer', cached: true %>
+<% cache do %>
+  <%= render partial: 'shared/organizator', cached: true %>
+  <%= render partial: 'layouts/footer', cached: true %>
+<% end %>
 
 <!— Global Site Tag (gtag.js) - Google Analytics —>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-39953962-1"></script>
