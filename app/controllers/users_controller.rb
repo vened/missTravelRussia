@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       @user_voteable = @users.where({user_voteables: {
           '$all' => [{'$elemMatch' => {user_voteable_id: params[:user_id]}}]
       }})
-      @user = @users.find_by(number: params[:user_id].to_f)
+      @user = @users.find_by(number: params[:user_id])
       @user.update(votes: @user_voteable.length)
     end
     @users = @users.page(params[:page])
