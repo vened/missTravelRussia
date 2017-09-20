@@ -9,16 +9,16 @@ class UsersController < ApplicationController
       @users = @users.where(name: params[:q])
     end
     if params[:user_id].present?
-      # @users = @users.where(number: params[:user_id].to_f)
+      @users = @users.where(number: params[:user_id].to_f)
 
-      user_is = @users.where(_role: 'user', is_vote: true)
-
-      user_is.each do |current_user|
-        user_voteable = @users.where({user_voteables: {
-            '$all' => [{'$elemMatch' => {user_voteable_id: "#{current_user.number}"}}]
-        }})
-        current_user.update_attribute(:votes, user_voteable.length)
-      end
+      # user_is = @users.where(_role: 'user', is_vote: true)
+      #
+      # user_is.each do |current_user|
+      #   user_voteable = @users.where({user_voteables: {
+      #       '$all' => [{'$elemMatch' => {user_voteable_id: "#{current_user.number}"}}]
+      #   }})
+      #   current_user.update_attribute(:votes, user_voteable.length)
+      # end
     end
     @users = @users.page(params[:page])
     authorize User
