@@ -7,7 +7,7 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
         - if current_user.gender != 'male' && policy(current_user).edit?
           - if current_user.is_vote
             = link_to "Моя анкета", user_path(current_user), class: 'btn btn-primary btn-lg'
-          -else
+          - else
             = button_to is_voted_path(current_user), class: 'btn btn-success btn-lg' do
               |Участвовать в конкурсе
 
@@ -38,3 +38,20 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
               = link_to user_vkontakte_omniauth_authorize_path, class: 'b-sign-in-button b-sign-in-button-vk' do
                 /i.fa.fa-vk.fa-fw
                 span VKONTAKTE
+
+#myModal1.modal.fade aria-labelledby="#myModal1Label" role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+        h4#myModalLabel.modal-title Условия участия в конкурсе
+      .modal-body
+        ul
+          li Для участия необходимо заполнение всех обязательных полей в анкете и публикация фотографий.
+          li Своей страницей можно делиться в социальных сетях и набирать себе больше голосов.
+          li Нельзя голосовать более 1 раза за одну и ту же участницу
+          li К участию допускаются только сотрудницы туриндустрии
+          li Модератор вправе удалить анкету участницы при публикации нецензурных фотографий
+          li Модератор может исключить участницу при обнаружении мошеннических действий и накрутки голосов.
+          li По итогам онлайн голосования 1 ноября будут выбраны 12 финалисток для поездки в Rixos Sungate на финал. Перед поездкой на финал необходимо будет еще раз подтвердить свою принадлежность к туриндустрии - визитная карточка или трудовая книжка. Участница будет дисквалифицирована в случае, если не сможет подтвердить свою принадлежность к туризму.

@@ -4,6 +4,9 @@
       <%= link_to "О КОНКУРСЕ", '#about' %>
     </li>
     <li>
+      <%= link_to "Условия участия", '#about', data: {toggle: "modal", target: "#myModal1"} %>
+    </li>
+    <li>
       <%= link_to "ЖЮРИ", '#jury' %>
     </li>
   <% end %>
@@ -17,7 +20,7 @@
     <% if current_user.gender != 'male' && policy(current_user).edit? %>
       <% if current_user.is_vote %>
         <li class="<%= request.fullpath === edit_user_path(current_user) && 'active' %>">
-          <%= link_to "МОЯ АНКЕТА", user_path(current_user) %>
+          <%= link_to "АНКЕТА", user_path(current_user) %>
         </li>
       <% else %>
         <li>

@@ -15,7 +15,7 @@ $padding-small-horizontal: 12px !default;
 $padding-xs-vertical: 1px !default;
 $padding-xs-horizontal: 6px !default;
 
-$navbar-height: 90px;
+$navbar-height: 74px;
 $navbar-inverse-bg: rgba(1, 0, 4, 0.5);
 $navbar-inverse-link-color: #fff;
 $navbar-inverse-link-hover-color: #ffcc00;
@@ -33,3 +33,5 @@ $brand-success:         #5cb85c !default;
 
 $btn-success-bg: #ffcc00 !default;
 $btn-success-color: #000000 !default;
+
+$grid-float-breakpoint: 1024px;
