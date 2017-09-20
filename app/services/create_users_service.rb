@@ -23,7 +23,7 @@ class CreateUsersService
   end
 
   def create_users
-    arr = Array.new(20){ |index| index }
+    arr = Array.new(20) {|index| index}
     arr.each do |index|
       user = User.find_or_create_by!(email: "user#{50+ index}@example.com") do |user|
         user.password = 'qwerty'
@@ -50,24 +50,25 @@ class CreateUsersService
   def update_votes(user_id)
     # @users = VotesQuery.new.call()
     # @users.each do |user|
-      p "==="
-      p user_id
-      user = User.find_by(number: user_id)
-      user_voteable = User.where({user_voteables: {
-          '$all' => [{'$elemMatch' => {user_voteable_id: user_id}}]
-      }})
-      p "----"
-      p "user.number #{user.number}"
-      p "user.votes #{user.votes}"
-      p "user_voteable.length #{user_voteable.length}"
-      user.update(votes: user_voteable.length)
+    p "==="
+    p user_id
+    user = User.find_by(number: user_id)
+    user_voteable = User.where({user_voteables: {
+        '$all' => [{'$elemMatch' => {user_voteable_id: user_id}}]
+    }})
+    p "----"
+    p "user.number #{user.number}"
+    p "user.votes #{user.votes}"
+    p "user_voteable.length #{user_voteable.length}"
+    user.update(votes: user_voteable.length)
+    user.save
     # end
   end
 
 
   private
   def log user
-    delimiter = Array.new(160){ |index| '-' }
+    delimiter = Array.new(160) {|index| '-'}
     puts delimiter.join
     puts 'CREATED USER: ' << user.email
     puts 'ROLE: ' << user.role.to_s
