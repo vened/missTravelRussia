@@ -2,27 +2,53 @@
   Голосуй за Мисс Туризм!
 </h1>
 
-<div class="search-block">
+<div class="sort-block">
   <!-- Single button -->
-  <div class="row">
-    <div class="col-lg-9">
-    </div>
 
-    <div class="col-lg-3 text-right">
-      <div class="btn-group">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Сортировать <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="#">Separated link</a></li>
-        </ul>
-      </div>
-    </div>
+  <div class="sort-block-label">
+    Сортировка:
+  </div>
 
+  <div class="sort-block-sorted">
+    <%- if params[:create_date] == "-1" %>
+      <a href='?create_date=1'>
+        По дате подачи анкеты
+        <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
+      </a>
+    <% end %>
+    <%- if params[:create_date] == "1" %>
+      <a href='?create_date=-1'>
+        По дате подачи анкеты
+        <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
+      </a>
+    <% end %>
+    <%- unless params[:create_date] %>
+      <a href='?create_date=1'>
+        По дате подачи анкеты
+        <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
+      </a>
+    <% end %>
+  </div>
+
+  <div class="sort-block-sorted">
+    <%- if params[:votes] == "-1" %>
+      <a href='?votes=1'>
+        По количеству голосов
+        <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
+      </a>
+    <% end %>
+    <%- if params[:votes] == "1" %>
+      <a href='?votes=-1'>
+        По количеству голосов
+        <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
+      </a>
+    <% end %>
+    <%- unless params[:votes] %>
+      <a href='?votes=-1'>
+        По количеству голосов
+        <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
+      </a>
+    <% end %>
   </div>
 </div>
 
