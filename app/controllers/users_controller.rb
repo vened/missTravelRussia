@@ -18,6 +18,11 @@ class UsersController < ApplicationController
   def show_member
     @users = policy_scope(User)
     @user = @users.find_by(number: params[:id])
+
+    @user_voteable = @users.where({user_voteables: {
+        '$all' => [{'$elemMatch' => {user_voteable_id: params[:id]}}]
+    }})
+
     @root_photo = @user.photos.present? ? @user.photos.find_by(root: true) : nil
     authorize User
   end

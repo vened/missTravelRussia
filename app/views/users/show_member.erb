@@ -200,9 +200,30 @@
         <%- user_vote = User.where(number: user_id.user_voteable_id).first %>
         <%- if user_vote.present? %>
           <div>
+            <%= link_to user_vote.name, show_member_path(user_vote), target: '_blank' %>
+            |
             <%= link_to user_vote.name, user_path(user_vote), target: '_blank' %>
+            |
+            <%= link_to "social id #{user_vote.name}", user_vote.profile, target: '_blank' %>
           </div>
         <% end %>
+      <% end %>
+    </dd>
+  </dl>
+
+  <dl class="dl-horizontal">
+    <dt>
+      кто проголосовал
+    </dt>
+    <dd>
+      <%- @user_voteable.each do |user| %>
+        <div>
+          <%= link_to user.name, show_member_path(user), target: '_blank' %>
+          |
+          <%= link_to user.name, user_path(user), target: '_blank' %>
+          |
+          <%= link_to "social id #{user.name}", user.profile, target: '_blank' %>
+        </div>
       <% end %>
     </dd>
   </dl>
