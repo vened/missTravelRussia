@@ -10,6 +10,27 @@
   </div>
 
   <div class="sort-block-sorted">
+    <%- if params[:votes] == "-1" %>
+      <a href='?votes=1'>
+        По количеству голосов
+        <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
+      </a>
+    <% end %>
+    <%- if params[:votes] == "1" %>
+      <a href='?votes=-1'>
+        По количеству голосов
+        <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
+      </a>
+    <% end %>
+    <%- unless params[:votes] %>
+      <a href='?votes=-1'>
+        По количеству голосов
+        <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
+      </a>
+    <% end %>
+  </div>
+
+  <div class="sort-block-sorted">
     <%- if params[:create_date] == "-1" %>
       <a href='?create_date=1'>
         По дате подачи анкеты
@@ -30,26 +51,6 @@
     <% end %>
   </div>
 
-  <div class="sort-block-sorted">
-    <%- if params[:votes] == "-1" %>
-      <a href='?votes=1'>
-        По количеству голосов
-        <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
-      </a>
-    <% end %>
-    <%- if params[:votes] == "1" %>
-      <a href='?votes=-1'>
-        По количеству голосов
-        <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
-      </a>
-    <% end %>
-    <%- unless params[:votes] %>
-      <a href='?votes=-1'>
-        По количеству голосов
-        <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
-      </a>
-    <% end %>
-  </div>
 </div>
 
 <div class="votes-users">
