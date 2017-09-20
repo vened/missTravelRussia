@@ -5,14 +5,13 @@
 
 <div class="votes-users">
   <%- @users.each do |user| %>
-    <%- root_photo = user.photos.present? ? user.photos.find_by(root: true) : nil %>
-    <div class="votes-user">
-      <%= render partial: "shared/anketa_mini",
-                 locals: {user: user,
-                          photo: root_photo,
-                 }
-      %>
-    </div>
+    <% cache user do %>
+      <div class="votes-user">
+        <%= render partial: "shared/anketa_mini",
+                   locals: {user: user}
+        %>
+      </div>
+    <% end %>
   <% end %>
 </div>
 <%= paginate @users, params: {controller: 'users', action: 'votes'} %>

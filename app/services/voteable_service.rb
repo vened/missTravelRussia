@@ -9,7 +9,9 @@ class VoteableService
       current_user.user_voteables.create(
           user_voteable_id: voteable_user_id
       )
-      user.inc(votes: 1)
+      # user.inc(votes: 1)
+      # заменил на update, для обновления updated_at
+      user.update(votes: user.votes + 1)
     end
     return user
   end

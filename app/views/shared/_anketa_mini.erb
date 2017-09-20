@@ -1,3 +1,4 @@
+<%- photo = user.photos.present? ? user.photos.find_by(root: true) : nil %>
 <%= link_to user_path(user), class: "anketa-item" do %>
   <div class="anketa-item-img">
     <div class="anketa-item-count">
