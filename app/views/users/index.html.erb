@@ -1,6 +1,13 @@
 <div class="container container-body content-container">
   <div class="row">
     <h3>Users</h3>
+
+    <%= form_tag("/members", method: "get") do %>
+      <%= label_tag(:q, "Поиск по имени:") %>
+      <%= text_field_tag(:q) %>
+      <%= submit_tag("Искать") %>
+    <% end %>
+
     <div class="column">
       <table class="table">
         <tbody>
@@ -12,5 +19,6 @@
         </tbody>
       </table>
     </div>
+    <%= paginate @users, params: {controller: 'users', action: 'index'} %>
   </div>
 </div>

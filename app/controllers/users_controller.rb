@@ -5,6 +5,10 @@ class UsersController < ApplicationController
 
   def index
     @users = policy_scope(User)
+    if params[:q]
+      @users = @users.where(name: params[:q])
+    end
+    @users = @users.page(params[:page])
     authorize User
   end
 
