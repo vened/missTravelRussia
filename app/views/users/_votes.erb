@@ -5,11 +5,9 @@
 
 <div class="votes-users">
   <%- @users.each do |user| %>
-    <% cache user do %>
-      <div class="votes-user">
-        <%= render partial: "shared/anketa_mini", locals: {user: user}%>
-      </div>
-    <% end %>
+    <div class="votes-user">
+      <%= render partial: "shared/anketa_mini", locals: {user: user} %>
+    </div>
   <% end %>
 </div>
 <%= paginate @users, params: {controller: 'users', action: 'votes'} %>
