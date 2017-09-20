@@ -7,5 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 # CreateUsersService.new.call
 # CreateUsersService.new.create_users
-ENV["userId"]
-CreateUsersService.new.update_votes(ENV["userId"])
+if ENV["userId"]
+  CreateUsersService.new.update_votes(ENV["userId"])
+end

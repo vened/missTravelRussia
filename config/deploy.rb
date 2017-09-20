@@ -91,18 +91,18 @@ end
 desc "Seed data to the database"
 task :dbseed => :environment do
   command "cd #{fetch(:current_path)}/"
-  command "bundle exec rake db:seed RAILS_ENV=#{fetch(:rails_env)}"
+  command "bundle exec rake db:seed RAILS_ENV=#{fetch(:rails_env)} userId=4468"
   command  %[echo "-----> Rake Seeding Completed."]
 end
 
-desc "reset database"
-task :dbreset => :environment do
-  command "cd #{fetch(:current_path)}/"
+# desc "reset database"
+# task :dbreset => :environment do
+#   command "cd #{fetch(:current_path)}/"
   # command "bundle exec rake db:drop RAILS_ENV=#{fetch(:rails_env)}"
   # command "bundle exec rake db:create RAILS_ENV=#{fetch(:rails_env)}"
   # command "bundle exec rake db:seed RAILS_ENV=#{fetch(:rails_env)}"
-  command  %[echo "-----> Rake Seeding Completed."]
-end
+  # command  %[echo "-----> Rake Seeding Completed."]
+# end
 
 # For help in making your deploy script, see the Mina documentation:
 #
