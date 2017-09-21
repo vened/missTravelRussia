@@ -20,11 +20,9 @@
 
   <div class="owl-carousel home-users">
     <%- @users.each do |user| %>
-      <% cache user do %>
-        <div class="home-users-item">
-          <%= render partial: "shared/anketa_mini", locals: {user: user} %>
-        </div>
-      <% end %>
+      <div class="home-users-item">
+        <%= render partial: "shared/anketa_mini", locals: {user: user} %>
+      </div>
     <% end %>
   </div>
 
