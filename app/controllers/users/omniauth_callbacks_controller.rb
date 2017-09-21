@@ -7,7 +7,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if @user.persisted?
       sign_in @user, :event => :authentication
       if(@user.gender === 'male')
-        redirect_to votes_path
+        # redirect_to votes_path
+        redirect_to(request.env['HTTP_REFERER'])
       else
         redirect_to user_path(@user)
       end
@@ -25,7 +26,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       # sign_in_and_redirect @user, :event => :authentication
       sign_in @user, :event => :authentication
       if(@user.gender === 'male')
-        redirect_to votes_path
+        # redirect_to votes_path
+        redirect_to(request.env['HTTP_REFERER'])
       else
         redirect_to user_path(@user)
       end
