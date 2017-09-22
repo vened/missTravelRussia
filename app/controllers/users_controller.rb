@@ -135,6 +135,7 @@ class UsersController < ApplicationController
   def voteable
     authorize current_user
     @user = VoteableService.new.call(current_user, params[:id])
+    @user_position = VotesQuery.new.anketa_position(@user)
     respond_to do |format|
       format.html {redirect_to @user}
       format.js

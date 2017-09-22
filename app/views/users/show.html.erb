@@ -30,26 +30,14 @@
         <div>
           АНКЕТА УЧАСТНИЦЫ № <%= @user.number %>
         </div>
-        <div>
-          <b>
-            <%= @user_position %>
-          </b>
-          <b>
-            место
-          </b>
-          /
-          <b>
-            <%= @user.votes %>
-          </b>
-          <b>
-            голосов
-          </b>
+        <div class="profile-position">
+          <%= render 'users/anketa_count' %>
         </div>
       </div>
 
       <div class="profile-container">
         <div class="profile-photos-col">
-            <%== render 'users/photos' %>
+          <%== render 'users/photos' %>
         </div>
         <div class="profile-info-col">
 
@@ -101,10 +89,10 @@
             <% else %>
               <% if !policy(@user).profile? %>
                 <div class="vote-btn-container text-center">
-              <a href="#" class="vote-btn" data-toggle="modal" data-target="#myModal">
-                Проголосовать за участницу
-                <%= image_tag asset_pack_path 'icon-like-red.svg' %>
-              </a>
+                  <a href="#" class="vote-btn" data-toggle="modal" data-target="#myModal">
+                    Проголосовать за участницу
+                    <%= image_tag asset_pack_path 'icon-like-red.svg' %>
+                  </a>
                 </div>
               <% end %>
             <% end %>
