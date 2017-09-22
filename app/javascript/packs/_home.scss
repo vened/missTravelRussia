@@ -283,6 +283,11 @@
 	@media (max-width: 1024px){
 		margin: 60px 0 80px;
 	}
+	@media (max-width: 400px){
+		.hide-xs{
+			display: none;
+		}
+	}
 }
 
 .jury-list {

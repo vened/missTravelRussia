@@ -1,4 +1,16 @@
-<a href="http://sungate-ru.rixos.com/" class="general-partner" id="partners" target="_blank"></a>
+<%- if request.fullpath === "/" %>
+  <a href="http://sungate-ru.rixos.com/" class="general-partner" id="partners" target="_blank">
+    <h2 class="general-partner-title">Генеральный партнер</h2>
+    <span class="general-partner-logo"></span>
+  </a>
+<% else %>
+  <div class="container general-partner-container">
+    <div class="partners-title">Генеральный партнер</div>
+    <a href="http://sungate-ru.rixos.com/" class="general-partner general-partner-mini" id="partners" target="_blank">
+      <span class="general-partner-logo"></span>
+    </a>
+  </div>
+<% end %>
 
 <div class="container" style="padding: 0">
   <section class="partners partners_1">
@@ -50,7 +62,7 @@
         href="https://sletat.ru/"
         target="_blank"
         >
-          <%= image_tag(asset_pack_path('logo-sletat@2x.png'), size: "205x63", alt: "Sletat.ru") %>
+          <%= image_tag(asset_pack_path('logo-sletat.svg'), size: "205x63", alt: "Sletat.ru") %>
         </a>
       </div>
     </section>
@@ -70,9 +82,22 @@
         class="partners-link"
         href="https://bronevik.com/"
         target="_blank"
-        style="margin-top: 14px"
         >
-          <%= image_tag(asset_pack_path('bronevik.png'), size: "200x56", alt: "iway") %>
+          <%= image_tag(asset_pack_path('bronevik@2x.png'), size: "138x49", alt: "bronevik") %>
+        </a>
+        <a
+        class="partners-link"
+        href="https://www.ambotis.ru/"
+        target="_blank"
+        >
+          <%= image_tag(asset_pack_path('ambotis.png'), size: "140x93", alt: "ambotis") %>
+        </a>
+        <a
+        class="partners-link"
+        href="https://dashkov5.ru/"
+        target="_blank"
+        >
+          <%= image_tag(asset_pack_path('logo_presswall_itog.svg'), size: "280x200", alt: "ambotis") %>
         </a>
       </div>
     </section>

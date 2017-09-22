@@ -1,10 +1,15 @@
 .general-partner {
 	display: block;
 	height: 715px;
+	box-sizing: border-box;
 	margin: 0;
+	padding: 50px 0 0 0;
 	background-image: url('img/banner.jpg');
 	background-size: cover;
 	background-position: center;
+	text-decoration: none !important;
+	color: #ffffff !important;
+	text-align: center;
 
 	@media (max-width: 1400px) {
 		height: 600px;
@@ -18,9 +23,53 @@
 	@media (max-width: 768px) {
 		height: 380px;
 	}
-	@media (max-width: 400px) {
+	@media (max-width: 570px) {
 		height: 300px;
 	}
+}
+
+.general-partner-title {
+	margin: 0 0 180px;
+	font-family: 'Roboto Slab';
+	font-size: 57px;
+	font-weight: bold;
+	text-shadow: 0 5px 9px rgba(0, 0, 0, 0.5);
+
+	@media (max-width: 1024px) {
+		margin: 0 0 130px;
+	}
+	@media (max-width: 768px) {
+		margin: 0 0 80px;
+		font-size: 47px;
+	}
+	@media (max-width: 570px) {
+		margin: 0 0 80px;
+		font-size: 28px;
+	}
+}
+
+.general-partner-logo {
+	display: inline-block;
+	width: 395px;
+	height: 112px;
+	background: url('img/logo-rixos.svg');
+	background-size: cover;
+	background-position: center;
+
+	@media (max-width: 570px) {
+		width: 280px;
+		height: 90px;
+	}
+}
+.general-partner-container{
+	background: #fff;
+}
+.general-partner-mini {
+	height: 180px;
+	padding: 40px 0 0;
+	background-image: url('img/banner-rixos.png');
+	background-size: cover;
+	background-position: center;
 }
 
 .partners-container {
@@ -75,23 +124,16 @@
 	flex-wrap: wrap;
 }
 
-.partners-links-2{
+.partners-links-2 {
 	//justify-content: space-between;
-	.partners-link{
+	.partners-link {
 		margin: 0 15px 24px;
 	}
 }
 
-.partners-links-2-border{
-	padding-right: 60px;
-	border-right: solid 1px #979797;
-
-	@media (max-width: 1200px) {
-		border-right: none;
-		padding-right: 0;
-		padding-bottom: 10px;
-		border-bottom: solid 1px #979797;
-	}
+.partners-links-2-border {
+	padding-bottom: 10px;
+	border-bottom: solid 1px #979797;
 }
 
 .partners-link {
@@ -137,6 +179,6 @@
 		margin: 0 50px 30px !important;
 	}
 	@media (max-width: 768px) {
-		//margin: 0 0px 30px !important;
+		margin: 0 0px 30px !important;
 	}
 }
