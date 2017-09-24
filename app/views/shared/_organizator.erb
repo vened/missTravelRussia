@@ -1,5 +1,5 @@
+<!--
 <div class="container general-partner-container">
-  <!-- Yandex.RTB R-A-248526-1 -->
   <div id="yandex_rtb_R-A-248526-1"></div>
   <script type="text/javascript">
     (function(w, d, n, s, t) {
@@ -20,6 +20,7 @@
     })(this, this.document, 'yandexContextAsyncCallbacks');
   </script>
 </div>
+-->
 
 <%- if request.fullpath === "/" %>
   <a href="http://sungate-ru.rixos.com/" class="general-partner" id="partners" target="_blank">
@@ -35,94 +36,98 @@
   </div>
 <% end %>
 
-<div class="container" style="padding: 0">
-  <section class="partners partners_1">
+<div class="container partners-container">
+  <div class="partners-block">
     <div class="partners-title">
       ОРГАНИЗАТОРЫ
     </div>
     <div class="partners-links">
       <a
-      class="partners-link partners-link-1"
+      class="partners-link"
       href="http://www.travelstartups.ru/"
       target="_blank"
       >
         <%= image_tag(asset_pack_path('travel-startups.svg'), size: "308x35", alt: "Travel Startups - сообщество тревел предпринимателей") %>
       </a>
       <a
-      class="partners-link partners-link-1"
+      class="partners-link"
       href="http://www.onlinetours.ru/"
       target="_blank"
       >
         <%= image_tag(asset_pack_path('logo-onlinetours@2x.png'), size: "272x48", alt: "Onlinetours") %>
       </a>
     </div>
-  </section>
-</div>
-
-<section class="partners-container">
-  <div class="container partners-container-flex">
-    <section class="partners">
-      <div class="partners-title">
-        ИНФОПАРТНЕРЫ
-      </div>
-      <div class="partners-links partners-links-2 partners-links-2-border">
-        <a
-        class="partners-link"
-        href="https://www.tourdom.ru/"
-        target="_blank"
-        >
-          <%= image_tag(asset_pack_path('logo-tourdom@2x.png'), size: "244x31", alt: "Турдом") %>
-        </a>
-        <a
-        class="partners-link"
-        href="http://www.trn-news.ru/"
-        target="_blank"
-        >
-          <%= image_tag(asset_pack_path('logo-trn.svg'), size: "134x63", alt: "Travel Russian News") %>
-        </a>
-        <a
-        class="partners-link"
-        href="https://sletat.ru/"
-        target="_blank"
-        >
-          <%= image_tag(asset_pack_path('logo-sletat.svg'), size: "205x63", alt: "Sletat.ru") %>
-        </a>
-      </div>
-    </section>
-    <section class="partners">
-      <div class="partners-title">
-        ПАРТНЕРЫ
-      </div>
-      <div class="partners-links partners-links-2">
-        <a
-        class="partners-link"
-        href="http://iway.ru/"
-        target="_blank"
-        >
-          <%= image_tag(asset_pack_path('iway-logo.svg'), size: "110x48", alt: "iway") %>
-        </a>
-        <a
-        class="partners-link"
-        href="https://bronevik.com/"
-        target="_blank"
-        >
-          <%= image_tag(asset_pack_path('bronevik@2x.png'), size: "138x49", alt: "bronevik") %>
-        </a>
-        <a
-        class="partners-link"
-        href="https://www.ambotis.ru/"
-        target="_blank"
-        >
-          <%= image_tag(asset_pack_path('ambotis.png'), size: "140x93", alt: "ambotis") %>
-        </a>
-        <a
-        class="partners-link"
-        href="https://dashkov5.ru/"
-        target="_blank"
-        >
-          <%= image_tag(asset_pack_path('logo_presswall_itog.svg'), size: "280x200", alt: "ambotis") %>
-        </a>
-      </div>
-    </section>
   </div>
-</section>
+
+  <div class="partners-block">
+    <div class="partners-title">
+      ИНФОПАРТНЕРЫ
+    </div>
+    <div class="partners-links">
+      <a
+      class="partners-link"
+      href="https://www.tourdom.ru/"
+      target="_blank"
+      >
+        <%= image_tag(asset_pack_path('logo-tourdom@2x.png'), size: "244x31", alt: "Турдом") %>
+      </a>
+      <a
+      class="partners-link"
+      href="http://www.trn-news.ru/"
+      target="_blank"
+      >
+        <%= image_tag(asset_pack_path('logo-trn.svg'), size: "134x63", alt: "Travel Russian News") %>
+      </a>
+      <a
+      class="partners-link"
+      href="https://sletat.ru/"
+      target="_blank"
+      >
+        <%= image_tag(asset_pack_path('logo-sletat.svg'), size: "205x63", alt: "Sletat.ru") %>
+      </a>
+    </div>
+  </div>
+
+  <div class="partners-block">
+    <div class="partners-title">
+      ПАРТНЕРЫ
+    </div>
+    <div class="partners-links">
+      <a
+      class="partners-link"
+      href="http://iway.ru/"
+      target="_blank"
+      >
+        <%= image_tag(asset_pack_path('iway-logo.svg'), size: "110x48", alt: "iway") %>
+      </a>
+      <a
+      class="partners-link"
+      href="http://missvolga.ru/"
+      target="_blank"
+      >
+        <%= image_tag(asset_pack_path('volga-models-copy.png'), size: "219x91", alt: "http://missvolga.ru/") %>
+      </a>
+      <a
+      class="partners-link"
+      href="https://dashkov5.ru/"
+      target="_blank"
+      >
+        <%= image_tag(asset_pack_path('logo_presswall_itog.svg'), size: "280x140", alt: "ambotis") %>
+      </a>
+      <a
+      class="partners-link"
+      href="https://www.ambotis.ru/"
+      target="_blank"
+      >
+        <%= image_tag(asset_pack_path('ambotis.png'), size: "140x93", alt: "ambotis") %>
+      </a>
+      <a
+      class="partners-link"
+      href="https://bronevik.com/"
+      target="_blank"
+      >
+        <%= image_tag(asset_pack_path('bronevik@2x.png'), size: "138x49", alt: "bronevik") %>
+      </a>
+    </div>
+  </div>
+</div>
