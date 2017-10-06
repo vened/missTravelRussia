@@ -1,5 +1,9 @@
-button type="button" class="btn btn-success btn-block top-banner" data-toggle="modal" data-target="#payment"
-  |Продажа туров на конкурс Мисс Туризм Россия 2017, 5 – 8 ноября в Турции, Rixos Sungate
+.top-banner
+  i.fa.fa-ticket
+  |&nbsp;
+  span.top-banner-label Продажа туров на конкурс Мисс Туризм Россия 2017, 5 – 8 ноября в Турции, Rixos Sungate
+  button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#payment"
+    | Подробнее
 header class="#{request.fullpath != '/' && 'header-collapse'}"
   == render 'header/navigation'
   - if request.fullpath === '/'

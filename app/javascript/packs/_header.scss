@@ -231,6 +231,17 @@ header {
 }
 
 .top-banner{
+	padding: 5px 15px;
 	border: none !important;
 	border-radius: 0 !important;
+	background-color: #ffcc00;
+	text-align: center;
+	line-height: 20px;
+
+	.btn-success{
+		border-color: rgba(0,0,0,.4);
+	}
+}
+.top-banner-label{
+	margin-right: 32px;
 }
