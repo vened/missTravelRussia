@@ -1,3 +1,5 @@
+button type="button" class="btn btn-success btn-block top-banner" data-toggle="modal" data-target="#payment"
+  |Продажа туров на конкурс Мисс Туризм Россия 2017, 5 – 8 ноября в Турции, Rixos Sungate
 header class="#{request.fullpath != '/' && 'header-collapse'}"
   == render 'header/navigation'
   - if request.fullpath === '/'
@@ -58,3 +60,38 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
           li Модератор вправе удалить анкету участницы при публикации нецензурных фотографий
           li Модератор может исключить участницу при обнаружении мошеннических действий и накрутки голосов.
           li По итогам онлайн голосования 1 ноября будут выбраны 12 финалисток для поездки в Rixos Sungate на финал. Перед поездкой на финал необходимо будет еще раз подтвердить свою принадлежность к туриндустрии - визитная карточка или трудовая книжка. Участница будет дисквалифицирована в случае, если не сможет подтвердить свою принадлежность к туризму.
+
+#payment.modal.fade aria-labelledby="#paymentLabel" role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+        h4#paymentLabel.modal-title МИСС ТУРИЗМ-2017
+      .modal-body
+        p
+          | Приглашает Топ менеджеров  принять участие в фееричном финале конкурса Мисс Туризм-2017 который
+          | пройдет с 05.11 по 08.11.2017 г. там, где царит атмосфера вечного праздника и веселья, в шикарном
+          | отеле Rixos Sungate 5*.
+        p
+          |Стоимость участия:
+        p
+          |Размещение ½ DBL —
+          b 369 USD
+        p
+          |Доплата за SNGL —
+          b 169 USD
+        p
+          |Размещение ½ DBL, Наземное обслуживание (тур без авиаперелета) —
+          b 199 USD
+        p В стоимость тура входит:
+        ul
+          li - авиаперелет а/к «Россия» Москва-Анталия-Москва;
+          li - проживание в отеле Rixos Sungate 5*;
+          li - питание по программе Ultra ALL;
+          li - развлекательная программа;
+          li - медицинская страховка.
+        p
+          |Заявки на участие в туре рассматриваются по адресу:
+          a href="mailto:privet@missturizm.ru"
+            b privet@missturizm.ru
