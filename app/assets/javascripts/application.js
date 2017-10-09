@@ -28,6 +28,16 @@ $(document).ready(function() {
 
   $('#profile-gallery').lightGallery({
     selector: '.profile-gallery-item',
-    subHtmlSelectorRelative: true
+    subHtmlSelectorRelative: true,
   });
+
+  if (window.localStorage.getItem('isSocialModalOpen') != '0') {
+    $('#social').modal('show');
+  }
+
+  $('.social-group-btn').on('click', function() {
+    $('#social').modal('hide');
+    window.localStorage.setItem('isSocialModalOpen', 0);
+  });
+
 });

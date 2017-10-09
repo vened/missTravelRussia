@@ -99,3 +99,21 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
           |Заявки на участие в туре рассматриваются по адресу:
           a href="mailto:privet@missturizm.ru"
             b privet@missturizm.ru
+
+#social.modal.fade aria-labelledby="#socialLabel" role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        button.close.social-group-btn aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+        h4#socialLabel.modal-title.text-center ДАВАЙТЕ ДРУЖИТЬ!
+      .modal-body
+        p.text-center
+          |Читайте новости конкурса на странице Мисс Туризм в социальных сетях
+        br
+        .header-buttons
+          = link_to 'https://www.facebook.com/MissTurizm.ru/',
+                  class: 'b-sign-in-button b-sign-in-button-fb social-group-btn',
+                  target: '_blank' do
+            = image_tag asset_pack_path 'login-fb.svg'
+        br
