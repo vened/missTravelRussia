@@ -9,7 +9,6 @@
 	display: flex;
 	justify-content: space-between;
 
-
 	@media (max-width: 1024px) {
 		flex-wrap: wrap;
 		justify-content: center;
@@ -22,7 +21,6 @@
 	text-align: right;
 	color: #b6b6b6;
 
-
 	a {
 		display: inline-block;
 		height: 28px;
@@ -34,10 +32,10 @@
 	}
 }
 
-.pravo {
+.social-pages {
 	display: flex;
 	align-items: center;
-	font-size: 12px;
+	font-size: 14px;
 	text-align: right;
 	color: #b6b6b6;
 
@@ -46,8 +44,13 @@
 	}
 }
 
-.pravo-label {
+.social-pages-label {
 	display: inline-block;
-	max-width: 70px;
-	margin-right: 12px;
+	margin-right: 24px;
+}
+
+.social-pages-btn {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
 }
