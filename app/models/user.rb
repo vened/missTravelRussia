@@ -1,4 +1,5 @@
 require 'autoinc'
+require 'csv'
 class User
   include Mongoid::Document
   include Mongoid::Enum
@@ -78,7 +79,7 @@ class User
     if auth.provider === 'facebook'
       profile = auth.extra.raw_info.link
       gender = auth.extra.raw_info.gender
-      bdate  = auth.info.birthday
+      bdate = auth.info.birthday
       location = auth.extra.raw_info.location.present? && auth.extra.raw_info.location.name
     end
     if auth.provider === 'vkontakte'
@@ -93,7 +94,7 @@ class User
         gender: gender.present? ? gender : nil,
         location: location.present? ? location : nil,
         bdate: bdate.present? ? bdate : nil,
-        # is_vote: gender == 'male' ? false : true
+    # is_vote: gender == 'male' ? false : true
     )
     return current_user
   end
@@ -128,6 +129,58 @@ class User
 
   def to_param
     number.to_s
+  end
+
+  def self.to_csv(options = {})
+    field :name, type: String
+    field :about, type: String
+    field :image, type: String
+    field :organization, type: String
+    field :organization_site, type: String
+    field :position, type: String
+    field :work_experience, type: String
+    field :age, type: String
+    field :phone, type: String
+    field :gender, type: String
+    field :bdate, type: String
+    field :location, type: String
+
+    ## Oauth
+    field :provider, type: String
+    field :uid, type: String
+    field :profile, type: String
+
+    column_names = [
+        "имя",
+        "email",
+        "голосов",
+        'about',
+        'organization',
+        'organization_site',
+        'position',
+        'work_experience',
+        'age',
+        'phone',
+        'location',
+    ]
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |user|
+        csv << [
+            user.name,
+            user.email,
+            user.votes,
+            user.about,
+            user.organization,
+            user.organization_site,
+            user.position,
+            user.work_experience,
+            user.age,
+            user.phone,
+            user.location,
+        ]
+      end
+    end
   end
 
 end

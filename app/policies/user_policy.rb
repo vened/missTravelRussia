@@ -28,6 +28,10 @@ class UserPolicy
     @current_user.admin?
   end
 
+  def members_votes?
+    @current_user.admin?
+  end
+
   def show_member?
     @current_user.admin?
   end

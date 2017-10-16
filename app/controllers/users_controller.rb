@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   protect_from_forgery with: :exception
-  before_action :authenticate_user!, only: [:index, :show_member, :edit, :update, :upload, :edit_photo, :destroy_photo, :destroy, :voteable, :is_voted]
+  before_action :authenticate_user!, only: [:index, :members_votes, :show_member, :edit, :update, :upload, :edit_photo, :destroy_photo, :destroy, :voteable, :is_voted]
   after_action :verify_authorized, only: [:edit, :show_member, :update, :upload, :edit_photo, :destroy_photo, :destroy, :votes, :voteable, :is_voted]
 
   def index
@@ -22,6 +22,16 @@ class UsersController < ApplicationController
     end
     @users = @users.page(params[:page])
     authorize User
+  end
+
+  def members_votes
+    users = VotesQuery.new.call(params)
+    authorize User
+    respond_to do |format|
+      format.html
+      format.csv { send_data users.to_csv }
+      format.xls
+    end
   end
 
   def show_member

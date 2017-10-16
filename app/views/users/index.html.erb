@@ -2,6 +2,8 @@
   <div class="row">
     <h3>Users</h3>
 
+    <%= link_to "Экспорт участниц в CSV", members_votes_path(format: "csv") %>
+
     <%= form_tag("/members", method: "get") do %>
       <%= label_tag(:q, "Поиск по имени:") %>
       <%= text_field_tag(:q) %>

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post 'votes/is_voted/:id' => 'users#is_voted', as: 'is_voted'
 
   resources :users, path: 'members', only: [:index, :show, :edit, :update, :destroy]
+  get 'members_votes' => 'users#members_votes', as: 'members_votes'
   post 'members/upload/:id' => 'users#upload', as: 'members_upload'
   put 'members/:user_id/photos/:id/edit' => 'users#edit_photo', as: 'members_edit_photo'
   delete 'members/:user_id/photos/:id' => 'users#destroy_photo', as: 'members_photo'
