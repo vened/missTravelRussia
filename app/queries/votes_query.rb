@@ -81,4 +81,19 @@ class VotesQuery
     @relation
   end
 
+  def votes_count
+    @relation = @relation.where(_role: 'user', is_vote: true)
+    @relation.collection.aggregate(
+        [
+            # разворачиваем массив товаров, в каждом товаре содержится одно свойство
+            { '$unwind' => '$user_voteables' },
+            {
+                '$project' => {
+                    'user_voteable_id'  => '$user_voteables.user_voteable_id',
+                }
+            },
+        ]
+    ).to_a
+  end
+
 end

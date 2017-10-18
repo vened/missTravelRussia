@@ -7,10 +7,10 @@
 	color: #000000;
 	text-transform: uppercase;
 
-	@media (max-width: 1280px){
+	@media (max-width: 1280px) {
 		font-size: 40px;
 	}
-	@media (max-width: 768px){
+	@media (max-width: 768px) {
 		font-size: 28px;
 	}
 }
@@ -30,7 +30,7 @@
 	&:last-child {
 		margin-right: 0;
 	}
-	.anketa-item{
+	.anketa-item {
 		margin-bottom: 0;
 	}
 }
@@ -57,11 +57,11 @@
 	background-repeat: no-repeat;
 	background-position: center;
 
-	&:hover{
+	&:hover {
 		background-color: #ccd2d8;
 	}
 
-	&.disabled{
+	&.disabled {
 		display: none;
 	}
 }
@@ -86,7 +86,7 @@
 	text-align: center;
 	color: #000000;
 
-	&:hover{
+	&:hover {
 		text-decoration: none;
 	}
 }
@@ -95,7 +95,7 @@
 	margin: 40px 0 100px;
 	text-align: center;
 
-	@media (max-width: 768px){
+	@media (max-width: 768px) {
 		margin: 50px 0;
 	}
 }
@@ -105,7 +105,7 @@
 	text-align: center;
 	color: #000000;
 
-	@media (max-width: 768px){
+	@media (max-width: 768px) {
 		font-size: 24px;
 		line-height: 32px;
 	}
@@ -116,7 +116,7 @@
 	font-size: 50px;
 	font-weight: bold;
 
-	@media (max-width: 768px){
+	@media (max-width: 768px) {
 		font-size: 32px;
 	}
 }
@@ -133,7 +133,7 @@
 .heroes {
 	margin: 0 0 137px;
 
-	@media (max-width: 1024px){
+	@media (max-width: 1024px) {
 		margin: 0 0 80px;
 	}
 }
@@ -147,10 +147,10 @@
 	&:last-child {
 		margin: 0;
 	}
-	@media (max-width: 1024px){
+	@media (max-width: 1024px) {
 		margin: 0 0 32px;
 	}
-	@media (max-width: 420px){
+	@media (max-width: 420px) {
 		display: block;
 	}
 }
@@ -159,7 +159,7 @@
 	margin-right: 32px;
 	text-align: center;
 
-	@media (max-width: 420px){
+	@media (max-width: 420px) {
 		margin: 0 0 16px;
 	}
 }
@@ -170,7 +170,7 @@
 	text-align: left;
 	color: #000000;
 
-	@media (max-width: 420px){
+	@media (max-width: 420px) {
 		text-align: center;
 	}
 }
@@ -191,17 +191,17 @@
 		height: 16px;
 		background-color: #ffcc00;
 
-		@media (max-width: 1024px){
+		@media (max-width: 1024px) {
 			top: 37px;
- 		}
+		}
 	}
 
-	@media (max-width: 700px){
+	@media (max-width: 700px) {
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 
-		&:before{
+		&:before {
 			display: none;
 		}
 	}
@@ -223,14 +223,14 @@
 		border: solid 6px #ffffff;
 		border-radius: 50%;
 
-		@media (max-width: 1024px){
+		@media (max-width: 1024px) {
 			top: 26px;
 		}
 	}
 
-	@media (max-width: 700px){
+	@media (max-width: 700px) {
 		margin: 0 0 32px;
-		&:before{
+		&:before {
 			display: none;
 		}
 	}
@@ -244,11 +244,11 @@
 	text-align: center;
 	color: #909090;
 
-	@media (max-width: 1024px){
+	@media (max-width: 1024px) {
 		margin: 0 0 60px;
 		font-size: 14px;
 	}
-	@media (max-width: 700px){
+	@media (max-width: 700px) {
 		margin: 0 0 16px;
 		font-size: 20px;
 	}
@@ -260,10 +260,10 @@
 	text-align: center;
 	color: #000000;
 
-	@media (max-width: 1024px){
+	@media (max-width: 1024px) {
 		font-size: 14px;
 	}
-	@media (max-width: 700px){
+	@media (max-width: 700px) {
 		font-size: 22px;
 	}
 }
@@ -280,11 +280,11 @@
 	margin: 60px 0 150px;
 	text-align: center;
 
-	@media (max-width: 1024px){
+	@media (max-width: 1024px) {
 		margin: 60px 0 80px;
 	}
-	@media (max-width: 400px){
-		.hide-xs{
+	@media (max-width: 400px) {
+		.hide-xs {
 			display: none;
 		}
 	}
@@ -302,7 +302,7 @@
 	margin: 50px 20px 0;
 }
 
-.jury-list-title{
+.jury-list-title {
 	margin: 80px 0 -20px;
 }
 
@@ -311,7 +311,7 @@
 	text-align: center;
 	vertical-align: top;
 
-	img{
+	img {
 		border-radius: 50%;
 	}
 }
@@ -328,6 +328,53 @@
 .jury-item-info {
 	font-size: 12px;
 	line-height: 1.42;
+	text-align: center;
+	color: #000000;
+	text-transform: uppercase;
+}
+
+.counters-container {
+	display: flex;
+	justify-content: space-between;
+	height: 154px;
+	margin: 0 -20px;
+	padding: 46px 60px;
+	background-color: #f9f9f9;
+}
+
+.counter{
+	width: 320px;
+}
+
+.counter-items {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.counter-item {
+	width: 40px;
+	height: 61px;
+	line-height: 55px;
+	background: url('img/counter.svg') no-repeat center center;
+	background-size: 100%;
+	font-family: 'Oswald', sans-serif;
+	text-align: center;
+	font-size: 40px;
+	color: #000000;
+}
+
+.counter-label {
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	color: #000000;
+	text-transform: uppercase;
+}
+
+.counter-item-label {
+	font-size: 10px;
+	font-weight: bold;
 	text-align: center;
 	color: #000000;
 	text-transform: uppercase;

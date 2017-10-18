@@ -14,6 +14,53 @@
 
 <div class="container content-container">
 
+  <div class="counters-container">
+
+    <div class="counter">
+      <div class="counter-items">
+        <%- @users_all.count.to_s.split('').each do |item| %>
+          <div class="counter-item">
+            <%= item %>
+          </div>
+        <% end %>
+      </div>
+      <div class="counter-label">
+        анкет
+      </div>
+    </div>
+
+
+    <div class="counter">
+      <div class="counter-items">
+        <%- @votes_count.count.to_s.split('').each do |item| %>
+          <div class="counter-item">
+            <%= item %>
+          </div>
+        <% end %>
+      </div>
+      <div class="counter-label">
+        голосов
+      </div>
+    </div>
+
+    <div class="counter">
+      <div class="counter-items">
+        <%- ("2017-11-01".to_date - Date.current).numerator.to_s.split('').each do |item| %>
+          <div class="counter-item">
+            <%= item %>
+          </div>
+        <% end %>
+        <div class="counter-item-label">
+          дней
+        </div>
+      </div>
+      <div class="counter-label">
+        до окончания голосования
+      </div>
+    </div>
+
+  </div>
+
   <div class="home_top">
     ТОП 10 Участниц
   </div>
@@ -266,6 +313,20 @@
         Генеральный директор
         <br>
         OneTouch&Travel
+      </div>
+    </div>
+
+    <div class="jury-item">
+      <div class="jury-item-photo">
+        <%= image_tag(asset_pack_path('ilin.jpg'), size: "180x180") %>
+      </div>
+      <div class="jury-item-name">
+        Владимир Ильин
+      </div>
+      <div class="jury-item-info">
+        Официальный представитель
+        <br>
+        конкурса Мисс Туризм Россия
       </div>
     </div>
 
