@@ -299,7 +299,7 @@
 
 .jury-item {
 	//width: 220px;
-	margin: 50px 20px 0;
+	margin: 50px 40px 0;
 }
 
 .jury-list-title {
@@ -336,14 +336,21 @@
 .counters-container {
 	display: flex;
 	justify-content: space-between;
-	height: 154px;
+	flex-wrap: wrap;
 	margin: 0 -20px;
-	padding: 46px 60px;
+	padding: 26px 60px 46px;
 	background-color: #f9f9f9;
+
+	@media (max-width: 1200px) {
+		justify-content: center;
+	}
 }
 
 .counter{
 	width: 320px;
+	min-width: 320px;
+	margin: 20px 0 0;
+	white-space: nowrap;
 }
 
 .counter-items {
