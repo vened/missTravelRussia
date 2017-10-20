@@ -35,7 +35,7 @@
     <% cache @votes_count do %>
       <div class="counter">
         <div class="counter-items">
-          <%- @votes_count.count.to_s.split('').each do |item| %>
+          <%- @votes_count.to_s.split('').each do |item| %>
             <div class="counter-item">
               <%= item %>
             </div>
