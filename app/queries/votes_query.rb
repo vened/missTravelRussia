@@ -52,7 +52,6 @@ class VotesQuery
     # filter_role_user
     # filter_photo_exist
     @relation.length + 1
-    3
   end
 
   # сортировка по голосам
