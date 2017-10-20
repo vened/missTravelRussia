@@ -14,9 +14,9 @@
 
 <div class="container content-container">
 
-  <% cache do %>
-    <div class="counters-container">
+  <div class="counters-container">
 
+    <% cache @users_all do %>
       <div class="counter">
         <div class="counter-items">
           <%- @users_all.count.to_s.split('').each do |item| %>
@@ -29,8 +29,10 @@
           анкет
         </div>
       </div>
+    <% end %>
 
 
+    <% cache @votes_count do %>
       <div class="counter">
         <div class="counter-items">
           <%- @votes_count.count.to_s.split('').each do |item| %>
@@ -43,25 +45,25 @@
           голосов
         </div>
       </div>
+    <% end %>
 
-      <div class="counter">
-        <div class="counter-items">
-          <%- ("2017-11-01".to_date - Date.current).numerator.to_s.split('').each do |item| %>
-            <div class="counter-item">
-              <%= item %>
-            </div>
-          <% end %>
-          <div class="counter-item-label">
-            дней
+    <div class="counter">
+      <div class="counter-items">
+        <%- ("2017-11-01".to_date - Date.current).numerator.to_s.split('').each do |item| %>
+          <div class="counter-item">
+            <%= item %>
           </div>
-        </div>
-        <div class="counter-label">
-          до окончания голосования
+        <% end %>
+        <div class="counter-item-label">
+          дней
         </div>
       </div>
-
+      <div class="counter-label">
+        до окончания голосования
+      </div>
     </div>
-  <% end %>
+
+  </div>
 
   <div class="home_top">
     ТОП 10 Участниц
