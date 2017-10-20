@@ -84,6 +84,14 @@
                       <%= image_tag asset_pack_path 'icon-like-red.svg' %>
                     <% end %>
                   </div>
+                <% else %>
+                  <div class="vote-btn-container text-center">
+                    <%= link_to voteable_path(@user),
+                                class: 'btn btn-primary',
+                                remote: true do %>
+                      Отозвать свой голос
+                    <% end %>
+                  </div>
                 <% end %>
               <% end %>
             <% else %>
