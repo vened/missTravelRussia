@@ -31,7 +31,7 @@ class VotesQuery
     call(params)
     user_index_votes = @relation.to_a.index(user)
     if user_index_votes
-      @relation.to_a[@relation.to_a.index(user)+1]
+      @relation.to_a[user_index_votes+1]
     else
       nil
     end
@@ -41,7 +41,7 @@ class VotesQuery
     call(params)
     user_index_votes = @relation.to_a.index(user)
     if user_index_votes
-      @relation.to_a[@relation.to_a.index(user)-1]
+      @relation.to_a[user_index_votes-1]
     else
       nil
     end
@@ -52,6 +52,7 @@ class VotesQuery
     # filter_role_user
     # filter_photo_exist
     @relation.length + 1
+    3
   end
 
   # сортировка по голосам
