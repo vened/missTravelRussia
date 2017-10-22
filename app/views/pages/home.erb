@@ -49,7 +49,7 @@
 
     <div class="counter">
       <div class="counter-items">
-        <%- ("2017-11-01".to_date - Date.current).numerator.to_s.split('').each do |item| %>
+        <%- ("2017-10-31".to_date - Date.current).numerator.to_s.split('').each do |item| %>
           <div class="counter-item">
             <%= item %>
           </div>
@@ -260,6 +260,7 @@
       </div>
     </div>
 
+    <!--
     <div class="jury-item">
       <div class="jury-item-photo">
         <%= image_tag(asset_pack_path('jury-5.jpg'), size: "180x180") %>
@@ -275,6 +276,7 @@
         Горящих Путевок
       </div>
     </div>
+    -->
 
     <div class="jury-item">
       <div class="jury-item-photo">
