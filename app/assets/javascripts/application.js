@@ -31,13 +31,13 @@ $(document).ready(function() {
     subHtmlSelectorRelative: true,
   });
 
-  if (window.localStorage.getItem('isSocialModalOpen') != '0') {
-    $('#social').modal('show');
+  if (window.localStorage.getItem('isPaymentModalOpen') != '0') {
+    $('#payment').modal('show');
   }
 
   $('.social-group-btn').on('click', function() {
-    $('#social').modal('hide');
-    window.localStorage.setItem('isSocialModalOpen', 0);
+    $('#payment').modal('hide');
+    window.localStorage.setItem('isPaymentModalOpen', 0);
   });
 
 });
