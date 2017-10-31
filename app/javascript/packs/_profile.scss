@@ -341,4 +341,9 @@
 			margin: 5px 0 0 0;
 		}
 	}
+
+	&.vote-btn_final{
+		background-image: linear-gradient(to bottom, #d3d9df, #d3d9df);
+		cursor: inherit;
+	}
 }

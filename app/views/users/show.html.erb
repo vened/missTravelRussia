@@ -54,7 +54,7 @@
                 <div></div>
               <% end %>
 
-              <% if user_signed_in? && !policy(@user).profile? %>
+              <% if user_signed_in? && !policy(@user).profile? && false %>
                 <% unless VotesQuery.new.is_votes(current_user, @user.number) %>
                   <div class="vote-btn-container text-center">
                     <span class='btn btn-success disabled'>Вы проголосовали</span>
@@ -73,36 +73,44 @@
             </div>
 
 
-            <% if user_signed_in? && !policy(@user).profile? %>
-              <% if !policy(@user).profile? %>
-                <% if VotesQuery.new.is_votes(current_user, @user.number) %>
+            <% if false %>
+              <% if user_signed_in? && !policy(@user).profile? %>
+                <% if !policy(@user).profile? %>
+                  <% if VotesQuery.new.is_votes(current_user, @user.number) %>
+                    <div class="vote-btn-container text-center">
+                      <%= link_to voteable_path(@user),
+                                  class: 'vote-btn',
+                                  remote: true do %>
+                        Проголосовать за участницу
+                        <%= image_tag asset_pack_path 'icon-like-red.svg' %>
+                      <% end %>
+                    </div>
+                  <% else %>
+                    <div class="vote-btn-container text-center">
+                      <%= link_to voteable_path(@user),
+                                  class: 'btn btn-primary',
+                                  remote: true do %>
+                        Отозвать свой голос
+                      <% end %>
+                    </div>
+                  <% end %>
+                <% end %>
+              <% else %>
+                <% if !policy(@user).profile? %>
                   <div class="vote-btn-container text-center">
-                    <%= link_to voteable_path(@user),
-                                class: 'vote-btn',
-                                remote: true do %>
+                    <a href="#" class="vote-btn" data-toggle="modal" data-target="#myModal">
                       Проголосовать за участницу
                       <%= image_tag asset_pack_path 'icon-like-red.svg' %>
-                    <% end %>
-                  </div>
-                <% else %>
-                  <div class="vote-btn-container text-center">
-                    <%= link_to voteable_path(@user),
-                                class: 'btn btn-primary',
-                                remote: true do %>
-                      Отозвать свой голос
-                    <% end %>
+                    </a>
                   </div>
                 <% end %>
               <% end %>
             <% else %>
-              <% if !policy(@user).profile? %>
-                <div class="vote-btn-container text-center">
-                  <a href="#" class="vote-btn" data-toggle="modal" data-target="#myModal">
-                    Проголосовать за участницу
-                    <%= image_tag asset_pack_path 'icon-like-red.svg' %>
-                  </a>
-                </div>
-              <% end %>
+              <div class="vote-btn-container text-center">
+                <span class="vote-btn vote-btn_final">
+                  Голосование остановлено
+                </span>
+              </div>
             <% end %>
           </div>
 
