@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :users, path: 'members', only: [:index, :show, :edit, :update, :destroy]
   get 'members_votes' => 'users#members_votes', as: 'members_votes'
   post 'members/upload/:id' => 'users#upload', as: 'members_upload'
+  # put 'members/bot/:id' => 'users#update_bot', as: 'members_bot'
+  patch 'members/bot/:id' => 'users#update_bot', as: 'members_bot'
   put 'members/:user_id/photos/:id/edit' => 'users#edit_photo', as: 'members_edit_photo'
   delete 'members/:user_id/photos/:id' => 'users#destroy_photo', as: 'members_photo'
 

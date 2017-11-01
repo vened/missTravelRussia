@@ -42,3 +42,14 @@ abbr[title], abbr[data-original-title] {
 	border: none;
 	text-decoration: none;
 }
+.users-list{
+	margin: 16px 0;
+
+	form{
+		margin-top: 8px;
+	}
+}
+.is_bot{
+	padding: 8px 0;
+	background-color: rgba(255, 0, 0, 0.1);
+}

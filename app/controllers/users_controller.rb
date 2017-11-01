@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   protect_from_forgery with: :exception
-  before_action :authenticate_user!, only: [:index, :members_votes, :show_member, :edit, :update, :upload, :edit_photo, :destroy_photo, :destroy, :voteable, :is_voted]
-  after_action :verify_authorized, only: [:edit, :show_member, :update, :upload, :edit_photo, :destroy_photo, :destroy, :votes, :voteable, :is_voted]
+  before_action :authenticate_user!, only: [:update_bot, :index, :members_votes, :show_member, :edit, :update, :upload, :edit_photo, :destroy_photo, :destroy, :voteable, :is_voted]
+  after_action :verify_authorized, only: [:update_bot, :edit, :show_member, :update, :upload, :edit_photo, :destroy_photo, :destroy, :votes, :voteable, :is_voted]
 
   def index
     @users = policy_scope(User)
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     authorize User
     respond_to do |format|
       format.html
-      format.csv { send_data users.to_csv }
+      format.csv {send_data users.to_csv}
       format.xls
     end
   end
@@ -38,9 +38,11 @@ class UsersController < ApplicationController
     @users = policy_scope(User)
     @user = @users.find_by(number: params[:id])
 
-    @user_voteable = @users.where({user_voteables: {
-        '$all' => [{'$elemMatch' => {user_voteable_id: params[:id]}}]
-    }})
+    @user_voteable = @users
+                         .where({user_voteables: {
+                             '$all' => [{'$elemMatch' => {user_voteable_id: params[:id]}}]
+                         }})
+                         .order_by(is_bot: -1)
 
     @root_photo = @user.photos.present? ? @user.photos.find_by(root: true) : nil
     authorize User
@@ -68,6 +70,16 @@ class UsersController < ApplicationController
       redirect_to user_path(@user), :notice => "Вы успешно заполнили анкету участника"
     else
       redirect_to edit_user(@user), :alert => "Что то пошло не так, попробуйте ещё раз заполнить анкету"
+    end
+  end
+
+  def update_bot
+    @user = User.find_by(number: params[:id])
+    authorize @user
+    if @user.update_attributes(secure_params)
+      redirect_back(fallback_location: root_path)
+    else
+      redirect_back(fallback_location: root_path)
     end
   end
 
@@ -168,7 +180,8 @@ class UsersController < ApplicationController
         :age,
         :photo_src,
         :phone,
-        :is_vote
+        :is_vote,
+        :is_bot,
     )
   end
 

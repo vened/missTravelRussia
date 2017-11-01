@@ -20,6 +20,7 @@ class User
   field :number, type: Integer
 
   field :is_vote, type: Boolean, default: false
+  field :is_bot, type: Boolean, default: false
   field :votes, type: Integer, default: 0
 
   ## Database authenticatable

@@ -221,12 +221,18 @@
       <%= @user_voteable.length %>
       <hr>
       <%- @user_voteable.each do |user| %>
-        <div>
+        <div class="users-list <%= user.is_bot && 'is_bot'%>">
           <%= link_to user.name, show_member_path(user), target: '_blank' %>
           |
           <%= link_to user.name, user_path(user), target: '_blank' %>
           |
-          <%= link_to "social id #{user.name}", user.profile, target: '_blank' %>
+          <%= link_to "в соц сетях #{user.name}", user.profile, target: '_blank' %>
+          <br>
+          <%= form_for user, url: members_bot_path(user) do |f| %>
+            <%= label_tag(:is_bot, "Бот?:") %>
+            <%= f.check_box(:is_bot) %>
+            <%= f.submit 'Сохранить', :class => 'button-xs' %>
+          <% end %>
         </div>
       <% end %>
     </dd>

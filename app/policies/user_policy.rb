@@ -52,6 +52,10 @@ class UserPolicy
     @current_user.admin? || @current_user.user? or @current_user == @user
   end
 
+  def update_bot?
+    @current_user.admin?
+  end
+
   def upload?
     @current_user == @user
   end
