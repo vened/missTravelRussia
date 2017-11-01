@@ -56,6 +56,7 @@ class VotesQuery
 
   # сортировка по голосам
   def sort_by_votes(params)
+    @relation = @relation.order_by(is_disqualify: 1)
     unless params[:votes]
       unless params[:create_date]
         @relation = @relation.order_by(votes: -1)
