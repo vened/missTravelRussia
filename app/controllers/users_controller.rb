@@ -82,7 +82,8 @@ class UsersController < ApplicationController
   def update_bot
     @user = User.find_by(number: params[:id])
     authorize @user
-    if @user.update_attributes!(secure_params)
+    @user.update(is_bot: secure_params[:is_bot])
+    if @user.save(validate: false)
       redirect_back(fallback_location: root_path)
     else
       redirect_back(fallback_location: root_path)
