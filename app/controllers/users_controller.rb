@@ -88,7 +88,7 @@ class UsersController < ApplicationController
         is_disqualify: secure_params[:is_disqualify],
     )
     if @user.save(validate: false)
-      redirect_to user_path(@user), :notice => "Вы успешно заполнили анкету участника"
+      redirect_to users_path, :notice => "Вы успешно заполнили анкету участника"
     else
       redirect_to edit_user(@user), :alert => "Что то пошло не так, попробуйте ещё раз заполнить анкету"
     end
