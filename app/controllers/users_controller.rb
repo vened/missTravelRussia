@@ -79,6 +79,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def update_member
+    @user = User.find_by(number: params[:id])
+    authorize @user
+    @user.update(
+        is_vote: secure_params[:is_vote],
+        role: secure_params[:role],
+        is_disqualify: secure_params[:is_disqualify],
+    )
+    if @user.save(validate: false)
+      redirect_to user_path(@user), :notice => "Вы успешно заполнили анкету участника"
+    else
+      redirect_to edit_user(@user), :alert => "Что то пошло не так, попробуйте ещё раз заполнить анкету"
+    end
+  end
+
   def update_bot
     @user = User.find_by(number: params[:id])
     authorize @user
@@ -189,6 +204,7 @@ class UsersController < ApplicationController
         :phone,
         :is_vote,
         :is_bot,
+        :is_disqualify,
     )
   end
 

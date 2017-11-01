@@ -60,6 +60,10 @@ class UserPolicy
     @current_user.admin?
   end
 
+  def update_member?
+    @current_user.admin?
+  end
+
   def upload?
     @current_user == @user
   end

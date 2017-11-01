@@ -3,7 +3,8 @@
     <h3>Users</h3>
 
     <%= link_to "Экспорт участниц в CSV", members_votes_path(format: "csv") %>
-
+    <br>
+    <br>
     <%= form_tag("/members", method: "get") do %>
       <%= label_tag(:q, "Поиск по имени:") %>
       <%= text_field_tag(:q) %>
@@ -11,7 +12,7 @@
       <%= text_field_tag(:user_id) %>
       <%= submit_tag("Искать") %>
     <% end %>
-
+    <br>
     <div class="column">
       <table class="table">
         <tbody>

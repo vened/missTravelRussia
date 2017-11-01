@@ -15,6 +15,23 @@
 	}
 }
 
+.user-disqualify{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background-color: rgba(214, 87, 75, 0.71);
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 20px;
+	color: #fff;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
 .anketa-item-count {
 	display: flex;
 	position: absolute;

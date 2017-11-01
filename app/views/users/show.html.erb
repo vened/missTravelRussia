@@ -31,7 +31,13 @@
           АНКЕТА УЧАСТНИЦЫ № <%= @user.number %>
         </div>
         <div class="profile-position">
-          <%= render 'users/anketa_count' %>
+          <%- if @user.is_disqualify %>
+            <div class="alert alert-danger text-center">
+              Участница дисквалифицированна за накрутку голосов
+            </div>
+          <% else %>
+            <%= render 'users/anketa_count' %>
+          <% end %>
         </div>
       </div>
 

@@ -1,28 +1,39 @@
 <%- photo = user.photos.present? ? user.photos.find_by(root: true) : nil %>
 <%= link_to user_path(user), class: "anketa-item" do %>
   <div class="anketa-item-img">
-    <div class="anketa-item-count" id="anketa-item-count-<%= user.number %>">
-      <div class="anketa-item-count-value">
-        <%= user.votes %>
-      </div>
+    <%- unless user.is_disqualify %>
+      <div class="anketa-item-count" id="anketa-item-count-<%= user.number %>">
+        <div class="anketa-item-count-value">
+          <%= user.votes %>
+        </div>
 
-      <% if false %>
-        <% if user_signed_in? && !policy(user).profile? %>
-          <% if VotesQuery.new.is_votes(current_user, user.number) %>
-            <%= button_to votes_voteable_path(user), :remote => true do %>
-              <%= image_tag asset_pack_path 'icon-like-red.svg' %>
-            <%- end %>
+        <% if false %>
+          <% if user_signed_in? && !policy(user).profile? %>
+            <% if VotesQuery.new.is_votes(current_user, user.number) %>
+              <%= button_to votes_voteable_path(user), :remote => true do %>
+                <%= image_tag asset_pack_path 'icon-like-red.svg' %>
+              <%- end %>
+            <% else %>
+              <%= image_tag asset_pack_path 'icon-like.svg' %>
+            <% end %>
           <% else %>
             <%= image_tag asset_pack_path 'icon-like.svg' %>
           <% end %>
         <% else %>
           <%= image_tag asset_pack_path 'icon-like.svg' %>
         <% end %>
-      <% else %>
-        <%= image_tag asset_pack_path 'icon-like.svg' %>
-      <% end %>
 
-    </div>
+      </div>
+    <% else %>
+      <div class="user-disqualify">
+        <div>
+          Участница
+        </div>
+        <div>
+          дисквалифицированна
+        </div>
+      </div>
+    <% end %>
     <%= image_tag photo.photo_src.middle, class: "img-responsive" %>
   </div>
   <div class="anketa-item-name">

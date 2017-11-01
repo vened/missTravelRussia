@@ -15,10 +15,22 @@
   <% end %>
 </td>
 <td>
-  <%= form_for(user) do |f| %>
-    <%= f.select(:role, User::ROLE.map {|role| [role, role]}) %>
-    <%= f.select(:is_vote, [['true', true], ['false', false]].map {|label, value| [label, value]}) %>
-    <%= f.submit 'Change Role', :class => 'button-xs' %>
+  <%= form_for user, url: update_member_path(user), method: "put" do |f| %>
+    <div class="form-group">
+      <%= label_tag(:role, "Роль:") %>
+      <%= f.select(:role, User::ROLE.map {|role| [role, role]}) %>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:is_vote, "Участвует в голосовании?:") %>
+      <%= f.select(:is_vote, [['true', true], ['false', false]].map {|label, value| [label, value]}) %>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:is_disqualify, "Дисквалифицирована?:") %>
+      <%= f.check_box(:is_disqualify) %>
+    </div>
+    <div class="form-group">
+      <%= f.submit 'Сохранить', :class => 'btn btn-success' %>
+    </div>
   <% end %>
 </td>
 <td>

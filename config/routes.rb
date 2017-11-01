@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   put 'members/bot/:id' => 'users#update_bot', as: 'members_bot'
   # patch 'members/bot/:id' => 'users#update_bot', as: 'members_bot'
   put 'members/:user_id/photos/:id/edit' => 'users#edit_photo', as: 'members_edit_photo'
+  put 'members/:id/update_member' => 'users#update_member', as: 'update_member'
   delete 'members/:user_id/photos/:id' => 'users#destroy_photo', as: 'members_photo'
 
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
