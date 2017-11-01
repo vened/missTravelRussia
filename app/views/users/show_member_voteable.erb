@@ -1,0 +1,41 @@
+<div class="container content-container">
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <h1><%= @user.name %></h1>
+
+  <dl class="dl-horizontal">
+    <dt>
+      Всего голосов
+    </dt>
+    <dd>
+      <%= @user.votes %>
+    </dd>
+  </dl>
+  <dl class="dl-vertical">
+    <dt>
+       Список проголосовавших
+    </dt>
+    <dd>
+      <%- @user_voteable.each do |user| %>
+        <div class="users-list <%= user.is_bot && 'is_bot' %>">
+          <%= link_to user.name, show_member_path(user), target: '_blank' %>
+          |
+          <%= link_to user.name, user_path(user), target: '_blank' %>
+          |
+          <%= link_to "в соц сетях #{user.name}", user.profile, target: '_blank' %>
+          <br>
+          <%= form_for user, url: members_bot_path(user), method: "put" do |f| %>
+            <%= label_tag(:is_bot, "Бот?:") %>
+            <%= f.check_box(:is_bot) %>
+            <%= f.submit 'Сохранить', :class => 'button-xs' %>
+          <% end %>
+        </div>
+      <% end %>
+    </dd>
+  </dl>
+
+  <%= paginate @user_voteable, params: {controller: 'users', action: 'show_member_voteable'} %>
+</div>

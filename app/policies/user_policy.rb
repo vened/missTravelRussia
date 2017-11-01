@@ -36,6 +36,10 @@ class UserPolicy
     @current_user.admin?
   end
 
+  def show_member_voteable?
+    @current_user.admin?
+  end
+
   def show?
     scope.all
   end

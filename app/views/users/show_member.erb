@@ -3,6 +3,42 @@
   <br>
   <br>
   <br>
+
+  <dl class="dl-horizontal">
+    <dt>
+      за кого проголосовал
+      <br>
+      user_voteables
+    </dt>
+    <dd>
+      <%= @user.user_voteables.length %>
+      <hr>
+      <%- @user.user_voteables.each do |user_id| %>
+        <%- user_vote = User.where(number: user_id.user_voteable_id).first %>
+        <%- if user_vote.present? %>
+          <div>
+            <%= link_to user_vote.name, show_member_path(user_vote), target: '_blank' %>
+            |
+            <%= link_to user_vote.name, user_path(user_vote), target: '_blank' %>
+            |
+            <%= link_to "social id #{user_vote.name}", user_vote.profile, target: '_blank' %>
+          </div>
+        <% end %>
+      <% end %>
+    </dd>
+  </dl>
+
+  <dl class="dl-horizontal">
+    <dt>
+      <%=link_to 'кто проголосовал', show_member_voteable_path(@user)%>
+    </dt>
+    <dd>
+
+    </dd>
+  </dl>
+
+  <hr>
+
   <dl class="dl-horizontal">
     <dt>
       name
@@ -184,57 +220,6 @@
           <% end %>
         </div>
       </div>
-    </dd>
-  </dl>
-
-  <hr>
-
-  <dl class="dl-horizontal">
-    <dt>
-      за кого проголосовал
-      <br>
-      user_voteables
-    </dt>
-    <dd>
-      <%= @user.user_voteables.length %>
-      <hr>
-      <%- @user.user_voteables.each do |user_id| %>
-        <%- user_vote = User.where(number: user_id.user_voteable_id).first %>
-        <%- if user_vote.present? %>
-          <div>
-            <%= link_to user_vote.name, show_member_path(user_vote), target: '_blank' %>
-            |
-            <%= link_to user_vote.name, user_path(user_vote), target: '_blank' %>
-            |
-            <%= link_to "social id #{user_vote.name}", user_vote.profile, target: '_blank' %>
-          </div>
-        <% end %>
-      <% end %>
-    </dd>
-  </dl>
-
-  <dl class="dl-horizontal">
-    <dt>
-      кто проголосовал
-    </dt>
-    <dd>
-      <%= @user_voteable.length %>
-      <hr>
-      <%- @user_voteable.each do |user| %>
-        <div class="users-list <%= user.is_bot && 'is_bot'%>">
-          <%= link_to user.name, show_member_path(user), target: '_blank' %>
-          |
-          <%= link_to user.name, user_path(user), target: '_blank' %>
-          |
-          <%= link_to "в соц сетях #{user.name}", user.profile, target: '_blank' %>
-          <br>
-          <%= form_for user, url: members_bot_path(user) do |f| %>
-            <%= label_tag(:is_bot, "Бот?:") %>
-            <%= f.check_box(:is_bot) %>
-            <%= f.submit 'Сохранить', :class => 'button-xs' %>
-          <% end %>
-        </div>
-      <% end %>
     </dd>
   </dl>
 
