@@ -25,6 +25,14 @@ class UsersController < ApplicationController
   end
 
   def members_votes
+    users_pre = User.where(is_vote: true)
+    users_pre.each do |user|
+      unless user.is_disqualify
+        user.update(is_disqualify: false)
+        user.save
+      end
+    end
+
     users = VotesQuery.new.call(params)
     authorize User
     respond_to do |format|

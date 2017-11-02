@@ -10,12 +10,3 @@
 # if ENV["userId"]
 #   CreateUsersService.new.update_votes(ENV["userId"])
 # end
-
-
-users = User.where(_role: 'user', is_vote: true)
-users.each do |user|
-  unless user.is_disqualify
-    user.update(is_disqualify: false)
-    user.save
-  end
-end
