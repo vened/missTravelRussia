@@ -89,18 +89,18 @@ task :deploy do
 end
 
 # desc "Seed data to the database"
-# task :dbseed => :environment do
-#   command "cd #{fetch(:current_path)}/"
-#   command "bundle exec rake db:seed RAILS_ENV=#{fetch(:rails_env)} userId=4468"
-#   command  %[echo "-----> Rake Seeding Completed."]
-# end
-
-task :dbindex => :environment do
+task :dbseed => :environment do
   command "cd #{fetch(:current_path)}/"
-  # command "bundle exec rake db:mongoid:remove_indexes RAILS_ENV=#{fetch(:rails_env)}"
-  command "bundle exec rake db:mongoid:create_indexes RAILS_ENV=#{fetch(:rails_env)}"
-  command  %[echo "-----> Rake Db Indexes Completed."]
+  command "bundle exec rake db:seed RAILS_ENV=#{fetch(:rails_env)}"
+  command  %[echo "-----> Rake Seeding Completed."]
 end
+
+# task :dbindex => :environment do
+#   command "cd #{fetch(:current_path)}/"
+#   command "bundle exec rake db:mongoid:remove_indexes RAILS_ENV=#{fetch(:rails_env)}"
+#   command "bundle exec rake db:mongoid:create_indexes RAILS_ENV=#{fetch(:rails_env)}"
+#   command  %[echo "-----> Rake Db Indexes Completed."]
+# end
 
 # desc "reset database"
 # task :dbreset => :environment do
