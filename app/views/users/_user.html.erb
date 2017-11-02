@@ -5,6 +5,8 @@
   <br>
   <%= user.created_at.strftime("%d.%m.%Y %H:%M") %>
   <br>
+  <%= user.is_disqualify.present? && user.is_disqualify %>
+  <br>
 
   <%- if user.profile.present? && user.uid.present? %>
     <%= link_to "Профиль на #{user.provider}", user.profile, target: "_blank" %>
