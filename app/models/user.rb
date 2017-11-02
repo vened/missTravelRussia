@@ -21,7 +21,7 @@ class User
 
   field :is_vote, type: Boolean, default: false
   field :is_bot, type: Boolean, default: false
-  field :is_disqualify, type: Boolean, default: false
+  field :is_disqualify, type: Boolean
   field :votes, type: Integer, default: 0
 
   ## Database authenticatable
