@@ -14,41 +14,43 @@
 
 <div class="container content-container">
 
-  <div class="counters-container">
 
-    <% cache @users_all do %>
+  <% if false %>
+    <div class="counters-container">
+
+      <% cache @users_all do %>
+        <div class="counter">
+          <div class="counter-items">
+            <%- @users_all.count.to_s.split('').each do |item| %>
+              <div class="counter-item">
+                <%= item %>
+              </div>
+            <% end %>
+          </div>
+          <div class="counter-label">
+            анкет
+          </div>
+        </div>
+      <% end %>
+
+
+      <% cache @votes_count do %>
+        <div class="counter">
+          <div class="counter-items">
+            <%- @votes_count.to_s.split('').each do |item| %>
+              <div class="counter-item">
+                <%= item %>
+              </div>
+            <% end %>
+          </div>
+          <div class="counter-label">
+            голосов
+          </div>
+        </div>
+      <% end %>
+
       <div class="counter">
-        <div class="counter-items">
-          <%- @users_all.count.to_s.split('').each do |item| %>
-            <div class="counter-item">
-              <%= item %>
-            </div>
-          <% end %>
-        </div>
-        <div class="counter-label">
-          анкет
-        </div>
-      </div>
-    <% end %>
-
-
-    <% cache @votes_count do %>
-      <div class="counter">
-        <div class="counter-items">
-          <%- @votes_count.to_s.split('').each do |item| %>
-            <div class="counter-item">
-              <%= item %>
-            </div>
-          <% end %>
-        </div>
-        <div class="counter-label">
-          голосов
-        </div>
-      </div>
-    <% end %>
-
-    <div class="counter">
-      <!--
+        <!--
       <div class="counter-items">
         <%- ("2017-10-31".to_date - Date.current).numerator.to_s.split('').each do |item| %>
           <div class="counter-item">
@@ -63,13 +65,15 @@
         до окончания голосования
       </div>
       -->
-      <div class="counter-label">
-        <br>
-        Подсчет голосов завершен
+        <div class="counter-label">
+          <br>
+          Подсчет голосов завершен
+        </div>
       </div>
+
     </div>
 
-  </div>
+  <% end %>
 
   <div class="home_top">
     Финалистки конкурса
@@ -367,6 +371,20 @@
         Генеральный директор
         <br>
         OnlineTours
+      </div>
+    </div>
+
+    <div class="jury-item">
+      <div class="jury-item-photo">
+        <%= image_tag(asset_pack_path('jury-10.jpg'), size: "180x180") %>
+      </div>
+      <div class="jury-item-name">
+        Анна Багдасарян
+      </div>
+      <div class="jury-item-info">
+        Руководитель отдела по работе
+        <br>
+        с агентствами библио-глобус
       </div>
     </div>
 
