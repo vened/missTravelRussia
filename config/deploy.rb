@@ -10,7 +10,7 @@ set :user, 'deployTest1'          # Username in the server to SSH to.
 set :forward_agent, true     # SSH forward_agent.
 
 set :application_name, 'missTravelRussia'
-set :domain, 'hatharoom.ru'
+set :domain, 'missturizm.ru'
 
 set :shared_dirs,  fetch(:shared_dirs, []).push('tmp', 'log', 'public/uploads', 'public/system')
 set :shared_files, fetch(:shared_files, []).push('config/puma.rb', 'config/mongoid.yml', 'config/secrets.yml')
