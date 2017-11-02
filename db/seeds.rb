@@ -15,9 +15,7 @@
 users = User.where(is_vote: true)
 users.each do |user|
   unless user.is_disqualify
-    user.update(is_disqualify: true)
-    user.save
     user.update(is_disqualify: false)
-    user.save
+    user.save(validate: false)
   end
 end
