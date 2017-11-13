@@ -17,7 +17,7 @@ set :shared_files, fetch(:shared_files, []).push('config/puma.rb', 'config/mongo
 set :deploy_to, "/home/deployTest1/www/#{fetch(:application_name)}"
 
 set :repository, 'git@github.com:vened/missTravelRussia.git'
-set :branch, 'master'
+set :branch, 'test'
 set :rvm_use_path, "/home/#{fetch(:user)}/.rvm/bin/rvm"
 
 set :rails_env, 'production'
