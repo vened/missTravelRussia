@@ -15,7 +15,24 @@
 	}
 }
 
-.user-disqualify{
+.owl-carousel {
+
+	.anketa-item-img {
+		height: 652px;
+		overflow: hidden;
+
+		.img-responsive {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+		}
+	}
+}
+
+.user-disqualify {
 	position: absolute;
 	left: 0;
 	right: 0;
@@ -45,7 +62,7 @@
 	text-align: right;
 	color: #7b7b7b;
 
-	button{
+	button {
 		background: none;
 		border: none;
 		outline: none;
@@ -59,12 +76,13 @@
 		padding: 5px 8px;
 		font-size: 14px;
 
-		img{
+		img {
 			width: 16px;
 		}
 	}
 }
-.anketa-item-count-value{
+
+.anketa-item-count-value {
 	margin-right: 13px;
 
 	@media (max-width: 768px) {
@@ -89,22 +107,22 @@
 	color: #5d5d5d !important;
 }
 
-.anketa-item-date{
+.anketa-item-date {
 	font-size: 12px;
 	text-align: center;
 	color: #5d5d5d !important;
 }
 
-.votes-title{
+.votes-title {
 	margin-bottom: 50px;
 
 	@media (max-width: 580px) {
-		margin:10px 0 30px;
+		margin: 10px 0 30px;
 		font-size: 24px;
 	}
 }
 
-.votes-users{
+.votes-users {
 	display: flex;
 	flex-wrap: wrap;
 	margin: 0 -10px;
@@ -114,7 +132,7 @@
 	}
 }
 
-.votes-user{
+.votes-user {
 	width: calc((100% / 3) - 20px);
 	margin: 0 10px;
 
@@ -127,18 +145,18 @@
 	}
 }
 
-.sort-block{
+.sort-block {
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
 	margin: 32px 0;
 }
 
-.sort-block-label{
+.sort-block-label {
 	font-size: 17px;
 }
 
-.sort-block-sorted{
+.sort-block-sorted {
 	margin: 0 0 0 24px;
 	font-size: 17px;
 }

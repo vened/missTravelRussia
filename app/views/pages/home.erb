@@ -15,7 +15,7 @@
 <div class="container content-container">
 
 
-  <% if true %>
+  <% if false %>
     <div class="counters-container">
 
       <% cache @users_all do %>
@@ -76,15 +76,84 @@
   <% end %>
 
   <div class="home_top">
+    Победительницы конкурса
+  </div>
+
+  <div class="home_top-2">
+    МИСС ТУРИЗМ 2017
+  </div>
+
+  <%- if @user1.present? %>
+    <div class="owl-carousel home-users">
+      <%- @user1.photos.each do |photo| %>
+        <div class="home-users-item">
+          <%= link_to user_path(@user1), class: "anketa-item" do %>
+            <div class="anketa-item-img">
+              <%= image_tag photo.photo_src.large, class: "img-responsive" %>
+            </div>
+            <div class="anketa-item-name">
+              <%= @user1.name %>,
+              <%= @user1.age %>
+            </div>
+            <div class="anketa-item-organization">
+              <%= @user1.organization %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="votes-users">
+    <div class="votes-user">
+      <div class="home_top-3">
+        &nbsp;
+        <br>
+        I ВИЦЕ МИСС ТУРИЗМ
+      </div>
+      <%= render partial: "shared/anketa_mini_home", locals: {user: @user2} %>
+    </div>
+    <div class="votes-user">
+      <div class="home_top-3">
+        &nbsp;
+        <br>
+        II ВИЦЕ МИСС ТУРИЗМ
+      </div>
+      <%= render partial: "shared/anketa_mini_home", locals: {user: @user3} %>
+    </div>
+    <div class="votes-user">
+      <div class="home_top-3">
+        Мисс Туризм
+        <br>
+        зрительских симпатий
+      </div>
+      <%= render partial: "shared/anketa_mini_home", locals: {user: @user4} %>
+    </div>
+  </div>
+
+  <div class="home-subtitle">
     Финалистки конкурса
   </div>
 
-  <div class="owl-carousel home-users">
-    <%- @users.each do |user| %>
-      <div class="home-users-item">
-        <%= render partial: "shared/anketa_mini", locals: {user: user} %>
-      </div>
-    <% end %>
+  <div class="votes-users">
+    <div class="votes-user">
+      <%= render partial: "shared/anketa_mini_home", locals: {user: @user5} %>
+    </div>
+    <div class="votes-user">
+      <%= render partial: "shared/anketa_mini_home", locals: {user: @user6} %>
+    </div>
+    <div class="votes-user">
+      <%= render partial: "shared/anketa_mini_home", locals: {user: @user7} %>
+    </div>
+    <div class="votes-user">
+      <%= render partial: "shared/anketa_mini_home", locals: {user: @user8} %>
+    </div>
+    <div class="votes-user">
+      <%= render partial: "shared/anketa_mini_home", locals: {user: @user9} %>
+    </div>
+    <div class="votes-user">
+      <%= render partial: "shared/anketa_mini_home", locals: {user: @user10} %>
+    </div>
   </div>
 
   <%= link_to 'Все участницы', votes_path, class: "btn-votes" %>

@@ -16,7 +16,7 @@ $(document).ready(function() {
     naw: true,
     loop: false,
     margin: 20,
-    items: 5,
+    items: 1,
     responsiveClass: true,
     responsive: {
       0: {
@@ -24,15 +24,15 @@ $(document).ready(function() {
         nav: true,
       },
       600: {
-        items: 2,
+        items: 1,
         nav: true,
       },
       768: {
-        items: 2,
+        items: 1,
         nav: true,
       },
       1024: {
-        items: 3,
+        items: 1,
         nav: true,
       },
     },

@@ -14,11 +14,33 @@
 		font-size: 28px;
 	}
 }
+.home_top-2{
+	margin: 0 0 40px 0;
+	font-family: 'Roboto Slab';
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+	color: #3269a8;
+	text-transform: uppercase;
+
+	@media (max-width: 768px) {
+		font-size: 24px;
+	}
+}
+
+.home_top-3{
+	margin: 0 0 24px 0;
+	font-family: 'Roboto Slab';
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	color: #3269a8;
+	text-transform: uppercase;
+}
 
 .home-users {
 	position: relative;
-	display: flex;
-	justify-content: space-between;
+	margin: 0 0 30px;
 }
 
 .home-users-item {

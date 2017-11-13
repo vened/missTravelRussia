@@ -7,8 +7,9 @@
 header class="#{request.fullpath != '/' && 'header-collapse'}"
   == render 'header/navigation'
   - if request.fullpath === '/'
-    h1.header-title Голосуй за Мисс Туризм!
-    - if user_signed_in?
+    /h1.header-title Голосуй за Мисс Туризм!
+    h1.header-title-2 Мисс Туризм Россия 2017!
+    /- if user_signed_in?
       .header-buttons
         - if current_user.gender != 'male' && policy(current_user).edit?
           - if current_user.is_vote
@@ -18,7 +19,7 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
               |Участвовать в конкурсе
 
         = link_to 'Голосовать', votes_path, class: 'btn btn-primary btn-lg'
-    - else
+    /- else
       .b-sign-in
         .b-sign-in-lebel Для участия или голосования авторизуйтесь через
         .b-sign-in-buttons
@@ -28,7 +29,7 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
             /i.fa.fa-vk.fa-fw
             span VKONTAKTE
 
-#myModal.modal.fade aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
+/#myModal.modal.fade aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
   .modal-dialog role="document"
     .modal-content
       .modal-header
@@ -65,7 +66,7 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
           li Модератор может исключить участницу при обнаружении мошеннических действий и накрутки голосов.
           li По итогам онлайн голосования 1 ноября будут выбраны 10 финалисток для поездки в Rixos Sungate на финал. Перед поездкой на финал необходимо будет еще раз подтвердить свою принадлежность к туриндустрии - визитная карточка или трудовая книжка. Участница будет дисквалифицирована в случае, если не сможет подтвердить свою принадлежность к туризму.
 
-#payment.modal.fade aria-labelledby="#paymentLabel" role="dialog" tabindex="-1"
+/#payment.modal.fade aria-labelledby="#paymentLabel" role="dialog" tabindex="-1"
   .modal-dialog role="document"
     .modal-content
       .modal-header

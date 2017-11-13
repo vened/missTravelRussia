@@ -95,6 +95,7 @@ class UsersController < ApplicationController
         role: secure_params[:role],
         is_disqualify: secure_params[:is_disqualify],
         votes: secure_params[:votes],
+        rating: secure_params[:rating]
     )
     if @user.save(validate: false)
       redirect_to users_path, :notice => "Вы успешно заполнили анкету участника"
@@ -215,6 +216,7 @@ class UsersController < ApplicationController
         :is_bot,
         :is_disqualify,
         :votes,
+        :rating,
     )
   end
 

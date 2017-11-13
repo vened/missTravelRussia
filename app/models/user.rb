@@ -23,6 +23,7 @@ class User
   field :is_bot, type: Boolean, default: false
   field :is_disqualify, type: Boolean
   field :votes, type: Integer, default: 0
+  field :rating, type: Integer
 
   ## Database authenticatable
   field :email, type: String, default: ""
