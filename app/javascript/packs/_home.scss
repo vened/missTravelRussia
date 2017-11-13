@@ -40,7 +40,8 @@
 
 .home-users {
 	position: relative;
-	margin: 0 0 30px;
+	display: flex;
+	justify-content: space-between;
 }
 
 .home-users-item {
