@@ -84,7 +84,7 @@
   </div>
 
   <%- if @user1.present? %>
-    <div class="owl-carousel home-users">
+    <div class="owl-carousel home-users home-users-leader">
       <%- @user1.photos.each do |photo| %>
         <div class="home-users-item">
           <%= link_to user_path(@user1), class: "anketa-item" do %>
