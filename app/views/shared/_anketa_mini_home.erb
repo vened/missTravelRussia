@@ -1,7 +1,7 @@
 <%- photo = user.photos.present? ? user.photos.find_by(root: true) : nil %>
 <%= link_to user_path(user), class: "anketa-item" do %>
   <div class="anketa-item-img">
-    <%= image_tag photo.photo_src.large, class: "img-responsive" %>
+    <%= image_tag photo.photo_src.middle, class: "img-responsive" %>
   </div>
   <div class="anketa-item-name">
     <%= user.name %>,
