@@ -40,6 +40,10 @@ class UserPolicy
     @current_user.admin?
   end
 
+  def upload_galery?
+    @current_user.admin?
+  end
+
   def show?
     scope.all
   end

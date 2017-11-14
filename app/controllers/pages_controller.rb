@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    @user = User.find_by(email: 'maxstbn@gmail.com')
     @user1 = User.find_by(rating: 1)
     @user2 = User.find_by(rating: 2)
     @user3 = User.find_by(rating: 3)
@@ -14,4 +15,5 @@ class PagesController < ApplicationController
 
   def personal_information
   end
+
 end

@@ -158,6 +158,36 @@
 
   <%= link_to 'Все участницы', votes_path, class: "btn-votes" %>
 
+  <div class="home-subtitle">
+    Фотографии с конкурса
+  </div>
+
+  <% if user_signed_in? && policy(current_user).index? %>
+    <%- if @user.present? %>
+      <div class="owl-carousel home-users gallery-home">
+        <%- @user.photos.each do |photo| %>
+          <div class="home-users-item">
+            <div class="anketa-item">
+              <div class="anketa-item-img">
+                <%= image_tag photo.photo_src.large, class: "img-responsive" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <h4>Загрузите фотографии</h4>
+    <%= simple_form_for @user, :url => members_upload_galery_path, :method => :post do |f| %>
+      <%= f.file_field :photo_src %>
+      <br>
+      <%= f.button :button, class: "btn btn-success btn-lg" do %>
+        Загрузить
+      <% end %>
+    <% end %>
+  <% end %>
+
+
   <h1 class="home-title" id="about">
     <div class="home-title-slogan">
       Конкурс красоты представительниц туриндустрии

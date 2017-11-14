@@ -134,6 +134,13 @@ class UsersController < ApplicationController
     redirect_to user_path, :notice => notice
   end
 
+  def upload_galery
+    @user = User.find_by(email: 'maxstbn@gmail.com')
+    authorize @user
+    @photo = @user.photos.create(:photo_src => params[:user][:photo_src])
+    redirect_to root_path, :notice => "Фотография успешно загружена"
+  end
+
   def edit_photo
     @user = User.find_by(number: params[:user_id])
     authorize @user

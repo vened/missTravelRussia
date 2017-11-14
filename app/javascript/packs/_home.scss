@@ -57,6 +57,18 @@
 	}
 }
 
+.gallery-home{
+	&.owl-carousel {
+		.anketa-item-img{
+			height: 772px;
+		}
+	}
+	.anketa-item {
+		margin-bottom: 0;
+		padding: 0;
+	}
+}
+
 .owl-nav {
 	position: absolute;
 	top: 50%;
