@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   put 'members/:user_id/photos/:id/edit' => 'users#edit_photo', as: 'members_edit_photo'
   put 'members/:id/update_member' => 'users#update_member', as: 'update_member'
   delete 'members/:user_id/photos/:id' => 'users#destroy_photo', as: 'members_photo'
+  delete 'members_photo_gallery/:user_id/photos/:id' => 'users#destroy_photo_gallery', as: 'members_photo_gallery'
 
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
 

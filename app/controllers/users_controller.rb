@@ -163,6 +163,14 @@ class UsersController < ApplicationController
     redirect_to user_path(@user), :notice => "Фотография успешно удалена"
   end
 
+  def destroy_photo_gallery
+    @user = User.find_by(number: params[:user_id])
+    authorize @user
+    @photo = @user.photos.find(params[:id])
+    @photo.destroy
+    redirect_to root_path, :notice => "Фотография успешно удалена"
+  end
+
   def destroy
     user = User.find_by(number: params[:id])
     authorize user
