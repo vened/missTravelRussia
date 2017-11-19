@@ -94,7 +94,7 @@
   <% end %>
 <% end %>
 
-<% if user_signed_in? && policy(@user).upload? %>
+<% if user_signed_in? && policy(@user).profile? %>
   <%- if @user.photos.length < 4 %>
     <h4>Загрузите 4 фотографии</h4>
     <%= simple_form_for @user, :url => members_upload_path, :method => :post do |f| %>

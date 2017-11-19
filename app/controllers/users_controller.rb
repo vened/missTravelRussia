@@ -137,7 +137,11 @@ class UsersController < ApplicationController
   def upload_galery
     @user = User.find_by(email: 'maxstbn@gmail.com')
     authorize @user
-    @photo = @user.photos.create(:photo_src => params[:user][:photo_src])
+    if params[:user][:photo_src].present?
+      params[:user][:photo_src].each do |upload_photo|
+        @photo = @user.photos.create(:photo_src => upload_photo)
+      end
+    end
     redirect_to root_path, :notice => "Фотография успешно загружена"
   end
 
