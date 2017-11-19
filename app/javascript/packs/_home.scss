@@ -46,12 +46,12 @@
 
 .home-users-leader {
 	&.owl-carousel {
-		width: 752px;
+		width: 100%;
 		margin: 0 auto 30px;
 
 		.anketa-item-img {
 			position: relative;
-			height: 800px;
+			height: 652px;
 			overflow: hidden;
 
 			img {
@@ -73,7 +73,7 @@
 			width: 100%;
 
 			.anketa-item-img {
-				height: 650px;
+				height: 450px;
 			}
 		}
 		@media (max-width: 450px) {
