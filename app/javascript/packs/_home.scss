@@ -463,3 +463,26 @@
 	color: #000000;
 	text-transform: uppercase;
 }
+
+.owl-carousel {
+	.owl-item {
+		.img_gallery {
+			position: relative;
+			overflow: hidden;
+
+			img {
+				position: absolute;
+				left: 50%;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				width: auto;
+				max-width: none;
+				height: 100%;
+				-webkit-transform: translateX(-50%);
+				transform: translateX(-50%);
+				border-radius: 0;
+			}
+		}
+	}
+}

@@ -53,7 +53,7 @@ class UserPolicy
   end
 
   def profile?
-    @current_user == @user
+    @current_user.admin? || @current_user == @user
   end
 
   def update?
