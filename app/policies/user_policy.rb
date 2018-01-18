@@ -69,7 +69,7 @@ class UserPolicy
   end
 
   def upload?
-    @current_user == @user
+    @current_user.admin? || @current_user.user? or @current_user == @user
   end
 
   def is_voted?
