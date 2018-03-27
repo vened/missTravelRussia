@@ -3,8 +3,8 @@
       apt_repository:
         repo: "ppa:certbot/certbot"
 
-    - name: Upgrade system
-      apt: upgrade=dist update_cache=yes
+#    - name: Upgrade system
+#      apt: upgrade=dist update_cache=yes
 
     - name: Install nginx
       apt: name=nginx state=latest

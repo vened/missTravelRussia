@@ -26,43 +26,43 @@
     app_path: '{{ home }}/www/{{ app_name }}'
     gather_facts: false
   roles:
-    - user
-    - dependencies
+#    - user
+#    - dependencies
     - {
         role: nginx,
         become: yes,
         letsencrypt_email: 'maxstbn@gmail.com',
-        domain_name: 'hatharoom.ru'
+        domain_name: 'missturizm.ru'
       }
-    - {
-        role: ansible-mongodb,
-        mongodb_version: 3.4,
-        mongodb_port: 27017,
-        mongodb_bind_ip: 127.0.0.1,
-        mongodb_service_name: mongod,
-        mongodb_dbpath: /var/lib/mongodb,
-        mongodb_logpath: /var/log/mongodb/mongod.log,
-      }
-    - {
-        role: rvm1-ansible,
-        tags: ruby,
-        become: yes,
-        rvm1_rubies: ['ruby-2.4.1'],
-        rvm1_install_flags : ' --auto-dotfiles --user-install',
-        rvm1_install_path : ' /home/{{ user }}/.rvm',
-        rvm1_user: '{{ user }}'
-      }
-    - {
-        role: ansible-role-nodejs,
-        become: yes,
-        nodejs_version: "6.x",
-        nodejs_install_npm_user: "{{ user }}",
-        npm_config_prefix: "/usr/local/lib/npm",
-        npm_config_unsafe_perm: "true"
-      }
-    - {
-        role: ansible-yarn,
-        become: yes,
-        yarn_debian_repo_url: "http://dl.yarnpkg.com/debian/ stable main",
-        yarn_debian_repo_gpg_key_url: "http://dl.yarnpkg.com/debian/pubkey.gpg",
-      }
+#    - {
+#        role: ansible-mongodb,
+#        mongodb_version: 3.4,
+#        mongodb_port: 27017,
+#        mongodb_bind_ip: 127.0.0.1,
+#        mongodb_service_name: mongod,
+#        mongodb_dbpath: /var/lib/mongodb,
+#        mongodb_logpath: /var/log/mongodb/mongod.log,
+#      }
+#    - {
+#        role: rvm1-ansible,
+#        tags: ruby,
+#        become: yes,
+#        rvm1_rubies: ['ruby-2.4.1'],
+#        rvm1_install_flags : ' --auto-dotfiles --user-install',
+#        rvm1_install_path : ' /home/{{ user }}/.rvm',
+#        rvm1_user: '{{ user }}'
+#      }
+#    - {
+#        role: ansible-role-nodejs,
+#        become: yes,
+#        nodejs_version: "6.x",
+#        nodejs_install_npm_user: "{{ user }}",
+#        npm_config_prefix: "/usr/local/lib/npm",
+#        npm_config_unsafe_perm: "true"
+#      }
+#    - {
+#        role: ansible-yarn,
+#        become: yes,
+#        yarn_debian_repo_url: "http://dl.yarnpkg.com/debian/ stable main",
+#        yarn_debian_repo_gpg_key_url: "http://dl.yarnpkg.com/debian/pubkey.gpg",
+#      }
