@@ -18,6 +18,7 @@ $(document).ready(function() {
     margin: 20,
     items: 1,
     responsiveClass: true,
+    lazyLoad: true,
     responsive: {
       0: {
         items: 1,

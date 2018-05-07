@@ -97,7 +97,7 @@
         <div class="home-users-item">
           <%= link_to user_path(@user1), class: "anketa-item" do %>
             <div class="anketa-item-img">
-              <%= image_tag photo.photo_src.large, class: "img-responsive" %>
+              <img class="img-responsive owl-lazy" data-src="<%= photo.photo_src.large %>" />
             </div>
             <div class="anketa-item-name">
               <%= @user1.name %>,
@@ -179,7 +179,7 @@
         <div class="home-users-item">
           <div class="anketa-item">
             <div class="anketa-item-img img_gallery">
-              <%= image_tag photo.photo_src.large, class: "img-responsive" %>
+              <img class="img-responsive owl-lazy" data-src="<%= photo.photo_src.large %>" />
             </div>
           </div>
 
