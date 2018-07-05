@@ -19,7 +19,7 @@ class User
 
   field :number, type: Integer
 
-  field :is_vote, type: Boolean, default: false
+  field :is_vote, type: Boolean, default: false # флаг обозначающий что пользователь участвует в конкурсе, заменяем на роль, отрефакторить везде
   field :is_bot, type: Boolean, default: false
   field :is_disqualify, type: Boolean
   field :votes, type: Integer, default: 0
@@ -64,7 +64,8 @@ class User
   index "photos.root" => 1
 
 
-  enum :role, [:user, :admin]
+  # contestant - участник конкурса
+  enum :role, [:contestant, :user, :admin]
 
 
   after_initialize :set_default_role, :if => :new_record?
@@ -101,6 +102,7 @@ class User
         gender: gender.present? ? gender : nil,
         location: location.present? ? location : nil,
         bdate: bdate.present? ? bdate : nil,
+        role: :contestant # регистрация участника
     # is_vote: gender == 'male' ? false : true
     )
     return current_user

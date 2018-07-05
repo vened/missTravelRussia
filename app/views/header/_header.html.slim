@@ -7,9 +7,9 @@
 header class="#{request.fullpath != '/' && 'header-collapse'}"
   == render 'header/navigation'
   - if request.fullpath === '/'
-    /h1.header-title Голосуй за Мисс Туризм!
-    h1.header-title Мисс Туризм Россия 2017!
-    /- if user_signed_in?
+    h1.header-title Участвуй в конкурсе Мисс Туризм Россия 2018!
+    / h1.header-title Мисс Туризм Россия 2017!
+    - if user_signed_in?
       .header-buttons
         - if current_user.gender != 'male' && policy(current_user).edit?
           - if current_user.is_vote
@@ -19,8 +19,10 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
               |Участвовать в конкурсе
 
         = link_to 'Голосовать', votes_path, class: 'btn btn-primary btn-lg'
-    /- else
-      .b-sign-in
+    - else
+      div
+        button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal" Участвовать
+      / .b-sign-in
         .b-sign-in-lebel Для участия или голосования авторизуйтесь через
         .b-sign-in-buttons
           = link_to user_facebook_omniauth_authorize_path, class: 'b-sign-in-button b-sign-in-button-fb' do
@@ -29,13 +31,13 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
             /i.fa.fa-vk.fa-fw
             span VKONTAKTE
 
-/#myModal.modal.fade aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
+#myModal.modal.fade aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
   .modal-dialog role="document"
     .modal-content
       .modal-header
         button.close aria-label="Close" data-dismiss="modal" type="button"
           span aria-hidden="true"  &times;
-        h4#myModalLabel.modal-title Для участия или голосования авторизуйтесь через
+        h4#myModalLabel.modal-title Для участия авторизуйтесь через
       .modal-body
         - unless user_signed_in?
           .b-sign-in
@@ -43,7 +45,7 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
               = link_to user_facebook_omniauth_authorize_path, class: 'b-sign-in-button b-sign-in-button-fb' do
                 = image_tag asset_pack_path 'login-fb.svg'
               = link_to user_vkontakte_omniauth_authorize_path, class: 'b-sign-in-button b-sign-in-button-vk' do
-                /i.fa.fa-vk.fa-fw
+                i.fa.fa-vk.fa-fw
                 span VKONTAKTE
 
 #myModal1.modal.fade aria-labelledby="#myModal1Label" role="dialog" tabindex="-1"

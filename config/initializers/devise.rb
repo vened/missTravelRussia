@@ -260,7 +260,7 @@ Devise.setup do |config|
                     'b09759a20667709cc07b9ae52ed14442',
                     scope: 'email',
                     info_fields: fb_info_fields
-    config.omniauth  :vkontakte, '6184476', 'qUSN2Motjx5rCK67WNNO', vk_info
+    config.omniauth  :vkontakte, '4954065', 'eWoz83A4bHsYKaFW429M', vk_info
   end
 
   if Rails.env.production?
