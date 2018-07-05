@@ -1,15 +1,15 @@
 header {
 	position: relative;
 	height: 797px;
-	background-image: url('img/banner-hp-new.jpg');
+	background-image: url('img/hero-masked@2x.jpg');
 	background-position: top center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-color: #fff;
 
-	@media (max-width: 1024px) {
-		height: 540px;
-	}
+	//@media (max-width: 1024px) {
+	//	height: 540px;
+	//}
 	@media (max-width: 992px) {
 		.container {
 			width: 100%;
@@ -20,9 +20,9 @@ header {
 	}
 }
 
-.header-collapse {
-	height: 76px;
-}
+//.header-collapse {
+//	height: 76px;
+//}
 
 .navbar {
 	z-index: 4;
@@ -33,10 +33,12 @@ header {
 }
 
 .navbar-brand {
-	padding: 12px 15px;
+	margin: 0 !important;
+	padding: 0 !important;
 
 	img {
-		height: 50px;
+		height: 148px;
+		width: 160px;
 		vertical-align: top;
 	}
 
@@ -50,10 +52,10 @@ header {
 }
 
 .navbar-collapse {
-	@media (max-width: 1024px) {
+	@media (max-width: 768px) {
 		position: absolute;
 		left: 0;
-		top: 74px;
+		top: 148px;
 		right: 0;
 		z-index: 3000;
 		padding-left: 30px;
@@ -62,38 +64,37 @@ header {
 	}
 }
 
-.navbar-toggle {
-	@media (max-width: 768px) {
-		margin-top: 12px;
-		margin-bottom: 12px;
-	}
-}
-
-.navbar-inverse .navbar-nav {
-	& > li {
-		& > a {
-			font-size: 15px;
-			font-weight: 100;
-			text-transform: uppercase;
-
-			&.user-avatar {
-				display: block;
-				height: 74px;
-				padding-top: 21px;
-				padding-bottom: 21px;
-				padding-right: 0;
-
-				.img-responsive {
-					height: 32px;
-					width: 32px;
-					border-radius: 4px;
+.navbar-inverse {
+	.navbar-nav {
+		& > li {
+			& > a {
+				font-size: 11px;
+				font-weight: 700;
+				text-transform: uppercase;
+				font-style: normal;
+				font-stretch: normal;
+				line-height: normal;
+				letter-spacing: 1.3px;
+			}
+			&.active {
+				& > a {
+					text-decoration: underline;
 				}
 			}
 		}
 	}
+
+	.navbar-toggle {
+		border: none;
+
+		@media (max-width: 768px) {
+			margin-top: 12px;
+			margin-bottom: 12px;
+		}
+	}
 }
 
-.header-hero{
+.header-hero {
 	position: relative;
 	z-index: 3;
 	width: 383px;

@@ -24,11 +24,20 @@ body {
 	position: relative;
 	min-height: 100vh;
 	padding: 0;
-	background-image: url('img/fon@2x.jpg');
-	background-repeat: no-repeat;
-	background-position: center;
-	background-attachment: fixed;
-	background-size: cover;
+	background-color: #f5eade;
+}
+
+.wrapper {
+	@include clearfix;
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 30px;
+	padding-right: 30px;
+
+	@media (max-width: 960px) {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
 }
 
 .container-body {
@@ -45,14 +54,16 @@ abbr[title], abbr[data-original-title] {
 	border: none;
 	text-decoration: none;
 }
-.users-list{
+
+.users-list {
 	margin: 16px 0;
 
-	form{
+	form {
 		margin-top: 8px;
 	}
 }
-.is_bot{
+
+.is_bot {
 	padding: 8px 0;
 	background-color: rgba(255, 0, 0, 0.1);
 }

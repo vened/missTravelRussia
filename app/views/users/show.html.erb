@@ -7,152 +7,149 @@
 
 <% if user_signed_in? && policy(@user).edit? %>
   <%= render partial: "shared/meta_og",
-             locals: {title: "Я участвую в конкурсе красоты Мисс Туризм 2017!",
-                      desc: "Голосуйте за меня!",
-                      photo: @root_photo ? @root_photo.photo_src.large : nil
+             locals:  {title: "Я участвую в конкурсе красоты Мисс Туризм 2017!",
+                       desc:  "Голосуйте за меня!",
+                       photo: @root_photo ? @root_photo.photo_src.large : nil
              }
   %>
 <%- else %>
   <%= render partial: "shared/meta_og",
-             locals: {title: "Посмотрите какая девушка!",
-                      desc: "#{@user.name} участвует в конкурсе красоты Мисс Туризм 2017! Проголосуйте за нее!",
-                      photo: @root_photo ? @root_photo.photo_src.large : nil
+             locals:  {title: "Посмотрите какая девушка!",
+                       desc:  "#{@user.name} участвует в конкурсе красоты Мисс Туризм 2017! Проголосуйте за нее!",
+                       photo: @root_photo ? @root_photo.photo_src.large : nil
              }
   %>
 <% end %>
 
-<% if @user.is_vote %>
 
-  <div class="profile">
-    <div class="container content-container">
+<div class="profile">
+  <div class="container content-container">
 
-      <div class="profile-heding">
-        <div>
-          АНКЕТА УЧАСТНИЦЫ № <%= @user.number %>
-        </div>
-        <div class="profile-position">
-          <%- if @user.is_disqualify %>
-            <div class="alert alert-danger text-center">
-              Участница дисквалифицированна
-            </div>
-          <% else %>
-            <%= render 'users/anketa_count' %>
-          <% end %>
-        </div>
+    <div class="profile-heding">
+      <div>
+        АНКЕТА УЧАСТНИЦЫ № <%= @user.number %>
       </div>
+      <div class="profile-position">
+        <%- if @user.is_disqualify %>
+          <div class="alert alert-danger text-center">
+            Участница дисквалифицированна
+          </div>
+        <% else %>
+          <%= render 'users/anketa_count' %>
+        <% end %>
+      </div>
+    </div>
 
-      <div class="profile-container">
-        <div class="profile-photos-col">
-          <%== render 'users/photos' %>
-        </div>
-        <div class="profile-info-col">
+    <div class="profile-container">
+      <div class="profile-photos-col">
+        <%== render 'users/photos' %>
+      </div>
+      <div class="profile-info-col">
 
-          <div class="votes-block">
+        <div class="votes-block">
 
 
-            <div class="votes-block-pager">
-              <%- if @user_prev %>
-                <%== link_to user_path(@user_prev, request.query_parameters), class: 'btn btn-default' do %>
-                  <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                  <span>Предыдущая</span>
-                <% end %>
-              <% else %>
-                <div></div>
+          <div class="votes-block-pager">
+            <%- if @user_prev %>
+              <%== link_to user_path(@user_prev, request.query_parameters), class: 'btn btn-default' do %>
+                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                <span>Предыдущая</span>
               <% end %>
+            <% else %>
+              <div></div>
+            <% end %>
 
-              <% if user_signed_in? && !policy(@user).profile? && false %>
-                <% unless VotesQuery.new.is_votes(current_user, @user.number) %>
+            <% if user_signed_in? && !policy(@user).profile? && false %>
+              <% unless VotesQuery.new.is_votes(current_user, @user.number) %>
+                <div class="vote-btn-container text-center">
+                  <span class='btn btn-success disabled'>Вы проголосовали</span>
+                </div>
+              <% end %>
+            <% end %>
+
+            <%- if @user_next %>
+              <%== link_to user_path(@user_next, request.query_parameters), class: 'btn btn-default' do %>
+                <span>Следующая</span>
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+              <% end %>
+            <% else %>
+              <div></div>
+            <% end %>
+          </div>
+
+
+          <% if false %>
+            <% if user_signed_in? && !policy(@user).profile? %>
+              <% if !policy(@user).profile? %>
+                <% if VotesQuery.new.is_votes(current_user, @user.number) %>
                   <div class="vote-btn-container text-center">
-                    <span class='btn btn-success disabled'>Вы проголосовали</span>
-                  </div>
-                <% end %>
-              <% end %>
-
-              <%- if @user_next %>
-                <%== link_to user_path(@user_next, request.query_parameters), class: 'btn btn-default' do %>
-                  <span>Следующая</span>
-                  <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                <% end %>
-              <% else %>
-                <div></div>
-              <% end %>
-            </div>
-
-
-            <% if false %>
-              <% if user_signed_in? && !policy(@user).profile? %>
-                <% if !policy(@user).profile? %>
-                  <% if VotesQuery.new.is_votes(current_user, @user.number) %>
-                    <div class="vote-btn-container text-center">
-                      <%= link_to voteable_path(@user),
-                                  class: 'vote-btn',
-                                  remote: true do %>
-                        Проголосовать за участницу
-                        <%= image_tag asset_pack_path 'icon-like-red.svg' %>
-                      <% end %>
-                    </div>
-                  <% else %>
-                    <div class="vote-btn-container text-center">
-                      <%= link_to voteable_path(@user),
-                                  class: 'btn btn-primary',
-                                  remote: true do %>
-                        Отозвать свой голос
-                      <% end %>
-                    </div>
-                  <% end %>
-                <% end %>
-              <% else %>
-                <% if !policy(@user).profile? %>
-                  <div class="vote-btn-container text-center">
-                    <a href="#" class="vote-btn" data-toggle="modal" data-target="#myModal">
+                    <%= link_to voteable_path(@user),
+                                class:  'vote-btn',
+                                remote: true do %>
                       Проголосовать за участницу
                       <%= image_tag asset_pack_path 'icon-like-red.svg' %>
-                    </a>
+                    <% end %>
+                  </div>
+                <% else %>
+                  <div class="vote-btn-container text-center">
+                    <%= link_to voteable_path(@user),
+                                class:  'btn btn-primary',
+                                remote: true do %>
+                      Отозвать свой голос
+                    <% end %>
                   </div>
                 <% end %>
               <% end %>
             <% else %>
-              <div class="vote-btn-container text-center">
+              <% if !policy(@user).profile? %>
+                <div class="vote-btn-container text-center">
+                  <a href="#" class="vote-btn" data-toggle="modal" data-target="#myModal">
+                    Проголосовать за участницу
+                    <%= image_tag asset_pack_path 'icon-like-red.svg' %>
+                  </a>
+                </div>
+              <% end %>
+            <% end %>
+          <% else %>
+            <div class="vote-btn-container text-center">
                 <span class="vote-btn vote-btn_final">
                   Подсчет голосов завершен
                 </span>
-              </div>
-            <% end %>
-          </div>
-
-          <%== render 'users/userinfo' %>
+            </div>
+          <% end %>
         </div>
+
+        <%== render 'users/userinfo' %>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<% if user_signed_in? && policy(@user).contestant? %>
+
+  <div class="profile">
+    <div class="container content-container" style="padding-top: 80px">
+
+      <div class="row">
+
+        <div class="col-md-6">
+          <div class="text-right">
+            <%= button_to is_voted_path(@user), class: 'btn btn-success btn-lg' do %>
+              Участвовать в конкурсе
+            <%- end %>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="text-left">
+            <%= link_to 'Голосовать', votes_path, class: 'btn btn-primary btn-lg' %>
+          </div>
+        </div>
+
       </div>
 
     </div>
   </div>
 
-<% else %>
-  <% if user_signed_in? && policy(@user).edit? %>
-
-    <div class="profile">
-      <div class="container content-container" style="padding-top: 80px">
-
-        <div class="row">
-
-          <div class="col-md-6">
-            <div class="text-right">
-              <%= button_to is_voted_path(@user), class: 'btn btn-success btn-lg' do %>
-                Участвовать в конкурсе
-              <%- end %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="text-left">
-              <%= link_to 'Голосовать', votes_path, class: 'btn btn-primary btn-lg' %>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-
-  <% end %>
 <% end %>
