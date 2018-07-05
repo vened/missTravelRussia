@@ -170,7 +170,7 @@
 }
 
 .home-title {
-	margin: 40px 0 100px;
+	margin: 60px 0 100px;
 	text-align: center;
 
 	@media (max-width: 768px) {
@@ -190,9 +190,9 @@
 }
 
 .home-title-text {
-	font-family: 'Roboto Slab';
+	font-family: 'Lato';
 	font-size: 50px;
-	font-weight: bold;
+	font-weight: 800;
 
 	@media (max-width: 768px) {
 		font-size: 32px;
@@ -200,12 +200,41 @@
 }
 
 .home-subtitle {
-	margin: 0 0 32px;
-	font-size: 24px;
+	font-size: 36px;
 	font-weight: bold;
-	text-align: center;
 	color: #000000;
-	text-transform: uppercase;
+	font-family: 'Lato';
+}
+
+.text-1 {
+	font-family: 'Lato';
+	font-size: 28px;
+	font-weight: 300;
+	line-height: 1.21;
+	color: #000000;
+}
+.text-2{
+	padding-top: 70px;
+	margin-bottom: 50px;
+}
+.text-3 {
+	margin: 65px 0 45px 0;
+	padding: 0 20px;
+	font-family: 'Lato';
+	font-size: 28px;
+	font-weight: 300;
+	line-height: 1.21;
+	color: #000000;
+	text-align: center;
+}
+.text-4{
+	padding: 125px 0 0;
+	font-family: 'Lato';
+	font-size: 28px;
+	font-weight: 300;
+	line-height: 1.21;
+	color: #000000;
+	text-align: center;
 }
 
 .heroes {

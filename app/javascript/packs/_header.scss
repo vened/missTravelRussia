@@ -1,22 +1,22 @@
 header {
 	position: relative;
-	height: 797px;
-	background-image: url('img/hero-masked@2x.jpg');
-	background-position: top center;
+	height: 760px;
+	background-image: url('img/hero-masked.jpg');
+	background-position: center top;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-color: #fff;
 
-	//@media (max-width: 1024px) {
-	//	height: 540px;
-	//}
-	@media (max-width: 992px) {
-		.container {
-			width: 100%;
-		}
+	@media (max-width: 960px) {
+		background-position: 41% 0px;
 	}
 	@media (max-width: 768px) {
-		height: 440px;
+		height: 560px;
+		background-image: url('img/hero-masked@2x-480-768.jpg');
+		background-size: cover;
+	}
+	@media (max-width: 480px) {
+		background-position: -10px top;
 	}
 }
 
@@ -26,9 +26,11 @@ header {
 
 .navbar {
 	z-index: 4;
-
-	@media (max-width: 768px) {
-		min-height: 64px;
+	margin-bottom: 0;
+	border: none;
+	@media (max-width: 480px) {
+		height: 94px;
+		min-height: 94px;
 	}
 }
 
@@ -37,16 +39,13 @@ header {
 	padding: 0 !important;
 
 	img {
-		height: 148px;
+		height: 160px;
 		width: 160px;
 		vertical-align: top;
-	}
 
-	@media (max-width: 768px) {
-		height: 64px;
-		img {
-			height: 40px;
-			vertical-align: top;
+		@media (max-width: 480px) {
+			height: 94px;
+			width: 94px;
 		}
 	}
 }
@@ -85,20 +84,41 @@ header {
 	}
 
 	.navbar-toggle {
+		margin-right: 10px;
+		margin-top: 20px;
 		border: none;
-
-		@media (max-width: 768px) {
-			margin-top: 12px;
-			margin-bottom: 12px;
+		&:hover {
+			background-color: transparent !important;
 		}
+	}
+}
+
+.header-hero-wrapper {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	@media (max-width: 768px) {
+		justify-content: center;
 	}
 }
 
 .header-hero {
 	position: relative;
 	z-index: 3;
-	width: 383px;
-	margin: 120px 0 0 617px;
+	width: 320px;
+	margin: 140px 0 0 0;
+
+	@media (max-width: 768px) {
+		width: 300px;
+		margin: 257px 0 0 0;
+		text-align: center;
+	}
+	@media (max-width: 640px) {
+		margin: 30% 0 0 0;
+	}
+	@media (max-width: 480px) {
+		margin: 140px 0 0 0;
+	}
 }
 
 .header-title {
@@ -112,20 +132,9 @@ header {
 	letter-spacing: normal;
 	color: #ffffff;
 
-	@media (max-width: 1280px) {
-		font-size: 66px;
-	}
-	@media (max-width: 1024px) {
-		margin: 100px 0 60px;
-		font-size: 56px;
-	}
 	@media (max-width: 768px) {
-		margin: 80px 0 50px;
-		font-size: 36px;
-	}
-	@media (max-width: 480px) {
-		margin: 60px 0 40px;
-		font-size: 30px;
+		color: #000000;
+		font-size: 24px;
 	}
 }
 

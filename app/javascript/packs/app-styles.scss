@@ -1,7 +1,6 @@
 @import "vars";
 @import "fonts/lato";
 @import "fonts/ptsans";
-@import "fonts/stylesheet";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 @import "~font-awesome/scss/font-awesome";
 @import "header";
@@ -29,6 +28,7 @@ body {
 
 .wrapper {
 	@include clearfix;
+	max-width: 1000px;
 	margin-right: auto;
 	margin-left: auto;
 	padding-left: 30px;

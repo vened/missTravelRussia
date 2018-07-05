@@ -1,9 +1,14 @@
+.counters-wrapper {
+	position: relative;
+	z-index: 5;
+	margin-top: -148px;
+	padding: 0;
+}
+
 .counters-container {
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
-	padding: 0 0 100px;
-	background-color: #fff;
 
 	@media (max-width: 1200px) {
 		justify-content: center;
@@ -30,7 +35,6 @@
 
 .counter-label {
 	width: 300px;
-	height: 22px;
 	font-family: Lato;
 	font-size: 18px;
 	font-weight: 300;

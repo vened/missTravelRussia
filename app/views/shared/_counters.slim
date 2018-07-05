@@ -1,21 +1,22 @@
-.counters-container
+.counters-wrapper
+  .wrapper
+    .counters-container
+      - cache @users_all do
+        .counter
+          .counter-item
+            = @users_all.count
+          .counter-label анкет
 
-  - cache @users_all do
-    .counter
-      .counter-item
-        = @users_all.count
-      .counter-label анкет
+      .counter
+        .counter-item
+          = ("2018-10-31".to_date - Date.current).numerator.to_s
+        .counter-label
+          |дня 
+          br
+          |до окончания регистрации
 
-  .counter
-    .counter-item
-      = ("2018-10-31".to_date - Date.current).numerator.to_s
-    .counter-label
-      |дня 
-      br
-      |до окончания регистрации
-
-  - cache @votes_count do
-    .counter
-      .counter-item
-        = @votes_count
-      .counter-label голосов
+      - cache @votes_count do
+        .counter
+          .counter-item
+            = @votes_count
+          .counter-label голосов
