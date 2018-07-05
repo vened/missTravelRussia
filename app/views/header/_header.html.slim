@@ -6,30 +6,19 @@
     | Подробнее
 header class="#{request.fullpath != '/' && 'header-collapse'}"
   == render 'header/navigation'
-  - if request.fullpath === '/'
-    h1.header-title Участвуй в конкурсе Мисс Туризм Россия 2018!
-    / h1.header-title Мисс Туризм Россия 2017!
-    - if user_signed_in?
-      .header-buttons
-        - if current_user.gender != 'male' && policy(current_user).edit?
-          - if current_user.is_vote
-            = link_to "Моя анкета", user_path(current_user), class: 'btn btn-primary btn-lg'
-          - else
-            = button_to is_voted_path(current_user), class: 'btn btn-success btn-lg' do
-              |Участвовать в конкурсе
+  .container
+    - if request.fullpath === '/'
+      .header-hero
+        / h1.header-title Мисс Туризм Россия 2017!
+        - if user_signed_in?
+          - if policy(current_user).contestant?
+            h1.header-title= current_user.name
+            = link_to "Моя анкета", user_path(current_user), class: 'btn btn-primary', style: "margin: 0 16px 0 0"
+            = link_to 'Выход', destroy_user_session_path, :method => 'delete', class: 'btn btn-default'
+        - else
+          h1.header-title Участвуй в конкурсе Мисс Туризм!
+          button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" Участвовать
 
-        = link_to 'Голосовать', votes_path, class: 'btn btn-primary btn-lg'
-    - else
-      div
-        button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal" Участвовать
-      / .b-sign-in
-        .b-sign-in-lebel Для участия или голосования авторизуйтесь через
-        .b-sign-in-buttons
-          = link_to user_facebook_omniauth_authorize_path, class: 'b-sign-in-button b-sign-in-button-fb' do
-            = image_tag asset_pack_path 'login-fb.svg'
-          = link_to user_vkontakte_omniauth_authorize_path, class: 'b-sign-in-button b-sign-in-button-vk' do
-            /i.fa.fa-vk.fa-fw
-            span VKONTAKTE
 
 #myModal.modal.fade aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
   .modal-dialog role="document"

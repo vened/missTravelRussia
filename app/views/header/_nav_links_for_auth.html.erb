@@ -1,53 +1,16 @@
 <ul class="nav navbar-nav navbar-right">
   <% if request.fullpath === '/' %>
-
-    <li>
-      <%= link_to "ВИДЕО", '#video' %>
-    </li>
-    <li>
-      <%= link_to "Победительницы", '#top' %>
-    </li>
-    <li>
-      <%= link_to "фотографии", '#photos' %>
-    </li>
     <li>
       <%= link_to "ЖЮРИ", '#jury' %>
     </li>
   <% end %>
-  <!--
   <li>
     <%= link_to "Условия участия", '#about', data: {toggle: "modal", target: "#myModal1"} %>
   </li>
-  -->
   <li>
     <%= link_to "ПАРТНЕРЫ", '#partners' %>
   </li>
   <li class="<%= request.fullpath === votes_path && 'active' %>">
     <%= link_to "УЧАСТНИЦЫ", votes_path %>
   </li>
-  <% if user_signed_in? %>
-    <% if current_user.gender != 'male' && policy(current_user).edit? %>
-      <% if current_user.is_vote %>
-        <li class="<%= request.fullpath === edit_user_path(current_user) && 'active' %>">
-          <%= link_to "АНКЕТА", user_path(current_user) %>
-        </li>
-      <% else %>
-        <li>
-          <%= button_to is_voted_path(current_user), class: 'btn-header' do %>
-            Участвовать
-          <%- end %>
-        </li>
-      <% end %>
-    <% end %>
-    <li>
-      <%= link_to 'Выход', destroy_user_session_path, :method => 'delete' %>
-    </li>
-    <%- if current_user.image.present? %>
-      <li>
-        <a href="/votes/" class="user-avatar">
-          <%= image_tag current_user.image, class: 'img-responsive' %>
-        </a>
-      </li>
-    <% end %>
-  <% end %>
 </ul>

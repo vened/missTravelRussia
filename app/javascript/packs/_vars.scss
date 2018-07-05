@@ -1,10 +1,10 @@
 $font-family-sans-serif: 'Lucida Grande', sans-serif;
 $font-family-serif: 'Roboto Slab', serif;
 
-$container-large-desktop: 1200px;
+$container-large-desktop: 1000px;
 
-$border-radius-base: 4px;
-$btn-border-radius-large: 30px;
+$border-radius-base: 0;
+$btn-border-radius-large: 0;
 
 $padding-large-vertical: 12px !default;
 $padding-large-horizontal: 32px !default;
@@ -29,13 +29,26 @@ $link-hover-color: lighten($link-color, 15%) !default;
 $font-size-base: 16px;
 $font-size-small: 16px;
 
+$brand-primary: #ff6666 !default; // #337ab7
+$brand-success: #5cb85c !default;
+$brand-info: #5bc0de !default;
+$brand-warning: #f0ad4e !default;
+$brand-danger: #d9534f !default;
 
-//$brand-danger: #D6574B !default;
 $state-danger-bg: #D6574B !default;
 $state-danger-text: #fff !default;
-$brand-success:         #5cb85c !default;
 
-$btn-success-bg: #ffcc00 !default;
-$btn-success-color: #000000 !default;
+$btn-primary-border: $brand-primary !default;
+
+$btn-success-border: $brand-success !default;
+
+$btn-info-border: $brand-info !default;
+
+$btn-warning-border: $brand-warning !default;
+
+$btn-danger-border: $brand-danger !default;
+
+//$btn-success-bg: #ffcc00 !default;
+//$btn-success-color: #000000 !default;
 
 $grid-float-breakpoint: 1024px;

@@ -12,79 +12,11 @@
            }
 %>
 
+<div class="container">
+  <%= render 'shared/counters' %>
+</div>
+
 <div class="container content-container">
-
-
-  <% if true %>
-    <div class="counters-container">
-
-      <% cache @users_all do %>
-        <div class="counter">
-          <div class="counter-items">
-            <%- @users_all.count.to_s.split('').each do |item| %>
-              <div class="counter-item">
-                <%= item %>
-              </div>
-            <% end %>
-          </div>
-          <div class="counter-label">
-            анкет
-          </div>
-        </div>
-      <% end %>
-
-
-      <% cache @votes_count do %>
-        <div class="counter">
-          <div class="counter-items">
-            <%- @votes_count.to_s.split('').each do |item| %>
-              <div class="counter-item">
-                <%= item %>
-              </div>
-            <% end %>
-          </div>
-          <div class="counter-label">
-            голосов
-          </div>
-        </div>
-      <% end %>
-
-      <div class="counter">
-        <div class="counter-items">
-          <%- ("2018-10-31".to_date - Date.current).numerator.to_s.split('').each do |item| %>
-            <div class="counter-item">
-              <%= item %>
-            </div>
-          <% end %>
-          <div class="counter-item-label">
-            дней
-          </div>
-        </div>
-        <div class="counter-label">
-          до окончания регистрации
-        </div>
-        <!--
-        <div class="counter-label">
-          <br>
-          Подсчет голосов завершен
-        </div>
-        -->
-      </div>
-
-    </div>
-
-  <% end %>
-
-  <!--
-  <div class="home_top" id="video">
-    Видео
-  </div>
-
-  <div>
-    <iframe style="width: 100%; height: 80vh" src="https://www.youtube.com/embed/2xFKbAbrhFA?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  </div>
-
-  -->
 
   <%- if false %>
 

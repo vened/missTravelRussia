@@ -1,4 +1,6 @@
 @import "vars";
+@import "fonts/lato";
+@import "fonts/ptsans";
 @import "fonts/stylesheet";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 @import "~font-awesome/scss/font-awesome";
@@ -8,6 +10,7 @@
 @import "home";
 @import "organizator";
 @import "votes";
+@import "counters";
 @import "owl/assets/owl.carousel";
 @import "owl/assets/owl.theme.default";
 @import 'lightgallery/lightgallery/dist/css/lightgallery';

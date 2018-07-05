@@ -1,22 +1,11 @@
 header {
 	position: relative;
-	height: 642px;
+	height: 797px;
 	background-image: url('img/banner-hp-new.jpg');
 	background-position: top center;
 	background-repeat: no-repeat;
 	background-size: cover;
-
-	&:before {
-		content: '';
-		display: block;
-		position: absolute;
-		z-index: 1;
-		left: 0;
-		right: 0;
-		top: 0;
-		bottom: 0;
-		background-color: rgba(0, 0, 0, .2);
-	}
+	background-color: #fff;
 
 	@media (max-width: 1024px) {
 		height: 540px;
@@ -104,16 +93,23 @@ header {
 	}
 }
 
-.header-title {
+.header-hero{
 	position: relative;
-	margin: 160px 0 100px;
 	z-index: 3;
-	font-family: 'Roboto Slab';
-	font-size: 76px;
+	width: 383px;
+	margin: 120px 0 0 617px;
+}
+
+.header-title {
+	margin: 0 0 32px;
+	font-family: Lato;
+	font-size: 32px;
 	font-weight: bold;
-	text-align: center;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.17;
+	letter-spacing: normal;
 	color: #ffffff;
-	text-shadow: 0 4px 7px rgba(0, 0, 0, 0.27);
 
 	@media (max-width: 1280px) {
 		font-size: 66px;

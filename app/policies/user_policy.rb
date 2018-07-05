@@ -44,6 +44,10 @@ class UserPolicy
     @current_user.admin?
   end
 
+  def contestant?
+    @current_user.contestant? || @current_user == @user
+  end
+
   def show?
     scope.all
   end
