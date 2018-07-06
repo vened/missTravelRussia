@@ -9,7 +9,7 @@ set :user, 'deployTest1'          # Username in the server to SSH to.
 #   set :port, '30000'           # SSH port number.
 set :forward_agent, true     # SSH forward_agent.
 
-set :application_name, 'missTravelRussia'
+set :application_name, 'missTravelRussia2018'
 set :domain, 'missturizm.ru'
 
 set :shared_dirs,  fetch(:shared_dirs, []).push('tmp', 'log', 'public/uploads', 'public/system')
@@ -17,7 +17,7 @@ set :shared_files, fetch(:shared_files, []).push('config/puma.rb', 'config/mongo
 set :deploy_to, "/home/deployTest1/www/#{fetch(:application_name)}"
 
 set :repository, 'git@github.com:vened/missTravelRussia.git'
-set :branch, 'master'
+set :branch, 'master-2018'
 set :rvm_use_path, "/home/#{fetch(:user)}/.rvm/bin/rvm"
 
 set :rails_env, 'production'
