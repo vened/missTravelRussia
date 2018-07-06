@@ -1,6 +1,6 @@
 h1.home-title#about
   .home-title-slogan Конкурс красоты представительниц туриндустрии
-  .home-title-text Мисс Туризм 2017
+  .home-title-text Мисс Туризм 2018
 
 .row style="margin-bottom: 12px"
   .col-md-6
@@ -16,7 +16,8 @@ h1.home-title#about
       p Тебе больше 18, ты работаешь в турбизнесе и готова украсить собой мир? Тебя ждёт зажигательный всероссийский конкурс «Мисс Туризм»!
       p Регистрируйся прямо сейчас и собирай как можно больше лайков в интернет-голосовании — используй шанс стать одной из 12 участниц.
       p Для этого подключи друзей, публикуй вау-новость в своих соцсетях
-    button style="width: 300px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" Участвовать
+    - unless user_signed_in?
+      button style="width: 300px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" Участвовать
 
 .text-3 Состязание полуфиналисток пройдет в сентябре в Luxury Partisan Village в рамках Международного Туристического Инвестиционного Форума ITIF
 

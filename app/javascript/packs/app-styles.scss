@@ -10,6 +10,8 @@
 @import "organizator";
 @import "votes";
 @import "counters";
+@import "steps";
+@import "jury";
 @import "owl/assets/owl.carousel";
 @import "owl/assets/owl.theme.default";
 @import 'lightgallery/lightgallery/dist/css/lightgallery';
@@ -45,7 +47,6 @@ body {
 }
 
 .content-container {
-	padding: 0 20px 60px;
 	background-color: #fff;
 	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
 }
