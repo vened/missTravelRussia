@@ -166,7 +166,7 @@ GEM
     omniauth (1.6.1)
       hashie (>= 3.4.6, < 3.6.0)
       rack (>= 1.6.2, < 3)
-    omniauth-facebook (4.0.0)
+    omniauth-facebook (5.0.0)
       omniauth-oauth2 (~> 1.2)
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
@@ -309,7 +309,7 @@ DEPENDENCIES
   mongoid (~> 6.1.0)
   mongoid-autoinc
   mongoid-enum!
-  omniauth-facebook (~> 4.0)
+  omniauth-facebook (~> 5.0)
   omniauth-vkontakte
   puma (~> 3.10)
   pundit
