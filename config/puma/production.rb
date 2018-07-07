@@ -1,6 +1,6 @@
 #!/usr/bin/env puma
 
-app_dir = "/home/deployTest1/www/missTravelRussia"
+app_dir = "/home/deployTest1/www/missTravelRussia2018"
 shared_dir = "#{app_dir}/shared"
 
 environment "production"
