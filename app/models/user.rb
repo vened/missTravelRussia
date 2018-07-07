@@ -134,8 +134,8 @@ class User
   validates :age, presence: true, on: :update
   validates :location, presence: true, on: :update
   validates :organization_site, presence: true, on: :update
-  validates :email2, presence: true, on: :update
-  validates :phone, presence: true, on: :update
+  # validates :email2, presence: true, on: :update
+  # validates :phone, presence: true, on: :update
 
   paginates_per 12
 
