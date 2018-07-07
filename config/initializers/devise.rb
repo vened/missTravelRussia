@@ -252,25 +252,26 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   fb_info_fields = 'email,name,gender,birthday,link,hometown,locale,location'
-  vk_info = {:scope => ''}
+  vk_info        = {:scope => ''}
 
   if Rails.env.development?
     config.omniauth :facebook,
                     '1716823038621169',
                     'b09759a20667709cc07b9ae52ed14442',
-                    scope: 'email',
-                    info_fields: fb_info_fields,
+                    scope:        'email',
+                    info_fields:  fb_info_fields,
                     callback_url: 'https://missturizm.ru/users/auth/facebook/callback'
-    config.omniauth  :vkontakte, '4954065', 'eWoz83A4bHsYKaFW429M', vk_info
+    config.omniauth :vkontakte, '4954065', 'eWoz83A4bHsYKaFW429M', vk_info
   end
 
   if Rails.env.production?
     config.omniauth :facebook,
                     '1730712020557436',
                     '79f3f0bd37f5c75e310fe466a05b946e',
-                    scope: 'email',
-                    info_fields: fb_info_fields
-    config.omniauth  :vkontakte, '6184476', 'qUSN2Motjx5rCK67WNNO', vk_info
+                    scope:        'email',
+                    info_fields:  fb_info_fields,
+                    callback_url: 'https://missturizm.ru/users/auth/facebook/callback'
+    config.omniauth :vkontakte, '6184476', 'qUSN2Motjx5rCK67WNNO', vk_info
   end
 
   # ==> Warden configuration
