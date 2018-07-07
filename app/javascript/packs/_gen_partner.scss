@@ -33,7 +33,7 @@
 .gen-partner-media-wrapper {
 	flex-grow: 1;
 	position: relative;
-	width: $gen-partner-media-item-width;
+	width: 640px;
 
 	&:before {
 		content: '';
@@ -63,8 +63,8 @@
 .gen-partner-media-item {
 	position: relative;
 	overflow: hidden;
-	width: $gen-partner-media-item-width;
-	height: $gen-partner-media-item-height;
+	width: 640px;
+	height: 480px;
 	text-align: center;
 
 	iframe {
@@ -77,7 +77,7 @@
 	position: relative;
 
 	iframe {
-		width: $gen-partner-media-item-width;
+		width: 640px;
 		height: 360px;
 		vertical-align: top;
 	}
@@ -87,6 +87,6 @@
 	vertical-align: top;
 	display: inline-block !important;
 	width: auto !important;
-	max-width: $gen-partner-media-item-width;
-	max-height: $gen-partner-media-item-height;
+	max-width: 640px;
+	max-height: 480px;
 }
