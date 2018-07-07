@@ -24,6 +24,7 @@ module MissTravelRussia
     # Mongoid::Errors::Validations : 422
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
+    config.force_ssl = true
 
     config.action_controller.default_url_options = { protocol: ENV["RAILS_ENV"] == 'development' ? '//' : 'https://' }
 
