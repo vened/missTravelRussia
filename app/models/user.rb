@@ -27,6 +27,7 @@ class User
 
   ## Database authenticatable
   field :email, type: String, default: ""
+  field :email2, type: String, default: ""
   field :encrypted_password, type: String, default: ""
   field :reset_password_token, type: String
   field :reset_password_sent_at, type: Time
@@ -133,6 +134,8 @@ class User
   validates :age, presence: true, on: :update
   validates :location, presence: true, on: :update
   validates :organization_site, presence: true, on: :update
+  validates :email2, presence: true, on: :update
+  validates :phone, presence: true, on: :update
 
   paginates_per 12
 

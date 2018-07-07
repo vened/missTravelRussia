@@ -7,13 +7,14 @@
 @import "profile";
 @import "footer";
 @import "home";
-@import "organizator";
 @import "votes";
 @import "counters";
 @import "steps";
 @import "jury";
+@import "gen_partner";
+@import "partners";
 @import "owl/assets/owl.carousel";
-@import "owl/assets/owl.theme.default";
+@import "owl";
 @import 'lightgallery/lightgallery/dist/css/lightgallery';
 @import 'lightgallery/lightgallery/dist/css/lg-transitions';
 
@@ -47,8 +48,9 @@ body {
 }
 
 .content-container {
+	margin-bottom: 30px;
+	padding-bottom: 40px;
 	background-color: #fff;
-	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 abbr[title], abbr[data-original-title] {

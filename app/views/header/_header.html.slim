@@ -7,18 +7,17 @@
 header class="#{request.fullpath != '/' && 'header-collapse'}"
   == render 'header/navigation'
   .wrapper
-    - if request.fullpath === '/'
-      .header-hero-wrapper
-        .header-hero
-          / h1.header-title Мисс Туризм Россия 2017!
-          - if user_signed_in?
-            - if policy(current_user).contestant?
-              h1.header-title= current_user.name
-              = link_to "Моя анкета", user_path(current_user), class: 'btn btn-primary', style: "margin: 0 16px 0 0"
-              = link_to 'Выход', destroy_user_session_path, :method => 'delete', class: 'btn btn-default'
-          - else
-            h1.header-title Участвуй в конкурсе Мисс Туризм!
-            button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" Участвовать
+    .header-hero-wrapper
+      .header-hero
+        / h1.header-title Мисс Туризм Россия 2017!
+        - if user_signed_in?
+          - if policy(current_user).contestant?
+            h1.header-title= current_user.name
+            = link_to "Моя анкета", user_path(current_user), class: 'btn btn-primary', style: "margin: 0 16px 0 0"
+            = link_to 'Выход', destroy_user_session_path, :method => 'delete', class: 'btn btn-default'
+        - else
+          h1.header-title Участвуй в конкурсе Мисс Туризм!
+          button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" Участвовать
 
 
 #myModal.modal.fade aria-labelledby="myModalLabel" role="dialog" tabindex="-1"

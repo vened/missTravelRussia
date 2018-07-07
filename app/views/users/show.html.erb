@@ -23,7 +23,7 @@
 
 
 <div class="profile">
-  <div class="container content-container">
+  <div class="wrapper content-container">
 
     <div class="profile-heding">
       <div>
@@ -125,31 +125,3 @@
 
   </div>
 </div>
-
-<% if user_signed_in? && policy(@user).contestant? %>
-
-  <div class="profile">
-    <div class="container content-container" style="padding-top: 80px">
-
-      <div class="row">
-
-        <div class="col-md-6">
-          <div class="text-right">
-            <%= button_to is_voted_path(@user), class: 'btn btn-success btn-lg' do %>
-              Участвовать в конкурсе
-            <%- end %>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="text-left">
-            <%= link_to 'Голосовать', votes_path, class: 'btn btn-primary btn-lg' %>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-
-<% end %>

@@ -43,6 +43,40 @@ $(document).ready(function() {
     ],
   });
 
+  $('.gen-partner-media-gallery-owl').owlCarousel({
+    naw: false,
+    loop: true,
+    margin: 0,
+    items: 1,
+    responsiveClass: true,
+    lazyLoad: true,
+    dots: true,
+    autoplay: true,
+    center: true,
+    responsive: {
+      0: {
+        items: 1,
+        nav: true,
+      },
+      600: {
+        items: 1,
+        nav: true,
+      },
+      768: {
+        items: 1,
+        nav: true,
+      },
+      1024: {
+        items: 1,
+        nav: true,
+      },
+    },
+    navText: [
+      '',
+      '',
+    ],
+  });
+
   $("a[data-remote]").on("ajax:success", function(e, data, status, xhr) {
     console.log(e)
     console.log(data);

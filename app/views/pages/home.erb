@@ -12,15 +12,15 @@
            }
 %>
 
-<%= render 'shared/counters' %>
-
-
-
 <div class="wrapper content-container">
 
-  <%= render 'shared/about' %>
-  <%= render 'shared/steps' %>
-  <%= render 'shared/jury' %>
+  <% cache do %>
+    <%= render partial: 'shared/about', cached: true %>
+    <%= render partial: 'shared/steps', cached: true %>
+    <%= render partial: 'shared/jury', cached: true %>
+    <%= render partial: 'shared/gen_partner', cached: true %>
+    <%= render partial: 'shared/partners', cached: true %>
+  <% end %>
 
   <%- if false %>
 

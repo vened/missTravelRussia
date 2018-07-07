@@ -22,6 +22,7 @@ ru:
         phone: 'Телефон'
         telegram: 'Telegram'
         email: 'Email'
+        email2: 'Email'
         password: 'Пароль'
     hints:
       user:
