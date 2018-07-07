@@ -259,7 +259,8 @@ Devise.setup do |config|
                     '1716823038621169',
                     'b09759a20667709cc07b9ae52ed14442',
                     scope: 'email',
-                    info_fields: fb_info_fields
+                    info_fields: fb_info_fields,
+                    callback_url: 'https://missturizm.ru/users/auth/facebook/callback'
     config.omniauth  :vkontakte, '4954065', 'eWoz83A4bHsYKaFW429M', vk_info
   end
 
