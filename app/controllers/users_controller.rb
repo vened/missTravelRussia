@@ -236,6 +236,7 @@ class UsersController < ApplicationController
         :is_disqualify,
         :votes,
         :rating,
+        :email2,
     )
   end
 
