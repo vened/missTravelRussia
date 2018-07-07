@@ -1,6 +1,6 @@
 class VotesQuery
 
-  def initialize(relation = User.where(_role: 'user', is_vote: true))
+  def initialize(relation = User.where(_role: 'contestant'))
     @relation = relation.where(photos: {'$elemMatch': {root: true}})
   end
 

@@ -37,7 +37,7 @@ class CreateUsersService
         user.age = 18 + index
         user.location = 'Москва'
         user.organization_site = 'site.ru'
-        user.is_vote = true
+        user.role = :contestant
       end
       photo = user.photos.create(:photo_src => File.open(Rails.root.to_s + "/public/content/1.jpg"))
       photo.update(root: true)
