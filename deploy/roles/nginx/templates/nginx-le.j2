@@ -2,11 +2,6 @@ upstream mysiteSSl {
   server unix://{{ app_path }}/shared/tmp/sockets/puma.sock fail_timeout=0;
 }
 
-add_header X-Frame-Options SAMEORIGIN;
-add_header X-Content-Type-Options nosniff;
-
-# HTTPS server
-#
 server {
     listen 443 ssl default deferred;
     server_name {{ domain_name }};
@@ -65,8 +60,13 @@ server {
 
     location / {
         proxy_pass http://mysiteSSl; # match the name of upstream directive which is defined above
-        proxy_set_header Host $host;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+            proxy_set_header  Host $host;
+            proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header  X-Forwarded-Proto $scheme;
+            proxy_set_header  X-Forwarded-Ssl on; # Optional
+            proxy_set_header  X-Forwarded-Port $server_port;
+            proxy_set_header  X-Forwarded-Host $host;
     }
 
     location ~ ^/(500|404|422).html {
