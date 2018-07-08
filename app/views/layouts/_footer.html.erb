@@ -1,19 +1,37 @@
 <div class="footer">
-  <div class="container">
+  <div class="wrapper">
     <div class="container-footer">
 
-      <div class="social-pages">
-        <span class="social-pages-label">
-          МЫ В СОЦИАЛЬНЫХ СЕТЯХ
-        </span>
-        <a class="social-pages-btn" href="https://www.facebook.com/MissTurizm.ru/" target="_blank">
-          <%= image_tag(asset_pack_path('icon-bf@2x.png'), size: "40x40") %>
-        </a>
+      <div class="footer-logo">
+        <%= image_tag(asset_pack_path('logo-2018.png'), class: 'logo') %>
       </div>
 
-      <div class="copyright">
-        По вопросам участия в конкурсе и партнерства пишите на
-        <a href="mailto:privet@missturizm.ru">privet@missturizm.ru</a>
+      <div>
+        <%= render 'layouts/footer_nav' %>
+
+        <div class="footer-contacts">
+
+          <div class="footer-contact">
+            <div class="footer-contact-title">
+              По вопросам участия в
+              <br>
+              конкурсе и партнерства
+              <br>
+              пишите на
+            </div>
+            <a class="footer-contacts-link" href="mailto:privet@missturizm.ru">privet@missturizm.ru</a>
+          </div>
+
+          <div class="footer-contact">
+            <div class="footer-contact-title">
+              Мы в социальных сетях
+            </div>
+            <a class="footer-contacts-link" href="https://www.facebook.com/MissTurizm.ru/" target="_blank">
+              <%= image_tag(asset_pack_path('icon-bf@2x.png'), size: "40x40") %>
+            </a>
+          </div>
+
+        </div>
       </div>
 
     </div>

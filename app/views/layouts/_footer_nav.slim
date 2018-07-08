@@ -1,0 +1,7 @@
+ul.footer-nav
+  - if request.fullpath === '/'
+    li= link_to "ЖЮРИ", '#jury'
+  li= link_to "Условия участия", '#about', data: {toggle: "modal", target: "#myModal1"}
+  li= link_to "ПАРТНЕРЫ", '#partners'
+  li class="#{request.fullpath === votes_path && 'active'}"
+    = link_to "УЧАСТНИЦЫ", votes_path

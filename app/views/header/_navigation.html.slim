@@ -6,7 +6,7 @@ nav.navbar.navbar-inverse
         span.sr-only Toggle navigation
         =image_tag asset_pack_path 'burger.svg'
       = link_to root_path, class: 'navbar-brand' do
-        =image_tag asset_pack_path 'logo-2018.png'
+        = render 'shared/logo'
     .collapse.navbar-collapse
       ul.nav.navbar-nav
         == render 'header/navigation_links'

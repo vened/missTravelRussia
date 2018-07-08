@@ -37,17 +37,6 @@ header {
 .navbar-brand {
 	margin: 0 !important;
 	padding: 0 !important;
-
-	img {
-		height: 160px;
-		width: 160px;
-		vertical-align: top;
-
-		@media (max-width: 480px) {
-			height: 94px;
-			width: 94px;
-		}
-	}
 }
 
 .navbar-collapse {
