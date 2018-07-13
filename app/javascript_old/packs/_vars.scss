@@ -1,0 +1,59 @@
+$font-family-sans-serif: 'PT Sans', sans-serif;
+$font-family-serif: 'Lato', serif;
+
+$container-large-desktop: 1000px;
+
+$border-radius-base: 0;
+$btn-border-radius-large: 0;
+
+$padding-large-vertical: 12px !default;
+$padding-large-horizontal: 32px !default;
+
+$padding-small-vertical: 5px !default;
+$padding-small-horizontal: 12px !default;
+
+$padding-xs-vertical: 1px !default;
+$padding-xs-horizontal: 6px !default;
+
+$navbar-height: 160px;
+$navbar-inverse-bg: transparent;
+$navbar-inverse-link-color: #fff;
+$navbar-inverse-link-hover-color: #fff;
+$navbar-inverse-link-active-bg: transparent;
+$navbar-border-radius: 0;
+
+$text-color: #000000;
+$text-muted: #666666;
+$link-color: #0054b9;
+$link-hover-color: lighten($link-color, 15%) !default;
+$font-size-base: 16px;
+$font-size-small: 16px;
+
+$brand-primary: #ff6666 !default; // #337ab7
+$brand-success: #5cb85c !default;
+$brand-info: #5bc0de !default;
+$brand-warning: #f0ad4e !default;
+$brand-danger: #d9534f !default;
+
+$state-danger-bg: #D6574B !default;
+$state-danger-text: #fff !default;
+
+$btn-primary-border: $brand-primary !default;
+
+$btn-success-border: $brand-success !default;
+
+$btn-info-border: $brand-info !default;
+
+$btn-warning-border: $brand-warning !default;
+
+$btn-danger-border: $brand-danger !default;
+
+//$btn-success-bg: #ffcc00 !default;
+//$btn-success-color: #000000 !default;
+
+$grid-gutter-width: 60px;
+
+$grid-float-breakpoint: 769px;
+
+$gen-partner-media-item-width: 640px;
+$gen-partner-media-item-height: 480px;

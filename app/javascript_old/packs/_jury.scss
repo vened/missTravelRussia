@@ -1,0 +1,52 @@
+.jury{
+	margin: 50px 0;
+}
+.jury-list {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin: 0 -30px;
+
+	@media (max-width: 960px) {
+		margin: 0 -10px;
+	}
+}
+
+.jury-item {
+	margin: 20px 30px 0;
+}
+
+.jury-list-title {
+	margin: 0 0 30px 0;
+}
+
+.jury-item-photo {
+	width: 180px;
+	margin: 0 auto 12px;
+	text-align: center;
+	vertical-align: top;
+	border-radius: 50%;
+	border: 1px solid #a69e7b;
+
+	img {
+		border-radius: 50%;
+		border: 2px solid #fff;
+	}
+}
+
+.jury-item-name {
+	margin: 0 0 6px;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 1.33;
+	text-align: center;
+	color: #000000;
+}
+
+.jury-item-info {
+	font-size: 14px;
+	line-height: 1.42;
+	text-align: center;
+	color: #000000;
+}
+

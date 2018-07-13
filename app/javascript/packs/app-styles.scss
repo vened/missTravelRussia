@@ -1,8 +1,7 @@
 @import "vars";
-@import "fonts/lato";
-@import "fonts/ptsans";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
-@import "~font-awesome/scss/font-awesome";
+@import "fonts";
+//@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+//@import "font-awesome";
 @import "logo";
 @import "header";
 @import "profile";
@@ -31,7 +30,7 @@ body {
 }
 
 .wrapper {
-	@include clearfix;
+	//@include clearfix;
 	max-width: 1000px;
 	margin-right: auto;
 	margin-left: auto;

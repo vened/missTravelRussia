@@ -1,0 +1,145 @@
+.anketa-item {
+	display: block;
+	margin: 0 0 30px;
+	padding: 0 0 16px;
+	border-radius: 4px;
+	background-color: #f0f0f0;
+	text-decoration: none !important;
+}
+
+.anketa-item-img {
+	position: relative;
+	.img-responsive {
+		border-top-left-radius: 4px;
+		border-top-right-radius: 4px;
+	}
+}
+
+.user-disqualify {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background-color: rgba(214, 87, 75, 0.71);
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 20px;
+	color: #fff;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.anketa-item-count {
+	display: flex;
+	position: absolute;
+	right: 16px;
+	top: 16px;
+	padding: 10px 16px;
+	border-radius: 4px;
+	background-color: #fafafa;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: right;
+	color: #7b7b7b;
+
+	button {
+		background: none;
+		border: none;
+		outline: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	@media (max-width: 768px) {
+		right: 8px;
+		top: 8px;
+		padding: 5px 8px;
+		font-size: 14px;
+
+		img {
+			width: 16px;
+		}
+	}
+}
+
+.anketa-item-count-value {
+	margin-right: 13px;
+
+	@media (max-width: 768px) {
+		margin-right: 7px;
+		padding-top: 1px;
+	}
+}
+
+.anketa-item-name {
+	margin: 16px 0 12px;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	color: #000000 !important;
+	text-transform: uppercase;
+}
+
+.anketa-item-organization {
+	margin: 0 0 8px;
+	font-size: 16px;
+	text-align: center;
+	color: #5d5d5d !important;
+}
+
+.anketa-item-date {
+	font-size: 12px;
+	text-align: center;
+	color: #5d5d5d !important;
+}
+
+.votes-title {
+	margin-bottom: 50px;
+
+	@media (max-width: 580px) {
+		margin: 10px 0 30px;
+		font-size: 24px;
+	}
+}
+
+.votes-users {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -10px;
+
+	@media (max-width: 470px) {
+		margin: 0;
+	}
+}
+
+.votes-user {
+	width: calc((100% / 3) - 20px);
+	margin: 0 10px;
+
+	@media (max-width: 992px) {
+		width: calc((100% / 2) - 20px);
+	}
+	@media (max-width: 470px) {
+		width: 100%;
+		margin: 0;
+	}
+}
+
+.sort-block {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin: 32px 0;
+}
+
+.sort-block-label {
+	font-size: 17px;
+}
+
+.sort-block-sorted {
+	margin: 0 0 0 24px;
+	font-size: 17px;
+}
