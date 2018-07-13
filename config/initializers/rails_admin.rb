@@ -48,6 +48,7 @@ RailsAdmin.config do |config|
       field :age
       field :organization
       field :phone
+      field :email
       field :email2
       field :gender
       field :created_at

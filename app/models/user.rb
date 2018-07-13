@@ -65,6 +65,8 @@ class User
   embeds_many :photos, cascade_callbacks: true
   index "photos.root" => 1
 
+  accepts_nested_attributes_for :user_voteables
+  accepts_nested_attributes_for :photos
 
   # contestant - участник конкурса
   enum :role, [:contestant, :user, :admin]
