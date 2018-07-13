@@ -10,7 +10,7 @@ h1.home-title#about
 
 .row
   .col-md-6
-    =image_tag asset_pack_path 'packs/img/girls-3.jpg'
+    = image_tag(asset_pack_path('packs/img/girls-3.jpg'), class: 'img-responsive')
   .col-md-6
     .text-2
       p Тебе больше 18, ты работаешь в турбизнесе и готова украсить собой мир? Тебя ждёт зажигательный всероссийский конкурс «Мисс Туризм»!
@@ -19,12 +19,17 @@ h1.home-title#about
     - unless user_signed_in?
       button style="width: 300px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" Участвовать
 
-.text-3
-  |Состязание полуфиналисток пройдет в 19 сентября в Luxury Partisan Village в рамках
-  a href="http://www.itif-forum.ru/" Международного Туристического Инвестиционного Форума ITIF
+.row
+  .col-md-6
+    .text-3
+      |Состязание полуфиналисток пройдет в 19 сентября в Luxury Partisan Village в рамках
+      br
+      a href="http://www.itif-forum.ru/" Международного Туристического Инвестиционного Форума ITIF
+  .col-md-6
+    = image_tag(asset_pack_path('packs/img/PartMilitary_01.jpg'), class: 'img-responsive')
 
 .row
   .col-md-6
-    = image_tag asset_pack_path 'packs/img/hotel-01-copy.jpg'
+    = image_tag(asset_pack_path('packs/img/hotel-01-copy.jpg'), class: 'img-responsive')
   .col-md-6
     .text-4 Состязание финалисток пройдет с 17 по 21 октября в шикарном отеле Aldemar Knossos Royal 5* в Греции на острове Крит.
