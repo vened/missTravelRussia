@@ -1,0 +1,7 @@
+.usersGrid
+  - @users.each do |user|
+    = render 'users_grid/item', user: user
+
+.usersGrid-gallery.owl-carousel.usersGrid-gallery-owl
+  - @users.each do |user|
+    = render 'users_grid/item', user: user

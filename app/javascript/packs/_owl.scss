@@ -58,7 +58,8 @@
 	}
 }
 
-.gen-partner-media-gallery {
+.gen-partner-media-gallery,
+.usersGrid-gallery {
 	.owl-nav {
 		display: none;
 	}
@@ -87,7 +88,7 @@
 	border-radius: 4px;
 	font-size: 0;
 
-	&.active{
+	&.active {
 		background-color: #d8d8d8;
 	}
 }

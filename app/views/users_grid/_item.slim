@@ -1,0 +1,12 @@
+- photo = user.photos.present? ? user.photos.find_by(root: true) : nil
+= link_to user_path(user), class: "usersGrid-photo", style: "background-image: url('#{photo.photo_src.middle}')" do
+  .usersGrid-bar
+    .usersGrid-bar-title
+      = user.name
+      |,&nbsp;
+      = user.age
+    .usersGrid-bar-info
+      = user.organization
+      - if user.location.present?
+        |,&nbsp;
+        = user.location

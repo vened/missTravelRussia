@@ -27,6 +27,7 @@
 
 <%- if request.fullpath === "/" %>
   <%= render 'shared/counters' %>
+  <%= render partial: 'users_grid/index', cached: true %>
 <% end %>
 
 <!--
@@ -38,6 +39,15 @@
 -->
 
 <div class="wrapper content-container">
+  <%- if request.fullpath === "/" %>
+    <%- unless user_signed_in? %>
+      <div class="usersGrid-action">
+        <%= link_to "Все участницы", votes_path, class: 'btn btn-primary btn-lg' %>
+      </div>
+    <% end %>
+  <% end %>
+
+
   <%- flash.each do |name, msg| %>
     <%- if msg.is_a?(String) %>
       <div class="alert alert-dismissible alert-<%= name.to_s == 'notice' ? 'success' : 'danger' %>">
