@@ -13,6 +13,11 @@
 	&:last-child{
 		margin-bottom: 0;
 	}
+
+	@media (max-width: 960px) {
+		flex-direction: column;
+		align-items: center;
+	}
 }
 .gen-partner-logo-wrapper{
 	flex-grow: 200;
@@ -20,10 +25,26 @@
 }
 .gen-partner-logo-wrapper-1 {
 	margin-right: 30px;
+
+	@media (max-width: 960px) {
+		margin-right: 0;
+		margin-bottom: 65px;
+	}
 }
 
 .gen-partner-logo-wrapper-2 {
 	margin-left: 30px;
+	@media (max-width: 960px) {
+		order: 1;
+		margin-left: 0;
+		margin-bottom: 65px;
+	}
+}
+
+.gen-partner-media-wrapper-left-2{
+	@media (max-width: 960px) {
+		order: 2;
+	}
 }
 
 .gen-partner-logo {
