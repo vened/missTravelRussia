@@ -90,8 +90,8 @@ gem "kaminari"
 gem 'kaminari-mongoid'
 
 
-gem 'mina'
-gem 'mina-puma',  require: false
+gem 'mina', '~> 1.2.3'
+gem 'mina-puma', '~> 1.1',  require: false
 gem 'mina-nginx', require: false
 gem 'puma', '~> 3.10'
 
