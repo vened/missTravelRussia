@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 # CreateUsersService.new.call
-# CreateUsersService.new.create_admin
-CreateUsersService.new.create_users
+CreateUsersService.new.create_admin
+# CreateUsersService.new.create_users
 # if ENV["userId"]
 #   CreateUsersService.new.update_votes(ENV["userId"])
 # end
