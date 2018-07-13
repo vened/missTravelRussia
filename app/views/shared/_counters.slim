@@ -9,10 +9,8 @@
 
       .counter
         .counter-item
-          = ("2018-07-30".to_date - Date.current).numerator.to_s
+          = distance_of_time_in_words(Time.new, "2018-07-30".to_date)
         .counter-label
-          |дня 
-          br
           |до окончания регистрации
 
       - cache @votes_count do
