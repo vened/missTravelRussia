@@ -32,7 +32,14 @@ body {
 }
 
 .wrapper {
-	//@include clearfix;
+	&:before,
+	&:after {
+		content: " "; // 1
+		display: table; // 2
+	}
+	&:after {
+		clear: both;
+	}
 	max-width: 1000px;
 	margin-right: auto;
 	margin-left: auto;

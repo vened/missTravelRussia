@@ -1,5 +1,12 @@
 .usersGrid {
-	@include clearfix;
+	&:before,
+	&:after {
+		content: " "; // 1
+		display: table; // 2
+	}
+	&:after {
+		clear: both;
+	}
 	max-width: 1400px;
 	margin: 0 auto;
 	font-size: 0;
