@@ -12,154 +12,149 @@
            }
 %>
 
-<div class="wrapper content-container">
+<%= render partial: 'shared/about', cached: true %>
+<%= render partial: 'shared/steps', cached: true %>
+<%= render partial: 'shared/jury', cached: true %>
+<%= render partial: 'shared/gen_partner', cached: true %>
+<%= render partial: 'shared/partners', cached: true %>
+<%# cache do %>
+<%# end %>
 
+<%- if false %>
 
-    <%= render partial: 'shared/about', cached: true %>
-    <%= render partial: 'shared/steps', cached: true %>
-    <%= render partial: 'shared/jury', cached: true %>
-    <%= render partial: 'shared/gen_partner', cached: true %>
-    <%= render partial: 'shared/partners', cached: true %>
-  <%# cache do %>
-  <%# end %>
+  <div class="home_top" id="top">
+    Победительницы конкурса
+  </div>
 
-  <%- if false %>
+  <div class="home_top-2">
+    МИСС ТУРИЗМ 2017
+  </div>
 
-    <div class="home_top" id="top">
-      Победительницы конкурса
-    </div>
-
-    <div class="home_top-2">
-      МИСС ТУРИЗМ 2017
-    </div>
-
-    <%- if @user1.present? %>
-      <div class="owl-carousel home-users home-users-leader">
-        <%- @user1.photos.each do |photo| %>
-          <div class="home-users-item">
-            <%= link_to user_path(@user1), class: "anketa-item" do %>
-              <div class="anketa-item-img">
-                <img class="img-responsive owl-lazy" data-src="<%= photo.photo_src.large %>" />
-              </div>
-              <div class="anketa-item-name">
-                <%= @user1.name %>,
-                <%= @user1.age %>
-              </div>
-              <div class="anketa-item-organization">
-                <%= @user1.organization %>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-
-    <div class="votes-users">
-      <div class="votes-user">
-        <div class="home_top-3">
-          &nbsp;
-          <br>
-          I ВИЦЕ МИСС ТУРИЗМ
+  <%- if @user1.present? %>
+    <div class="owl-carousel home-users home-users-leader">
+      <%- @user1.photos.each do |photo| %>
+        <div class="home-users-item">
+          <%= link_to user_path(@user1), class: "anketa-item" do %>
+            <div class="anketa-item-img">
+              <img class="img-responsive owl-lazy" data-src="<%= photo.photo_src.large %>" />
+            </div>
+            <div class="anketa-item-name">
+              <%= @user1.name %>,
+              <%= @user1.age %>
+            </div>
+            <div class="anketa-item-organization">
+              <%= @user1.organization %>
+            </div>
+          <% end %>
         </div>
-        <%= render partial: "shared/anketa_mini_home", locals: {user: @user2} %>
-      </div>
-      <div class="votes-user">
-        <div class="home_top-3">
-          &nbsp;
-          <br>
-          II ВИЦЕ МИСС ТУРИЗМ
-        </div>
-        <%= render partial: "shared/anketa_mini_home", locals: {user: @user3} %>
-      </div>
-      <div class="votes-user">
-        <div class="home_top-3">
-          Мисс Туризм
-          <br>
-          зрительских симпатий
-        </div>
-        <%= render partial: "shared/anketa_mini_home", locals: {user: @user4} %>
-      </div>
+      <% end %>
     </div>
-
-
-    <div class="home-subtitle" style="margin-top: 30px">
-      Финалистки конкурса
-    </div>
-
-    <div class="votes-users">
-      <div class="votes-user">
-        <%= render partial: "shared/anketa_mini_home", locals: {user: @user5} %>
-      </div>
-      <div class="votes-user">
-        <%= render partial: "shared/anketa_mini_home", locals: {user: @user6} %>
-      </div>
-      <div class="votes-user">
-        <%= render partial: "shared/anketa_mini_home", locals: {user: @user7} %>
-      </div>
-      <div class="votes-user">
-        <%= render partial: "shared/anketa_mini_home", locals: {user: @user8} %>
-      </div>
-      <div class="votes-user">
-        <%= render partial: "shared/anketa_mini_home", locals: {user: @user9} %>
-      </div>
-      <div class="votes-user">
-        <%= render partial: "shared/anketa_mini_home", locals: {user: @user10} %>
-      </div>
-    </div>
-
-    <%= link_to 'Все участницы', votes_path, class: "btn-votes" %>
-
   <% end %>
 
-  <%- if false %>
-    <%- if @user.photos.length > 0 %>
-      <div id="photos" class="home-subtitle">
-        Фотографии с конкурса
-      </div>
-    <% end %>
-
-
-    <%- if @user.present? %>
-      <div class="owl-carousel home-users gallery-home">
-        <%- @user.photos.each do |photo| %>
-          <div class="home-users-item">
-            <div class="anketa-item">
-              <div class="anketa-item-img img_gallery">
-                <img class="img-responsive owl-lazy" data-src="<%= photo.photo_src.large %>" />
-              </div>
-            </div>
-
-            <% if user_signed_in? && policy(current_user).index? %>
-              <div class="text-center" style="margin-top: 16px">
-                <%= link_to members_photo_gallery_path(@user, photo),
-                            method: :delete,
-                            class:  'btn btn-default btn-lg',
-                            title:  "Удалить фотографию",
-                            data:   {
-                                toggle:    "tooltip",
-                                placement: "top",
-                                confirm:   'Вы уверенны что хотите удалить эту фотографию?'
-                            } do %>
-                  <i class="fa fa-trash-o profile-photo-delete-icon"></i>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-
-    <% if user_signed_in? && policy(current_user).index? %>
-      <h4>Загрузите фотографии</h4>
-      <%= simple_form_for @user, :url => members_upload_galery_path, :method => :post do |f| %>
-        <%= f.file_field :photo_src, multiple: true %>
+  <div class="votes-users">
+    <div class="votes-user">
+      <div class="home_top-3">
+        &nbsp;
         <br>
-        <%= f.button :button, class: "btn btn-success btn-lg" do %>
-          Загрузить
-        <% end %>
+        I ВИЦЕ МИСС ТУРИЗМ
+      </div>
+      <%= render partial: "shared/anketa_mini_home", locals: {user: @user2} %>
+    </div>
+    <div class="votes-user">
+      <div class="home_top-3">
+        &nbsp;
+        <br>
+        II ВИЦЕ МИСС ТУРИЗМ
+      </div>
+      <%= render partial: "shared/anketa_mini_home", locals: {user: @user3} %>
+    </div>
+    <div class="votes-user">
+      <div class="home_top-3">
+        Мисс Туризм
+        <br>
+        зрительских симпатий
+      </div>
+      <%= render partial: "shared/anketa_mini_home", locals: {user: @user4} %>
+    </div>
+  </div>
+
+
+  <div class="home-subtitle" style="margin-top: 30px">
+    Финалистки конкурса
+  </div>
+
+  <div class="votes-users">
+    <div class="votes-user">
+      <%= render partial: "shared/anketa_mini_home", locals: {user: @user5} %>
+    </div>
+    <div class="votes-user">
+      <%= render partial: "shared/anketa_mini_home", locals: {user: @user6} %>
+    </div>
+    <div class="votes-user">
+      <%= render partial: "shared/anketa_mini_home", locals: {user: @user7} %>
+    </div>
+    <div class="votes-user">
+      <%= render partial: "shared/anketa_mini_home", locals: {user: @user8} %>
+    </div>
+    <div class="votes-user">
+      <%= render partial: "shared/anketa_mini_home", locals: {user: @user9} %>
+    </div>
+    <div class="votes-user">
+      <%= render partial: "shared/anketa_mini_home", locals: {user: @user10} %>
+    </div>
+  </div>
+
+  <%= link_to 'Все участницы', votes_path, class: "btn-votes" %>
+
+<% end %>
+
+<%- if false %>
+  <%- if @user.photos.length > 0 %>
+    <div id="photos" class="home-subtitle">
+      Фотографии с конкурса
+    </div>
+  <% end %>
+
+
+  <%- if @user.present? %>
+    <div class="owl-carousel home-users gallery-home">
+      <%- @user.photos.each do |photo| %>
+        <div class="home-users-item">
+          <div class="anketa-item">
+            <div class="anketa-item-img img_gallery">
+              <img class="img-responsive owl-lazy" data-src="<%= photo.photo_src.large %>" />
+            </div>
+          </div>
+
+          <% if user_signed_in? && policy(current_user).index? %>
+            <div class="text-center" style="margin-top: 16px">
+              <%= link_to members_photo_gallery_path(@user, photo),
+                          method: :delete,
+                          class:  'btn btn-default btn-lg',
+                          title:  "Удалить фотографию",
+                          data:   {
+                              toggle:    "tooltip",
+                              placement: "top",
+                              confirm:   'Вы уверенны что хотите удалить эту фотографию?'
+                          } do %>
+                <i class="fa fa-trash-o profile-photo-delete-icon"></i>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if user_signed_in? && policy(current_user).index? %>
+    <h4>Загрузите фотографии</h4>
+    <%= simple_form_for @user, :url => members_upload_galery_path, :method => :post do |f| %>
+      <%= f.file_field :photo_src, multiple: true %>
+      <br>
+      <%= f.button :button, class: "btn btn-success btn-lg" do %>
+        Загрузить
       <% end %>
     <% end %>
-
   <% end %>
 
-</div>
+<% end %>

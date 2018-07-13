@@ -21,6 +21,10 @@ gem "pundit"
 gem 'slim-rails'
 gem 'simple_form'
 
+gem 'rails_admin', '~> 1.3'
+gem 'rails_admin-i18n'
+gem "rails_admin_pundit", :github => "sudosu/rails_admin_pundit"
+
 # Use Puma as the app server
 
 # Use SCSS for stylesheets

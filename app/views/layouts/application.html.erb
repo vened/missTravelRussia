@@ -52,7 +52,9 @@
 </div>
 -->
 
-<%= yield %>
+<div class="wrapper content-container">
+  <%= yield %>
+</div>
 <% cache do %>
   <%= render partial: 'layouts/footer', cached: true %>
 <% end %>
