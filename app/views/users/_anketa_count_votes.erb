@@ -5,11 +5,11 @@
 <% if user_signed_in? && !policy(@user).profile? %>
   <% if VotesQuery.new.is_votes(current_user, @user.number) %>
     <%= button_to votes_voteable_path(@user), :remote => true do %>
-      <%= image_tag asset_pack_path 'icon-like-red.svg' %>
+      <%= image_tag asset_pack_path 'packs/img/icon-like-red.svg' %>
     <%- end %>
   <% else %>
-    <%= image_tag asset_pack_path 'icon-like.svg' %>
+    <%= image_tag asset_pack_path 'packs/img/icon-like.svg' %>
   <% end %>
 <% else %>
-  <%= image_tag asset_pack_path 'icon-like.svg' %>
+  <%= image_tag asset_pack_path 'packs/img/icon-like.svg' %>
 <% end %>

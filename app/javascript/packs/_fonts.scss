@@ -134,3 +134,8 @@
 	font-style: italic;
 }
 
+@font-face {
+	font-family: 'Glyphicons Halflings';
+	src: local('Lato Black Italic'), local('Lato-BlackItalic'), url('./fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('./fonts/glyphicons-halflings-regular.woff') format('woff'), url('./fonts/glyphicons-halflings-regular.ttf') format('truetype');
+}
+

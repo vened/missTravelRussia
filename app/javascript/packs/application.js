@@ -10,8 +10,6 @@
 // import "jquery";
 // import 'bootstrap-sass';
 import './owl/owl.carousel';
-import 'font-awesome';
-import 'app-styles.scss';
 
 $(document).ready(function() {
   $('.home-users').owlCarousel({
