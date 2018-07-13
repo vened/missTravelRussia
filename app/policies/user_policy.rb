@@ -3,14 +3,14 @@ class UserPolicy
 
   def initialize(current_user, model)
     @current_user = current_user
-    @user = model
+    @user         = model
   end
 
   class Scope
     attr_reader :user, :scope
 
     def initialize(user, scope)
-      @user = user
+      @user  = user
       @scope = scope
     end
 
@@ -22,22 +22,6 @@ class UserPolicy
       #   scope.all
       # end
     end
-  end
-
-  def index?
-    @current_user.admin?
-  end
-
-  def members_votes?
-    @current_user.admin?
-  end
-
-  def show_member?
-    @current_user.admin?
-  end
-
-  def show_member_voteable?
-    @current_user.admin?
   end
 
   def upload_galery?
@@ -64,19 +48,7 @@ class UserPolicy
     @current_user.admin? || @current_user.user? or @current_user == @user
   end
 
-  def update_bot?
-    @current_user.admin?
-  end
-
-  def update_member?
-    @current_user.admin?
-  end
-
   def upload?
-    @current_user.admin? || @current_user.user? or @current_user == @user
-  end
-
-  def is_voted?
     @current_user.admin? || @current_user.user? or @current_user == @user
   end
 
@@ -98,10 +70,6 @@ class UserPolicy
 
   def destroy_photo?
     @current_user.admin? || @current_user.user? or @current_user == @user
-  end
-
-  def destroy_photo_gallery?
-    @current_user.admin?
   end
 
   def destroy?

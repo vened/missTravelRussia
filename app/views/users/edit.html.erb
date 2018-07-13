@@ -1,54 +1,42 @@
-<div class="profile" style="margin-top: 50px">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4>
-              Ваша анкета
-            </h4>
-          </div>
-          <div class="panel-body">
-            <%= simple_form_for @user do |f| %>
-
-              <%= f.input :name %>
-              <%= f.input :age %>
-              <%= f.input :location %>
-              <%= f.input :work_experience,
-                          placeholder: '4 года'
-              %>
-              <%= f.input :organization %>
-              <%= f.input :organization_site %>
-              <%= f.input :position %>
-
-              <hr>
-              <%= f.input :about, as: :text %>
-              <hr>
-
-              <div class="text-muted" style="margin-bottom: 32px">
-                <i class="fa fa-eye-slash" style="font-size: 24px"></i>
-                Скрытая информация, для связи администрации с участницей
-              </div>
-
-              <%= f.input :phone,
-                          as: :tel,
-                          pattern: "+[0-9]{1} \s{1} [0-9]{3} \s{1} [0-9]{3}-[0-9]{2}-[0-9]{2}",
-                          placeholder: "+7 999 999-99-99" %>
-              <%= f.input :email2, as: :tel %>
-              <br>
-              <p><small>*Обязательные поля для заполнения</small></p>
-              <p>
-                Я согласна на
-                <%=link_to 'обработку персональных данных', personal_information_path %>
-              </p>
-              <br>
-              <div class="text-center">
-                <%= f.button :submit, class: 'btn btn-success btn-lg' %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="page-header">
+  <h1>Ваша анкета</h1>
 </div>
+<%= simple_form_for @user do |f| %>
+
+  <%= f.input :name %>
+  <%= f.input :age %>
+  <%= f.input :location %>
+  <%= f.input :work_experience,
+              placeholder: '4 года'
+  %>
+  <%= f.input :organization %>
+  <%= f.input :organization_site %>
+  <%= f.input :position %>
+
+  <hr>
+  <%= f.input :about, as: :text %>
+  <hr>
+
+  <div class="text-muted" style="margin-bottom: 32px">
+    <i class="fa fa-eye-slash" style="font-size: 24px"></i>
+    Скрытая информация, для связи администрации с участницей
+  </div>
+
+  <%= f.input :phone,
+              as:          :tel,
+              pattern:     "+[0-9]{1} \s{1} [0-9]{3} \s{1} [0-9]{3}-[0-9]{2}-[0-9]{2}",
+              placeholder: "+7 999 999-99-99" %>
+  <%= f.input :email2, as: :tel %>
+  <br>
+  <p>
+    <small>*Обязательные поля для заполнения</small>
+  </p>
+  <p>
+    Я согласна на
+    <%= link_to 'обработку персональных данных', personal_information_path %>
+  </p>
+  <br>
+  <div class="text-center">
+    <%= f.button :submit, class: 'btn btn-success btn-lg' %>
+  </div>
+<% end %>
