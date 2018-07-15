@@ -51,7 +51,7 @@ $(document).ready(function() {
     responsiveClass: true,
     lazyLoad: true,
     dots: true,
-    autoplay: true,
+    autoplay: false,
     center: true,
     responsive: {
       0: {
