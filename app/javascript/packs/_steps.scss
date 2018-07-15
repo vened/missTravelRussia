@@ -5,10 +5,23 @@
 .steps-wrapper {
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
+
+	@media (max-width: 768px) {
+		justify-content: center;
+	}
+
+	@media (max-width: 480px) {
+		flex-direction: column;
+	}
 }
 
 .step {
-	width: 20%;
+	white-space: nowrap;
+
+	@media (max-width: 768px) {
+		margin: 0 16px 32px;
+	}
 }
 
 .step-value {
@@ -21,6 +34,7 @@
 	line-height: normal;
 	letter-spacing: normal;
 	color: #a69e7b;
+	text-align: center;
 }
 
 .step-label {
@@ -28,8 +42,11 @@
 	margin: 0 0 10px;
 	font-size: 14px;
 	color: #000000;
+	text-align: center;
 }
+
 .step-date {
 	color: #a69e7b;
 	font-weight: 800;
+	text-align: center;
 }
