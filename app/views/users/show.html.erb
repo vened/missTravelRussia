@@ -121,3 +121,12 @@
     <%== render 'users/userinfo' %>
   </div>
 </div>
+
+<hr>
+<div style="margin: 0 0 64px 0;text-align: center">
+  <%= link_to "Все участницы", votes_path, class: "btn btn-success btn-lg" %>
+</div>
+
+<div>
+  <%= render partial: 'shared/gen_partner', cached: true %>
+</div>

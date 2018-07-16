@@ -9,21 +9,22 @@ h1.home-title#about
   .about-row-left.about-row-left_1
     = image_tag(asset_pack_path('packs/img/girls-3.jpg'), class: 'img-responsive')
   .about-row-right.about-row-right_1
-    .about-text.about-text_2
+    .about-text.about-text_3
       p Конкурс «Мисс Туризм» создан специально для тебя! Регистрируйся прямо сейчас и собирай как можно больше лайков в интернет-голосовании – используй шанс стать одной из 29 участниц. Для этого подключи друзей, публикуй вау-новость в своих соцсетях и скрести пальчики
-      = link_to "Правила участия", '#about', data: {toggle: "modal", target: "#myModal1"}
-    - unless user_signed_in?
-      button style="width: 300px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" Зарегистрируйся
+      p= link_to "Правила участия", '#about', data: {toggle: "modal", target: "#myModal1"}, class: "btn btn-success btn-lg",  style: "width: 300px"
+      - unless user_signed_in?
+        button style="width: 300px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" Зарегистрироваться
 
 .about-row.about-row_2
   .about-row-left.about-row-left_2
     .about-text.about-text_3
       p
         |Зажигательный полуфинал случится 19 сентября на Partisan Luxury Party в рамках
+        |&nbsp;
         a target="_blank" href="http://www.itif-forum.ru/" Международного Туристического Инвестиционного Форума ITIF
         |.
       p Наряды участниц будут в стиле милитари, а атмосфера вечера взрывной и захватывающей. Члены жюри выберут 10 восхитительных финалисток, оценивая их внешние данные, ум, находчивость и оптимизм.
-      = link_to "Cтать гостем полуфинала", 'http://boyarski.ru/info/galereya/nash_restoran/letnyaya_veranda_i_domiki/', target: "_blank", class: "btn btn-success"
+      = link_to "Cтать гостем полуфинала", 'http://itif-forum.ru/2018/about/?utm_source=landing&utm_medium=button&utm_campaign=uachastiedelegation#rec53802674', target: "_blank", class: "btn btn-primary btn-lg"
   .about-row-right.about-row-right_2
     = image_tag(asset_pack_path('packs/img/PartMilitary_01.jpg'), class: 'img-responsive')
 
@@ -31,5 +32,6 @@ h1.home-title#about
   .about-row-left.about-row-left_3
     = image_tag(asset_pack_path('packs/img/hotel-01-copy.jpg'), class: 'img-responsive')
   .about-row-right.about-row-right_3
-    .about-text.about-text_4 Финал конкурса «Мисс Туризм» пройдёт во второй половине октября на мифическом греческом острове Крит, в роскошном отеле Aldemar Knossos Royal Family 5*, построенном в стиле Кносского дворца. Какие испытания ждут финалисток? Пока все детали – под завесой тайны ;-)
-    / .text-4 Финал конкурса «Мисс Туризм» пройдёт с 17 по 21 октября на мифическом греческом острове Крит, в роскошном отеле Aldemar Knossos Royal Family 5*, построенном в стиле Кносского дворца. Какие испытания ждут финалисток? Пока все детали – под завесой тайны ;-)
+    .about-text.about-text_3
+      p Финал конкурса «Мисс Туризм» пройдёт во второй половине октября на мифическом греческом острове Крит, в роскошном отеле Aldemar Knossos Royal Family 5*, построенном в стиле Кносского дворца. Какие испытания ждут финалисток? Пока все детали – под завесой тайны ;-)
+      / .text-4 Финал конкурса «Мисс Туризм» пройдёт с 17 по 21 октября на мифическом греческом острове Крит, в роскошном отеле Aldemar Knossos Royal Family 5*, построенном в стиле Кносского дворца. Какие испытания ждут финалисток? Пока все детали – под завесой тайны ;-)

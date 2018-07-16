@@ -2,7 +2,7 @@
 	display: flex;
 	align-items: center;
 
-	margin-bottom: 32px;
+	margin-bottom: 50px;
 
 	@media (max-width: 768px) {
 		flex-direction: column;
@@ -32,11 +32,11 @@
 }
 
 .about-row-left_2 {
-	order: 2;
+	order: 1;
 }
 
 .about-row-right_2 {
-	order: 1;
+	order: 2;
 }
 
 .about-text {
@@ -78,22 +78,7 @@
 }
 
 .about-text_3 {
-	font-family: 'PT Sans';
-	font-weight: normal;
-	font-size: 20px;
-	text-align: right;
-
-	@media (max-width: 768px) {
-		text-align: center;
-	}
-
-	@media (max-width: 480px) {
-		font-size: 18px;
-	}
-}
-
-.about-text_4 {
-	font-size: 24px;
+	font-size: 22px;
 	text-align: center;
 
 	@media (max-width: 768px) {
