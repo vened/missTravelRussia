@@ -11,7 +11,13 @@
   <div class="profile-social-title">
     Поделитесь с друзьями:
   </div>
-  <div class="ya-share2" data-services="vkontakte,facebook" data-counter=""></div>
+  <%- share_photo = @root_photo ? @root_photo.photo_src.large : nil %>
+  <div class="ya-share2"
+       data-services="vkontakte,facebook"
+       data-counter=""
+       data-image:vkontakte="<%= share_photo.present? ? request.base_url + "#{share_photo}" : request.base_url + asset_pack_path('packs/img/share/share-vk.png') %>"
+       data-image:facebook="<%= share_photo.present? ? request.base_url + "#{share_photo}" : request.base_url + asset_pack_path('packs/img/share/share-fb.png') %>"
+  ></div>
 </div>
 
 
