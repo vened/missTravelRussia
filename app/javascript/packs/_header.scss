@@ -24,9 +24,19 @@ header {
 	}
 }
 
-//.header-collapse {
-//	height: 76px;
-//}
+.header-collapse {
+	height: 480px;
+
+	@media (max-width: 768px) {
+		height: 560px;
+	}
+	@media (max-width: 640px) {
+		height: 500px;
+	}
+	@media (max-width: 480px) {
+		height: 450px;
+	}
+}
 
 .navbar {
 	z-index: 4;
