@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  # static pages
   root 'pages#home'
   get 'personal_information' => 'pages#personal_information'
+  get 'general_partner' => 'pages#general_partner'
 
 
   get 'votes' => 'users#votes', as: 'votes'

@@ -7,6 +7,9 @@
   <li>
     <%= link_to "ПАРТНЕРЫ", '#partners' %>
   </li>
+  <li class="<%= request.fullpath === general_partner_path && 'active' %>">
+    <%= link_to "Ген. парнтер", general_partner_path %>
+  </li>
   <li>
     <%= link_to "Правила участия", '#about', data: {toggle: "modal", target: "#myModal1"} %>
   </li>

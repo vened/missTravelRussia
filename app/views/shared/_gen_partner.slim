@@ -1,5 +1,6 @@
 section.gen-partner#partners
-  h2.home-subtitle Генеральный партнер
+  - if request.fullpath != "/general_partner"
+    h2.home-subtitle Генеральный партнер
 
   .gen-partner-row
     .gen-partner-logo-wrapper.gen-partner-logo-wrapper-1

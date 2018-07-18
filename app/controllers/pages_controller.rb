@@ -10,4 +10,7 @@ class PagesController < ApplicationController
   def personal_information
   end
 
+  def general_partner
+  end
+
 end
