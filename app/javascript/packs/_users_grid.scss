@@ -28,8 +28,10 @@
 	position: absolute;
 	display: block;
 	vertical-align: top;
-	background-position: center center;
+	background-position: 50% 0;
 	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: #333;
 
 	&:nth-child(1) {
 		left: 0;
