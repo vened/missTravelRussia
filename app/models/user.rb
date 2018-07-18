@@ -106,7 +106,7 @@ class User
         gender: gender.present? ? gender : nil,
         location: location.present? ? location : nil,
         bdate: bdate.present? ? bdate : nil,
-        role: :contestant # регистрация участника
+        role: self.admin? ? :admin : :contestant # регистрация участника
     # is_vote: gender == 'male' ? false : true
     )
     return current_user
