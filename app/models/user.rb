@@ -89,25 +89,55 @@ class User
     end
 
     if auth.provider === 'facebook'
-      profile = auth.extra.raw_info.link
-      gender = auth.extra.raw_info.gender
-      bdate = auth.info.birthday
-      location = auth.extra.raw_info.location.present? && auth.extra.raw_info.location.name
+      new_profile = auth.extra.raw_info.link
+      new_gender = auth.extra.raw_info.gender
+      new_bdate = auth.info.birthday
+      new_location = auth.extra.raw_info.location.present? && auth.extra.raw_info.location.name
     end
     if auth.provider === 'vkontakte'
-      profile = auth.info.urls.Vkontakte
-      location = auth.info.location
-      bdate = auth.extra.raw_info.bdate
-      gender = auth.extra.raw_info.sex == 2 ? 'male' : 'female'
+      new_profile = auth.info.urls.Vkontakte
+      new_location = auth.info.location
+      new_bdate = auth.extra.raw_info.bdate
+      new_gender = auth.extra.raw_info.sex == 2 ? 'male' : 'female'
+    end
+
+
+    if current_user.profile.blank?
+      profile = new_profile.present? ? new_profile : nil
+    else
+      profile = current_user.profile
+    end
+
+    if current_user.gender.blank?
+      gender = new_gender.present? ? new_gender : nil
+    else
+      gender = current_user.gender
+    end
+
+    if current_user.location.blank?
+      location = new_location.present? ? new_location : nil
+    else
+      location = current_user.location
+    end
+
+    if current_user.bdate.blank?
+      bdate = new_bdate.present? ? new_bdate : nil
+    else
+      bdate = current_user.bdate
+    end
+
+    if current_user.role.blank?
+      new_role = :contestant
+    else
+      new_role = current_user.role
     end
 
     current_user.update(
-        profile: profile.present? ? profile : nil,
-        gender: gender.present? ? gender : nil,
-        location: location.present? ? location : nil,
-        bdate: bdate.present? ? bdate : nil,
-        role: :contestant # регистрация участника
-    # is_vote: gender == 'male' ? false : true
+        profile: profile,
+        gender: gender,
+        location: location,
+        bdate: bdate,
+        role: new_role # регистрация участника
     )
     return current_user
   end
