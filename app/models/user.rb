@@ -198,7 +198,7 @@ class User
     end
   end
 
-  def user_info
+  def user_email
     "#{self.name}, #{self.organization}, #{self.age}"
   end
 
@@ -226,19 +226,19 @@ class User
         label 'Компания'
         column_width 150
       end
-      field :phone do
+      field :created_at do
         column_width 120
       end
-      field :email do
+      field :updated_at do
+        column_width 120
+      end
+      field :phone do
         column_width 120
       end
       field :email2 do
         column_width 120
       end
-      field :created_at do
-        column_width 120
-      end
-      field :updated_at do
+      field :email do
         column_width 120
       end
     end
