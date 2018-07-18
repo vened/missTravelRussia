@@ -137,8 +137,8 @@ class User
   validates :age, presence: true, on: :update
   validates :location, presence: true, on: :update
   validates :organization_site, presence: true, on: :update
-  # validates :email2, presence: true, on: :update
-  # validates :phone, presence: true, on: :update
+  validates :email2, presence: true, on: :update
+  validates :phone, presence: true, on: :update
 
   paginates_per 12
 
@@ -195,6 +195,69 @@ class User
             user.location,
         ]
       end
+    end
+  end
+
+  def user_info
+    "#{self.name}, #{self.organization}, #{self.age}"
+  end
+
+  rails_admin do
+    list do
+      field :number do
+        label 'id'
+        column_width 40
+      end
+      field :role do
+        column_width 80
+      end
+      field :name do
+        label 'Имя'
+        column_width 160
+      end
+      field :age do
+        column_width 50
+      end
+      field :gender do
+        label 'Пол'
+        column_width 50
+      end
+      field :organization do
+        label 'Компания'
+        column_width 150
+      end
+      field :phone do
+        column_width 120
+      end
+      field :email do
+        column_width 120
+      end
+      field :email2 do
+        column_width 120
+      end
+      field :created_at do
+        column_width 120
+      end
+      field :updated_at do
+        column_width 120
+      end
+    end
+    edit do
+      field :name
+      field :about
+      field :age
+      field :role, :enum do
+        enum do
+          [:contestant, :user, :admin]
+        end
+      end
+      field :email2
+      field :phone
+      field :organization
+      field :organization_site
+      field :work_experience
+      field :position
+      field :location
     end
   end
 

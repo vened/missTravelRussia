@@ -1,6 +1,7 @@
 RailsAdmin.config do |config|
 
   config.parent_controller = '::ApplicationController'
+
   ### Popular gems integration
 
   ## == Devise ==
@@ -42,19 +43,15 @@ RailsAdmin.config do |config|
     # history_show
   end
 
-  config.model 'User' do
-    list do
-      field :number
-      field :name
-      field :age
-      field :organization
-      field :phone
-      field :email
-      field :email2
-      field :gender
-      field :created_at
-      field :updated_at
-    end
+  config.model User do
+    configure :age, :string
+    configure :email2, :string
+    configure :phone, :string
+    configure :organization, :string
+    configure :organization_site, :string
+    configure :work_experience, :string
+    configure :position, :string
+    configure :location, :string
   end
 
 end
