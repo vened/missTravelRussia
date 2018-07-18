@@ -24,7 +24,7 @@
         href="http://www.onlinetours.ru/"
         target="_blank"
       >
-        <%= image_tag(asset_pack_path('packs/img/partners/logo-onlinetours.png'), size: "272x48", alt: "Onlinetours") %>
+        <%= image_tag(asset_pack_path('packs/img/partners/logo-onlinetours.png'), size: "319x56", alt: "Onlinetours") %>
       </a>
     </div>
   </div>
@@ -39,7 +39,7 @@
         href="https://www.tourdom.ru/"
         target="_blank"
       >
-        <%= image_tag(asset_pack_path('packs/img/partners/tourdom.png'), size: "263x37", alt: "Турдом") %>
+        <%= image_tag(asset_pack_path('packs/img/partners/tourdom.png'), size: "319x45", alt: "Турдом") %>
       </a>
       <!--
       <a
@@ -77,51 +77,52 @@
   </div>
   -->
 
-  <div class="partners-block">
-    <div class="partners-title">
-      ПАРТНЕРЫ
-    </div>
-    <div class="partners-links">
-      <a
-        class="partners-link"
-        href="http://missvolga.ru/"
-        target="_blank"
-      >
-        <%= image_tag(asset_pack_path('packs/img/partners/volga-models.png'), size: "219x91", alt: "http://missvolga.ru/") %>
-      </a>
-      <a
-        class="partners-link"
-        href="http://www.travelstartups.ru/"
-        target="_blank"
-      >
-        <%= image_tag(asset_pack_path('packs/img/partners/travel-startups.svg'), size: "244x28", alt: "Travel Startups - сообщество тревел предпринимателей") %>
-      </a>
+  <%- if request.fullpath === "/" %>
+    <div class="partners-block">
+      <div class="partners-title">
+        ПАРТНЕРЫ
+      </div>
+      <div class="partners-links">
+        <a
+          class="partners-link"
+          href="http://missvolga.ru/"
+          target="_blank"
+        >
+          <%= image_tag(asset_pack_path('packs/img/partners/volga-models.png'), size: "219x91", alt: "http://missvolga.ru/") %>
+        </a>
+        <a
+          class="partners-link"
+          href="http://www.travelstartups.ru/"
+          target="_blank"
+        >
+          <%= image_tag(asset_pack_path('packs/img/partners/travel-startups.svg'), size: "244x28", alt: "Travel Startups - сообщество тревел предпринимателей") %>
+        </a>
 
-      <a
-        class="partners-link"
-        href="https://sletat.ru/"
-        target="_blank"
-      >
-        <%= image_tag(asset_pack_path('packs/img/partners/logo-sletat.svg'), size: "205x63", alt: "Sletat.ru") %>
-      </a>
+        <a
+          class="partners-link"
+          href="https://sletat.ru/"
+          target="_blank"
+        >
+          <%= image_tag(asset_pack_path('packs/img/partners/logo-sletat.svg'), size: "205x63", alt: "Sletat.ru") %>
+        </a>
 
-      <a
-        class="partners-link"
-        href="https://www.erv.ru/"
-        target="_blank"
-      >
-        <%= image_tag(asset_pack_path('packs/img/partners/logo_erv.gif'), size: "205x63", alt: "Sletat.ru") %>
-      </a>
+        <a
+          class="partners-link"
+          href="https://www.erv.ru/"
+          target="_blank"
+        >
+          <%= image_tag(asset_pack_path('packs/img/partners/erv.png'), size: "205x92") %>
+        </a>
 
-      <a
-        class="partners-link"
-        href="https://www.hotline.travel/"
-        target="_blank"
-      >
-        <%= image_tag(asset_pack_path('packs/img/partners/hotline.png'), size: "150x150") %>
-      </a>
+        <a
+          class="partners-link"
+          href="https://www.hotline.travel/"
+          target="_blank"
+        >
+          <%= image_tag(asset_pack_path('packs/img/partners/hotline.png'), size: "150x150") %>
+        </a>
 
-      <!--
+        <!--
       <a
         class="partners-link"
         href="http://iway.ru/"
@@ -137,8 +138,8 @@
         <%= image_tag(asset_pack_path('packs/img/partners/bronevik.png'), size: "138x49", alt: "bronevik") %>
       </a>
       -->
-    </div>
-    <!--
+      </div>
+      <!--
     <div class="partners-links">
       <a
         class="partners-link"
@@ -156,5 +157,6 @@
       </a>
     </div>
     -->
-  </div>
+    </div>
+  <% end %>
 </div>
