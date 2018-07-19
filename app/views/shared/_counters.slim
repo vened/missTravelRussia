@@ -5,7 +5,7 @@
         .counter
           .counter-item
             = @users_all.count
-          .counter-label= t('datetime.distance_in_words.profiles', count: 35, locale: :ru)
+          .counter-label= t('datetime.distance_in_words.profiles', count: @users_all.count, locale: :ru)
 
       .counter
         .counter-item
