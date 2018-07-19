@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
   protect_from_forgery with: :exception
+  skip_before_action :verify_authenticity_token
   before_action :authenticate_user!, only: [:edit, :update, :upload, :edit_photo, :destroy_photo, :destroy, :voteable]
   after_action :verify_authorized, only: [:edit, :update, :upload, :edit_photo, :destroy_photo, :destroy, :votes, :voteable]
 
   def show
-    @user = User.find_by(number: params[:id])
-    @root_photo = @user.photos.where(root: true).present? ? @user.photos.find_by(root: true) : nil
+    @user          = User.find_by(number: params[:id])
+    @root_photo    = @user.photos.where(root: true).present? ? @user.photos.find_by(root: true) : nil
     @user_prev     = VotesQuery.new.prev_anketa(@user, params)
     @user_next     = VotesQuery.new.next_anketa(@user, params)
     @user_position = VotesQuery.new.anketa_position(@user)
@@ -29,8 +30,9 @@ class UsersController < ApplicationController
   def upload
     @user = User.find_by(number: params[:id])
     authorize @user
+    @root_photo    = @user.photos.where(root: true).present? ? @user.photos.find_by(root: true) : nil
     if @user.photos.length < 4
-      @photo = @user.photos.create(:photo_src => params[:user][:photo_src])
+      @photo = @user.photos.create(:photo_src => params[:photo_src])
       notice = "Фотография успешно загружена"
     else
       notice = "можно загрузить только 4 фотографии"
@@ -42,7 +44,12 @@ class UsersController < ApplicationController
         @photo.update(root: false)
       end
     end
-    redirect_to user_path, :notice => notice
+    # redirect_to user_path, :notice => notice
+    respond_to do |format|
+      format.html { redirect_to @user }
+      format.js
+      format.json { render json: @user, location: @user }
+    end
   end
 
   def edit_photo
@@ -64,7 +71,13 @@ class UsersController < ApplicationController
     if @user.photos.present? && @photo.root
       @user.photos.first.update(root: true)
     end
-    redirect_to user_path(@user), :notice => "Фотография успешно удалена"
+    @root_photo    = @user.photos.where(root: true).present? ? @user.photos.find_by(root: true) : nil
+    # redirect_to user_path(@user), :notice => "Фотография успешно удалена"
+    respond_to do |format|
+      format.html { redirect_to @user }
+      format.js
+      format.json { render json: @user, location: @user }
+    end
   end
 
   def destroy
