@@ -43,7 +43,7 @@
       <%- unless photo.root %>
         <div class="profile-photo">
 
-          <div class="profile-gallery-item" data-src="<%= @root_photo.photo_src %>" data-sub-html=".caption">
+          <div class="profile-gallery-item" data-src="<%= photo.photo_src %>" data-sub-html=".caption">
             <i class="fa fa-search fa-2x profile-photos-zoom"></i>
 
             <%= image_tag photo.photo_src.thumb, class: "img-responsive" %>
