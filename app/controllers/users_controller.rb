@@ -30,7 +30,6 @@ class UsersController < ApplicationController
   def upload
     @user = User.find_by(number: params[:id])
     authorize @user
-    @root_photo    = @user.photos.where(root: true).present? ? @user.photos.find_by(root: true) : nil
     if @user.photos.length < 4
       @photo = @user.photos.create(:photo_src => params[:photo_src])
       notice = "Фотография успешно загружена"
@@ -44,6 +43,8 @@ class UsersController < ApplicationController
         @photo.update(root: false)
       end
     end
+
+    @root_photo    = @user.photos.where(root: true).present? ? @user.photos.find_by(root: true) : nil
     # redirect_to user_path, :notice => notice
     respond_to do |format|
       format.html { redirect_to @user }
