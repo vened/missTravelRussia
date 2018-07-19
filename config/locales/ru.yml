@@ -123,6 +123,11 @@ ru:
         many: "%{count} секунд"
         one: "%{count} секунду"
         other: "%{count} секунды"
+      profiles:
+        few: "анкеты"
+        many: "анкет"
+        one: "анкета"
+        other: "анкеты"
     prompts:
       day: День
       hour: Часов

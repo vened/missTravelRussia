@@ -5,7 +5,7 @@
         .counter
           .counter-item
             = @users_all.count
-          .counter-label анкет
+          .counter-label= t('datetime.distance_in_words.profiles', count: 35, locale: :ru)
 
       .counter
         .counter-item
