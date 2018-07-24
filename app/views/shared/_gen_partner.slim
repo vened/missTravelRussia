@@ -27,4 +27,5 @@ section.gen-partner#partners
         .gen-partner-media-item-video
           iframe src="https://www.youtube.com/embed/BUZDChUZHdU?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""
     .gen-partner-logo-wrapper.gen-partner-logo-wrapper-2
-      = image_tag(asset_pack_path('packs/img/gen-partner/kr-01@2x.jpg'), height: '142', width: '200', class: 'gen-partner-logo')
+      =link_to 'https://www.aldemar-resorts.gr/ru/hotel/knossos-royal/', target: '_blank' do
+        = image_tag(asset_pack_path('packs/img/gen-partner/kr-01@2x.jpg'), height: '142', width: '200', class: 'gen-partner-logo')
