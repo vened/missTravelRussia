@@ -4,7 +4,8 @@ section.gen-partner#partners
 
   .gen-partner-row
     .gen-partner-logo-wrapper.gen-partner-logo-wrapper-1
-      = image_tag(asset_pack_path('packs/img/gen-partner/30-years-aldemar-resorts-2017-final@2x.jpg'), height: '134', width: '250', class: 'gen-partner-logo')
+      =link_to 'https://www.aldemar-resorts.gr/ru/hotel/knossos-royal/', target: '_blank' do
+        = image_tag(asset_pack_path('packs/img/gen-partner/30-years-aldemar-resorts-2017-final@2x.jpg'), height: '134', width: '250', class: 'gen-partner-logo')
     .gen-partner-media-wrapper
       .gen-partner-media-gallery.owl-carousel.gen-partner-media-gallery-owl
         .gen-partner-media-item
