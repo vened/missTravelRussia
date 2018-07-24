@@ -1,0 +1,5 @@
+<%- @users.each do |user| %>
+  <%- unless user.email.match("vkontakte.com") || user.email.match("facebook.com") %>
+    <%= user.email %>,
+  <% end %>
+<% end %>

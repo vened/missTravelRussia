@@ -124,13 +124,13 @@ class User
     end
   end
 
-  validates :organization, presence: true, on: :update
-  validates :work_experience, presence: true, on: :update
-  validates :position, presence: true, on: :update
-  validates :name, presence: true, on: :update
-  validates :age, presence: true, on: :update
-  validates :location, presence: true, on: :update
-  validates :organization_site, presence: true, on: :update
+  # validates :organization, presence: true, on: :update
+  # validates :work_experience, presence: true, on: :update
+  # validates :position, presence: true, on: :update
+  # validates :name, presence: true, on: :update
+  # validates :age, presence: true, on: :update
+  # validates :location, presence: true, on: :update
+  # validates :organization_site, presence: true, on: :update
 
   paginates_per 12
 
@@ -160,30 +160,36 @@ class User
     column_names = [
         "имя",
         "email",
+        'phone',
         "голосов",
-        'about',
-        'organization',
+        "профайл в соц сети",
+        # 'about',
+        # 'organization',
         'organization_site',
         'position',
         'work_experience',
         'age',
-        'phone',
         'location',
     ]
     CSV.generate(options) do |csv|
       csv << column_names
       all.each do |user|
+        unless user.email.match("vkontakte.com") || user.email.match("facebook.com")
+          p "----"
+          p user.email
+        end
         csv << [
             user.name,
             user.email,
+            user.phone,
             user.votes,
-            user.about,
-            user.organization,
+            user.profile,
+            # user.about,
+            # user.organization,
             user.organization_site,
             user.position,
             user.work_experience,
             user.age,
-            user.phone,
             user.location,
         ]
       end

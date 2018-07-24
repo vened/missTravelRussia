@@ -28,7 +28,7 @@
   </script>
 </head>
 <body>
-<%= render 'header/header' %>
+<%#= render 'header/header' %>
 <%- flash.each do |name, msg| %>
   <%- if msg.is_a?(String) %>
     <div class="container">
@@ -50,8 +50,8 @@
 
 <%= yield %>
 <% cache do %>
-  <%= render partial: 'shared/organizator', cached: true %>
-  <%= render partial: 'layouts/footer', cached: true %>
+  <%#= render partial: 'shared/organizator', cached: true %>
+  <%#= render partial: 'layouts/footer', cached: true %>
 <% end %>
 
 <!— Global Site Tag (gtag.js) - Google Analytics —>

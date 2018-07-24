@@ -25,19 +25,20 @@ class UsersController < ApplicationController
   end
 
   def members_votes
-    users_pre = User.where(is_vote: true)
-    users_pre.each do |user|
-      unless user.is_disqualify
-        user.update(is_disqualify: false)
-        user.save
-      end
-    end
+    # users_pre = User.where(is_vote: true)
+    # users_pre.each do |user|
+    #   unless user.is_disqualify
+    #     user.update(is_disqualify: false)
+    #     user.save
+    #   end
+    # end
 
-    users = VotesQuery.new.call(params)
+    # @users = VotesQuery.new.call(params)
+    @users = User.where(_role: 'user', is_vote: false, gender: 'female')
     authorize User
     respond_to do |format|
       format.html
-      format.csv {send_data users.to_csv}
+      format.csv {send_data @users.to_csv}
       format.xls
     end
   end

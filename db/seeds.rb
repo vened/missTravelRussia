@@ -5,17 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-# CreateUsersService.new.call
+CreateUsersService.new.create_admin
 # CreateUsersService.new.create_users
 # if ENV["userId"]
 #   CreateUsersService.new.update_votes(ENV["userId"])
 # end
 
 
-users = User.where(is_vote: true)
-users.each do |user|
-  unless user.is_disqualify
-    user.update(is_disqualify: false)
-    user.save(validate: false)
-  end
-end
+# users = User.where(is_vote: true)
+# users.each do |user|
+#   unless user.is_disqualify
+#     user.update(is_disqualify: false)
+#     user.save(validate: false)
+#   end
+# end
