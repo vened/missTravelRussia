@@ -15,7 +15,7 @@ h1.home-title#about
       - unless user_signed_in?
         button style="width: 300px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" Зарегистрироваться
 
-.about-row.about-row_2
+/ .about-row.about-row_2
   .about-row-left.about-row-left_2
     .about-text.about-text_3
       p
@@ -28,10 +28,10 @@ h1.home-title#about
   .about-row-right.about-row-right_2
     = image_tag(asset_pack_path('packs/img/PartMilitary_01.jpg'), class: 'img-responsive')
 
-.about-row.about-row_3
-  .about-row-left.about-row-left_3
+.about-row.about-row_2
+  .about-row-left.about-row-left_2
     = image_tag(asset_pack_path('packs/img/hotel-01-copy.jpg'), class: 'img-responsive')
-  .about-row-right.about-row-right_3
+  .about-row-right.about-row-right_2
     .about-text.about-text_3
       p Финал конкурса «Мисс Туризм» пройдёт во второй половине октября на мифическом греческом острове Крит, в роскошном отеле Aldemar Knossos Royal Family 5*, построенном в стиле Кносского дворца. Какие испытания ждут финалисток? Пока все детали – под завесой тайны ;-)
       / .text-4 Финал конкурса «Мисс Туризм» пройдёт с 17 по 21 октября на мифическом греческом острове Крит, в роскошном отеле Aldemar Knossos Royal Family 5*, построенном в стиле Кносского дворца. Какие испытания ждут финалисток? Пока все детали – под завесой тайны ;-)
