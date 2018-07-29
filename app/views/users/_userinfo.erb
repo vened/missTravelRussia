@@ -1,7 +1,13 @@
 <% if user_signed_in? && policy(@user).profile? %>
   <div class="profile-created">
     <%= link_to edit_user_path(@user), class: 'profile-edit-link' do %>
-      <span class="profile-edit-link__label">Редактировать анкету</span>
+      <span class="profile-edit-link__label">
+        <%- if @user.email2.present? %>
+          Редактировать анкету
+        <% else %>
+          Заполнить анкету
+        <% end %>
+      </span>
       <i class="profile-edit-link__icon fa fa-cog" aria-hidden="true"></i>
     <% end %>
   </div>
@@ -129,14 +135,14 @@
     </div>
   <% end %>
 
-  <%- if @user.email.present? %>
+  <%- if @user.email2.present? %>
     <div class="profile-info" style="margin-top: 16px">
       <div class="profile-info-item">
         <div class="profile-label">
           Email
         </div>
         <div class="profile-info-item-body">
-          <%= @user.email %>
+          <%= @user.email2 %>
         </div>
       </div>
     </div>
