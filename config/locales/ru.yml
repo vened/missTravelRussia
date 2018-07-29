@@ -62,6 +62,17 @@ ru:
     - :year
   datetime:
     distance_in_words:
+      short:
+        about_x_hours:
+          few: "%{count} часа"
+          many: "%{count} часов"
+          one: "%{count} час"
+          other: "%{count} часа"
+        x_days:
+          few: "%{count} дня"
+          many: "%{count} дней"
+          one: "%{count} день"
+          other: "%{count} дня"
       about_x_hours:
         few: около %{count} часов
         many: около %{count} часов

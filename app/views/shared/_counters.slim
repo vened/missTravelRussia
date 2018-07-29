@@ -9,7 +9,7 @@
 
       .counter
         .counter-item
-          = distance_of_time_in_words(Time.new, "2018-07-30".to_date)
+          = distance_of_time_in_words_to_now("2018-07-31".to_date, scope: 'datetime.distance_in_words.short')
         .counter-label
           |до окончания регистрации
 
