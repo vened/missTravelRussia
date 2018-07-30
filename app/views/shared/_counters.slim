@@ -8,10 +8,14 @@
           .counter-label= t('datetime.distance_in_words.profiles', count: @users_all.count, locale: :ru)
 
       .counter
-        .counter-item
-          = distance_of_time_in_words_to_now("2018-07-31".to_date, scope: 'datetime.distance_in_words.short')
-        .counter-label
-          |до окончания регистрации
+        - if REGISTRATION_AVIALABLE
+          .counter-item
+            = distance_of_time_in_words_to_now(REGISTRATION_END_DATE, scope: 'datetime.distance_in_words.short')
+          .counter-label
+            |до окончания регистрации
+        - else
+          .counter-label
+            |Регистрация завершена
 
       - cache @votes_count do
         .counter

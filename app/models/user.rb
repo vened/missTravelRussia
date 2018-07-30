@@ -81,12 +81,6 @@ class User
   end
 
   def self.from_omniauth(auth)
-    current_user = where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email.present? ? auth.info.email : "#{auth.uid}@#{auth.provider}.com"
-      user.password = Devise.friendly_token[0, 20]
-      user.name = auth.info.name
-      user.image = auth.info.image
-    end
 
     if auth.provider === 'facebook'
       new_profile = auth.extra.raw_info.link
@@ -101,6 +95,18 @@ class User
       new_gender = auth.extra.raw_info.sex == 2 ? 'male' : 'female'
     end
 
+
+    current_user = where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email.present? ? auth.info.email : "#{auth.uid}@#{auth.provider}.com"
+      user.password = Devise.friendly_token[0, 20]
+      user.name = auth.info.name
+      user.image = auth.info.image
+      if REGISTRATION_AVIALABLE && new_gender == 'female'
+        user.role = :contestant
+      else
+        user.role = :user
+      end
+    end
 
     if current_user.profile.blank?
       profile = new_profile.present? ? new_profile : nil
@@ -126,19 +132,13 @@ class User
       bdate = current_user.bdate
     end
 
-    if current_user.role.blank?
-      new_role = :contestant
-    else
-      new_role = current_user.role
-    end
-
     current_user.update(
         profile: profile,
         gender: gender,
         location: location,
         bdate: bdate,
-        role: new_role # регистрация участника
     )
+
     return current_user
   end
 
