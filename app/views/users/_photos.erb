@@ -102,8 +102,8 @@
   <% end %>
 <% end %>
 
-<%- if @user.email2.present? %>
-  <% if user_signed_in? && policy(@user).profile? %>
+<% if user_signed_in? && policy(@user).profile? %>
+  <%- if @user.email2.present? %>
     <%- if @user.photos.length < 4 %>
       <div id="oooops" style="display: none; margin: 10px; padding: 10px; border: 2px solid #f60; border-radius: 4px;">
         Увы, ваш браузер не поддерживает html5 и flash,
@@ -120,16 +120,16 @@
         </div>
       </div>
     <% end %>
+  <% else %>
+    <div>
+      <div>
+        Что бы загрузить свои фотографии необходимо:
+      </div>
+      <br>
+      <%= link_to edit_user_path(@user), class: 'btn btn-success btn-lg b-button' do %>
+        <i class="fa fa-cog" aria-hidden="true"></i>
+        Заполнить анкету
+      <% end %>
+    </div>
   <% end %>
-<% else %>
-  <div>
-     <div>
-       Что бы загрузить свои фотографии необходимо:
-     </div>
-    <br>
-    <%= link_to edit_user_path(@user), class: 'btn btn-success btn-lg b-button' do%>
-      <i class="fa fa-cog" aria-hidden="true"></i>
-      Заполнить анкету
-    <% end %>
-  </div>
 <% end %>

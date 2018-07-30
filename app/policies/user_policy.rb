@@ -29,7 +29,7 @@ class UserPolicy
   end
 
   def contestant?
-    @current_user.contestant? || @current_user == @user
+    @current_user.contestant?
   end
 
   def show?
