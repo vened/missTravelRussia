@@ -126,7 +126,11 @@
 
 <hr>
 <div style="margin: 0 0 64px 0;text-align: center">
-  <%= link_to "Назад", :back, class: "btn btn-success btn-lg" %>
+  <%=
+    link_to_if(@back_url.present?, "Назад", url_for(@back_url), class: "btn btn-success btn-lg") do
+      link_to("Все участницы", votes_path, class: "btn btn-success btn-lg")
+    end
+  %>
 </div>
 
 <%= render partial: 'shared/gen_partner', cached: true %>

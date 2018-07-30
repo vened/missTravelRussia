@@ -4,12 +4,15 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :upload, :edit_photo, :destroy_photo, :destroy, :voteable]
   after_action :verify_authorized, only: [:edit, :update, :upload, :edit_photo, :destroy_photo, :destroy, :votes, :voteable]
 
+  before_action :save_my_previous_url
+
   def show
     @user          = User.find_by(number: params[:id])
     @root_photo    = @user.photos.where(root: true).present? ? @user.photos.find_by(root: true) : nil
     @user_prev     = VotesQuery.new.prev_anketa(@user, params)
     @user_next     = VotesQuery.new.next_anketa(@user, params)
     @user_position = VotesQuery.new.anketa_position(@user)
+    @back_url = session[:my_previous_url]
   end
 
   def edit
@@ -116,6 +119,11 @@ class UsersController < ApplicationController
   end
 
   private
+
+    def save_my_previous_url
+      # session[:previous_url] is a Rails built-in variable to save last url.
+      session[:my_previous_url] = URI(request.referer || '').path
+    end
 
     def secure_params
       params.require(:user).permit(
