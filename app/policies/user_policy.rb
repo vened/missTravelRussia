@@ -32,16 +32,21 @@ class UserPolicy
     @current_user.contestant?
   end
 
+  def user?
+    # @current_user.user? or @current_user != @user
+    @current_user.admin? || @current_user.contestant? or @current_user != @user || @current_user.user? or @current_user != @user
+  end
+
   def show?
     scope.all
   end
 
   def edit?
-    @current_user.admin? || @current_user == @user
+    @current_user.contestant? && @current_user == @user
   end
 
   def profile?
-    @current_user.admin? || @current_user == @user
+    @current_user.contestant? && @current_user == @user
   end
 
   def update?

@@ -7,15 +7,15 @@ class VoteableService
     user = User.find_by(number: voteable_user_id)
     current_vote = current_user.user_voteables.where(user_voteable_id: voteable_user_id)
     unless current_vote.exists?
-      # current_user.user_voteables.create(
-      #     user_voteable_id: voteable_user_id
-      # )
-      # user.inc(votes: 1)
+      current_user.user_voteables.create(
+          user_voteable_id: voteable_user_id
+      )
+      user.inc(votes: 1)
       # заменил на update, для обновления updated_at
       # user.update(votes: user.votes + 1)
     else
-      # current_vote.destroy
-      # user.inc(votes: -1)
+      current_vote.destroy
+      user.inc(votes: -1)
     end
     return user
   end

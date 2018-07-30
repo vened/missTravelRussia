@@ -25,17 +25,15 @@
   <div>
     АНКЕТА УЧАСТНИЦЫ № <%= @user.number %>
   </div>
-  <%- if false %>
-    <div class="profile-position">
-      <%- if @user.is_disqualify %>
-        <div class="alert alert-danger text-center">
-          Участница дисквалифицированна
-        </div>
-      <% else %>
-        <%= render 'users/anketa_count' %>
-      <% end %>
-    </div>
-  <% end %>
+  <div class="profile-position">
+    <%- if @user.is_disqualify %>
+      <div class="alert alert-danger text-center">
+        Участница дисквалифицированна
+      </div>
+    <% else %>
+      <%= render 'users/anketa_count' %>
+    <% end %>
+  </div>
 </div>
 
 <div class="profile-container">
@@ -57,7 +55,7 @@
           <div></div>
         <% end %>
 
-        <% if user_signed_in? && !policy(@user).profile? && false %>
+        <% if user_signed_in? && !policy(@user).user? %>
           <% unless VotesQuery.new.is_votes(current_user, @user.number) %>
             <div class="vote-btn-container text-center">
               <span class='btn btn-success disabled'>Вы проголосовали</span>
@@ -76,46 +74,40 @@
       </div>
 
 
-      <% if false %>
-        <% if false %>
-          <% if user_signed_in? && !policy(@user).profile? %>
-            <% if !policy(@user).profile? %>
-              <% if VotesQuery.new.is_votes(current_user, @user.number) %>
-                <div class="vote-btn-container text-center">
-                  <%= link_to voteable_path(@user),
-                              class:  'vote-btn',
-                              remote: true do %>
-                    Проголосовать за участницу
-                    <%= image_tag asset_pack_path 'packs/img/icon-like-red.svg' %>
-                  <% end %>
-                </div>
-              <% else %>
-                <div class="vote-btn-container text-center">
-                  <%= link_to voteable_path(@user),
-                              class:  'btn btn-primary',
-                              remote: true do %>
-                    Отозвать свой голос
-                  <% end %>
-                </div>
-              <% end %>
+
+      <% if user_signed_in? && policy(@user).user? %>
+        <% if VotesQuery.new.is_votes(current_user, @user.number) %>
+          <div class="vote-btn-container text-center">
+            <%= link_to voteable_path(@user),
+                        class:  'vote-btn',
+                        remote: true do %>
+              Проголосовать
+              <%= image_tag asset_pack_path 'packs/img/icon-like-red.svg' %>
             <% end %>
-          <% else %>
-            <% if !policy(@user).profile? %>
-              <div class="vote-btn-container text-center">
-                <a href="#" class="vote-btn" data-toggle="modal" data-target="#myModal">
-                  Проголосовать за участницу
-                  <%= image_tag asset_pack_path 'packs/img/icon-like-red.svg' %>
-                </a>
-              </div>
-            <% end %>
-          <% end %>
+          </div>
         <% else %>
           <div class="vote-btn-container text-center">
+            <%= link_to voteable_path(@user),
+                        class:  'btn btn-primary',
+                        remote: true do %>
+              Отозвать свой голос
+            <% end %>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="vote-btn-container text-center">
+          <a href="#" class="vote-btn" data-toggle="modal" data-target="#myModal">
+            Проголосовать
+            <%= image_tag asset_pack_path 'packs/img/icon-like-red.svg' %>
+          </a>
+        </div>
+      <% end %>
+      <% if false %>
+        <div class="vote-btn-container text-center">
                 <span class="vote-btn vote-btn_final">
                   Подсчет голосов завершен
                 </span>
-          </div>
-        <% end %>
+        </div>
       <% end %>
     </div>
 
