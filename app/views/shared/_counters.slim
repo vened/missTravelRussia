@@ -21,4 +21,4 @@
         .counter
           .counter-item
             = @votes_count
-          .counter-label голосов
+          .counter-label= t('datetime.distance_in_words.votes', count: @votes_count, locale: :ru)

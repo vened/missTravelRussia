@@ -140,6 +140,11 @@ ru:
         many: "анкет"
         one: "анкета"
         other: "анкеты"
+      votes:
+        few: "голоса"
+        many: "голосов"
+        one: "голос"
+        other: "голосов"
     prompts:
       day: День
       hour: Часов

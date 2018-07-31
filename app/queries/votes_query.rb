@@ -83,7 +83,7 @@ class VotesQuery
   end
 
   def votes_count
-    @relation = @relation.where(_role: 'user', is_vote: true)
+    @relation = @relation.where(_role: 'contestant')
     @relation.sum(:votes)
     # @relation.collection.aggregate(
     #     [

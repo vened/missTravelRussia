@@ -19,7 +19,8 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
             = link_to 'Выход', destroy_user_session_path, :method => 'delete', class: 'btn btn-default'
         - else
           h1.header-title Всероссийский конкурс красоты Мисс Туризм!
-          button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" Зарегистрироваться
+          button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="margin: 0 0 16px" Участвовать
+          button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal3" Голосовать
 
 
 #myModal.modal.fade aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
@@ -28,7 +29,24 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
       .modal-header
         button.close aria-label="Close" data-dismiss="modal" type="button"
           span aria-hidden="true"  &times;
-        h4#myModalLabel.modal-title Для участия или голосования авторизуйтесь через
+        h4#myModalLabel.modal-title Для участия авторизуйтесь через
+      .modal-body
+        - unless user_signed_in?
+          .b-sign-in
+            .b-sign-in-buttons
+              = link_to user_facebook_omniauth_authorize_path, class: 'b-sign-in-button b-sign-in-button-fb' do
+                = image_tag asset_pack_path 'packs/img/login-fb.svg'
+              = link_to user_vkontakte_omniauth_authorize_path, class: 'b-sign-in-button b-sign-in-button-vk' do
+                i.fa.fa-vk.fa-fw
+                span VKONTAKTE
+
+#myModal3.modal.fade aria-labelledby="myModal3Label" role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+        h4#myModal3Label.modal-title Для голосования авторизуйтесь через
       .modal-body
         - unless user_signed_in?
           .b-sign-in

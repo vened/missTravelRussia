@@ -11,15 +11,15 @@ header {
 		background-position: 41% 0px;
 	}
 	@media (max-width: 768px) {
-		height: 560px;
+		height: 635px;
 		background-image: url('img/hero-masked@2x-480-768.jpg');
 		background-size: cover;
 	}
 	@media (max-width: 640px) {
-		height: 500px;
+		height: 564px;
 	}
 	@media (max-width: 480px) {
-		height: 450px;
+		height: 518px;
 		background-position: -10px top;
 	}
 }
