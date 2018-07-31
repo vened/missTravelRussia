@@ -6,8 +6,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     if @user.persisted?
       sign_in @user, :event => :authentication
-      if(@user.gender === 'male')
-        if request.env['HTTP_REFERER'].present?
+      if (@user.gender === 'male')
+        if request.env['HTTP_REFERER'].present? && request.env['HTTP_REFERER'] != ('http://test.ru:3000/' || 'https://missturizm.ru/')
           redirect_to(request.env['HTTP_REFERER'])
         else
           redirect_to votes_path
@@ -28,8 +28,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
       # sign_in_and_redirect @user, :event => :authentication
       sign_in @user, :event => :authentication
-      if(@user.gender === 'male')
-        if request.env['HTTP_REFERER'].present?
+
+      if (@user.gender === 'male')
+        if request.env['HTTP_REFERER'].present? && request.env['HTTP_REFERER'] != ('http://test.ru:3000/' || 'https://missturizm.ru/')
           redirect_to(request.env['HTTP_REFERER'])
         else
           redirect_to votes_path

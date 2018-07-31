@@ -32,6 +32,14 @@ class UserPolicy
     @current_user.contestant?
   end
 
+  def female?
+    @current_user.user? && @current_user == @user && @current_user.gender == 'female'
+  end
+
+  def is_voted?
+    @current_user.user? && @current_user == @user && @current_user.gender == 'female'
+  end
+
   def user?
     # @current_user.user? or @current_user != @user
     @current_user.admin? || @current_user.contestant? or @current_user != @user || @current_user.user? or @current_user != @user

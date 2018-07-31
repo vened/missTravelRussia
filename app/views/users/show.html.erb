@@ -1,3 +1,23 @@
+<% if user_signed_in? && policy(@user).is_voted? %>
+  <div style="padding: 80px 0">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="text-right">
+          <%= button_to is_voted_path(@user), class: 'btn btn-success btn-lg' do %>
+            Участвовать в конкурсе
+          <%- end %>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="text-left">
+          <%= link_to 'Голосовать', votes_path, class: 'btn btn-primary btn-lg' %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
 <%- content_for :title do %>
   Я участвую в конкурсе красоты Мисс Туризм 2018!
 <%- end %>

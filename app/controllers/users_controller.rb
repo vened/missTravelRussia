@@ -13,6 +13,9 @@ class UsersController < ApplicationController
     @user_next     = VotesQuery.new.next_anketa(@user, params)
     @user_position = VotesQuery.new.anketa_position(@user)
     @back_url = session[:my_previous_url]
+    if @user.user? && @user.gender === 'male'
+      redirect_to votes_path
+    end
   end
 
   def edit
@@ -94,6 +97,13 @@ class UsersController < ApplicationController
   def votes
     @users = VotesQuery.new.call(params).page(params[:page])
     authorize User
+  end
+
+  def is_voted
+    @user = User.find_by(number: params[:id])
+    authorize @user
+    @user.update_attribute('role', :contestant)
+    redirect_to edit_user_path(@user), :notice => "Вы участвуете в конкурсе, заполните анкету"
   end
 
   def votes_voteable
