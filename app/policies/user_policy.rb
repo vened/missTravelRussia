@@ -54,7 +54,7 @@ class UserPolicy
   end
 
   def profile?
-    @current_user.contestant? && @current_user == @user
+    @current_user.admin? || @current_user.contestant? && @current_user == @user
   end
 
   def update?

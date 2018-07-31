@@ -232,8 +232,15 @@ class User
     "#{self.name}, #{self.organization}, #{self.age}"
   end
 
+  scope :contestants, -> {User.where(_role: 'contestant')}
+  scope 'участницы', -> {contestants.where(photos: {'$elemMatch': {root: true}})}
+  scope 'голосующие', -> {User.where(_role: 'user')}
+  scope 'админы', -> {User.where(_role: 'admin')}
+
   rails_admin do
     list do
+      scopes ['участницы', 'участницы без фото', 'голосующие', 'админы']
+
       field :number do
         label 'id'
         column_width 40
