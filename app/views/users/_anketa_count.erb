@@ -6,8 +6,6 @@
 </b>
 /
 <b>
-  <%= @user.votes %>
-</b>
-<b>
-  голосов
+  <%=@user.votes %>
+  <%= t('datetime.distance_in_words.votes', count: @user.votes, locale: :ru) %>
 </b>
