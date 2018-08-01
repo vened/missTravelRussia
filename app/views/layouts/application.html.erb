@@ -40,11 +40,9 @@
 
 <div class="wrapper content-container">
   <%- if request.fullpath === "/" %>
-    <%- unless user_signed_in? %>
-      <div class="usersGrid-action">
-        <%= link_to "Все участницы", votes_path, class: 'btn btn-primary btn-lg' %>
-      </div>
-    <% end %>
+    <div class="usersGrid-action">
+      <%= link_to "Все участницы", votes_path, class: 'btn btn-primary btn-lg' %>
+    </div>
   <% end %>
 
 

@@ -259,6 +259,12 @@ class User
         label 'Пол'
         column_width 50
       end
+      field :phone do
+        column_width 120
+      end
+      field :email2 do
+        column_width 120
+      end
       field :organization do
         label 'Компания'
         column_width 150
@@ -267,12 +273,6 @@ class User
         column_width 120
       end
       field :updated_at do
-        column_width 120
-      end
-      field :phone do
-        column_width 120
-      end
-      field :email2 do
         column_width 120
       end
       field :email do

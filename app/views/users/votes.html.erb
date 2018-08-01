@@ -61,3 +61,6 @@
   <% end %>
 </div>
 <%= paginate @users, params: {controller: 'users', action: 'votes'} %>
+
+<%= render partial: 'shared/gen_partner', cached: true %>
+<%= render partial: 'shared/partners', cached: true %>
