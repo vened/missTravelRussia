@@ -1,0 +1,13 @@
+.usersGrid-voteAction
+  - if user_signed_in? && !policy(@user).profile?
+    - if VotesQuery.new.is_votes(current_user, @user.number)
+      = button_to votes_voteable_path(@user), class: 'usersGrid-voteActionBtn', remote: true do
+        = image_tag asset_pack_path 'packs/img/like.svg'
+    - else
+      = image_tag asset_pack_path 'packs/img/like-no.svg'
+  - else
+    button.usersGrid-voteActionBtn data-toggle="modal" data-target="#myModal"
+      = image_tag asset_pack_path 'packs/img/like-no.svg'
+
+.usersGrid-countVotes
+  = @user.votes

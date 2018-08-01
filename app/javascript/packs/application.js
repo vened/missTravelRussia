@@ -193,7 +193,7 @@ jQuery(function($) {
         file.xhr = FileAPI.upload({
           url: $('#buttons-panel').data('url'),
           headers: {
-            'Accept': 'text/javascript, application/javascript, application/ecmascript, application/x-ecmascript, */*'
+            'Accept': 'text/javascript, application/javascript, application/ecmascript, application/x-ecmascript, */*',
           },
           files: { photo_src: file },
           upload: function() {
