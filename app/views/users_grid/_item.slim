@@ -15,7 +15,7 @@
           = user.location
     .usersGrid-userVotes id="anketa-item-count-#{user.number}"
       .usersGrid-voteAction
-        - if user_signed_in? && !policy(user).user?
+        - if user_signed_in? && policy(current_user).user?
           - if VotesQuery.new.is_votes(current_user, user.number)
             = button_to votes_voteable_path(user),
                     class: 'usersGrid-voteActionBtn',
@@ -32,6 +32,6 @@
               = image_tag asset_pack_path 'packs/img/like-no.svg'
         - else
           button.usersGrid-voteActionBtn data-toggle="modal" data-target="#myModal"
-            = image_tag asset_pack_path 'packs/img/like-no.svg'
+            = image_tag asset_pack_path 'packs/img/like.svg'
       .usersGrid-countVotes
         = user.votes

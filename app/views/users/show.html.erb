@@ -75,7 +75,7 @@
           <div></div>
         <% end %>
 
-        <% if user_signed_in? && !policy(@user).user? %>
+        <% if user_signed_in? && policy(current_user).user? %>
           <% unless VotesQuery.new.is_votes(current_user, @user.number) %>
             <div class="vote-btn-container text-center">
               <span class='btn btn-success disabled'>Вы проголосовали</span>
