@@ -58,6 +58,7 @@ class User
   field :profile, type: String
 
   index({votes: -1, created_at: 1, role: 1, uid: 1, is_vote: 1})
+  index({role: 1, "photos.root": 1, votes: 1})
   index({number: 1}, {unique: true})
 
   embeds_many :user_voteables
