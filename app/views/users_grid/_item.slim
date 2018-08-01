@@ -15,7 +15,7 @@
           = user.location
     .usersGrid-userVotes id="anketa-item-count-#{user.number}"
       .usersGrid-voteAction
-        - if user_signed_in? && !policy(user).profile?
+        - if user_signed_in? && !policy(user).user?
           - if VotesQuery.new.is_votes(current_user, user.number)
             = button_to votes_voteable_path(user),
                     class: 'usersGrid-voteActionBtn',
