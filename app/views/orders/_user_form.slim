@@ -1,0 +1,52 @@
+.row
+  .col-md-6.col-sm-6
+    = f.input :last_name, label: 'Фамилия (на русском):'
+  .col-md-6.col-sm-6
+    = f.input :name, label: 'Имя (на русским):'
+.row
+  .col-md-6.col-sm-6
+    = f.input :last_name_zagran, label: 'Фамилия (как в загран паспорте):'
+  .col-md-6.col-sm-6
+    = f.input :name_zagran, label: 'Имя (как в загран паспорте):'
+.row
+  .col-md-12
+    = f.input :birth_date, label: 'Дата рождения', as: :date, html5: true
+.row
+  .col-md-6.col-sm-6
+    = f.input :passport_number, label: 'Номер загран паспорта:'
+  .col-md-6.col-sm-6
+    = f.input :passport_expire, label: 'Срок дейсвия загран поспорта:', as: :date, html5: true
+.row
+  .col-md-6.col-sm-6
+    = f.input :phone,
+            label: 'Телефон мобильный:',
+            as: :tel,
+            pattern: "+[0-9]{1} \s{1} [0-9]{3} \s{1} [0-9]{3}-[0-9]{2}-[0-9]{2}",
+            placeholder: "+7 999 999-99-99"
+  .col-md-6.col-sm-6
+    = f.input :email, label: 'Электронный адрес:', as: :email
+.row
+  .col-md-6.col-sm-6
+    = f.input :company, label: 'Наименование компании:'
+  .col-md-6.col-sm-6
+    = f.input :position, label: 'Должность:'
+.row
+  .col-md-12
+    = f.input :visa, label: 'Необходимо оформление визы (80 евро)', as: :boolean
+.row
+  .col-md-12
+    = f.input :transfer_1, label: 'Необходим индивидуальный трансфер в одну сторону (40 евро)', as: :boolean
+.row
+  .col-md-12
+    = f.input :transfer_2, label: 'Необходим индивидуальный трансфер в обе стороны (80 евро)', as: :boolean
+.row
+  .col-md-12
+    = f.input :comments, label: 'Пожелания', as: :text
+.row
+  .col-md-12
+    = f.input :personal_confirm,
+            as: :boolean,
+            label: 'даю согласие на обработку'
+    = link_to ' обработку персональных данных', personal_information_path, target: '_blank'
+.order-formAction
+    = f.button :submit, 'Отправить заявку', class: 'btn btn-success btn-lg'

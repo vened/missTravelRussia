@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   put 'members/:user_id/photos/:id/edit' => 'users#edit_photo', as: 'members_edit_photo'
   delete 'members/:user_id/photos/:id' => 'users#destroy_photo', as: 'members_photo'
 
+  resources :orders, only: [:index, :create]
+
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
 
 end

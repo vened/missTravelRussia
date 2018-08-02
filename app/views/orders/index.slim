@@ -1,0 +1,21 @@
+- content_for :title do
+  |Продажа туров на финал конкурса «Мисс Туризм» 2018
+- content_for :description do
+  |Финал конкурса «Мисс Туризм» 2018 пройдёт с 17 по 20 октября на мифическом греческом острове Крит, в роскошном отеле Aldemar Knossos Royal Family 5*!
+
+h1.page-header Продажа туров на финал
+.order-lead Финал конкурса «Мисс Туризм» 2018 пройдёт с 17 по 20 октября на мифическом греческом острове Крит, в роскошном отеле Aldemar Knossos Royal Family 5*!
+
+.order-tabs
+  h3.order-tabsTitle Выберите вариант пакета участника
+  ul class="nav nav-tabs" role="tablist"
+    li role="presentation" class="active"
+      a href="#package-1" aria-controls="package-1" role="tab" data-toggle="tab" от 14 990 рублей
+    li role="presentation"
+      a href="#package-2" aria-controls="package-2" role="tab" data-toggle="tab" от 31 990 рублей
+
+  .tab-content
+    div.order-tabsTabBody role="tabpanel" class="tab-pane fade in active" id="package-1"
+      =render 'orders/package_1'
+    div.order-tabsTabBody role="tabpanel" class="tab-pane fade" id="package-2"
+      =render 'orders/package_2'
