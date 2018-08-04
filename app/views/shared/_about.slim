@@ -32,5 +32,6 @@ h1.home-title#about
   .about-row-right.about-row-left_2
     .about-text.about-text_3
       p Финал конкурса «Мисс Туризм» пройдёт с 17 по 20 октября  на мифическом греческом острове Крит, в роскошном отеле Aldemar Knossos Royal Family 5*, построенном в стиле Кносского дворца. Какие испытания ждут финалисток? Пока все детали – под завесой тайны ;-)
+      p= link_to "Хочу на финал", orders_path, class: "btn btn-success btn-lg", style: "width: 300px"
   .about-row-left.about-row-right_2
     = image_tag(asset_pack_path('packs/img/hotel-01-copy.jpg'), class: 'img-responsive')
