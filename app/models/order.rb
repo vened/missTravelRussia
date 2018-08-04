@@ -20,4 +20,15 @@ class Order
   field :package, type: String
 
   validates :last_name, presence: true
+  validates :name, presence: true
+  validates :last_name_zagran, presence: true
+  validates :name_zagran, presence: true
+  validates :birth_date, presence: true
+  validates :passport_number, presence: true
+  validates :passport_expire, presence: true
+  validates :phone, presence: true
+  validates :email, presence: true
+  validates :personal_confirm, presence: true
+  validates :package, presence: true
+
 end

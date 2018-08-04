@@ -1,13 +1,57 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <style>
-      /* Email styles need to be inline */
-    </style>
-  </head>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <style>
+    p {
+      margin: 10px 0;
+      padding: 0;
+    }
 
-  <body>
-    <%= yield %>
-  </body>
+    table {
+      border-collapse: collapse;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+
+    img,
+    a img {
+      border: 0;
+      height: auto;
+      outline: none;
+      text-decoration: none;
+    }
+
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+    table {
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+    }
+
+    .mailTable {
+      border-collapse: collapse;
+      border: 1px solid grey;
+    }
+  </style>
+</head>
+
+<body>
+<%= yield %>
+</body>
 </html>

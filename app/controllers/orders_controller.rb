@@ -5,6 +5,8 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(secure_params)
+    OrderMailer.new_order(@order).deliver_now
+    OrderMailer.new_user_order(@order).deliver_now
     if @order.save
       redirect_to orders_path, :notice => "Вы успешно отправили заявку"
     else
