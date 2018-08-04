@@ -16,7 +16,8 @@ class Order
   field :transfer_1, type: String
   field :transfer_2, type: String
   field :comments, type: String
-  field :personal_confirm, type: String
+  field :personal_confirm, type: Boolean
+  field :package, type: String
 
   validates :last_name, presence: true
 end

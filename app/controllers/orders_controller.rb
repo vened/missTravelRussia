@@ -18,6 +18,21 @@ class OrdersController < ApplicationController
       params.require(:order).permit(
           :last_name,
           :name,
+          :last_name_zagran,
+          :name_zagran,
+          :birth_date,
+          :passport_number,
+          :passport_expire,
+          :phone,
+          :email,
+          :company,
+          :position,
+          :visa,
+          :transfer_1,
+          :transfer_2,
+          :comments,
+          :personal_confirm,
+          :package,
       )
     end
 
