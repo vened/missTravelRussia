@@ -9,6 +9,12 @@ h1.page-header Регистрация на финал
 
 h2.order-subtitle Выберите вариант пакета участника
 
+hr
+=@order_last.transfer_1 == '1' ? 'да' : 'нет'
+hr
+=@order_last.transfer_2 == '1' ? 'да' : 'нет'
+hr
+
 .packages role="tablist"
   .package
     .package-wrapper

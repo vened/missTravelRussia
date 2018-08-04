@@ -38,16 +38,16 @@ table.mailTable
       td= @order.position
     tr
       td Необходимо оформление визы (80 евро):
-      td= @order.visa.present? ? 'Да' : 'Нет'
+      td= @order.visa == '1' ? 'Да' : 'Нет'
     tr
       td Необходим индивидуальный трансфер в одну сторону (40 евро):
-      td= @order.transfer_1.present? ? 'Да' : 'Нет'
+      td= @order.transfer_1 == '1' ? 'Да' : 'Нет'
     tr
       td Необходим индивидуальный трансфер в обе стороны (80 евро):
-      td= @order.transfer_2.present? ? 'Да' : 'Нет'
+      td= @order.transfer_2 == '1' ? 'Да' : 'Нет'
     tr
       td Пожелания:
       td= @order.comments
     tr
       td Согласие на обработку персональных данных:
-      td= @order.personal_confirm.present? ? 'Да' : 'Нет'
+      td= @order.personal_confirm == '1' ? 'Да' : 'Нет'
