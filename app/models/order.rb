@@ -18,4 +18,5 @@ class Order
   field :comments, type: String
   field :personal_confirm, type: String
 
+  validates :last_name, presence: true
 end

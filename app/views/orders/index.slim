@@ -1,12 +1,42 @@
 - content_for :title do
-  |Продажа туров на финал конкурса «Мисс Туризм» 2018
+  |Регистрация на финал конкурса «Мисс Туризм» 2018
 - content_for :description do
-  |Финал конкурса «Мисс Туризм» 2018 пройдёт с 17 по 20 октября на мифическом греческом острове Крит, в роскошном отеле Aldemar Knossos Royal Family 5*!
+  |Приглашаем директоров и руководителей туристических компаний на финал конкурса Мисс Туризм 2018, который пройдёт с 17 по 20 октября на мифическом греческом острове Крит, в роскошном отеле Aldemar Knossos Royal Family 5!
 
-h1.page-header Продажа туров на финал
-.order-lead Финал конкурса «Мисс Туризм» 2018 пройдёт с 17 по 20 октября на мифическом греческом острове Крит, в роскошном отеле Aldemar Knossos Royal Family 5*!
+h1.page-header Регистрация на финал
+.order-lead Приглашаем директоров и руководителей туристических компаний на финал конкурса Мисс Туризм 2018, который пройдёт с 17 по 20 октября на мифическом греческом острове Крит, в роскошном отеле Aldemar Knossos Royal Family 5!
 
-.order-tabs
+
+h2.order-subtitle Выберите вариант пакета участника
+
+.packages role="tablist"
+  .package
+    .package-wrapper
+      .package-title Стандарт
+      .package-desc без перелета
+      .package-price
+        span> от 14 990
+        i.fa.fa-rub
+      .package-more
+        a href="#" data-toggle="modal" data-target="#packageModal-1" Что Входит?
+      .package-action
+        a.btn.btn-primary.btn-lg.orderCheckout href="#package-1" role="tab" data-toggle="tab" Забронировать
+
+  .package
+    .package-wrapper
+      .package-title Премиум
+      .package-desc с перелетом
+      .package-price
+        span> от
+        s>39 990
+        span> 31 990
+        i.fa.fa-rub
+      .package-more
+        a href="#" data-toggle="modal" data-target="#packageModal-2" Что Входит?
+      .package-action
+        a.btn.btn-primary.btn-lg.orderCheckout href="#package-2" role="tab" data-toggle="tab" Забронировать
+
+/ .order-tabs
   h3.order-tabsTitle Выберите вариант пакета участника
   ul class="nav nav-tabs" role="tablist"
     li role="presentation" class="active"
@@ -14,8 +44,10 @@ h1.page-header Продажа туров на финал
     li role="presentation"
       a href="#package-2" aria-controls="package-2" role="tab" data-toggle="tab" от 31 990 рублей
 
-  .tab-content
-    div.order-tabsTabBody role="tabpanel" class="tab-pane fade in active" id="package-1"
-      =render 'orders/package_1'
-    div.order-tabsTabBody role="tabpanel" class="tab-pane fade" id="package-2"
-      =render 'orders/package_2'
+.tab-content
+  div.order-tabsTabBody role="tabpanel" class="tab-pane fade" id="package-1"
+    = render 'orders/package_1'
+  div.order-tabsTabBody role="tabpanel" class="tab-pane fade" id="package-2"
+    = render 'orders/package_2'
+
+== render 'orders/modals'

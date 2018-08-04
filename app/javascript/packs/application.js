@@ -119,6 +119,12 @@ $(document).ready(function() {
     console.log(data);
   });
 
+  $('.orderCheckout').on('click', (e) => {
+    $([document.documentElement, document.body]).animate({
+      scrollTop: $(".packages").offset().top
+    }, 300);
+  });
+
 });
 
 jQuery(function($) {
