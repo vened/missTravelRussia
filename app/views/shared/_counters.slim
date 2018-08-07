@@ -13,9 +13,11 @@
             = distance_of_time_in_words_to_now(REGISTRATION_END_DATE, scope: 'datetime.distance_in_words.short')
           .counter-label
             |до окончания регистрации
-        - else
+        - if VOTES_AVIALABLE
+          .counter-item
+            = distance_of_time_in_words_to_now(VOTES_END_DATE, scope: 'datetime.distance_in_words.short')
           .counter-label
-            |Регистрация завершена
+            |до окончания голосования
 
       - cache @votes_count do
         .counter
