@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @user_next     = VotesQuery.new.next_anketa(@user, params)
     @user_position = VotesQuery.new.anketa_position(@user)
     @back_url = session[:my_previous_url]
-    if @user.not_contestant?
+    if @user.user?
       redirect_to votes_path
     end
   end
