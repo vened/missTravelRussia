@@ -128,6 +128,37 @@ class UsersController < ApplicationController
     end
   end
 
+  def show_member
+    @users = policy_scope(User)
+    @user = @users.find_by(number: params[:id])
+    @root_photo = @user.photos.present? ? @user.photos.find_by(root: true) : nil
+    authorize User
+  end
+
+  def show_member_voteable
+    @users = policy_scope(User)
+    @user = @users.find_by(number: params[:id])
+    @user_voteable = @users
+                         .where({user_voteables: {
+                             '$all' => [{'$elemMatch' => {user_voteable_id: params[:id]}}]
+                         }})
+                         .order_by(is_bot: -1)
+                         .page(params[:page])
+                         .per(50)
+    authorize User
+  end
+
+  def update_bot
+    @user = User.find_by(number: params[:id])
+    authorize @user
+    @user.update(is_bot: secure_params[:is_bot])
+    if @user.save(validate: false)
+      redirect_back(fallback_location: root_path)
+    else
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
   private
 
     def save_my_previous_url

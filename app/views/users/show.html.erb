@@ -114,6 +114,13 @@
           </a>
         </div>
       <% end %>
+      <% if user_signed_in? && policy(current_user).show_member_voteable? %>
+        <hr>
+        <div class="vote-btn-container text-center">
+          <%= link_to 'Кто голосовал?', show_member_voteable_path, class: "btn btn-primary" %>
+        </div>
+        <hr>
+      <% end %>
       <% if false %>
         <div class="vote-btn-container text-center">
                 <span class="vote-btn vote-btn_final">

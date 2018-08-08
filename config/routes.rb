@@ -22,6 +22,10 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:index, :create]
 
+  get 'show_member/:id' => 'users#show_member', as: 'show_member'
+  get 'show_member/:id/voteable' => 'users#show_member_voteable', as: 'show_member_voteable'
+  put 'members/bot/:id' => 'users#update_bot', as: 'members_bot'
+
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
 
 end

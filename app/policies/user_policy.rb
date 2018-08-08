@@ -49,6 +49,18 @@ class UserPolicy
     @current_user.admin? || @current_user.contestant? or @current_user != @user || @current_user.user? or @current_user != @user
   end
 
+  def show_member_voteable?
+    @current_user.admin?
+  end
+
+  def show_member?
+    @current_user.admin?
+  end
+
+  def update_bot?
+    @current_user.admin?
+  end
+
   def show?
     scope.all
   end
