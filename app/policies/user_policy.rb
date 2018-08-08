@@ -40,6 +40,10 @@ class UserPolicy
     @current_user.user? && @current_user == @user && @current_user.gender == 'female'
   end
 
+  def not_contestant?
+    @current_user.user? or @current_user != @user
+  end
+
   def user?
     # @current_user.user? or @current_user != @user
     @current_user.admin? || @current_user.contestant? or @current_user != @user || @current_user.user? or @current_user != @user
