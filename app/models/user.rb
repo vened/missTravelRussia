@@ -56,6 +56,7 @@ class User
   field :provider, type: String
   field :uid, type: String
   field :profile, type: String
+  field :raw_info, type: Object
 
   index({votes: -1, created_at: 1, role: 1, uid: 1, is_vote: 1})
   index({_role: 1, photos: 1, votes: 1})
@@ -85,12 +86,14 @@ class User
   def self.from_omniauth(auth)
 
     if auth.provider === 'facebook'
+      new_raw_info  = auth.extra.raw_info
       new_profile  = auth.extra.raw_info.link
       new_gender   = auth.extra.raw_info.gender
       new_bdate    = auth.info.birthday
       new_location = auth.extra.raw_info.location.present? && auth.extra.raw_info.location.name
     end
     if auth.provider === 'vkontakte'
+      new_raw_info  = {}
       new_profile  = auth.info.urls.Vkontakte
       new_location = auth.info.location
       new_bdate    = auth.extra.raw_info.bdate
@@ -135,6 +138,7 @@ class User
     end
 
     current_user.update(
+        raw_info: new_raw_info,
         profile:  profile,
         gender:   gender,
         location: location,
