@@ -85,24 +85,24 @@ class User
   def self.from_omniauth(auth)
 
     if auth.provider === 'facebook'
-      new_profile = auth.extra.raw_info.link
-      new_gender = auth.extra.raw_info.gender
-      new_bdate = auth.info.birthday
+      new_profile  = auth.extra.raw_info.link
+      new_gender   = auth.extra.raw_info.gender
+      new_bdate    = auth.info.birthday
       new_location = auth.extra.raw_info.location.present? && auth.extra.raw_info.location.name
     end
     if auth.provider === 'vkontakte'
-      new_profile = auth.info.urls.Vkontakte
+      new_profile  = auth.info.urls.Vkontakte
       new_location = auth.info.location
-      new_bdate = auth.extra.raw_info.bdate
-      new_gender = auth.extra.raw_info.sex == 2 ? 'male' : 'female'
+      new_bdate    = auth.extra.raw_info.bdate
+      new_gender   = auth.extra.raw_info.sex == 2 ? 'male' : 'female'
     end
 
 
     current_user = where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email.present? ? auth.info.email : "#{auth.uid}@#{auth.provider}.com"
+      user.email    = auth.info.email.present? ? auth.info.email : "#{auth.uid}@#{auth.provider}.com"
       user.password = Devise.friendly_token[0, 20]
-      user.name = auth.info.name
-      user.image = auth.info.image
+      user.name     = auth.info.name
+      user.image    = auth.info.image
       if REGISTRATION_AVIALABLE && new_gender == 'female'
         user.role = :contestant
       else
@@ -135,10 +135,10 @@ class User
     end
 
     current_user.update(
-        profile: profile,
-        gender: gender,
+        profile:  profile,
+        gender:   gender,
         location: location,
-        bdate: bdate,
+        bdate:    bdate,
     )
 
     return current_user
@@ -234,14 +234,15 @@ class User
     "#{self.name}, #{self.organization}, #{self.age}"
   end
 
-  scope :contestants, -> {User.where(_role: 'contestant')}
-  scope 'участницы', -> {contestants.where(photos: {'$elemMatch': {root: true}})}
-  scope 'голосующие', -> {User.where(_role: 'user')}
-  scope 'админы', -> {User.where(_role: 'admin')}
+  scope :contestants, -> { User.where(_role: 'contestant') }
+  scope 'участницы', -> { contestants.where(photos: {'$elemMatch': {root: true}}) }
+  scope 'все участницы', -> { contestants }
+  scope 'голосующие', -> { User.where(_role: 'user') }
+  scope 'админы', -> { User.where(_role: 'admin') }
 
   rails_admin do
     list do
-      scopes ['участницы', 'участницы без фото', 'голосующие', 'админы']
+      scopes ['участницы', 'все участницы', 'голосующие', 'админы']
 
       field :number do
         label 'id'
@@ -288,6 +289,11 @@ class User
       field :role, :enum do
         enum do
           [:contestant, :user, :admin]
+        end
+      end
+      field :gender, :enum do
+        enum do
+          [:male, :female]
         end
       end
       field :email2

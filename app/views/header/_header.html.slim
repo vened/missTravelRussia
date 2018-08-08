@@ -12,7 +12,7 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
         / h1.header-title Мисс Туризм Россия 2017!
         - if user_signed_in?
             h1.header-title= current_user.name
-            - if policy(current_user).female?
+            - if policy(current_user).contestant?
               = link_to "Моя анкета", user_path(current_user), class: 'btn btn-primary', style: "margin: 0 16px 0 0"
             -else
               = link_to 'Голосовать', votes_path, class: 'btn btn-primary', style: "margin: 0 16px 0 0"
@@ -20,8 +20,8 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
         - else
           h1.header-title Всероссийский конкурс красоты Мисс Туризм!
           / button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="margin: 0 0 16px" Участвовать
-          button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal3" style="width: 250px;margin: 0 0 16px" Голосовать
-          = link_to "Хочу на финал", orders_path, class: "btn btn-primary btn-lg", style: "width: 250px;"
+          button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal3" style="width: 250px;" Голосовать
+        = link_to "Хочу на финал", orders_path, class: "btn btn-primary btn-lg", style: "width: 250px;margin: 16px 0 0 0"
 
 
 #myModal.modal.fade aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
