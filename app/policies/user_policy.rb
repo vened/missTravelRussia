@@ -41,7 +41,7 @@ class UserPolicy
   end
 
   def not_contestant?
-    @current_user.user? && @current_user == @user
+    @current_user.present? && @current_user.user? && @current_user == @user
   end
 
   def user?
