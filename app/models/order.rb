@@ -28,7 +28,7 @@ class Order
   validates :passport_expire, presence: true
   validates :phone, presence: true
   validates :email, presence: true
-  validates :personal_confirm, presence: true
+  validates :personal_confirm, acceptance: { message: 'Необходимо согласиться с обработкой персональных данных' }
   validates :package, presence: true
 
 end
