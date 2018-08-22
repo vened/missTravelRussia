@@ -1,3 +1,4 @@
+-share_photo = @post.img.large
 - content_for :title do
   = @post.title_seo
 
@@ -13,3 +14,11 @@
 .clearfix
   = image_tag @post.img.middle, class: 'img-responsive img-rounded pull-left', style: 'max-width:320px; margin: 0 32px 24px 0'
   div= @post.description
+
+br
+|Поделиться:
+.ya-share2[
+  data-services="vkontakte,facebook"
+  data-counter=""
+  data-image:vkontakte="#{share_photo.present? ? request.base_url + "#{share_photo}" : request.base_url + asset_pack_path('packs/img/share/share-vk.png')}"
+  data-image:facebook="#{share_photo.present? ? request.base_url + "#{share_photo}" : request.base_url + asset_pack_path('packs/img/share/share-fb.png')}"]

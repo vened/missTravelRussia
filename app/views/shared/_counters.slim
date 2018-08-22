@@ -8,7 +8,7 @@
           .counter-label= t('datetime.distance_in_words.profiles', count: @users_all.count, locale: :ru)
 
       .counter
-        - if REGISTRATION_AVIALABLE
+        - if REGISTRATION_AVIALABLE && false
           .counter-item
             = distance_of_time_in_words_to_now(REGISTRATION_END_DATE, scope: 'datetime.distance_in_words.short')
           .counter-label

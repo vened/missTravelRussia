@@ -15,10 +15,16 @@
       <div class="step-date step-date-under">
         с 16 июля  до 30 июля 
       </div>
+      <%-if (REGISTRATION_END_DATE - Date.current).to_i > 0 %>
+      <div class="step-date">
+        дополнительно открыта с 22 по 25 августа
+      </div>
+      <%-else %>
       <div class="step-date">
         с 16 июля  до
         <%=l REGISTRATION_END_DATE, format: :short_b %>
       </div>
+      <% end %>
     </div>
 
     <div class="step">
