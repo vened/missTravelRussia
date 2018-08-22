@@ -1,4 +1,4 @@
--share_photo = @post.img.large
+- share_photo = @post.img.large
 - content_for :title do
   = @post.title_seo
 
@@ -11,6 +11,10 @@
 .page-header
   h1= @post.title
 
+- if @post.date.present?
+  p.text-muted= @post.date.strftime("%d.%m.%Y")
+- if @post.date.blank? && @post.created_at.present?
+  p.text-muted= @post.created_at.strftime("%d.%m.%Y")
 .clearfix
   = image_tag @post.img.middle, class: 'img-responsive img-rounded pull-left', style: 'max-width:320px; margin: 0 32px 24px 0'
   div= @post.description

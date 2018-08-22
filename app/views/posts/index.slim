@@ -12,10 +12,15 @@
 
 - @posts.each do |post|
   .media style="margin-bottom: 32px"
-    .media-left
-      = link_to post_path(post) do
-        = image_tag post.img.thumb, class: 'media-object'
+    -if post.img.present?
+      .media-left
+        = link_to post_path(post) do
+          = image_tag post.img.thumb, class: 'media-object'
     .media-body
+      - if post.date.present?
+        .text-muted= post.date.strftime("%d.%m.%Y")
+      - if post.date.blank? && post.created_at.present?
+        .text-muted= post.created_at.strftime("%d.%m.%Y")
       = link_to post_path(post) do
         h4.media-heading= post.title
       = truncate(post.description, length: 300)

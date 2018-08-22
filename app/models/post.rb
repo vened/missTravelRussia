@@ -1,12 +1,15 @@
 class Post
   include Mongoid::Document
   include Mongoid::Enum
+  include Mongoid::Timestamps
+
 
   field :title, type: String
   field :description, type: String
   field :title_seo, type: String
   field :description_seo, type: String
   field :img, type: String
+  field :date, type: DateTime
 
   validates :title, presence: true
   validates :description, presence: true
