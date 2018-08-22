@@ -11,10 +11,10 @@ h1.home-title#about
   .about-row-right.about-row-right_1
     .about-text.about-text_3
       p Конкурс «Мисс Туризм» создан специально для тебя! Регистрируйся прямо сейчас и собирай как можно больше лайков в интернет-голосовании – используй шанс стать одной из 29 участниц. Для этого подключи друзей, публикуй вау-новость в своих соцсетях и скрести пальчики
-      - if REGISTRATION_AVIALABLE
+      - if (REGISTRATION_END_DATE - Date.current).to_i > 0
         p= link_to "Правила участия", '#about', data: {toggle: "modal", target: "#myModal1"}, class: "btn btn-success btn-lg", style: "width: 300px"
 
-      - if REGISTRATION_AVIALABLE
+      - if (REGISTRATION_END_DATE - Date.current).to_i > 0
         - unless user_signed_in?
           button style="width: 300px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" Зарегистрироваться
       - else

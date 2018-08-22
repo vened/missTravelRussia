@@ -106,7 +106,7 @@ class User
       user.password = Devise.friendly_token[0, 20]
       user.name     = auth.info.name
       user.image    = auth.info.image
-      if REGISTRATION_AVIALABLE && new_gender == 'female'
+      if (REGISTRATION_END_DATE - Date.current).to_i > 0 && new_gender == 'female'
         user.role = :contestant
       else
         user.role = :user
