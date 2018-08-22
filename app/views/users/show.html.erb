@@ -87,32 +87,34 @@
 
 
 
-      <% if user_signed_in? && policy(@user).user? %>
-        <% if VotesQuery.new.is_votes(current_user, @user.number) %>
-          <div class="vote-btn-container text-center">
-            <%= link_to voteable_path(@user),
-                        class:  'vote-btn',
-                        remote: true do %>
-              Проголосовать
-              <%= image_tag asset_pack_path 'packs/img/icon-like-red.svg' %>
-            <% end %>
-          </div>
+      <% unless @user.is_disqualify %>
+        <% if user_signed_in? && policy(@user).user? %>
+          <% if VotesQuery.new.is_votes(current_user, @user.number) %>
+            <div class="vote-btn-container text-center">
+              <%= link_to voteable_path(@user),
+                          class:  'vote-btn',
+                          remote: true do %>
+                Проголосовать
+                <%= image_tag asset_pack_path 'packs/img/icon-like-red.svg' %>
+              <% end %>
+            </div>
+          <% else %>
+            <div class="vote-btn-container text-center">
+              <%= link_to voteable_path(@user),
+                          class:  'btn btn-primary',
+                          remote: true do %>
+                Отозвать свой голос
+              <% end %>
+            </div>
+          <% end %>
         <% else %>
           <div class="vote-btn-container text-center">
-            <%= link_to voteable_path(@user),
-                        class:  'btn btn-primary',
-                        remote: true do %>
-              Отозвать свой голос
-            <% end %>
+            <a href="#" class="vote-btn" data-toggle="modal" data-target="#myModal">
+              Проголосовать
+              <%= image_tag asset_pack_path 'packs/img/icon-like-red.svg' %>
+            </a>
           </div>
         <% end %>
-      <% else %>
-        <div class="vote-btn-container text-center">
-          <a href="#" class="vote-btn" data-toggle="modal" data-target="#myModal">
-            Проголосовать
-            <%= image_tag asset_pack_path 'packs/img/icon-like-red.svg' %>
-          </a>
-        </div>
       <% end %>
       <% if user_signed_in? && policy(current_user).show_member_voteable? %>
         <hr>
@@ -121,6 +123,7 @@
         </div>
         <hr>
       <% end %>
+
       <% if false %>
         <div class="vote-btn-container text-center">
                 <span class="vote-btn vote-btn_final">

@@ -285,6 +285,7 @@ class User
       field :email do
         column_width 120
       end
+      field :is_disqualify
     end
     edit do
       field :name
@@ -307,6 +308,7 @@ class User
       field :work_experience
       field :position
       field :location
+      field :is_disqualify
     end
   end
 
