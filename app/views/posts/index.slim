@@ -1,0 +1,24 @@
+- content_for :title do
+  |Новости всероссийского конкурса красоты Мисс Туризм 2018
+
+= render partial: "shared/meta_og",
+        locals: {title: 'Новости всероссийского конкурса красоты Мисс Туризм 2018',
+                desc: '',
+                photo: nil}
+
+
+.page-header
+  h1 Новости
+
+- @posts.each do |post|
+  .media style="margin-bottom: 32px"
+    .media-left
+      = link_to post_path(post) do
+        = image_tag post.img.thumb, class: 'media-object'
+    .media-body
+      = link_to post_path(post) do
+        h4.media-heading= post.title
+      = truncate(post.description, length: 300)
+      .text-right style="margin-top: 16px"=link_to 'Подробнее', post_path(post)
+
+= paginate @posts, params: {controller: 'posts', action: 'index'}

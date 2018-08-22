@@ -1,0 +1,15 @@
+- content_for :title do
+  = @post.title_seo
+
+= render partial: "shared/meta_og",
+        locals: {title: @post.title_seo,
+                desc: @post.description_seo,
+                photo: @post.img.large}
+
+
+.page-header
+  h1= @post.title
+
+.clearfix
+  = image_tag @post.img.middle, class: 'img-responsive img-rounded pull-left', style: 'max-width:320px; margin: 0 32px 24px 0'
+  div= @post.description

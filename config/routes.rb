@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   get 'show_member/:id/voteable' => 'users#show_member_voteable', as: 'show_member_voteable'
   put 'members/bot/:id' => 'users#update_bot', as: 'members_bot'
 
+  resources :posts, only: [:index, :show]
+
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
 
 end

@@ -10,6 +10,9 @@
   <li class="<%= request.fullpath === general_partner_path && 'active' %>">
     <%= link_to "Aldemar", general_partner_path %>
   </li>
+  <li class="<%= request.fullpath === posts_path && 'active' %>">
+    <%= link_to "Новости", posts_path %>
+  </li>
   <li>
     <%= link_to "Правила участия", '#about', data: {toggle: "modal", target: "#myModal1"} %>
   </li>
