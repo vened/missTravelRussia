@@ -48,7 +48,7 @@ class VotesQuery
   end
 
   def anketa_position(user)
-    @relation = @relation.where(votes: {'$gt': user.votes})
+    @relation = @relation.where(is_disqualify: false, votes: {'$gt': user.votes})
     # filter_role_user
     # filter_photo_exist
     @relation.length + 1

@@ -13,10 +13,10 @@ CreateUsersService.new.create_admin
 # end
 
 
-# users = User.where(is_vote: true)
-# users.each do |user|
-#   unless user.is_disqualify
-#     user.update(is_disqualify: false)
-#     user.save(validate: false)
-#   end
-# end
+users = User.where(_role: 'contestant')
+users.each do |user|
+  unless user.is_disqualify
+    user.update(is_disqualify: false)
+    user.save(validate: false)
+  end
+end

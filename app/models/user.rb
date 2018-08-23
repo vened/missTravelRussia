@@ -22,7 +22,7 @@ class User
 
   field :is_vote, type: Boolean, default: false # флаг обозначающий что пользователь участвует в конкурсе, заменяем на роль, отрефакторить везде
   field :is_bot, type: Boolean, default: false
-  field :is_disqualify, type: Boolean
+  field :is_disqualify, type: Boolean, default: false
   field :votes, type: Integer, default: 0
   field :rating, type: Integer
 
