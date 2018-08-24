@@ -34,7 +34,7 @@ server {
           break;
     }
 
-    location ~* ^.+\.(ogg|ogv|svg|svgz|eot|otf|woff|jpg|jpeg|gif|png|ico|js|txt)$ {
+    location ~* ^.+\.(ogg|ogv|svg|svgz|eot|otf|woff|jpg|jpeg|gif|png|ico|js|txt|pdf)$ {
       expires max;
       gzip_static on;
       gzip_vary on;
