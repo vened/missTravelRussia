@@ -95,7 +95,7 @@ class UsersController < ApplicationController
   end
 
   def votes
-    @users = VotesQuery.new.call(params).page(params[:page])
+    @users = VotesQuery.new.call(params).where(is_disqualify: false).page(params[:page])
     authorize User
   end
 

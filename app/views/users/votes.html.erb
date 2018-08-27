@@ -55,11 +55,9 @@
 
 <div class="votes-users">
   <%- @users.each do |user| %>
-    <%- unless user.is_disqualify %>
-      <div class="votes-user">
-        <%= render partial: "users_grid/item", locals: {user: user, className: 'votesList'} %>
-      </div>
-    <% end %>
+    <div class="votes-user">
+      <%= render partial: "users_grid/item", locals: {user: user, className: 'votesList'} %>
+    </div>
   <% end %>
 </div>
 <%= paginate @users, params: {controller: 'users', action: 'votes'} %>
