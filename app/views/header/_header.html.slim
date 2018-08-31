@@ -18,7 +18,7 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
               = link_to 'Голосовать', votes_path, class: 'btn btn-primary', style: "margin: 0 16px 0 0"
             = link_to 'Выход', destroy_user_session_path, :method => 'delete', class: 'btn btn-default'
         - else
-          h1.header-title Всероссийский конкурс красоты Мисс Туризм!
+          h1.header-title Всероссийский отраслевой конкурс Мисс Туризм!
           - if (REGISTRATION_END_DATE - Date.current).to_i > 0
             button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="width: 250px;margin: 0 0 16px" Участвовать
           button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal3" style="width: 250px;" Голосовать
@@ -88,7 +88,7 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
           li Потенциальным полуфиналисткам будет необходимо еще раз подтвердить свою принадлежность у туриндустрии (визитная карточка или трудовая книжка). Участница будет дисквалифицирована в случае, если не сможет подтвердить свою принадлежность к туризму
 
         h4 Полуфинал:
-        p 19 сентября на полуфинале конкурса компетентными членами жюри будут выбраны 10 финалисток, которые отправятся в Грецию.
+        p 25 сентября на полуфинале конкурса компетентными членами жюри будут выбраны 10 финалисток, которые отправятся в Грецию.
 
         h4 Жюри будет оценивать:
         ul
