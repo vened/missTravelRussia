@@ -3,7 +3,7 @@
   = link_to '', user_path(user), class: "usersGrid-photoLink"
   - if user.is_disqualify
     .user-disqualify Участница дисквалифицированна
-  -else
+  - else
     .usersGrid-number= VotesQuery.new.anketa_position(user)
     .usersGrid-bar
       = link_to user_path(user), class: "usersGrid-userInfo" do
@@ -18,23 +18,27 @@
             = user.location
       .usersGrid-userVotes id="anketa-item-count-#{user.number}"
         .usersGrid-voteAction
-          - if user_signed_in? && policy(current_user).user?
-            - if VotesQuery.new.is_votes(current_user, user.number)
-              = button_to votes_voteable_path(user),
-                      class: 'usersGrid-voteActionBtn',
-                      title: "Нажмите что бы проголосовать",
-                      data: { toggle: "tooltip", placement: "left" },
-                      remote: true do
-                = image_tag asset_pack_path 'packs/img/like.svg'
+          - if VOTES_AVIALABLE
+            - if user_signed_in? && policy(current_user).user?
+              - if VotesQuery.new.is_votes(current_user, user.number)
+                = button_to votes_voteable_path(user),
+                        class: 'usersGrid-voteActionBtn',
+                        title: "Нажмите что бы проголосовать",
+                        data: {toggle: "tooltip", placement: "left"},
+                        remote: true do
+                  = image_tag asset_pack_path 'packs/img/like.svg'
+              - else
+                button.usersGrid-voteActionBtn[
+                  title="Вы уже проголосовали за эту девушку"
+                  data-toggle="tooltip"
+                  data-placement="left"
+                  ]
+                  = image_tag asset_pack_path 'packs/img/like-no.svg'
             - else
-              button.usersGrid-voteActionBtn[
-                title="Вы уже проголосовали за эту девушку"
-                data-toggle="tooltip"
-                data-placement="left"
-                ]
-                = image_tag asset_pack_path 'packs/img/like-no.svg'
+              button.usersGrid-voteActionBtn data-toggle="modal" data-target="#myModal"
+                = image_tag asset_pack_path 'packs/img/like.svg'
           - else
-            button.usersGrid-voteActionBtn data-toggle="modal" data-target="#myModal"
-              = image_tag asset_pack_path 'packs/img/like.svg'
+            button.usersGrid-voteActionBtn
+              = image_tag asset_pack_path 'packs/img/like-no.svg'
         .usersGrid-countVotes
           = user.votes
