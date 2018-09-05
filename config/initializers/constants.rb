@@ -3,5 +3,8 @@ REGISTRATION_COUNTDOWN = (REGISTRATION_END_DATE - Date.current).to_i # кол-в
 REGISTRATION_AVIALABLE = true # флаг доступности регистрации
 
 VOTES_END_DATE = "2018-09-04".to_date # последний день голосования
-VOTES_AVIALABLE = true # последний день голосования
+VOTES_AVIALABLE = false # последний день голосования
+
+POLUFINAL_END = "2018-09-08".to_date # последний день голосования
+POLUFINAL_AVIALABLE = true # последний день голосования
 
