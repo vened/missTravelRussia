@@ -54,4 +54,6 @@ h2.order-subtitle Выберите вариант пакета участник�
   div.order-tabsTabBody role="tabpanel" class="tab-pane fade" id="package-2"
     = render 'orders/package_2'
 
+= render partial: 'shared/gen_partner', cached: true
+= render partial: 'shared/partners', cached: true
 == render 'orders/modals'
