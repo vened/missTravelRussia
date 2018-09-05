@@ -21,23 +21,18 @@ h1.home-title#about
         -if VOTES_AVIALABLE
           button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal3" style="width: 300px" Голосовать
 
-/ .about-row.about-row_2
+.about-row.about-row_2
   .about-row-left.about-row-left_2
     .about-text.about-text_3
-      p
-        |Зажигательный полуфинал случится 25 сентября на Partisan Luxury Party в рамках
-        |&nbsp;
-        a target="_blank" href="http://www.itif-forum.ru/" Международного Туристического Инвестиционного Форума ITIF
-        |.
-      p Наряды участниц будут в стиле милитари, а атмосфера вечера взрывной и захватывающей. Члены жюри выберут 10 восхитительных финалисток, оценивая их внешние данные, ум, находчивость и оптимизм.
-      = link_to "Cтать гостем полуфинала", 'http://itif-forum.ru/2018/about/?utm_source=landing&utm_medium=button&utm_campaign=uachastiedelegation#rec53802674', target: "_blank", class: "btn btn-primary btn-lg"
+      p 25 сентября в Москве, в роскошном зале отеля Korston состоится Полуфинал конкурса. Очаровательные участницы будут в красивых нарядах, а атмосфера вечера взрывной и захватывающей. Члены жюри выберут 10 восхитительных финалисток, оценивая их внешние данные, ум, находчивость и чувство юмора. А одиннадцатую участницу Финала определит зрительское голосование.
+      / = link_to "Cтать гостем полуфинала", 'http://itif-forum.ru/2018/about/?utm_source=landing&utm_medium=button&utm_campaign=uachastiedelegation#rec53802674', target: "_blank", class: "btn btn-primary btn-lg"
   .about-row-right.about-row-right_2
-    = image_tag(asset_pack_path('packs/img/PartMilitary_01.jpg'), class: 'img-responsive')
+    = image_tag(asset_pack_path('packs/img/girls-3@2x.jpg'), class: 'img-responsive')
 
-.about-row.about-row_2
-  .about-row-right.about-row-left_2
+.about-row.about-row_3
+  .about-row-left.about-row-right_3
+    = image_tag(asset_pack_path('packs/img/hotel-01-copy.jpg'), class: 'img-responsive')
+  .about-row-right.about-row-left_3
     .about-text.about-text_3
       p Финал конкурса «Мисс Туризм» пройдёт с 17 по 20 октября  на мифическом греческом острове Крит, в роскошном отеле Aldemar Knossos Royal Family 5*, построенном в стиле Кносского дворца. Какие испытания ждут финалисток? Пока все детали – под завесой тайны ;-)
       p= link_to "Хочу на финал", orders_path, class: "btn btn-success btn-lg", style: "width: 300px"
-  .about-row-left.about-row-right_2
-    = image_tag(asset_pack_path('packs/img/hotel-01-copy.jpg'), class: 'img-responsive')
