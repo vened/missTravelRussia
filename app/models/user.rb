@@ -23,6 +23,7 @@ class User
   field :is_vote, type: Boolean, default: false # флаг обозначающий что пользователь участвует в конкурсе, заменяем на роль, отрефакторить везде
   field :is_bot, type: Boolean, default: false
   field :is_final, type: Boolean, default: false
+  field :is_polufinal, type: Boolean, default: false
   field :is_disqualify, type: Boolean, default: false
   field :votes, type: Integer, default: 0
   field :rating, type: Integer
@@ -167,15 +168,15 @@ class User
     end
   end
 
-  validates :organization, presence: true, on: :update
-  validates :work_experience, presence: true, on: :update
-  validates :position, presence: true, on: :update
-  validates :name, presence: true, on: :update
-  validates :age, presence: true, on: :update
-  validates :location, presence: true, on: :update
-  validates :organization_site, presence: true, on: :update
-  validates :email2, presence: true, on: :update
-  validates :phone, presence: true, on: :update
+  # validates :organization, presence: true, on: :update
+  # validates :work_experience, presence: true, on: :update
+  # validates :position, presence: true, on: :update
+  # validates :name, presence: true, on: :update
+  # validates :age, presence: true, on: :update
+  # validates :location, presence: true, on: :update
+  # validates :organization_site, presence: true, on: :update
+  # validates :email2, presence: true, on: :update
+  # validates :phone, presence: true, on: :update
 
   paginates_per 12
 
@@ -294,6 +295,7 @@ class User
       field :age
       field :is_bot
       field :is_final
+      field :is_polufinal
       field :role, :enum do
         enum do
           [:contestant, :user, :admin]
