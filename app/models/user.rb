@@ -22,6 +22,7 @@ class User
 
   field :is_vote, type: Boolean, default: false # флаг обозначающий что пользователь участвует в конкурсе, заменяем на роль, отрефакторить везде
   field :is_bot, type: Boolean, default: false
+  field :is_final, type: Boolean, default: false
   field :is_disqualify, type: Boolean, default: false
   field :votes, type: Integer, default: 0
   field :rating, type: Integer
@@ -291,6 +292,8 @@ class User
       field :name
       field :about
       field :age
+      field :is_bot
+      field :is_final
       field :role, :enum do
         enum do
           [:contestant, :user, :admin]
