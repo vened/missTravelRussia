@@ -245,6 +245,7 @@ class User
   scope 'все участницы', -> { contestants }
   scope 'голосующие', -> { User.where(_role: 'user') }
   scope 'админы', -> { User.where(_role: 'admin') }
+  scope 'дисквалифицированные', -> { User.where(is_disqualify: false) }
 
   rails_admin do
     list do
