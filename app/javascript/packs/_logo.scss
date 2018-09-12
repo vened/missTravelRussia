@@ -1,10 +1,8 @@
 .logo {
-	height: 160px;
-	width: 133px;
+	width: 158px;
 	vertical-align: top;
 
-	@media (max-width: 480px) {
-		height: 94px;
-		width: 78px;
+	@media (max-width: 768px) {
+		width: 90px;
 	}
 }
