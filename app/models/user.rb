@@ -245,11 +245,14 @@ class User
   scope 'все участницы', -> { contestants }
   scope 'голосующие', -> { User.where(_role: 'user') }
   scope 'админы', -> { User.where(_role: 'admin') }
-  scope 'дисквалифицированные', -> { User.where(is_disqualify: false) }
+  scope 'дисквалифицированные', -> { User.where(is_disqualify: true) }
+  scope 'боты', -> { User.where(is_bot: true) }
+  scope 'полуфиналистки', -> { User.where(is_polufinal: true) }
+  scope 'финалистки', -> { User.where(is_final: true) }
 
   rails_admin do
     list do
-      scopes ['участницы', 'все участницы', 'голосующие', 'админы']
+      scopes ['участницы', 'все участницы', 'голосующие', 'админы', 'дисквалифицированные', 'боты', 'полуфиналистки', 'финалистки']
 
       field :number do
         label 'id'

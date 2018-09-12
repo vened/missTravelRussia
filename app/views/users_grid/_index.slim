@@ -2,8 +2,8 @@ h2.home-subtitle.usersGridTitle Топ участниц
 
 .usersGrid
   - @users.each do |user|
-    = render 'users_grid/item', user: user, className: ''
+    = render 'users_grid/item', key: nil, user: user, className: ''
 
 .usersGrid-gallery.owl-carousel.usersGrid-gallery-owl
   - @users.each do |user|
-    = render 'users_grid/item', user: user, className: ''
+    = render 'users_grid/item', key: nil, user: user, className: ''

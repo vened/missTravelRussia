@@ -4,7 +4,7 @@
   - if user.is_disqualify
     .user-disqualify Участница дисквалифицированна
   - else
-    .usersGrid-number= VotesQuery.new.anketa_position(user)
+    .usersGrid-number= key.present? ? key : VotesQuery.new.anketa_position(user)
     .usersGrid-bar
       = link_to user_path(user), class: "usersGrid-userInfo" do
         .usersGrid-bar-title

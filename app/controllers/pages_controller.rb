@@ -13,4 +13,8 @@ class PagesController < ApplicationController
   def general_partner
   end
 
+  def semifinal
+    @users = SemifinalQuery.new.call()
+  end
+
 end

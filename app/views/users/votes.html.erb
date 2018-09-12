@@ -56,7 +56,7 @@
 <div class="votes-users">
   <%- @users.each do |user| %>
     <div class="votes-user">
-      <%= render partial: "users_grid/item", locals: {user: user, className: 'votesList'} %>
+      <%= render partial: "users_grid/item", locals: {key: nil, user: user, className: 'votesList'} %>
     </div>
   <% end %>
 </div>

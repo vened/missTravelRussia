@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'personal_information' => 'pages#personal_information'
   get 'general_partner' => 'pages#general_partner'
+  get 'semifinal' => 'pages#semifinal'
 
 
   get 'votes' => 'users#votes', as: 'votes'
