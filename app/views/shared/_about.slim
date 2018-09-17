@@ -10,7 +10,7 @@ h1.home-title#about
     = image_tag(asset_pack_path('packs/img/girls-3.jpg'), class: 'img-responsive')
   .about-row-right.about-row-right_1
     .about-text.about-text_3
-      p Конкурс «Мисс Туризм» создан специально для тебя! Регистрируйся прямо сейчас и собирай как можно больше лайков в интернет-голосовании – используй шанс стать одной из 29 участниц. Для этого подключи друзей, публикуй вау-новость в своих соцсетях и скрести пальчики
+      p Конкурс «Мисс&Миссис Туризм» создан специально для тебя! Регистрируйся прямо сейчас и собирай как можно больше лайков в интернет-голосовании – используй шанс стать одной из 29 участниц. Для этого подключи друзей, публикуй вау-новость в своих соцсетях и скрести пальчики
       - if (REGISTRATION_END_DATE - Date.current).to_i > 0
         p= link_to "Правила участия", '#about', data: {toggle: "modal", target: "#myModal1"}, class: "btn btn-success btn-lg", style: "width: 300px"
 
@@ -25,7 +25,7 @@ h1.home-title#about
   .about-row-left.about-row-left_2
     .about-text.about-text_3
       p 25 сентября в Москве, в роскошном зале отеля Korston состоится Полуфинал конкурса. Очаровательные участницы будут в красивых нарядах, а атмосфера вечера взрывной и захватывающей. Члены жюри выберут 10 восхитительных финалисток, оценивая их внешние данные, ум, находчивость и чувство юмора. А одиннадцатую участницу Финала определит зрительское голосование.
-      / = link_to "Cтать гостем полуфинала", 'http://itif-forum.ru/2018/about/?utm_source=landing&utm_medium=button&utm_campaign=uachastiedelegation#rec53802674', target: "_blank", class: "btn btn-primary btn-lg"
+      = link_to "Cтать гостем полуфинала", 'https://missturizm.timepad.ru/event/804723/', target: "_blank", class: "btn btn-primary btn-lg"
   .about-row-right.about-row-right_2
     = image_tag(asset_pack_path('packs/img/girls-3@2x.jpg'), class: 'img-responsive')
 
@@ -34,5 +34,5 @@ h1.home-title#about
     = image_tag(asset_pack_path('packs/img/hotel-01-copy.jpg'), class: 'img-responsive')
   .about-row-right.about-row-left_3
     .about-text.about-text_3
-      p Финал конкурса «Мисс Туризм» пройдёт с 17 по 20 октября  на мифическом греческом острове Крит, в роскошном отеле Aldemar Knossos Royal Family 5*, построенном в стиле Кносского дворца. Какие испытания ждут финалисток? Пока все детали – под завесой тайны ;-)
+      p Финал конкурса «Мисс&Миссис Туризм» пройдёт с 17 по 20 октября  на мифическом греческом острове Крит, в роскошном отеле Aldemar Knossos Royal Family 5*, построенном в стиле Кносского дворца. Какие испытания ждут финалисток? Пока все детали – под завесой тайны ;-)
       p= link_to "Хочу на финал", orders_path, class: "btn btn-success btn-lg", style: "width: 300px"

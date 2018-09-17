@@ -8,7 +8,7 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
   == render 'header/navigation'
   .wrapper
     .header-hero-wrapper
-      .header-hero
+      .header-hero.header-hero
         / h1.header-title Мисс Туризм Россия 2017!
         - if user_signed_in?
           h1.header-title= current_user.name
@@ -25,8 +25,9 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
           - if VOTES_AVIALABLE
             button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal3" style="width: 250px;" Голосовать
         = link_to "Хочу на финал", orders_path, class: "btn btn-primary btn-lg", style: "width: 250px;margin: 16px 0 0 0"
+        = link_to "Хочу на полуфинал", 'https://missturizm.timepad.ru/event/804723/', target: "_blank", class: "btn btn-success btn-lg", style: "width: 250px;margin: 16px 0 0 0"
         - semifinalUsers = SemifinalQuery.new.call()
-        -if semifinalUsers.present?
+        -if true
           = link_to "Полуфиналистки", semifinal_path, class: "btn btn-success btn-lg", style: "width: 250px;margin: 16px 0 0 0"
 
 - if (REGISTRATION_END_DATE - Date.current).to_i > 0

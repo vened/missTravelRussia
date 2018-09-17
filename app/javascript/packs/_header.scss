@@ -11,15 +11,15 @@ header {
 		background-position: 41% 0px;
 	}
 	@media (max-width: 768px) {
-		height: 635px;
+		height: auto;
 		background-image: url('img/hero-masked@2x-480-768.jpg');
 		background-size: cover;
 	}
 	@media (max-width: 640px) {
-		height: 564px;
+		height: auto;
 	}
 	@media (max-width: 480px) {
-		height: 518px;
+		height: auto;
 		background-position: -10px top;
 	}
 }
@@ -115,7 +115,7 @@ header {
 	position: relative;
 	z-index: 3;
 	width: 320px;
-	margin: 60px 0 0 0;
+	margin: 30px 0 0 0;
 
 	@media (max-width: 768px) {
 		width: 300px;
@@ -126,12 +126,12 @@ header {
 		margin: 30% 0 0 0;
 	}
 	@media (max-width: 480px) {
-		margin: 140px 0 0 0;
+		margin: 100px 0 0 0;
 	}
 }
 
 .header-title {
-	margin: 0 0 32px;
+	margin: 0 0 8px;
 	font-family: 'Lato', serif;
 	font-size: 32px;
 	font-style: normal;
