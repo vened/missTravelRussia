@@ -19,7 +19,7 @@ header class="#{request.fullpath != '/' && 'header-collapse'}"
               = link_to 'Голосовать', votes_path, class: 'btn btn-primary', style: "margin: 0 16px 0 0"
           = link_to 'Выход', destroy_user_session_path, :method => 'delete', class: 'btn btn-default'
         - else
-          h1.header-title Всероссийский отраслевой конкурс Мисс Туризм!
+          h1.header-title Всероссийский отраслевой конкурс Мисс&Миссис Туризм!
           - if (REGISTRATION_END_DATE - Date.current).to_i > 0
             button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="width: 250px;margin: 0 0 16px" Участвовать
           - if VOTES_AVIALABLE
