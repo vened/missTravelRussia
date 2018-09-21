@@ -2,7 +2,7 @@
 .usersGrid-photo class="#{className}" style="background-image: url('#{photo.photo_src.middle}')"
   = link_to '', user_path(user), class: "usersGrid-photoLink"
   - if user.is_disqualify
-    .user-disqualify Участница выбыла из участия
+    .user-disqualify Более не участвует в конкурсе
   - else
     .usersGrid-number= key.present? ? key : VotesQuery.new.anketa_position(user)
     .usersGrid-bar
