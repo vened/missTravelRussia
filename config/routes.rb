@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'personal_information' => 'pages#personal_information'
   get 'general_partner' => 'pages#general_partner'
   get 'semifinal' => 'pages#semifinal'
+  get 'final' => 'pages#final'
 
 
   get 'votes' => 'users#votes', as: 'votes'

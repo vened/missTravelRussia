@@ -1,0 +1,6 @@
+h2.home-subtitle.usersGridTitle Финалистки конкурса
+
+.votes-users
+  - @users.each_with_index do |user, key|
+    .votes-user
+      = render partial: "users_grid/item", locals: {key: key + 1, user: user, className: 'votesList semifinal'}

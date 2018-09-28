@@ -17,4 +17,8 @@ class PagesController < ApplicationController
     @users = SemifinalQuery.new.call()
   end
 
+  def final
+    @users = FinalQuery.new.call()
+  end
+
 end

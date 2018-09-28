@@ -8,3 +8,6 @@ VOTES_AVIALABLE = false # последний день голосования
 POLUFINAL_END = "2018-09-26".to_date # последний день голосования
 POLUFINAL_AVIALABLE = true # последний день голосования
 
+FINAL_END = "2018-10-18".to_date # последний день голосования
+FINAL_AVIALABLE = true # последний день голосования
+
