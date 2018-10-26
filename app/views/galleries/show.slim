@@ -1,0 +1,19 @@
+- share_photo = @gallery.gallery_photos.first.src
+- content_for :title do
+  = @gallery.title_seo
+
+= render partial: "shared/meta_og",
+        locals: {title: @gallery.title_seo,
+                desc: @gallery.description_seo,
+                photo: @gallery.gallery_photos.first.src}
+
+
+.page-header
+  h1= @gallery.title
+
+.gallery
+  - @gallery.gallery_photos.limit(10).each do |photo|
+    - if photo.src.present?
+      div.gallery-item data-src="#{photo.src}" data-sub-html=".caption"
+        i class="fa fa-search fa-2x gallery-item-zoom"
+        = image_tag(photo.src.middle, class: "img-responsive")

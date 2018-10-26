@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   put 'members/bot/:id' => 'users#update_bot', as: 'members_bot'
 
   resources :posts, only: [:index, :show]
+  resources :galleries, only: [:index, :show]
 
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
 

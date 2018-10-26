@@ -31,6 +31,10 @@ RailsAdmin.config do |config|
     dashboard                     # mandatory
     index                         # mandatory
     new
+    dropzone do
+      only Gallery
+    end
+
     export
     bulk_delete
     show
@@ -52,6 +56,15 @@ RailsAdmin.config do |config|
     configure :work_experience, :string
     configure :position, :string
     configure :location, :string
+  end
+
+  config.model Gallery do
+    configure :title, :string
+    configure :description, :string
+    configure :title_seo, :string
+    configure :description_seo, :string
+    configure :show_home, :boolean
+    configure :show_menu, :boolean
   end
 
 end

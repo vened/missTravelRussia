@@ -1,0 +1,24 @@
+- content_for :title do
+  |Фото и видео всероссийского конкурса красоты Мисс Туризм
+
+= render partial: "shared/meta_og",
+        locals: {title: 'Фото и видео всероссийского конкурса красоты Мисс Туризм',
+                desc: '',
+                photo: nil}
+
+
+.page-header
+  h1 Фото/видео
+
+- @galleries.each do |gallery|
+  h2=gallery.title
+  .gallery
+    - gallery.gallery_photos.limit(10).each do |photo|
+      -if photo.src.present?
+        div.gallery-item data-src="#{photo.src}" data-sub-html=".caption"
+          i class="fa fa-search fa-2x gallery-item-zoom"
+          = image_tag(photo.src.middle, class: "img-responsive")
+
+  .text-right style="margin-top: 16px"= link_to 'Подробнее', gallery_path(gallery)
+
+= paginate @galleries, params: {controller: 'galleries', action: 'index'}

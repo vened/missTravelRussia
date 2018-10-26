@@ -31,6 +31,11 @@ $(document).ready(function() {
     subHtmlSelectorRelative: true,
   });
 
+  $('.gallery').lightGallery({
+    selector: '.gallery-item',
+    subHtmlSelectorRelative: true,
+  });
+
   if (window.localStorage.getItem('isPaymentModalOpen') != '0') {
     $('#payment').modal('show');
   }

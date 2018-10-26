@@ -59,6 +59,8 @@ class ApplicationPolicy
         @user.admin?
       when :show
         @user.admin?
+      when :dropzone
+        @user.admin?
       when :new
         @user.admin?
       when :edit
