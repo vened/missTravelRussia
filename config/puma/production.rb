@@ -14,8 +14,8 @@ stdout_redirect "#{shared_dir}/log/puma_access.log",
                 "#{shared_dir}/log/puma_error.log",
                 true
 
-workers 10
-threads 1,10
+workers 2
+threads 1,2
 
 daemonize true
 
